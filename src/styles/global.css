@@ -1,0 +1,47 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-50: #eef6ff;
+  --color-brand-100: #d9eaff;
+  --color-brand-200: #b9d9ff;
+  --color-brand-300: #8cc0ff;
+  --color-brand-400: #599dff;
+  --color-brand-500: #3178f6;
+  --color-brand-600: #1f5be0;
+  --color-brand-700: #1c48b6;
+  --color-brand-800: #1c3d8f;
+  --color-brand-900: #1b3571;
+  --color-brand-950: #10203f;
+
+  --color-ink-50: #f6f7f9;
+  --color-ink-100: #eceef1;
+  --color-ink-200: #d5d9e0;
+  --color-ink-300: #b1b8c4;
+  --color-ink-400: #8691a3;
+  --color-ink-500: #667186;
+  --color-ink-600: #515a6e;
+  --color-ink-700: #424a5a;
+  --color-ink-800: #2c313d;
+  --color-ink-900: #191c24;
+  --color-ink-950: #0d0f14;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-ink-800 antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-semibold tracking-tight text-ink-900;
+  }
+}

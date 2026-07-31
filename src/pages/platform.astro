@@ -1,0 +1,75 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const features = [
+  {
+    title: "Unified clinic dashboard",
+    body: "Visit volume, utilization, cancellations, no-shows, and revenue per practitioner or location, refreshed on a schedule that matches how you run the business.",
+  },
+  {
+    title: "Benchmarking",
+    body: "Compare practitioners and locations against each other today. As more BC clinics join Datafore, anonymized peer benchmarks help you see how you stack up.",
+  },
+  {
+    title: "Payer & billing visibility",
+    body: "A clearer read on payer mix — MSP, extended health, ICBC, WorkSafeBC, and private pay — and where billing is outstanding or at risk.",
+  },
+  {
+    title: "Outcomes over time",
+    body: "Track patient outcomes alongside operational data, so quality improvement conversations are grounded in evidence.",
+  },
+  {
+    title: "Built for multi-discipline clinics",
+    body: "Whether it's one discipline or ten under one roof, Datafore is designed to roll data up cleanly across practitioners, rooms, and locations.",
+  },
+  {
+    title: "Data handled the right way",
+    body: "Canadian data residency and a security approach built around BC's Personal Information Protection Act (PIPA) and PIPEDA from day one.",
+  },
+];
+---
+
+<Layout
+  title="Platform"
+  description="What Datafore is building: analytics purpose-made for allied health clinics — clinic dashboards, benchmarking, billing visibility, and outcome tracking."
+>
+  <section class="border-b border-ink-100 bg-brand-50">
+    <div class="mx-auto max-w-6xl px-6 py-16 md:py-20">
+      <h1 class="text-4xl font-bold tracking-tight text-ink-900 md:text-5xl">The Datafore platform</h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-600">
+        We're building Datafore specifically for allied health clinics — not adapting a generic analytics tool. Every
+        part of the platform starts from how BC clinics actually schedule, bill, and deliver care.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        features.map((f) => (
+          <div class="rounded-2xl border border-ink-100 p-6">
+            <h2 class="text-lg font-semibold text-ink-900">{f.title}</h2>
+            <p class="mt-2 text-sm leading-relaxed text-ink-600">{f.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="border-t border-ink-100 bg-ink-50">
+    <div class="mx-auto max-w-3xl px-6 py-16 text-center">
+      <h2 class="text-2xl font-semibold text-ink-900">Where things stand today</h2>
+      <p class="mt-4 leading-relaxed text-ink-600">
+        Datafore's analytics platform is in active development, built together with a small group of founding
+        allied health clinics in British Columbia. If you'd like early access — or just want to compare notes on
+        how you currently track clinic performance — we'd like to talk.
+      </p>
+      <a
+        href="/contact/"
+        class="mt-8 inline-block rounded-full bg-brand-600 px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+      >
+        Get in touch
+      </a>
+    </div>
+  </section>
+</Layout>
