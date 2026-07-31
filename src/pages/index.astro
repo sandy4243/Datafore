@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { withBase } from "../lib/paths";
+import Seal from "../components/Seal.astro";
 
 const disciplines = [
   "Physiotherapy",
@@ -16,86 +18,122 @@ const disciplines = [
 
 const pillars = [
   {
-    title: "Clinic performance dashboards",
-    body: "See utilization, visit volume, cancellations and no-shows, and revenue per practitioner in one place — updated from the systems you already run day to day.",
+    code: "DF-01",
+    title: "Analytics",
+    body: "Utilization, cancellations, revenue by payer, and outcomes over time, read from the scheduling and billing data your clinic already produces.",
+    glyph: "M38 60 L38 44 M50 60 L50 36 M62 60 L62 50",
   },
   {
-    title: "Multi-location benchmarking",
-    body: "Compare practitioners and locations against each other, and against BC-wide trends as the Datafore network grows.",
+    code: "DF-02",
+    title: "Marketing Technology",
+    body: "Tools built to help allied health clinics attract and retain patients, grounded in what actually moves a multi-discipline practice.",
+    glyph: "M38 52 L38 58 L44 58 L54 65 L54 39 L44 46 L38 46 Z M58 46 C61 48 61 56 58 58",
   },
   {
-    title: "Revenue cycle insight",
-    body: "Understand payer mix and outstanding billing across MSP, extended health, ICBC, WorkSafeBC, and private pay.",
+    code: "DF-03",
+    title: "CRM Enablement",
+    body: "Patient and lead relationships managed the way clinics actually operate, not a generic sales pipeline repurposed for healthcare.",
+    glyph: "M50 44 L38 58 M50 44 L62 58 M50 44 L50 60 M38 58 h24",
   },
   {
-    title: "Outcome & quality tracking",
-    body: "Connect the care you deliver to patient outcomes over time, so quality improvement is backed by data, not anecdotes.",
+    code: "DF-04",
+    title: "AI Technology Partner",
+    body: "Applied AI across analytics, marketing, and CRM: a working partner embedded in the platform, not a chatbot bolted on top.",
+    glyph: "M40 40 h20 v20 h-20 Z M40 40 L34 34 M60 40 L66 34 M40 60 L34 66 M60 60 L66 66",
   },
 ];
 
-const steps = [
+const stages = [
   {
-    step: "01",
-    title: "Connect",
+    mark: "CONNECT",
     body: "We work with your clinic to bring scheduling, billing, and intake data together securely.",
   },
   {
-    step: "02",
-    title: "Understand",
-    body: "Datafore turns that data into clear dashboards built for how allied health clinics actually operate.",
+    mark: "VERIFY",
+    body: "Datafore checks and reconciles it, so what you're looking at is trustworthy, not a rough estimate.",
   },
   {
-    step: "03",
-    title: "Act",
-    body: "Owners and clinical leads get answers they can act on — this week, not at year-end.",
+    mark: "CERTIFY",
+    body: "You get a clear, standing record of how the clinic is performing, one you can act on this week.",
   },
 ];
 ---
 
 <Layout
   title="Datafore"
-  description="Datafore is building purpose-made analytics for allied health clinics in British Columbia — turning scheduling, billing, and outcomes data into clear, actionable insight."
+  description="Datafore is building a growth and operations platform for allied health clinics in British Columbia: analytics, marketing technology, CRM enablement, and applied AI."
 >
-  <!-- Hero -->
-  <section class="border-b border-ink-100 bg-gradient-to-b from-brand-50 to-white">
-    <div class="mx-auto max-w-6xl px-6 py-20 md:py-28">
-      <p class="inline-flex items-center rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
-        Now building in British Columbia
-      </p>
-      <h1 class="mt-6 max-w-3xl text-4xl font-bold tracking-tight text-ink-900 md:text-6xl">
-        Analytics built for allied health clinics.
-      </h1>
-      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-600 md:text-xl">
-        Datafore is developing an analytics platform purpose-built for allied health providers — starting with
-        clinics across BC — so owners and care teams can finally see how their practice is really performing.
-      </p>
-      <div class="mt-10 flex flex-wrap gap-4">
-        <a
-          href="/contact/"
-          class="rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
-        >
-          Join the early access list
-        </a>
-        <a
-          href="/platform/"
-          class="rounded-full border border-ink-200 px-6 py-3 text-sm font-semibold text-ink-700 transition-colors hover:border-ink-300 hover:bg-ink-50"
-        >
-          See what we're building
-        </a>
+  <!-- HERO -->
+  <section class="relative overflow-hidden border-b border-ink-200 bg-paper">
+    <div class="mx-auto grid max-w-6xl gap-16 px-6 py-20 md:grid-cols-2 md:items-center md:py-28">
+      <div>
+        <h1 class="text-4xl font-bold leading-[1.05] tracking-tight text-ink-950 md:text-5xl">
+          Your clinic's numbers deserve the same rigor as your license.
+        </h1>
+        <p class="mt-6 max-w-lg text-lg leading-relaxed text-ink-600">
+          Datafore is building a growth and operations platform for allied health clinics in BC: analytics,
+          marketing technology, CRM enablement, and applied AI, verified and standing, not another chart wall.
+        </p>
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a
+            href={withBase("/contact/")}
+            class="rounded bg-ink-950 px-6 py-3 font-mono text-sm uppercase tracking-[0.08em] text-white transition-colors hover:bg-seal-700"
+          >
+            Join early access
+          </a>
+          <a
+            href={withBase("/platform/")}
+            class="rounded border border-ink-300 px-6 py-3 font-mono text-sm uppercase tracking-[0.08em] text-ink-700 transition-colors hover:border-ink-950 hover:text-ink-950"
+          >
+            See the platform
+          </a>
+        </div>
+      </div>
+
+      <div class="relative mx-auto w-full max-w-sm md:mx-0" style="perspective: 1200px;">
+        <div class="credential-card relative rounded-lg border border-ink-200 bg-white p-6 shadow-[0_1px_2px_rgba(16,15,13,0.04),0_16px_40px_-16px_rgba(16,15,13,0.25)]">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="credential-label text-seal-600">Datafore Verified</p>
+              <p class="mt-1 font-mono text-xs text-ink-500">REG. NO. DF-2026-0417</p>
+            </div>
+            <Seal size={44} class="text-seal-500">
+              <path d="M42 36 L42 64 M42 36 C54 36 60 42 60 50 C60 58 54 64 42 64" />
+            </Seal>
+          </div>
+
+          <dl class="mt-8 space-y-5 border-t border-ink-100 pt-6">
+            <div class="flex items-center justify-between">
+              <dt class="text-sm text-ink-500">Utilization</dt>
+              <dd class="font-mono text-sm font-semibold text-ink-950">84%</dd>
+            </div>
+            <div class="flex items-center justify-between">
+              <dt class="text-sm text-ink-500">New patients, QTD</dt>
+              <dd class="font-mono text-sm font-semibold text-ink-950">+12%</dd>
+            </div>
+            <div class="flex items-center justify-between">
+              <dt class="text-sm text-ink-500">Avg. claim cycle</dt>
+              <dd class="font-mono text-sm font-semibold text-ink-950">9 days</dd>
+            </div>
+          </dl>
+
+          <p class="mt-8 border-t border-ink-100 pt-4 font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-ink-500">
+            Illustrative sample &middot; composite BC multi-discipline clinic
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Who it's for -->
+  <!-- WHO IT'S FOR -->
   <section class="mx-auto max-w-6xl px-6 py-16">
-    <h2 class="text-sm font-semibold uppercase tracking-wide text-brand-600">Built for allied health</h2>
-    <p class="mt-2 max-w-2xl text-2xl font-semibold text-ink-900">
+    <h2 class="max-w-2xl text-2xl font-semibold text-ink-950 md:text-3xl">
       Designed around how multi-disciplinary clinics in BC actually run.
-    </p>
-    <div class="mt-8 flex flex-wrap gap-3">
+    </h2>
+    <div class="mt-8 flex flex-wrap gap-2">
       {
         disciplines.map((d) => (
-          <span class="rounded-full border border-ink-200 bg-ink-50 px-4 py-2 text-sm font-medium text-ink-700">
+          <span class="rounded border border-ink-200 px-3.5 py-1.5 font-mono text-xs uppercase tracking-wide text-ink-600">
             {d}
           </span>
         ))
@@ -103,51 +141,62 @@ const steps = [
     </div>
   </section>
 
-  <!-- Problem -->
-  <section class="border-y border-ink-100 bg-ink-50">
+  <!-- PROBLEM -->
+  <section class="border-y border-ink-200 bg-ink-950 text-ink-200">
     <div class="mx-auto max-w-6xl px-6 py-16">
       <div class="grid gap-10 md:grid-cols-2 md:gap-16">
-        <div>
-          <h2 class="text-2xl font-semibold text-ink-900 md:text-3xl">
-            Practice management software wasn't built to answer "how are we really doing?"
-          </h2>
-        </div>
-        <p class="text-lg leading-relaxed text-ink-600">
+        <h2 class="text-2xl font-semibold text-white md:text-3xl">
+          Practice management software wasn't built to answer "how are we really doing?"
+        </h2>
+        <p class="text-lg leading-relaxed text-ink-300">
           Scheduling and billing systems keep the clinic running, but they weren't designed for performance
-          reporting. Owners end up stitching answers together from spreadsheets and gut feel — especially once a
-          clinic spans multiple disciplines, practitioners, or locations. Datafore exists to close that gap.
+          reporting, patient growth, or relationship management. Owners end up stitching answers together from
+          spreadsheets and gut feel, especially once a clinic spans multiple disciplines, practitioners, or
+          locations. Datafore exists to close that gap, as one connected platform.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Pillars -->
+  <!-- PILLARS -->
   <section class="mx-auto max-w-6xl px-6 py-16">
-    <h2 class="text-sm font-semibold uppercase tracking-wide text-brand-600">What we're building</h2>
-    <p class="mt-2 max-w-2xl text-2xl font-semibold text-ink-900">Four pillars of the Datafore platform.</p>
-    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+    <h2 class="max-w-2xl text-2xl font-semibold text-ink-950 md:text-3xl">Four credentialed capabilities.</h2>
+    <div class="mt-10 grid gap-px overflow-hidden rounded-lg border border-ink-200 bg-ink-200 sm:grid-cols-2">
       {
         pillars.map((p) => (
-          <div class="rounded-2xl border border-ink-100 bg-white p-6 shadow-sm">
-            <h3 class="text-lg font-semibold text-ink-900">{p.title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-ink-600">{p.body}</p>
+          <div class="bg-white p-8">
+            <div class="flex items-center gap-4">
+              <Seal size={52} class="shrink-0 text-seal-600">
+                <path d={p.glyph} />
+              </Seal>
+              <div>
+                <p class="font-mono text-xs text-ink-500">CRED. NO. {p.code}</p>
+                <h3 class="mt-0.5 text-lg font-semibold text-ink-950">{p.title}</h3>
+              </div>
+            </div>
+            <p class="mt-4 text-sm leading-relaxed text-ink-600">{p.body}</p>
           </div>
         ))
       }
     </div>
   </section>
 
-  <!-- How it works -->
-  <section class="border-t border-ink-100 bg-ink-950 text-white">
+  <!-- STAGES -->
+  <section class="border-t border-ink-200 bg-paper-dim">
     <div class="mx-auto max-w-6xl px-6 py-16">
-      <h2 class="text-sm font-semibold uppercase tracking-wide text-brand-300">How it works</h2>
-      <div class="mt-8 grid gap-10 md:grid-cols-3">
+      <h2 class="max-w-2xl text-2xl font-semibold text-ink-950 md:text-3xl">How a clinic gets certified.</h2>
+      <div class="relative mt-12 grid gap-10 md:grid-cols-3">
+        <div class="absolute top-[13px] left-0 right-0 hidden h-px bg-ink-300 md:block" aria-hidden="true"></div>
         {
-          steps.map((s) => (
-            <div>
-              <span class="text-sm font-semibold text-brand-300">{s.step}</span>
-              <h3 class="mt-3 text-xl font-semibold">{s.title}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-ink-300">{s.body}</p>
+          stages.map((s) => (
+            <div class="relative">
+              <div class="relative z-10 flex items-center gap-3">
+                <span class="h-[9px] w-[9px] shrink-0 rounded-full border-2 border-seal-600 bg-paper-dim" />
+                <span class="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-seal-700">
+                  {s.mark}
+                </span>
+              </div>
+              <p class="mt-3 text-sm leading-relaxed text-ink-600">{s.body}</p>
             </div>
           ))
         }
@@ -157,16 +206,40 @@ const steps = [
 
   <!-- CTA -->
   <section class="mx-auto max-w-6xl px-6 py-20 text-center">
-    <h2 class="text-3xl font-semibold text-ink-900">Help shape the platform.</h2>
+    <h2 class="text-3xl font-semibold text-ink-950">Help shape the platform.</h2>
     <p class="mx-auto mt-4 max-w-xl text-ink-600">
-      We're building alongside a small group of founding BC clinics. If you run — or work in — an allied health
+      We're building alongside a small group of founding BC clinics. If you run, or work in, an allied health
       practice, we'd like to hear how you measure performance today.
     </p>
     <a
-      href="/contact/"
-      class="mt-8 inline-block rounded-full bg-brand-600 px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+      href={withBase("/contact/")}
+      class="mt-8 inline-block rounded bg-ink-950 px-8 py-3 font-mono text-sm uppercase tracking-[0.08em] text-white transition-colors hover:bg-seal-700"
     >
       Talk to Datafore
     </a>
   </section>
 </Layout>
+
+<style>
+  @keyframes stamp-in {
+    from {
+      opacity: 0;
+      transform: scale(1.06) rotate(-1.5deg);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) rotate(-1.5deg);
+    }
+  }
+
+  .credential-card {
+    animation: stamp-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    transform: rotate(-1.5deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .credential-card {
+      animation: none;
+    }
+  }
+</style>

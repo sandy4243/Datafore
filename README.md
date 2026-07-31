@@ -36,7 +36,23 @@ public/
 
 ## Deployment
 
-`.github/workflows/main.yml` builds the site and syncs `dist/` to the `www.datafore.ca` S3 bucket
-(`ca-central-1`) on every push to `main`. It expects `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` repo secrets.
-If a CloudFront distribution is later put in front of the bucket, uncomment the invalidation step in the workflow
-and add a `CLOUDFRONT_DISTRIBUTION_ID` secret.
+Two workflows run on every push to `main`, from the same source:
+
+**Production — S3 (`.github/workflows/main.yml`)**
+Builds the site and syncs `dist/` to the `www.datafore.ca` S3 bucket (`ca-central-1`). Expects
+`AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` repo secrets. If a CloudFront distribution is later put in front
+of the bucket, uncomment the invalidation step in the workflow and add a `CLOUDFRONT_DISTRIBUTION_ID` secret.
+
+**Review copy — GitHub Pages (`.github/workflows/pages.yml`)**
+Publishes a browsable copy to `https://sandy4243.github.io/Datafore/`, so the site can be reviewed without
+touching production. This build is served from a repo subpath and is marked `noindex` so it never competes with
+the real domain in search.
+
+One-time setup: **Settings → Pages → Build and deployment → Source: GitHub Actions**. Publishing Pages from a
+*private* repo requires a paid GitHub plan; on the free plan the repo must be public for Pages to serve.
+
+### Base paths
+
+Because the Pages copy is served from `/Datafore/` and production from `/`, internal links and `public/` asset
+URLs must go through `withBase()` in `src/lib/paths.ts` rather than being hardcoded. `DEPLOY_TARGET=gh-pages`
+selects the subpath build; the default build targets the domain root.

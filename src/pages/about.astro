@@ -1,18 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { withBase } from "../lib/paths";
+import Seal from "../components/Seal.astro";
 ---
 
 <Layout
   title="About"
-  description="Datafore is an analytics company based in Burnaby, BC, now focused on building a platform purpose-made for allied health clinics."
+  description="Datafore is a growth and operations platform company based in Burnaby, BC, building for allied health clinics."
 >
-  <section class="border-b border-ink-100 bg-brand-50">
+  <section class="border-b border-ink-200 bg-paper">
     <div class="mx-auto max-w-6xl px-6 py-16 md:py-20">
-      <h1 class="text-4xl font-bold tracking-tight text-ink-900 md:text-5xl">About Datafore</h1>
+      <h1 class="text-4xl font-bold tracking-tight text-ink-950 md:text-5xl">About Datafore</h1>
       <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-600">
         Datafore started as a data and analytics consultancy, helping organizations get more value from the data
         they already had. That work — across data operations, governance, and cloud platforms — is what convinced
-        us allied health needed an analytics product of its own.
+        us allied health needed a platform of its own: analytics, marketing technology, CRM enablement, and applied
+        AI, built together rather than stitched from generic tools.
       </p>
     </div>
   </section>
@@ -20,16 +23,16 @@ import Layout from "../layouts/Layout.astro";
   <section class="mx-auto max-w-6xl px-6 py-16">
     <div class="grid gap-12 md:grid-cols-2">
       <div>
-        <h2 class="text-2xl font-semibold text-ink-900">Why allied health</h2>
+        <h2 class="text-2xl font-semibold text-ink-950">Why allied health</h2>
         <p class="mt-4 leading-relaxed text-ink-600">
           Allied health clinics — physiotherapy, chiropractic, massage therapy, occupational therapy, and the
-          disciplines around them — run on scheduling and billing tools that were never designed to answer
-          performance questions. That's a gap we've seen consistently, and it's one Datafore is built to close,
+          disciplines around them — run on scheduling, billing, and marketing tools that were never designed
+          around each other. That's a gap we've seen consistently, and it's one Datafore is built to close,
           starting close to home in British Columbia.
         </p>
       </div>
       <div>
-        <h2 class="text-2xl font-semibold text-ink-900">Where we're based</h2>
+        <h2 class="text-2xl font-semibold text-ink-950">Where we're based</h2>
         <p class="mt-4 leading-relaxed text-ink-600">
           Datafore Analytics Inc. is based in Burnaby, BC. We're building the platform in close collaboration with
           founding clinics across the province before expanding further.
@@ -38,35 +41,36 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
-  <section class="border-t border-ink-100 bg-ink-50">
+  <section class="border-t border-ink-200 bg-paper-dim">
     <div class="mx-auto max-w-6xl px-6 py-16">
-      <h2 class="text-sm font-semibold uppercase tracking-wide text-brand-600">Team</h2>
-      <div class="mt-6 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
-        <img
-          src="/images/sandeep-mehra.jpg"
-          alt="Sandeep Mehra"
-          class="h-28 w-28 rounded-full object-cover"
-        />
-        <div>
-          <h3 class="text-xl font-semibold text-ink-900">Sandeep Mehra</h3>
-          <p class="text-sm font-medium uppercase tracking-wide text-brand-600">Product Manager, Analytics</p>
+      <p class="credential-label text-seal-600">Team</p>
+      <div class="mt-6 flex flex-col items-start gap-6 rounded-lg border border-ink-200 bg-white p-6 sm:flex-row sm:items-center">
+        <img src={withBase("/images/sandeep-mehra.jpg")} alt="Sandeep Mehra" class="h-28 w-28 rounded-full object-cover" />
+        <div class="flex-1">
+          <div class="flex items-center gap-3">
+            <h3 class="text-xl font-semibold text-ink-950">Sandeep Mehra</h3>
+            <Seal size={26} class="text-seal-500">
+              <path d="M42 36 L42 64 M42 36 C54 36 60 42 60 50 C60 58 54 64 42 64" />
+            </Seal>
+          </div>
+          <p class="font-mono text-xs uppercase tracking-wide text-seal-600">Product Manager, Analytics</p>
           <a
             href="https://www.linkedin.com/in/smehra2/"
             target="_blank"
             rel="noopener noreferrer"
-            class="mt-2 inline-block text-sm font-medium text-ink-600 underline decoration-ink-300 underline-offset-4 hover:text-brand-600"
+            class="mt-2 inline-block text-sm font-medium text-ink-600 underline decoration-ink-300 underline-offset-4 hover:text-seal-600"
           >
             Connect on LinkedIn
           </a>
         </div>
       </div>
       <p class="mt-8 max-w-xl text-ink-600">
-        We're a small team today, and growing. If you want to help build analytics for allied health in BC, we'd
-        like to hear from you.
+        We're a small team today, and growing. If you want to help build a growth and operations platform for
+        allied health in BC, we'd like to hear from you.
       </p>
       <a
-        href="/contact/"
-        class="mt-6 inline-block rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+        href={withBase("/contact/")}
+        class="mt-6 inline-block rounded bg-ink-950 px-6 py-3 font-mono text-sm uppercase tracking-[0.08em] text-white transition-colors hover:bg-seal-700"
       >
         Get in touch
       </a>

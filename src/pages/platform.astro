@@ -1,72 +1,92 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { withBase } from "../lib/paths";
+import Seal from "../components/Seal.astro";
 
-const features = [
+const pillars = [
   {
-    title: "Unified clinic dashboard",
-    body: "Visit volume, utilization, cancellations, no-shows, and revenue per practitioner or location, refreshed on a schedule that matches how you run the business.",
+    code: "DF-01",
+    title: "Analytics",
+    glyph: "M38 60 L38 44 M50 60 L50 36 M62 60 L62 50",
+    body: "A unified clinic dashboard: visit volume, utilization, cancellations, no-shows, and revenue per practitioner or location, refreshed on a schedule that matches how you run the business. As more BC clinics join Datafore, anonymized peer benchmarks show how you compare.",
+    detail: "Payer visibility across MSP, extended health, ICBC, WorkSafeBC, and private pay, plus where billing is outstanding or at risk.",
   },
   {
-    title: "Benchmarking",
-    body: "Compare practitioners and locations against each other today. As more BC clinics join Datafore, anonymized peer benchmarks help you see how you stack up.",
+    code: "DF-02",
+    title: "Marketing Technology",
+    glyph: "M38 52 L38 58 L44 58 L54 65 L54 39 L44 46 L38 46 Z M58 46 C61 48 61 56 58 58",
+    body: "Tools purpose-built to help allied health clinics attract and retain patients, grounded in how a multi-discipline practice actually markets itself, not a generic small-business marketing suite.",
+    detail: "Built to work alongside the intake and referral patterns specific to allied health, not e-commerce or retail funnels.",
   },
   {
-    title: "Payer & billing visibility",
-    body: "A clearer read on payer mix — MSP, extended health, ICBC, WorkSafeBC, and private pay — and where billing is outstanding or at risk.",
+    code: "DF-03",
+    title: "CRM Enablement",
+    glyph: "M50 44 L38 58 M50 44 L62 58 M50 44 L50 60 M38 58 h24",
+    body: "Structured patient and lead relationship management built for clinic workflows: referrals, re-activations, and multi-practitioner rosters, instead of a sales pipeline repurposed for healthcare.",
+    detail: "Designed to roll up cleanly across practitioners, disciplines, and locations under one roof.",
   },
   {
-    title: "Outcomes over time",
-    body: "Track patient outcomes alongside operational data, so quality improvement conversations are grounded in evidence.",
-  },
-  {
-    title: "Built for multi-discipline clinics",
-    body: "Whether it's one discipline or ten under one roof, Datafore is designed to roll data up cleanly across practitioners, rooms, and locations.",
-  },
-  {
-    title: "Data handled the right way",
-    body: "Canadian data residency and a security approach built around BC's Personal Information Protection Act (PIPA) and PIPEDA from day one.",
+    code: "DF-04",
+    title: "AI Technology Partner",
+    glyph: "M40 40 h20 v20 h-20 Z M40 40 L34 34 M60 40 L66 34 M40 60 L34 66 M60 60 L66 66",
+    body: "Applied AI across analytics, marketing, and CRM, surfacing what needs attention and drafting the groundwork for what to do next. A working partner embedded in the platform, not a chatbot bolted on top.",
+    detail: "Every AI-assisted output stays traceable back to real clinic data. No black-box claims.",
   },
 ];
 ---
 
 <Layout
   title="Platform"
-  description="What Datafore is building: analytics purpose-made for allied health clinics — clinic dashboards, benchmarking, billing visibility, and outcome tracking."
+  description="What Datafore is building: a growth and operations platform for allied health clinics, spanning analytics, marketing technology, CRM enablement, and applied AI."
 >
-  <section class="border-b border-ink-100 bg-brand-50">
+  <section class="border-b border-ink-200 bg-paper">
     <div class="mx-auto max-w-6xl px-6 py-16 md:py-20">
-      <h1 class="text-4xl font-bold tracking-tight text-ink-900 md:text-5xl">The Datafore platform</h1>
+      <h1 class="text-4xl font-bold tracking-tight text-ink-950 md:text-5xl">The Datafore platform</h1>
       <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-600">
-        We're building Datafore specifically for allied health clinics — not adapting a generic analytics tool. Every
-        part of the platform starts from how BC clinics actually schedule, bill, and deliver care.
+        We're building Datafore specifically for allied health clinics, not adapting generic analytics, marketing,
+        or CRM tools. Every part of the platform starts from how BC clinics actually schedule, bill, market
+        themselves, and deliver care. Four connected capabilities, one platform.
       </p>
     </div>
   </section>
 
   <section class="mx-auto max-w-6xl px-6 py-16">
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="space-y-px overflow-hidden rounded-lg border border-ink-200 bg-ink-200">
       {
-        features.map((f) => (
-          <div class="rounded-2xl border border-ink-100 p-6">
-            <h2 class="text-lg font-semibold text-ink-900">{f.title}</h2>
-            <p class="mt-2 text-sm leading-relaxed text-ink-600">{f.body}</p>
+        pillars.map((p) => (
+          <div class="grid gap-6 bg-white p-8 md:grid-cols-[auto_1fr] md:gap-10 md:p-10">
+            <div class="flex items-start gap-4 md:flex-col md:items-start md:gap-3">
+              <Seal size={60} class="shrink-0 text-seal-600">
+                <path d={p.glyph} />
+              </Seal>
+              <p class="font-mono text-xs text-ink-500">CRED. NO. {p.code}</p>
+            </div>
+            <div>
+              <h2 class="text-xl font-semibold text-ink-950">{p.title}</h2>
+              <p class="mt-3 leading-relaxed text-ink-600">{p.body}</p>
+              <p class="mt-3 text-sm leading-relaxed text-ink-500">
+                <span class="credential-label text-seal-600">Note </span>
+                {p.detail}
+              </p>
+            </div>
           </div>
         ))
       }
     </div>
   </section>
 
-  <section class="border-t border-ink-100 bg-ink-50">
+  <section class="border-t border-ink-200 bg-ink-950">
     <div class="mx-auto max-w-3xl px-6 py-16 text-center">
-      <h2 class="text-2xl font-semibold text-ink-900">Where things stand today</h2>
-      <p class="mt-4 leading-relaxed text-ink-600">
-        Datafore's analytics platform is in active development, built together with a small group of founding
-        allied health clinics in British Columbia. If you'd like early access — or just want to compare notes on
-        how you currently track clinic performance — we'd like to talk.
+      <h2 class="text-2xl font-semibold text-white">Where things stand today</h2>
+      <p class="mt-4 leading-relaxed text-ink-300">
+        Datafore's platform is in active development, built together with a small group of founding allied health
+        clinics in British Columbia. Analytics is the initial wedge; marketing technology, CRM enablement, and AI
+        are confirmed parts of the direction and are being built out alongside it. If you'd like early access, or
+        just want to compare notes on how you currently run the business side of your clinic, we'd like to talk.
       </p>
       <a
-        href="/contact/"
-        class="mt-8 inline-block rounded-full bg-brand-600 px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+        href={withBase("/contact/")}
+        class="mt-8 inline-block rounded bg-seal-600 px-8 py-3 font-mono text-sm uppercase tracking-[0.08em] text-white transition-colors hover:bg-seal-500"
       >
         Get in touch
       </a>

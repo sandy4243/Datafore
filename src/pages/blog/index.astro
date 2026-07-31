@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import { withBase } from "../../lib/paths";
 
 const allPosts = await getCollection("blog", ({ data }) => !data.draft);
 const posts = allPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
@@ -8,32 +9,32 @@ const posts = allPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publ
 
 <Layout
   title="Insights"
-  description="Notes from Datafore on analytics, operations, and data for allied health clinics in BC."
+  description="Notes from Datafore on analytics, marketing, CRM, and AI for allied health clinics in BC."
 >
-  <section class="border-b border-ink-100 bg-brand-50">
+  <section class="border-b border-ink-200 bg-paper">
     <div class="mx-auto max-w-6xl px-6 py-16 md:py-20">
-      <h1 class="text-4xl font-bold tracking-tight text-ink-900 md:text-5xl">Insights</h1>
+      <h1 class="text-4xl font-bold tracking-tight text-ink-950 md:text-5xl">Insights</h1>
       <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-600">
-        Notes from Datafore on analytics, operations, and data for allied health clinics.
+        Notes from Datafore on analytics, marketing, CRM, and AI for allied health clinics.
       </p>
     </div>
   </section>
 
   <section class="mx-auto max-w-4xl px-6 py-16">
     {posts.length === 0 && <p class="text-ink-600">New posts are on the way.</p>}
-    <ul class="space-y-10">
+    <ul class="divide-y divide-ink-200 border-t border-ink-200">
       {
         posts.map((post) => (
-          <li class="border-b border-ink-100 pb-10 last:border-none">
-            <a href={`/blog/${post.id}/`} class="group">
-              <p class="text-sm text-ink-500">
+          <li class="py-10 first:pt-0">
+            <a href={withBase(`/blog/${post.id}/`)} class="group">
+              <p class="font-mono text-xs uppercase tracking-wide text-ink-500">
                 {post.data.publishDate.toLocaleDateString("en-CA", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
                 })}
               </p>
-              <h2 class="mt-2 text-2xl font-semibold text-ink-900 group-hover:text-brand-600">{post.data.title}</h2>
+              <h2 class="mt-2 text-2xl font-semibold text-ink-950 group-hover:text-seal-600">{post.data.title}</h2>
               <p class="mt-2 leading-relaxed text-ink-600">{post.data.description}</p>
             </a>
           </li>
