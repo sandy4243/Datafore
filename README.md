@@ -48,8 +48,12 @@ Publishes a browsable copy to `https://sandy4243.github.io/Datafore/`, so the si
 touching production. This build is served from a repo subpath and is marked `noindex` so it never competes with
 the real domain in search.
 
-One-time setup: **Settings → Pages → Build and deployment → Source: GitHub Actions**. Publishing Pages from a
-*private* repo requires a paid GitHub plan; on the free plan the repo must be public for Pages to serve.
+One-time setup, required before this workflow can succeed: **Settings → Pages → Build and deployment → Source:
+GitHub Actions**. The workflow does not auto-enable Pages, because the default workflow token is not permitted to
+create a Pages site and the attempt fails the run. Until the source is set, the build job fails at "Configure
+Pages" with `Get Pages site failed: Not Found`.
+
+Publishing Pages from a *private* repo also requires a paid GitHub plan; on the free plan the repo must be public.
 
 ### Base paths
 

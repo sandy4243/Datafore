@@ -35,10 +35,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Requires Pages to already be enabled with "GitHub Actions" as the source
+      # (Settings -> Pages). Auto-enablement is deliberately not used here: the
+      # default workflow token cannot create a Pages site, and asking it to do so
+      # fails the run with a misleading "Resource not accessible by integration".
       - name: Configure Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Build site
         run: npm run build
