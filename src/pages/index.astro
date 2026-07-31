@@ -1,0 +1,172 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const disciplines = [
+  "Physiotherapy",
+  "Chiropractic",
+  "Massage Therapy",
+  "Occupational Therapy",
+  "Speech-Language Pathology",
+  "Kinesiology",
+  "Acupuncture & TCM",
+  "Counselling Therapy",
+  "Podiatry",
+  "Dietetics",
+];
+
+const pillars = [
+  {
+    title: "Clinic performance dashboards",
+    body: "See utilization, visit volume, cancellations and no-shows, and revenue per practitioner in one place — updated from the systems you already run day to day.",
+  },
+  {
+    title: "Multi-location benchmarking",
+    body: "Compare practitioners and locations against each other, and against BC-wide trends as the Datafore network grows.",
+  },
+  {
+    title: "Revenue cycle insight",
+    body: "Understand payer mix and outstanding billing across MSP, extended health, ICBC, WorkSafeBC, and private pay.",
+  },
+  {
+    title: "Outcome & quality tracking",
+    body: "Connect the care you deliver to patient outcomes over time, so quality improvement is backed by data, not anecdotes.",
+  },
+];
+
+const steps = [
+  {
+    step: "01",
+    title: "Connect",
+    body: "We work with your clinic to bring scheduling, billing, and intake data together securely.",
+  },
+  {
+    step: "02",
+    title: "Understand",
+    body: "Datafore turns that data into clear dashboards built for how allied health clinics actually operate.",
+  },
+  {
+    step: "03",
+    title: "Act",
+    body: "Owners and clinical leads get answers they can act on — this week, not at year-end.",
+  },
+];
+---
+
+<Layout
+  title="Datafore"
+  description="Datafore is building purpose-made analytics for allied health clinics in British Columbia — turning scheduling, billing, and outcomes data into clear, actionable insight."
+>
+  <!-- Hero -->
+  <section class="border-b border-ink-100 bg-gradient-to-b from-brand-50 to-white">
+    <div class="mx-auto max-w-6xl px-6 py-20 md:py-28">
+      <p class="inline-flex items-center rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
+        Now building in British Columbia
+      </p>
+      <h1 class="mt-6 max-w-3xl text-4xl font-bold tracking-tight text-ink-900 md:text-6xl">
+        Analytics built for allied health clinics.
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-600 md:text-xl">
+        Datafore is developing an analytics platform purpose-built for allied health providers — starting with
+        clinics across BC — so owners and care teams can finally see how their practice is really performing.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a
+          href="/contact/"
+          class="rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+        >
+          Join the early access list
+        </a>
+        <a
+          href="/platform/"
+          class="rounded-full border border-ink-200 px-6 py-3 text-sm font-semibold text-ink-700 transition-colors hover:border-ink-300 hover:bg-ink-50"
+        >
+          See what we're building
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who it's for -->
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    <h2 class="text-sm font-semibold uppercase tracking-wide text-brand-600">Built for allied health</h2>
+    <p class="mt-2 max-w-2xl text-2xl font-semibold text-ink-900">
+      Designed around how multi-disciplinary clinics in BC actually run.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      {
+        disciplines.map((d) => (
+          <span class="rounded-full border border-ink-200 bg-ink-50 px-4 py-2 text-sm font-medium text-ink-700">
+            {d}
+          </span>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="border-y border-ink-100 bg-ink-50">
+    <div class="mx-auto max-w-6xl px-6 py-16">
+      <div class="grid gap-10 md:grid-cols-2 md:gap-16">
+        <div>
+          <h2 class="text-2xl font-semibold text-ink-900 md:text-3xl">
+            Practice management software wasn't built to answer "how are we really doing?"
+          </h2>
+        </div>
+        <p class="text-lg leading-relaxed text-ink-600">
+          Scheduling and billing systems keep the clinic running, but they weren't designed for performance
+          reporting. Owners end up stitching answers together from spreadsheets and gut feel — especially once a
+          clinic spans multiple disciplines, practitioners, or locations. Datafore exists to close that gap.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pillars -->
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    <h2 class="text-sm font-semibold uppercase tracking-wide text-brand-600">What we're building</h2>
+    <p class="mt-2 max-w-2xl text-2xl font-semibold text-ink-900">Four pillars of the Datafore platform.</p>
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      {
+        pillars.map((p) => (
+          <div class="rounded-2xl border border-ink-100 bg-white p-6 shadow-sm">
+            <h3 class="text-lg font-semibold text-ink-900">{p.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink-600">{p.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="border-t border-ink-100 bg-ink-950 text-white">
+    <div class="mx-auto max-w-6xl px-6 py-16">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-brand-300">How it works</h2>
+      <div class="mt-8 grid gap-10 md:grid-cols-3">
+        {
+          steps.map((s) => (
+            <div>
+              <span class="text-sm font-semibold text-brand-300">{s.step}</span>
+              <h3 class="mt-3 text-xl font-semibold">{s.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-300">{s.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="mx-auto max-w-6xl px-6 py-20 text-center">
+    <h2 class="text-3xl font-semibold text-ink-900">Help shape the platform.</h2>
+    <p class="mx-auto mt-4 max-w-xl text-ink-600">
+      We're building alongside a small group of founding BC clinics. If you run — or work in — an allied health
+      practice, we'd like to hear how you measure performance today.
+    </p>
+    <a
+      href="/contact/"
+      class="mt-8 inline-block rounded-full bg-brand-600 px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+    >
+      Talk to Datafore
+    </a>
+  </section>
+</Layout>
