@@ -1,32 +1,36 @@
 ---
+import Seal from "./Seal.astro";
+import { withBase } from "../lib/paths";
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-ink-100 bg-ink-950 text-ink-300">
+<footer class="border-t border-ink-800 bg-ink-950 text-ink-300">
   <div class="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-4">
     <div class="md:col-span-2">
-      <a href="/" class="flex items-center gap-2">
-        <img src="/images/datafore-logo.png" alt="Datafore" class="h-8 w-auto brightness-0 invert" />
-        <span class="text-lg font-semibold text-white">Datafore</span>
+      <a href={withBase("/")} class="flex items-center gap-2.5 text-white">
+        <Seal size={28} class="shrink-0 text-seal-400">
+          <path d="M42 36 L42 64 M42 36 C54 36 60 42 60 50 C60 58 54 64 42 64" />
+        </Seal>
+        <span class="font-display text-lg font-semibold tracking-tight">Datafore</span>
       </a>
-      <p class="mt-4 max-w-sm text-sm leading-relaxed">
-        Datafore is building purpose-made analytics for allied health clinics, starting in British Columbia — turning
-        scheduling, billing, and outcomes data into clear, day-to-day decisions.
+      <p class="mt-4 max-w-sm text-sm leading-relaxed text-ink-400">
+        Datafore is a growth and operations platform for allied health clinics, starting in British Columbia —
+        analytics, marketing technology, CRM enablement, and applied AI, built around how clinics actually run.
       </p>
     </div>
 
     <div>
-      <h3 class="text-sm font-semibold uppercase tracking-wide text-white">Explore</h3>
+      <p class="credential-label text-ink-400">Explore</p>
       <ul class="mt-4 space-y-2 text-sm">
-        <li><a href="/platform/" class="hover:text-white">Platform</a></li>
-        <li><a href="/about/" class="hover:text-white">About</a></li>
-        <li><a href="/blog/" class="hover:text-white">Insights</a></li>
-        <li><a href="/contact/" class="hover:text-white">Contact</a></li>
+        <li><a href={withBase("/platform/")} class="hover:text-white">Platform</a></li>
+        <li><a href={withBase("/about/")} class="hover:text-white">About</a></li>
+        <li><a href={withBase("/blog/")} class="hover:text-white">Insights</a></li>
+        <li><a href={withBase("/contact/")} class="hover:text-white">Contact</a></li>
       </ul>
     </div>
 
     <div>
-      <h3 class="text-sm font-semibold uppercase tracking-wide text-white">Get in touch</h3>
+      <p class="credential-label text-ink-400">Get in touch</p>
       <ul class="mt-4 space-y-2 text-sm">
         <li><a href="mailto:info@datafore.ca" class="hover:text-white">info@datafore.ca</a></li>
         <li><a href="tel:+17787001733" class="hover:text-white">+1 778 700 1733</a></li>
@@ -36,9 +40,9 @@ const year = new Date().getFullYear();
   </div>
 
   <div class="border-t border-ink-800">
-    <div class="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-6 text-xs text-ink-400 sm:flex-row sm:items-center sm:justify-between">
-      <p>&copy; {year} Datafore Analytics Inc. All rights reserved.</p>
-      <a href="/privacy/" class="hover:text-white">Privacy Policy</a>
+    <div class="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-6 font-mono text-xs uppercase tracking-wide text-ink-400 sm:flex-row sm:items-center sm:justify-between">
+      <p>&copy; {year} Datafore Analytics Inc.</p>
+      <a href={withBase("/privacy/")} class="hover:text-white">Privacy Policy</a>
     </div>
   </div>
 </footer>

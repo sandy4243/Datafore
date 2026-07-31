@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { withBase, isPreviewDeploy } from "../lib/paths";
 import "../styles/global.css";
 
 interface Props {
@@ -18,8 +19,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/images/datafore-logo.png" />
+    <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
+    <link rel="alternate icon" type="image/png" href={withBase("/images/datafore-logo.png")} />
     <link rel="canonical" href={canonicalURL} />
+    {/* The Pages copy is a review build; keep it out of search results. */}
+    {isPreviewDeploy && <meta name="robots" content="noindex, nofollow" />}
 
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
@@ -33,11 +37,23 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
+    <!--
+      THESIS: Clinic performance presented as a credential — issued, referenced, standing —
+      refusing the category-default wall of charts and gradient SaaS hero.
+      OWN-WORLD: Paper ground, ink near-black, one brass "seal" accent. Ruled hairlines, engraved
+      circular seals with tick rings, IBM Plex Sans/Mono, tracked mono micro-labels (REG. NO., CRED. NO.).
+      STORY: A BC clinic owner sees their own numbers treated with professional rigor, understands
+      Datafore covers analytics, marketing, CRM and AI, and asks for early access.
+      FIRST VIEWPORT: Left, the license-grade headline plus two square-cornered actions; right, a
+      slightly rotated credential card carrying seal, registration number and three labelled figures.
+      FORM: Credential/registry document. Candidate 5 of the grounded list. Seed key 93026951.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
     <Header />
     <main>
       <slot />
