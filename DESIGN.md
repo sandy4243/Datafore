@@ -1,45 +1,53 @@
 ---
 name: Datafore
-description: Clinic performance presented as a credential — issued, referenced, and standing.
+description: The clinical loop — assess, act, verify — applied to the clinic itself.
 colors:
-  ink-950: "#100f0d"
-  ink-900: "#1b1a17"
-  ink-800: "#2c2a26"
-  ink-700: "#423f39"
-  ink-600: "#55524a"
-  ink-500: "#6b685f"
-  ink-400: "#8a877f"
-  ink-300: "#b3b1ab"
-  ink-200: "#d7d6d2"
-  ink-100: "#ececea"
-  seal-700: "#6d4c1f"
-  seal-600: "#8b6224"
-  seal-500: "#ab7c2e"
-  seal-400: "#c8963f"
-  seal-300: "#d9b06a"
-  paper: "#faf9f7"
-  paper-dim: "#f1f0ec"
+  vital-950: "#0a1e1b"
+  vital-900: "#12312d"
+  vital-800: "#16403a"
+  vital-700: "#1a5249"
+  vital-600: "#1f675c"
+  vital-500: "#2c8173"
+  vital-300: "#74beb0"
+  vital-200: "#a9d8ce"
+  vital-100: "#d4ebe6"
+  graphite-950: "#0f1214"
+  graphite-900: "#1a1e21"
+  graphite-800: "#2b3034"
+  graphite-700: "#42484d"
+  graphite-600: "#545b61"
+  graphite-500: "#656c73"
+  graphite-400: "#8b9399"
+  graphite-300: "#b9bfc3"
+  graphite-200: "#dcdfe1"
+  graphite-100: "#eceeef"
+  risk-500: "#a55c15"
+  risk-100: "#fbeadb"
+  steady-600: "#2f6b3d"
+  steady-100: "#dcefe0"
+  bone: "#fbfbfa"
+  bone-dim: "#f2f3f2"
   surface-card: "#ffffff"
 typography:
   display:
-    fontFamily: "IBM Plex Sans, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Public Sans, ui-sans-serif, system-ui, sans-serif"
     fontSize: "clamp(2.25rem, 5vw, 3rem)"
     fontWeight: 700
-    lineHeight: 1.05
+    lineHeight: 1.08
     letterSpacing: "-0.025em"
   headline:
-    fontFamily: "IBM Plex Sans, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Public Sans, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1.875rem"
     fontWeight: 600
     lineHeight: 1.2
     letterSpacing: "-0.025em"
   title:
-    fontFamily: "IBM Plex Sans, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Public Sans, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1.125rem"
     fontWeight: 600
     lineHeight: 1.4
   body:
-    fontFamily: "IBM Plex Sans, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Public Sans, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.625
@@ -48,13 +56,7 @@ typography:
     fontSize: "0.6875rem"
     fontWeight: 500
     lineHeight: 1.4
-    letterSpacing: "0.16em"
-  label-nav:
-    fontFamily: "IBM Plex Mono, ui-monospace, SFMono-Regular, monospace"
-    fontSize: "0.8125rem"
-    fontWeight: 500
-    lineHeight: 1.4
-    letterSpacing: "0.08em"
+    letterSpacing: "0.14em"
 rounded:
   none: "0px"
   sm: "2px"
@@ -69,36 +71,34 @@ spacing:
   section: "64px"
 components:
   button-primary:
-    backgroundColor: "{colors.ink-950}"
+    backgroundColor: "{colors.vital-600}"
     textColor: "{colors.surface-card}"
     rounded: "{rounded.md}"
     padding: "12px 24px"
-    typography: "{typography.label}"
   button-primary-hover:
-    backgroundColor: "{colors.seal-700}"
-    textColor: "{colors.surface-card}"
+    backgroundColor: "{colors.vital-700}"
   button-secondary:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink-700}"
+    backgroundColor: "{colors.bone}"
+    textColor: "{colors.graphite-700}"
     rounded: "{rounded.md}"
     padding: "12px 24px"
   button-secondary-hover:
-    textColor: "{colors.ink-950}"
+    textColor: "{colors.graphite-950}"
   button-on-dark:
-    backgroundColor: "{colors.seal-600}"
-    textColor: "{colors.surface-card}"
+    backgroundColor: "{colors.surface-card}"
+    textColor: "{colors.vital-900}"
     rounded: "{rounded.md}"
     padding: "12px 32px"
   button-on-dark-hover:
-    backgroundColor: "{colors.seal-700}"
+    backgroundColor: "{colors.vital-100}"
   chip-discipline:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink-600}"
+    backgroundColor: "{colors.surface-card}"
+    textColor: "{colors.graphite-600}"
     rounded: "{rounded.md}"
     padding: "6px 14px"
-  card-credential:
+  card-panel:
     backgroundColor: "{colors.surface-card}"
-    textColor: "{colors.ink-800}"
+    textColor: "{colors.graphite-800}"
     rounded: "{rounded.lg}"
     padding: "24px"
 ---
@@ -107,190 +107,182 @@ components:
 
 ## Overview
 
-**Creative North Star: "The Registry Document"**
+**Creative North Star: "The Clinical Loop"**
 
-Datafore sells clarity to people who already live inside a professional credentialing system.
-Physiotherapists, chiropractors, and counsellors hold registrations, carry licence numbers, and are
-audited against standards. The system borrows that world: a clinic's performance is presented as
-something **issued, referenced, and standing** — a record with a seal and a number on it — rather than
-as a dashboard of floating charts.
+Every practitioner Datafore serves already runs a disciplined loop: assess, treat, reassess. Nobody would
+accept a course of treatment that skipped the reassessment. Datafore's entire thesis is that clinics deserve
+the same method applied to the business — and that most software stops at the assessment. The design system is
+built from that loop rather than from the analytics category.
 
-The surface behaves like good printed stationery. A warm paper ground, hairline rules, ink-black text,
-and a single brass accent used the way a foil seal is used: sparingly, and only where authority is
-being asserted. Density is calm and documentary. Nothing glows, nothing floats without reason, and the
-page never tries to look like the product it is describing.
+The surface reads as clinical instrumentation: a bone-white ground, cool graphite text, and a single vital teal
+that marks whatever is live or actionable. It is calm and precise rather than energetic; this audience is
+professionally skeptical, handles sensitive patient data, and is sold to by dashboard vendors constantly.
+Restraint is the credibility. Colour is reserved for state, which means an amber or green in this system always
+means something is at risk or steady — never that a box needed brightening.
 
-The confirmed anti-reference is the generic analytics landing page this replaced: Inter, a saturated
-blue, pill-shaped buttons, a grid of identical icon-heading-text cards, eyebrow labels above every
-heading, and numbered `01 / 02 / 03` steps. Those were removed deliberately, not by accident.
+The confirmed anti-references are two: the generic analytics landing page (saturated blue, pill buttons, a grid
+of identical icon-heading-text cards, `01 / 02 / 03` steps) and the previous Datafore identity, a brass-and-paper
+"registry document" world that was handsome but read as legal or bureaucratic rather than clinical.
 
 **Key Characteristics:**
-- Paper ground, ink text, one brass accent — no second accent hue.
-- Square-cornered or barely-rounded geometry; no pills.
-- Engraved circular seals as the recurring mark.
-- Tracked monospace micro-labels carrying reference numbers.
-- Hairline rules and shared borders instead of scattered drop shadows.
+- Bone ground, graphite text, one vital teal — plus signal colours that only ever mean state.
+- The loop mark, segmented and advancing, as the recurring form.
+- Hairline rules and shared borders rather than scattered shadows.
+- Monospace reserved for measurements, systems, and identifiers.
+- Mechanisms shown working, not described.
 
 ## Colors
 
-A documentary palette: warm neutral paper, near-black ink, and a single brass accent standing in for
-a foil seal.
+Clinical instrumentation: a near-white ground, cool neutral text, one vital accent, and two signal states.
 
 ### Primary
-- **Brass Seal** (`seal-600`): The accent of authority. Carries seal marks, micro-labels, active
-  navigation, and the button on dark grounds. It never appears as a large flat field on the light
-  ground — it is a mark, not a surface.
-- **Deep Brass** (`seal-700`): The hover state for every brass and ink button. Buttons always get
-  *darker* on hover, never lighter.
-- **Lamp Brass** (`seal-400`): Brass rendered on ink grounds, where the darker steps lose legibility.
+- **Vital Teal** (`vital-600`): The live colour. Primary actions, the active node in the loop mark, current
+  navigation, and the boundary of the Datafore layer in the architecture diagram. It marks what is *acting*.
+- **Deep Vital** (`vital-700`): Hover for every filled teal control, and teal text on tinted grounds.
+- **Vital Ground** (`vital-950`): The closing call-to-action band — the one place teal owns a full region.
+
+### Secondary — Signal
+- **At Risk** (`risk-500`): Something leaking: lapsed patients, ageing receivables, a gap. Never decorative.
+- **Steady** (`steady-600`): A recovered or healthy state — the closing half of the loop.
 
 ### Neutral
-- **Document Ink** (`ink-950`): Headings, primary buttons, and the full-bleed dark sections.
-- **Reading Ink** (`ink-800`): Default body text on paper.
-- **Quiet Ink** (`ink-600`): Secondary body copy and navigation at rest.
-- **Fine Print Ink** (`ink-500`): The smallest labels and reference numbers. This is the floor —
-  nothing lighter carries text on a light ground.
-- **Rule Grey** (`ink-200`): Hairline rules, card borders, and the grid gaps between cards.
-- **Paper** (`paper`): The default page ground.
-- **Dim Paper** (`paper-dim`): The alternating band that separates one section from its neighbour.
-- **Card White** (`surface-card`): Pure white, reserved for surfaces that represent a document.
+- **Graphite 950**: Headings and the dark full-bleed sections.
+- **Graphite 800**: Body text on light grounds.
+- **Graphite 600**: Secondary copy and navigation at rest.
+- **Graphite 500**: The smallest labels. The floor for text on any light ground.
+- **Graphite 200**: Hairline rules, card borders, and the 1px gaps between grid cells.
+- **Bone** / **Bone Dim**: The page ground and its alternating band.
+- **Card White**: Reserved for panels that carry a mechanism or a measurement.
 
 ### Named Rules
 
-**The Foil Rule.** Brass is a seal, not a paint. It marks, outlines, and labels; it never fills a
-region larger than a button. If a brass area reads as a background, it has broken the metaphor.
+**The State Rule.** Amber and green are clinical status, never decoration. If a colour is not reporting the
+condition of something, it is graphite or teal.
 
-**The Fine Print Floor.** `ink-500` is the lightest ink permitted for text on paper, and `ink-400` the
-lightest on `ink-950`. Both clear 4.5:1. Anything lighter is decoration pretending to be content.
+**The Live Colour Rule.** Teal marks what is acting. A static container never takes teal just to look branded;
+the one exception is the closing CTA band, where the action *is* the content.
 
-**The Darken-On-Hover Rule.** Every filled button darkens on hover. Lightening a brass button drops it
-below AA against white — this is a measured constraint, not a preference.
+**The Contrast Floor.** `graphite-500` is the lightest text on any light ground and `graphite-400` on
+`graphite-950`. Every pair in this file is verified at 4.5:1 or better; `risk-500` and `graphite-500` were both
+darkened from their first draft specifically to clear it on `bone-dim`.
 
 ## Typography
 
-**Display Font:** IBM Plex Sans (with `ui-sans-serif`, `system-ui`)
-**Body Font:** IBM Plex Sans (with `ui-sans-serif`, `system-ui`)
+**Display Font:** Public Sans (with `ui-sans-serif`, `system-ui`)
+**Body Font:** Public Sans
 **Label/Mono Font:** IBM Plex Mono (with `ui-monospace`, `SFMono-Regular`)
 
-**Character:** One family doing two jobs. Plex Sans is an institutional face — drawn for documentation,
-slightly squared, unfashionable in the right way — so headlines read as issued rather than marketed.
-Plex Mono is its sibling, which is why the fine print looks stamped onto the same document instead of
-borrowed from another system.
+**Character:** Public Sans is a public-service face, drawn for clarity in health and government contexts — it
+carries institutional plainness without the corporate gloss of the usual product-marketing sans. Plex Mono
+handles measurements and system names, where tabular figures and unambiguous characters matter.
 
 ### Hierarchy
-- **Display** (700, `clamp(2.25rem, 5vw, 3rem)`, 1.05): Page-opening headline, one per page.
+- **Display** (700, `clamp(2.25rem, 5vw, 3rem)`, 1.08): The page-opening claim, one per page.
 - **Headline** (600, 1.875rem, 1.2): Section headings.
-- **Title** (600, 1.125rem, 1.4): Card and pillar titles.
-- **Body** (400, 1rem, 1.625): Paragraph copy. Measure runs 49–72ch; never past 75ch.
-- **Label** (500, 0.6875rem, 0.16em tracking, uppercase, mono): Reference numbers, section marks, and
-  footer headings. Carried by the `.credential-label` class.
-- **Nav Label** (500, 0.8125rem, 0.08em tracking, uppercase, mono): Navigation and button text. Looser
-  tracking and a larger size than the fine print, because these are targets rather than annotations.
+- **Title** (600, 1.125rem, 1.4): Panel and stage titles.
+- **Body** (400, 1rem, 1.625): Paragraph copy. Measure stays under 75ch.
+- **Label** (500, 0.6875rem, 0.14em tracking, uppercase, mono): Section marks, system names, and figures.
+  Carried by `.measure-label`.
 
 ### Named Rules
 
-**The Number Rule.** Anything that reads as an identifier — `REG. NO.`, `CRED. NO.`, a date, a metric —
-is set in Plex Mono. Prose is never mono, and identifiers are never prose.
+**The Instrument Rule.** Monospace is for things that are measured or named by a system — utilisation, a PMS
+name, an integration, a status line. Prose is never mono.
 
-**The No-Eyebrow Rule.** No kicker or eyebrow label sits above a heading. The heading carries its own
-weight. Mono labels mark *sections and fields*, never introduce a headline.
+**The No-Eyebrow Rule.** No kicker sits above a heading. Mono labels mark fields and sections; they never
+introduce a headline.
 
 ## Layout
 
-A single centred column, `max-width: 72rem` (`max-w-6xl`), with `1.5rem` gutters that hold from 320px
-up. Reading-heavy pages (blog, privacy) narrow to `48rem`/`56rem` so measure stays under 75ch.
+A centred column at `max-width: 72rem` with `1.5rem` gutters holding from 320px up. Long-form pages narrow to
+`48rem`/`56rem` to keep measure under 75ch.
 
-Sections are separated by full-bleed ground changes rather than whitespace alone: `paper` →
-`paper-dim` → `ink-950` bands, each closed with a hairline `ink-200` rule. Vertical rhythm is `4rem`
-between sections and `1.5rem–2.5rem` within them, with more space above a heading than below it.
+Sections are separated by ground changes rather than whitespace alone: `bone` → `graphite-950` → `bone` →
+`bone-dim` → `vital-950`, each closed with a hairline. The dark bands are used to carry the two hardest
+statements on the page (the size of the leak, and the ask), so the page has a rhythm of claim and quiet rather
+than uniform density.
 
-Responsive behavior: the hero is a two-column grid that stacks below `md`; pillar grids go
-`sm:grid-cols-2`; the platform rows go single-column below `md`. Navigation collapses into a
-`<details>` disclosure below `md`. No page scrolls horizontally at any width down to 320px.
+Vertical rhythm is `4rem`–`5rem` between sections, `1.5rem`–`2.5rem` within, always more space above a heading
+than below it. The hero is an asymmetric `1.05fr 1fr` grid that stacks below `md`; the loop runs four-up on
+`lg`, two-up on `sm`, stacked below. No page scrolls horizontally at any width down to 320px.
 
 ## Elevation & Depth
 
-Mostly flat, with depth used **once**. Structure comes from hairline borders and ground changes, not
-from shadows — a grid of cards is a `1px` gap over an `ink-200` background, so cards share rules like
-cells in a printed table rather than floating as separate tiles.
-
-The single exception is the hero credential card, which is genuinely lifted because it represents a
-physical document sitting on the page.
+Flat by default, with one exception. Structure comes from hairline borders and ground changes — grid cells are a
+1px gap over a `graphite-200` ground, so panels share rules like cells in a table rather than floating as tiles.
 
 ### Shadow Vocabulary
-- **Document lift** (`box-shadow: 0 1px 2px rgba(16,15,13,0.04), 0 16px 40px -16px rgba(16,15,13,0.25)`):
-  The hero credential card only. Two layers — a tight contact shadow and a wide soft cast — both
-  carrying real offset and blur.
+- **Instrument lift** (`box-shadow: 0 1px 2px rgba(15,18,20,0.04), 0 18px 44px -20px rgba(15,18,20,0.28)`):
+  The hero loop panel only — the one element representing something live.
 
 ### Named Rules
 
-**The One Shadow Rule.** Exactly one element per page may cast a shadow. If a second appears, the first
-has stopped being special and the page has become a card wall.
+**The One Shadow Rule.** Exactly one element per page may cast a shadow. A second turns the page into a card
+wall and the first stops meaning anything.
 
 ## Shapes
 
-Square by default. Corners are `2px`–`4px` where softening is needed and `8px` on document surfaces
-(the credential card, bordered panels). **Nothing is pill-shaped** — `rounded-full` is reserved for the
-seal marks and the small status dots, which are true circles because they are stamps, not buttons.
+Square by default: `4px` on controls and chips, `8px` on panels. **Nothing is pill-shaped.** `rounded-full` is
+reserved for the loop nodes and the small status dots, which are true circles because they are states.
 
-The recurring silhouette is the **seal**: a circle with a thin outer ring, an inner ring, a radial tick
-ring, and a stroked glyph at its centre. It scales from 26px (inline) to 60px (pillar rows) and is the
-one ornamental form the system permits.
+The recurring silhouette is the **loop**: a segmented circle with four nodes, one filled. Across a sequence the
+filled node advances, so the mark itself carries the stage rather than repeating as a logo.
 
 ## Components
 
 ### Buttons
-- **Shape:** Square-cornered, lightly softened (`4px`).
-- **Primary:** `ink-950` ground, white label, `12px 24px`, mono uppercase at `0.08em` tracking.
-- **Hover / Focus:** Ground darkens to `seal-700` over a `colors` transition. Focus shows the global
-  brass ring.
-- **Secondary:** No fill; `ink-300` hairline border, `ink-700` label, border and label darkening to
-  `ink-950` on hover.
-- **On dark grounds:** `seal-600` ground, white label, darkening to `seal-700`.
+- **Shape:** `4px` corners.
+- **Primary:** `vital-600` fill, white label, `12px 24px`, semibold.
+- **Hover / Focus:** Darkens to `vital-700`. Focus shows the global teal ring.
+- **Secondary:** No fill, `graphite-300` hairline, `graphite-700` label, both darkening to `graphite-950`.
+- **On the vital band:** Inverted — white fill, `vital-900` label, hovering to `vital-100`.
 
 ### Chips
-- **Style:** `paper` fill, `ink-200` hairline border, `ink-600` mono uppercase label, `4px` corners.
-- **State:** Static. These are a taxonomy of disciplines served, not filters — they do not select.
+- **Style:** White fill, `graphite-200` hairline, `graphite-600` label, `4px` corners.
+- **State:** Static. A taxonomy of disciplines and systems, not filters — they do not select.
 
-### Cards / Containers
-- **Corner Style:** `8px` on document surfaces; grid cells are square and share rules.
-- **Background:** `surface-card` white against `paper`/`paper-dim` grounds.
-- **Shadow Strategy:** None, except the hero credential card (see Elevation & Depth).
-- **Border:** `ink-200` hairline, or a `1px` grid gap revealing an `ink-200` ground.
-- **Internal Padding:** `24px` mobile, `32px–40px` from `md` up.
+### Cards / Panels
+- **Corner Style:** `8px`; grid cells share rules via a 1px gap.
+- **Background:** White against `bone`/`bone-dim`.
+- **Shadow Strategy:** None, except the hero loop panel.
+- **Border:** `graphite-200` hairline; `vital-600` at 2px marks the Datafore layer in the architecture diagram,
+  which is the one place a border carries meaning rather than structure.
+- **Internal Padding:** `24px` mobile, `32px`–`40px` from `md`.
 
 ### Navigation
-- Mono uppercase at `0.8125rem`, `0.08em` tracking, `ink-600` at rest, `seal-600` when current.
-- The bar is sticky, `paper/90` with a backdrop blur, closed by an `ink-200` hairline.
-- Below `md` it becomes a native `<details>` disclosure — no JavaScript, so it works before hydration.
+- Public Sans medium at `0.875rem`, `graphite-600` at rest, `vital-700` when current.
+- Sticky, `bone/90` with backdrop blur, closed by a hairline.
+- Below `md` it becomes a native `<details>` disclosure — no JavaScript, works before hydration.
 
-### Seal (signature component)
-An authored inline SVG on a 100×100 viewBox: outer ring at `r=47.5` (40% opacity), inner ring at
-`r=36` (60%), a configurable radial tick ring between `r=41` and `r=45` (50%), and a centred glyph
-stroked at `2.25` with round caps and joins. Colour is inherited via `currentColor`, so one component
-serves brass-on-paper and brass-on-ink. Each platform capability owns a distinct glyph.
+### Loop Mark (signature component)
+An authored inline SVG on a 100×100 viewBox: a segmented circle at `r=30` (stroke 5, 30% opacity,
+`stroke-dasharray="38 9"`) with four nodes at the quarter positions. The active node is filled at `r=11`; the
+rest are `r=6.5` outlines at 55% opacity. Colour inherits via `currentColor`. Stroke weights are deliberately
+heavy so the mark stays legible at 24px inline — the first draft used stroke 2 and disappeared at small sizes.
+The `active` prop is how a sequence shows progress.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** carry every identifier — reference numbers, dates, metrics, field labels — in Plex Mono
-  uppercase with `0.16em` tracking, via `.credential-label`.
-- **Do** separate sections with a ground change (`paper` → `paper-dim` → `ink-950`) closed by an
-  `ink-200` hairline.
-- **Do** build card grids as a `1px` gap over an `ink-200` ground so cards share rules like a table.
-- **Do** darken filled buttons on hover, never lighten them.
-- **Do** label any illustrative figure as a sample in-place, in mono fine print. The product has no
-  customers yet and the design must never imply otherwise.
-- **Do** route internal links and `public/` asset URLs through `withBase()` — the site is served from
-  a subpath on the Pages preview.
+- **Do** use teal to mark what is acting, and signal colours to report state.
+- **Do** advance the loop mark's `active` node across a sequence so the mark carries meaning.
+- **Do** separate sections with a ground change closed by a hairline.
+- **Do** build grids as a 1px gap over a `graphite-200` ground so panels share rules.
+- **Do** name the real systems — Jane App, Cliniko, Owl Practice, HubSpot. Specificity is the trust signal this
+  product has before it has customers.
+- **Do** label every illustrative figure as illustrative, in place. There are no customers yet and nothing may
+  imply otherwise.
+- **Do** route internal links and `public/` assets through `withBase()`; markdown links are rewritten at build.
 
 ### Don't:
-- **Don't** introduce a second accent hue. The system is ink plus brass; a status colour needs a
-  deliberate decision, not a new Tailwind token.
-- **Don't** use `rounded-full` on anything that is not a seal or a status dot. No pills.
-- **Don't** put an eyebrow or kicker label above a heading.
-- **Don't** number sequential sections `01 / 02 / 03`. The stages carry mono word marks
-  (`CONNECT` / `VERIFY` / `CERTIFY`) because the words are the information.
-- **Don't** add a second shadow to a page, or use a zero-offset coloured glow as depth.
-- **Don't** set text lighter than `ink-500` on paper or `ink-400` on `ink-950`.
-- **Don't** use emoji or icon fonts. Icons are authored SVG in the seal's stroke language.
+- **Don't** use teal as a decorative fill on a static container.
+- **Don't** use amber or green for anything that is not a clinical state.
+- **Don't** use `rounded-full` on anything that is not a loop node or a status dot.
+- **Don't** put an eyebrow or kicker above a heading, or number sections `01 / 02 / 03` — the loop stages carry
+  their own names.
+- **Don't** add a coloured `border-left` to callouts or list items; use a hairline divider list instead.
+- **Don't** add a second shadow to a page.
+- **Don't** set text lighter than `graphite-500` on light grounds or `graphite-400` on `graphite-950`.
+- **Don't** claim benchmarking as available. It requires a critical mass of clinics and is described as
+  forthcoming, always.
+- **Don't** publish pricing, ARR/CAC/LTV, or roadmap detail — those live in the strategy document.

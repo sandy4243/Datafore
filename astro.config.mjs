@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import { unified } from "@astrojs/markdown-remark";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
@@ -37,7 +38,7 @@ export default defineConfig({
   base,
   integrations: [sitemap()],
   markdown: {
-    rehypePlugins: [rehypeBasePaths()],
+    processor: unified({ rehypePlugins: [rehypeBasePaths()] }),
   },
   vite: {
     plugins: [tailwindcss()],

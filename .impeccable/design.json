@@ -1,49 +1,56 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-31T07:55:00Z",
+  "generatedAt": "2026-08-02T03:40:00Z",
   "title": "Design System: Datafore",
   "extensions": {
     "colorMeta": {
-      "seal-600": {
+      "vital-600": {
         "role": "primary",
-        "displayName": "Brass Seal",
-        "canonical": "#8b6224",
-        "tonalRamp": ["#362614", "#4f371a", "#6d4c1f", "#8b6224", "#ab7c2e", "#c8963f", "#d9b06a", "#f3e6cd"]
+        "displayName": "Vital Teal",
+        "canonical": "#1f675c",
+        "tonalRamp": ["#0a1e1b", "#12312d", "#16403a", "#1a5249", "#1f675c", "#2c8173", "#74beb0", "#d4ebe6"]
       },
-      "ink-950": {
+      "graphite-950": {
         "role": "neutral",
-        "displayName": "Document Ink",
-        "canonical": "#100f0d",
-        "tonalRamp": ["#100f0d", "#1b1a17", "#2c2a26", "#423f39", "#55524a", "#6b685f", "#8a877f", "#d7d6d2"]
+        "displayName": "Graphite",
+        "canonical": "#0f1214",
+        "tonalRamp": ["#0f1214", "#1a1e21", "#2b3034", "#42484d", "#545b61", "#656c73", "#b9bfc3", "#eceeef"]
       },
-      "paper": {
+      "risk-500": {
+        "role": "tertiary",
+        "displayName": "At Risk",
+        "canonical": "#a55c15",
+        "tonalRamp": ["#3d2108", "#57300b", "#71400e", "#8b4c12", "#a55c15", "#c47a2c", "#e0ab6d", "#fbeadb"]
+      },
+      "steady-600": {
+        "role": "tertiary",
+        "displayName": "Steady",
+        "canonical": "#2f6b3d",
+        "tonalRamp": ["#0e2213", "#153320", "#1d472a", "#265834", "#2f6b3d", "#468d56", "#7bb888", "#dcefe0"]
+      },
+      "bone": {
         "role": "neutral",
-        "displayName": "Paper",
-        "canonical": "#faf9f7",
-        "tonalRamp": ["#2c2a26", "#423f39", "#6b685f", "#8a877f", "#b3b1ab", "#d7d6d2", "#f1f0ec", "#faf9f7"]
+        "displayName": "Bone",
+        "canonical": "#fbfbfa",
+        "tonalRamp": ["#2b3034", "#42484d", "#656c73", "#8b9399", "#b9bfc3", "#dcdfe1", "#f2f3f2", "#fbfbfa"]
       }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Page-opening headline, one per page." },
-      "label": { "displayName": "Credential Label", "purpose": "Reference numbers, section marks, field labels. Mono, uppercase, 0.16em tracking." }
+      "display": { "displayName": "Display", "purpose": "The page-opening claim, one per page." },
+      "label": { "displayName": "Measure Label", "purpose": "Section marks, system names, figures. Mono, uppercase, 0.14em tracking." }
     },
     "shadows": [
       {
-        "name": "document-lift",
-        "value": "0 1px 2px rgba(16,15,13,0.04), 0 16px 40px -16px rgba(16,15,13,0.25)",
-        "purpose": "The hero credential card only. One shadow per page; everything else is flat."
+        "name": "instrument-lift",
+        "value": "0 1px 2px rgba(15,18,20,0.04), 0 18px 44px -20px rgba(15,18,20,0.28)",
+        "purpose": "The hero loop panel only. One shadow per page; everything else is flat."
       }
     ],
     "motion": [
       {
-        "name": "stamp-in",
-        "value": "cubic-bezier(0.16, 1, 0.3, 1) 600ms",
-        "purpose": "Exponential ease-out. The hero credential card settles onto the page once on load."
-      },
-      {
         "name": "state-transition",
         "value": "transition-colors, ~150ms",
-        "purpose": "Button and link colour changes on hover/focus. The only other motion in the system."
+        "purpose": "Button, link and border colour changes on hover and focus. The system's only motion."
       }
     ],
     "breakpoints": [
@@ -57,93 +64,104 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "The main action on light grounds. Darkens to brass on hover.",
-      "html": "<a class=\"ds-btn-primary\" href=\"#\">Join early access</a>",
-      "css": ".ds-btn-primary { display: inline-block; background: #100f0d; color: #fff; padding: 12px 24px; border-radius: 4px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; transition: background-color 150ms; } .ds-btn-primary:hover { background: #6d4c1f; } .ds-btn-primary:focus-visible { outline: 2px solid #ab7c2e; outline-offset: 2px; }"
+      "description": "The main action on light grounds.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Request a Practice Health Snapshot</a>",
+      "css": ".ds-btn-primary { display: inline-block; background: #1f675c; color: #fff; padding: 12px 24px; border-radius: 4px; font-family: 'Public Sans', system-ui, sans-serif; font-size: .875rem; font-weight: 600; text-decoration: none; transition: background-color 150ms; } .ds-btn-primary:hover { background: #1a5249; } .ds-btn-primary:focus-visible { outline: 2px solid #2c8173; outline-offset: 2px; }"
     },
     {
       "name": "Secondary Button",
       "kind": "button",
       "refersTo": "button-secondary",
-      "description": "The lower-emphasis companion action. Hairline border, no fill.",
-      "html": "<a class=\"ds-btn-secondary\" href=\"#\">See the platform</a>",
-      "css": ".ds-btn-secondary { display: inline-block; background: transparent; color: #423f39; padding: 12px 24px; border: 1px solid #b3b1ab; border-radius: 4px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; transition: color 150ms, border-color 150ms; } .ds-btn-secondary:hover { color: #100f0d; border-color: #100f0d; } .ds-btn-secondary:focus-visible { outline: 2px solid #ab7c2e; outline-offset: 2px; }"
+      "description": "Lower-emphasis companion action. Hairline border, no fill.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\">See how the loop works</a>",
+      "css": ".ds-btn-secondary { display: inline-block; background: transparent; color: #42484d; padding: 12px 24px; border: 1px solid #b9bfc3; border-radius: 4px; font-family: 'Public Sans', system-ui, sans-serif; font-size: .875rem; font-weight: 600; text-decoration: none; transition: color 150ms, border-color 150ms; } .ds-btn-secondary:hover { color: #0f1214; border-color: #0f1214; } .ds-btn-secondary:focus-visible { outline: 2px solid #2c8173; outline-offset: 2px; }"
+    },
+    {
+      "name": "Loop Mark",
+      "kind": "custom",
+      "refersTo": "loop-mark",
+      "description": "The signature mark: a segmented loop with one node live. The active node advances across a sequence to carry stage.",
+      "html": "<span class=\"ds-loop\"><svg viewBox=\"0 0 100 100\" width=\"44\" height=\"44\" fill=\"none\" aria-hidden=\"true\"><circle cx=\"50\" cy=\"50\" r=\"30\" stroke=\"currentColor\" stroke-width=\"5\" opacity=\".3\" stroke-linecap=\"round\" stroke-dasharray=\"38 9\"/><circle cx=\"50\" cy=\"20\" r=\"11\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"5\"/><circle cx=\"80\" cy=\"50\" r=\"6.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"5\" opacity=\".55\"/><circle cx=\"50\" cy=\"80\" r=\"6.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"5\" opacity=\".55\"/><circle cx=\"20\" cy=\"50\" r=\"6.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"5\" opacity=\".55\"/></svg></span>",
+      "css": ".ds-loop { display: inline-flex; color: #1f675c; }"
+    },
+    {
+      "name": "Measure Label",
+      "kind": "custom",
+      "refersTo": "typography.label",
+      "description": "Section marks, system names, and figures. Mono, never prose.",
+      "html": "<p class=\"ds-measure-label\">Utilisation &middot; Churn risk</p>",
+      "css": ".ds-measure-label { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: .6875rem; font-weight: 500; text-transform: uppercase; letter-spacing: .14em; color: #656c73; margin: 0; }"
+    },
+    {
+      "name": "Status Dot",
+      "kind": "custom",
+      "refersTo": "status-dot",
+      "description": "Clinical state marker. Amber for leaking, teal for acting, green for recovered.",
+      "html": "<span class=\"ds-dot ds-dot--risk\"></span><span class=\"ds-dot ds-dot--acting\"></span><span class=\"ds-dot ds-dot--steady\"></span>",
+      "css": ".ds-dot { display: inline-block; width: 8px; height: 8px; border-radius: 9999px; margin-right: 10px; } .ds-dot--risk { background: #a55c15; } .ds-dot--acting { background: #2c8173; } .ds-dot--steady { background: #2f6b3d; }"
     },
     {
       "name": "Discipline Chip",
       "kind": "chip",
       "refersTo": "chip-discipline",
-      "description": "Static taxonomy of disciplines served. Not a filter — it does not select.",
+      "description": "Static taxonomy of disciplines and systems served. Not a filter.",
       "html": "<span class=\"ds-chip\">Physiotherapy</span>",
-      "css": ".ds-chip { display: inline-block; background: #faf9f7; color: #55524a; border: 1px solid #d7d6d2; border-radius: 4px; padding: 6px 14px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }"
+      "css": ".ds-chip { display: inline-block; background: #fff; color: #545b61; border: 1px solid #dcdfe1; border-radius: 4px; padding: 6px 14px; font-family: 'Public Sans', system-ui, sans-serif; font-size: .75rem; font-weight: 500; }"
     },
     {
-      "name": "Credential Label",
-      "kind": "custom",
-      "refersTo": "typography.label",
-      "description": "The system's fine print: reference numbers, section marks, field labels.",
-      "html": "<p class=\"ds-cred-label\">Reg. No. DF-2026-0417</p>",
-      "css": ".ds-cred-label { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.6875rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.16em; color: #6b685f; margin: 0; }"
-    },
-    {
-      "name": "Seal",
-      "kind": "custom",
-      "refersTo": "seal",
-      "description": "The system's signature mark. Inherits currentColor so one component serves brass-on-paper and brass-on-ink.",
-      "html": "<span class=\"ds-seal\"><svg viewBox=\"0 0 100 100\" width=\"56\" height=\"56\" fill=\"none\" aria-hidden=\"true\"><circle cx=\"50\" cy=\"50\" r=\"47.5\" stroke=\"currentColor\" stroke-width=\"1\" opacity=\".4\"/><circle cx=\"50\" cy=\"50\" r=\"36\" stroke=\"currentColor\" stroke-width=\"1\" opacity=\".6\"/><g stroke=\"currentColor\" stroke-width=\"1\" opacity=\".5\"><line x1=\"91\" y1=\"50\" x2=\"95\" y2=\"50\"/><line x1=\"50\" y1=\"91\" x2=\"50\" y2=\"95\"/><line x1=\"9\" y1=\"50\" x2=\"5\" y2=\"50\"/><line x1=\"50\" y1=\"9\" x2=\"50\" y2=\"5\"/></g><g stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M42 36 L42 64 M42 36 C54 36 60 42 60 50 C60 58 54 64 42 64\"/></g></svg></span>",
-      "css": ".ds-seal { display: inline-flex; color: #8b6224; }"
-    },
-    {
-      "name": "Credential Card",
+      "name": "Loop Panel",
       "kind": "card",
-      "refersTo": "card-credential",
-      "description": "The one lifted surface in the system — it represents a physical document.",
-      "html": "<div class=\"ds-cred-card\"><p class=\"ds-cred-card__kicker\">Datafore Verified</p><dl class=\"ds-cred-card__rows\"><div><dt>Utilization</dt><dd>84%</dd></div><div><dt>New patients, QTD</dt><dd>+12%</dd></div></dl><p class=\"ds-cred-card__note\">Illustrative sample</p></div>",
-      "css": ".ds-cred-card { background: #fff; border: 1px solid #d7d6d2; border-radius: 8px; padding: 24px; max-width: 340px; box-shadow: 0 1px 2px rgba(16,15,13,.04), 0 16px 40px -16px rgba(16,15,13,.25); font-family: 'IBM Plex Sans', system-ui, sans-serif; } .ds-cred-card__kicker { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: .6875rem; text-transform: uppercase; letter-spacing: .16em; color: #8b6224; margin: 0 0 20px; } .ds-cred-card__rows { margin: 0; border-top: 1px solid #ececea; padding-top: 20px; } .ds-cred-card__rows > div { display: flex; justify-content: space-between; margin-bottom: 16px; } .ds-cred-card__rows dt { color: #6b685f; font-size: .875rem; } .ds-cred-card__rows dd { margin: 0; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: .875rem; font-weight: 600; color: #100f0d; } .ds-cred-card__note { border-top: 1px solid #ececea; padding-top: 16px; margin: 8px 0 0; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: .6875rem; text-transform: uppercase; letter-spacing: .1em; color: #6b685f; }"
+      "refersTo": "card-panel",
+      "description": "The one lifted surface — it represents a loop actually running.",
+      "html": "<div class=\"ds-panel\"><p class=\"ds-panel__kicker\">One loop, running</p><ul class=\"ds-panel__rows\"><li><span class=\"ds-dot ds-dot--risk\"></span>41 patients passed 90 days since their last visit.</li><li><span class=\"ds-dot ds-dot--steady\"></span>9 rebooked within three weeks.</li></ul><p class=\"ds-panel__note\">Illustrative example &middot; not client data</p></div>",
+      "css": ".ds-panel { background: #fff; border: 1px solid #dcdfe1; border-radius: 8px; padding: 24px; max-width: 380px; box-shadow: 0 1px 2px rgba(15,18,20,.04), 0 18px 44px -20px rgba(15,18,20,.28); font-family: 'Public Sans', system-ui, sans-serif; } .ds-panel__kicker { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: .6875rem; text-transform: uppercase; letter-spacing: .14em; color: #656c73; margin: 0 0 16px; border-bottom: 1px solid #eceeef; padding-bottom: 16px; } .ds-panel__rows { list-style: none; margin: 0; padding: 0; } .ds-panel__rows li { display: flex; align-items: flex-start; font-size: .875rem; line-height: 1.6; color: #42484d; margin-bottom: 14px; } .ds-panel__rows .ds-dot { margin-top: 7px; flex-shrink: 0; } .ds-panel__note { border-top: 1px solid #eceeef; padding-top: 16px; margin: 8px 0 0; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: .6875rem; text-transform: uppercase; letter-spacing: .1em; color: #656c73; }"
     },
     {
       "name": "Navigation Link",
       "kind": "nav",
       "refersTo": "nav-link",
-      "description": "Mono uppercase, ink at rest, brass when current.",
+      "description": "Graphite at rest, vital teal when current.",
       "html": "<nav class=\"ds-nav\"><a href=\"#\">Home</a><a href=\"#\" aria-current=\"page\">Platform</a><a href=\"#\">About</a></nav>",
-      "css": ".ds-nav { display: flex; gap: 32px; } .ds-nav a { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: .8125rem; text-transform: uppercase; letter-spacing: .08em; color: #55524a; text-decoration: none; transition: color 150ms; } .ds-nav a:hover { color: #8b6224; } .ds-nav a[aria-current='page'] { color: #8b6224; } .ds-nav a:focus-visible { outline: 2px solid #ab7c2e; outline-offset: 2px; }"
+      "css": ".ds-nav { display: flex; gap: 32px; } .ds-nav a { font-family: 'Public Sans', system-ui, sans-serif; font-size: .875rem; font-weight: 500; color: #545b61; text-decoration: none; transition: color 150ms; } .ds-nav a:hover, .ds-nav a[aria-current='page'] { color: #1a5249; } .ds-nav a:focus-visible { outline: 2px solid #2c8173; outline-offset: 2px; }"
     }
   ],
   "narrative": {
-    "northStar": "The Registry Document",
-    "overview": "Datafore sells clarity to people who already live inside a professional credentialing system. Physiotherapists, chiropractors, and counsellors hold registrations, carry licence numbers, and are audited against standards. The system borrows that world: a clinic's performance is presented as something issued, referenced, and standing — a record with a seal and a number on it — rather than as a dashboard of floating charts.\n\nThe surface behaves like good printed stationery. A warm paper ground, hairline rules, ink-black text, and a single brass accent used the way a foil seal is used: sparingly, and only where authority is being asserted. Density is calm and documentary. Nothing glows, nothing floats without reason, and the page never tries to look like the product it is describing.\n\nThe confirmed anti-reference is the generic analytics landing page this replaced: Inter, a saturated blue, pill-shaped buttons, a grid of identical icon-heading-text cards, eyebrow labels above every heading, and numbered 01 / 02 / 03 steps.",
+    "northStar": "The Clinical Loop",
+    "overview": "Every practitioner Datafore serves already runs a disciplined loop: assess, treat, reassess. Nobody would accept a course of treatment that skipped the reassessment. Datafore's entire thesis is that clinics deserve the same method applied to the business — and that most software stops at the assessment. The design system is built from that loop rather than from the analytics category.\n\nThe surface reads as clinical instrumentation: a bone-white ground, cool graphite text, and a single vital teal that marks whatever is live or actionable. It is calm and precise rather than energetic; this audience is professionally skeptical, handles sensitive patient data, and is sold to by dashboard vendors constantly. Restraint is the credibility.\n\nThe confirmed anti-references are the generic analytics landing page and the previous brass-and-paper registry identity, which read as legal rather than clinical.",
     "keyCharacteristics": [
-      "Paper ground, ink text, one brass accent — no second accent hue.",
-      "Square-cornered or barely-rounded geometry; no pills.",
-      "Engraved circular seals as the recurring mark.",
-      "Tracked monospace micro-labels carrying reference numbers.",
-      "Hairline rules and shared borders instead of scattered drop shadows."
+      "Bone ground, graphite text, one vital teal — plus signal colours that only ever mean state.",
+      "The loop mark, segmented and advancing, as the recurring form.",
+      "Hairline rules and shared borders rather than scattered shadows.",
+      "Monospace reserved for measurements, systems, and identifiers.",
+      "Mechanisms shown working, not described."
     ],
     "rules": [
-      { "name": "The Foil Rule", "body": "Brass is a seal, not a paint. It marks, outlines, and labels; it never fills a region larger than a button. If a brass area reads as a background, it has broken the metaphor.", "section": "colors" },
-      { "name": "The Fine Print Floor", "body": "ink-500 is the lightest ink permitted for text on paper, and ink-400 the lightest on ink-950. Both clear 4.5:1. Anything lighter is decoration pretending to be content.", "section": "colors" },
-      { "name": "The Darken-On-Hover Rule", "body": "Every filled button darkens on hover. Lightening a brass button drops it below AA against white — this is a measured constraint, not a preference.", "section": "colors" },
-      { "name": "The Number Rule", "body": "Anything that reads as an identifier — REG. NO., CRED. NO., a date, a metric — is set in Plex Mono. Prose is never mono, and identifiers are never prose.", "section": "typography" },
-      { "name": "The No-Eyebrow Rule", "body": "No kicker or eyebrow label sits above a heading. The heading carries its own weight. Mono labels mark sections and fields, never introduce a headline.", "section": "typography" },
-      { "name": "The One Shadow Rule", "body": "Exactly one element per page may cast a shadow. If a second appears, the first has stopped being special and the page has become a card wall.", "section": "elevation" }
+      { "name": "The State Rule", "body": "Amber and green are clinical status, never decoration. If a colour is not reporting the condition of something, it is graphite or teal.", "section": "colors" },
+      { "name": "The Live Colour Rule", "body": "Teal marks what is acting. A static container never takes teal just to look branded; the one exception is the closing CTA band, where the action is the content.", "section": "colors" },
+      { "name": "The Contrast Floor", "body": "graphite-500 is the lightest text on any light ground and graphite-400 on graphite-950. Every pair is verified at 4.5:1 or better.", "section": "colors" },
+      { "name": "The Instrument Rule", "body": "Monospace is for things that are measured or named by a system. Prose is never mono.", "section": "typography" },
+      { "name": "The No-Eyebrow Rule", "body": "No kicker sits above a heading. Mono labels mark fields and sections; they never introduce a headline.", "section": "typography" },
+      { "name": "The One Shadow Rule", "body": "Exactly one element per page may cast a shadow. A second turns the page into a card wall and the first stops meaning anything.", "section": "elevation" }
     ],
     "dos": [
-      "Do carry every identifier — reference numbers, dates, metrics, field labels — in Plex Mono uppercase with 0.16em tracking, via .credential-label.",
-      "Do separate sections with a ground change (paper -> paper-dim -> ink-950) closed by an ink-200 hairline.",
-      "Do build card grids as a 1px gap over an ink-200 ground so cards share rules like a table.",
-      "Do darken filled buttons on hover, never lighten them.",
-      "Do label any illustrative figure as a sample in-place, in mono fine print. The product has no customers yet and the design must never imply otherwise.",
-      "Do route internal links and public/ asset URLs through withBase() — the site is served from a subpath on the Pages preview."
+      "Do use teal to mark what is acting, and signal colours to report state.",
+      "Do advance the loop mark's active node across a sequence so the mark carries meaning.",
+      "Do separate sections with a ground change closed by a hairline.",
+      "Do build grids as a 1px gap over a graphite-200 ground so panels share rules.",
+      "Do name the real systems — Jane App, Cliniko, Owl Practice, HubSpot. Specificity is the trust signal this product has before it has customers.",
+      "Do label every illustrative figure as illustrative, in place.",
+      "Do route internal links and public/ assets through withBase(); markdown links are rewritten at build."
     ],
     "donts": [
-      "Don't introduce a second accent hue. The system is ink plus brass; a status colour needs a deliberate decision, not a new Tailwind token.",
-      "Don't use rounded-full on anything that is not a seal or a status dot. No pills.",
-      "Don't put an eyebrow or kicker label above a heading.",
-      "Don't number sequential sections 01 / 02 / 03. The stages carry mono word marks (CONNECT / VERIFY / CERTIFY) because the words are the information.",
-      "Don't add a second shadow to a page, or use a zero-offset coloured glow as depth.",
-      "Don't set text lighter than ink-500 on paper or ink-400 on ink-950.",
-      "Don't use emoji or icon fonts. Icons are authored SVG in the seal's stroke language."
+      "Don't use teal as a decorative fill on a static container.",
+      "Don't use amber or green for anything that is not a clinical state.",
+      "Don't use rounded-full on anything that is not a loop node or a status dot.",
+      "Don't put an eyebrow or kicker above a heading, or number sections 01 / 02 / 03.",
+      "Don't add a coloured border-left to callouts or list items; use a hairline divider list instead.",
+      "Don't add a second shadow to a page.",
+      "Don't set text lighter than graphite-500 on light grounds or graphite-400 on graphite-950.",
+      "Don't claim benchmarking as available. It requires a critical mass of clinics and is described as forthcoming, always.",
+      "Don't publish pricing, ARR/CAC/LTV, or roadmap detail — those live in the strategy document."
     ]
   }
 }
