@@ -1,0 +1,44 @@
+name: PR checks
+
+# Both deploy workflows only run on push to main, so before this nothing
+# validated a pull request — a broken build only surfaced after it landed.
+# This runs the same type-check and build a deploy would, on the PR itself.
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-checks-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Runs `astro check` then `astro build`, so type errors fail the PR.
+      - name: Type-check and build (production target)
+        run: npm run build
+
+      # The Pages copy is served from a repo subpath and resolves URLs
+      # differently, so a green production build does not prove it works.
+      - name: Build (GitHub Pages target)
+        run: npm run build
+        env:
+          DEPLOY_TARGET: gh-pages
