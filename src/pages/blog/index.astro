@@ -11,31 +11,31 @@ const posts = allPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publ
   title="Insights"
   description="Notes from Datafore on analytics, marketing, CRM, and AI for allied health clinics in BC."
 >
-  <section class="border-b border-ink-200 bg-paper">
+  <section class="border-b border-graphite-200 bg-bone">
     <div class="mx-auto max-w-6xl px-6 py-16 md:py-20">
-      <h1 class="text-4xl font-bold tracking-tight text-ink-950 md:text-5xl">Insights</h1>
-      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-600">
+      <h1 class="text-4xl font-bold tracking-tight text-graphite-950 md:text-5xl">Insights</h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-graphite-600">
         Notes from Datafore on analytics, marketing, CRM, and AI for allied health clinics.
       </p>
     </div>
   </section>
 
   <section class="mx-auto max-w-4xl px-6 py-16">
-    {posts.length === 0 && <p class="text-ink-600">New posts are on the way.</p>}
-    <ul class="divide-y divide-ink-200 border-t border-ink-200">
+    {posts.length === 0 && <p class="text-graphite-600">New posts are on the way.</p>}
+    <ul class="divide-y divide-graphite-200 border-t border-graphite-200">
       {
         posts.map((post) => (
           <li class="py-10 first:pt-0">
             <a href={withBase(`/blog/${post.id}/`)} class="group">
-              <p class="font-mono text-xs uppercase tracking-wide text-ink-500">
+              <p class="font-mono text-xs uppercase tracking-wide text-graphite-500">
                 {post.data.publishDate.toLocaleDateString("en-CA", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
                 })}
               </p>
-              <h2 class="mt-2 text-2xl font-semibold text-ink-950 group-hover:text-seal-600">{post.data.title}</h2>
-              <p class="mt-2 leading-relaxed text-ink-600">{post.data.description}</p>
+              <h2 class="mt-2 text-2xl font-semibold text-graphite-950 group-hover:text-vital-700">{post.data.title}</h2>
+              <p class="mt-2 leading-relaxed text-graphite-600">{post.data.description}</p>
             </a>
           </li>
         ))

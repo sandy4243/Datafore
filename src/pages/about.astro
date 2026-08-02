@@ -1,21 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import LoopMark from "../components/LoopMark.astro";
 import { withBase } from "../lib/paths";
-import Seal from "../components/Seal.astro";
 ---
 
 <Layout
   title="About"
-  description="Datafore is a growth and operations platform company based in Burnaby, BC, building for allied health clinics."
+  description="Datafore is a clinic intelligence company based in Burnaby, BC, building the layer between what clinic data shows and what actually gets done."
 >
-  <section class="border-b border-ink-200 bg-paper">
+  <section class="border-b border-graphite-200 bg-bone">
     <div class="mx-auto max-w-6xl px-6 py-16 md:py-20">
-      <h1 class="text-4xl font-bold tracking-tight text-ink-950 md:text-5xl">About Datafore</h1>
-      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-600">
-        Datafore started as a data and analytics consultancy, helping organizations get more value from the data
-        they already had. That work — across data operations, governance, and cloud platforms — is what convinced
-        us allied health needed a platform of its own: analytics, marketing technology, CRM enablement, and applied
-        AI, built together rather than stitched from generic tools.
+      <h1 class="text-4xl font-bold tracking-tight text-graphite-950 md:text-5xl">About Datafore</h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-graphite-600">
+        Datafore began as a data and analytics consultancy, helping organisations get value out of data they
+        already had. Doing that work repeatedly made one gap obvious: the reporting was rarely the hard part.
+        Getting anything to happen as a result was.
       </p>
     </div>
   </section>
@@ -23,54 +22,61 @@ import Seal from "../components/Seal.astro";
   <section class="mx-auto max-w-6xl px-6 py-16">
     <div class="grid gap-12 md:grid-cols-2">
       <div>
-        <h2 class="text-2xl font-semibold text-ink-950">Why allied health</h2>
-        <p class="mt-4 leading-relaxed text-ink-600">
-          Allied health clinics — physiotherapy, chiropractic, massage therapy, occupational therapy, and the
-          disciplines around them — run on scheduling, billing, and marketing tools that were never designed
-          around each other. That's a gap we've seen consistently, and it's one Datafore is built to close,
-          starting close to home in British Columbia.
+        <h2 class="text-2xl font-semibold text-graphite-950">Why allied health</h2>
+        <p class="mt-4 leading-relaxed text-graphite-600">
+          Private clinics — physiotherapy, chiropractic, massage therapy, mental health — sit on years of detailed
+          operational data and get almost no strategic use out of it. Their software was built to run the day, not
+          to answer how the business is doing. Owners end up reconstructing the picture by hand, if at all, while a
+          meaningful share of revenue leaves through no-shows, gaps and quiet patient churn.
+        </p>
+        <p class="mt-4 leading-relaxed text-graphite-600">
+          It's a gap that shows up in every clinic we talk to, and it's specific enough to solve properly rather
+          than generically.
         </p>
       </div>
       <div>
-        <h2 class="text-2xl font-semibold text-ink-950">Where we're based</h2>
-        <p class="mt-4 leading-relaxed text-ink-600">
-          Datafore Analytics Inc. is based in Burnaby, BC. We're building the platform in close collaboration with
-          founding clinics across the province before expanding further.
+        <h2 class="text-2xl font-semibold text-graphite-950">How we think about it</h2>
+        <p class="mt-4 leading-relaxed text-graphite-600">
+          Practitioners already run a disciplined loop: assess, treat, reassess. Nobody would accept a course of
+          treatment that skipped the reassessment. Yet that's exactly how clinic reporting usually works — a number
+          is produced, and nothing follows from it.
+        </p>
+        <p class="mt-4 leading-relaxed text-graphite-600">
+          Datafore applies the clinical method to the clinic itself. That's the whole idea, and everything in the
+          product is downstream of it.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="border-t border-ink-200 bg-paper-dim">
+  <section class="border-t border-graphite-200 bg-bone-dim">
     <div class="mx-auto max-w-6xl px-6 py-16">
-      <p class="credential-label text-seal-600">Team</p>
-      <div class="mt-6 flex flex-col items-start gap-6 rounded-lg border border-ink-200 bg-white p-6 sm:flex-row sm:items-center">
+      <p class="measure-label text-vital-700">Team</p>
+      <div class="mt-6 flex flex-col items-start gap-6 rounded-lg border border-graphite-200 bg-white p-6 sm:flex-row sm:items-center">
         <img src={withBase("/images/sandeep-mehra.jpg")} alt="Sandeep Mehra" class="h-28 w-28 rounded-full object-cover" />
         <div class="flex-1">
           <div class="flex items-center gap-3">
-            <h3 class="text-xl font-semibold text-ink-950">Sandeep Mehra</h3>
-            <Seal size={26} class="text-seal-500">
-              <path d="M42 36 L42 64 M42 36 C54 36 60 42 60 50 C60 58 54 64 42 64" />
-            </Seal>
+            <h3 class="text-xl font-semibold text-graphite-950">Sandeep Mehra</h3>
+            <LoopMark size={24} active={3} class="text-vital-600" />
           </div>
-          <p class="font-mono text-xs uppercase tracking-wide text-seal-600">Product Manager, Analytics</p>
+          <p class="text-sm font-medium text-vital-700">Product Manager, Analytics</p>
           <a
             href="https://www.linkedin.com/in/smehra2/"
             target="_blank"
             rel="noopener noreferrer"
-            class="mt-2 inline-block text-sm font-medium text-ink-600 underline decoration-ink-300 underline-offset-4 hover:text-seal-600"
+            class="mt-2 inline-block text-sm font-medium text-graphite-600 underline decoration-graphite-300 underline-offset-4 hover:text-vital-700"
           >
             Connect on LinkedIn
           </a>
         </div>
       </div>
-      <p class="mt-8 max-w-xl text-ink-600">
-        We're a small team today, and growing. If you want to help build a growth and operations platform for
-        allied health in BC, we'd like to hear from you.
+      <p class="mt-8 max-w-xl leading-relaxed text-graphite-600">
+        We're based in Burnaby, BC, and small by design at this stage — building alongside founding clinics across
+        the province before going wider. If that's the kind of problem you want to work on, get in touch.
       </p>
       <a
         href={withBase("/contact/")}
-        class="mt-6 inline-block rounded bg-ink-950 px-6 py-3 font-mono text-sm uppercase tracking-[0.08em] text-white transition-colors hover:bg-seal-700"
+        class="mt-6 inline-block rounded bg-vital-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-vital-700"
       >
         Get in touch
       </a>

@@ -1,5 +1,5 @@
 ---
-import Seal from "./Seal.astro";
+import LoopMark from "./LoopMark.astro";
 import { withBase } from "../lib/paths";
 
 const nav = [
@@ -12,13 +12,11 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
 const isCurrent = (href: string) => (href.replace(/\/+$/, "") || "/") === currentPath;
 ---
 
-<header class="sticky top-0 z-50 border-b border-ink-200/70 bg-paper/90 backdrop-blur">
+<header class="sticky top-0 z-50 border-b border-graphite-200 bg-bone/90 backdrop-blur">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-    <a href={withBase("/")} class="flex items-center gap-2.5 text-ink-950">
-      <Seal size={30} class="shrink-0 text-seal-600">
-        <path d="M42 36 L42 64 M42 36 C54 36 60 42 60 50 C60 58 54 64 42 64" />
-      </Seal>
-      <span class="font-display text-lg font-semibold tracking-tight">Datafore</span>
+    <a href={withBase("/")} class="flex items-center gap-2.5 text-graphite-950">
+      <LoopMark size={26} active={1} class="shrink-0 text-vital-600" />
+      <span class="font-display text-lg font-bold tracking-tight">Datafore</span>
     </a>
 
     <nav class="hidden items-center gap-8 md:flex">
@@ -27,8 +25,8 @@ const isCurrent = (href: string) => (href.replace(/\/+$/, "") || "/") === curren
           <a
             href={item.href}
             class:list={[
-              "font-mono text-[0.8125rem] uppercase tracking-[0.08em] transition-colors hover:text-seal-600",
-              isCurrent(item.href) ? "text-seal-600" : "text-ink-600",
+              "text-sm font-medium transition-colors hover:text-vital-700",
+              isCurrent(item.href) ? "text-vital-700" : "text-graphite-600",
             ]}
           >
             {item.label}
@@ -39,31 +37,31 @@ const isCurrent = (href: string) => (href.replace(/\/+$/, "") || "/") === curren
 
     <a
       href={withBase("/contact/")}
-      class="hidden items-center gap-2 rounded border border-ink-950 px-5 py-2.5 font-mono text-[0.8125rem] uppercase tracking-[0.08em] text-ink-950 transition-colors hover:border-seal-600 hover:text-seal-600 md:inline-flex"
+      class="hidden rounded bg-vital-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-vital-700 md:inline-block"
     >
-      Get in touch
+      Request a snapshot
     </a>
 
     <details class="md:hidden">
-      <summary class="list-none rounded-md p-2 text-ink-700 hover:bg-ink-100">
+      <summary class="list-none rounded p-2 text-graphite-700 hover:bg-graphite-100">
         <span class="sr-only">Menu</span>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
         </svg>
       </summary>
-      <div class="absolute inset-x-0 top-full flex flex-col gap-1 border-b border-ink-200 bg-paper p-4 shadow-sm">
+      <div class="absolute inset-x-0 top-full flex flex-col gap-1 border-b border-graphite-200 bg-bone p-4 shadow-sm">
         {
           nav.map((item) => (
-            <a href={item.href} class="rounded-md px-3 py-2 font-mono text-sm uppercase tracking-wide text-ink-700 hover:bg-ink-100">
+            <a href={item.href} class="rounded px-3 py-2 text-sm font-medium text-graphite-700 hover:bg-graphite-100">
               {item.label}
             </a>
           ))
         }
         <a
           href={withBase("/contact/")}
-          class="mt-2 rounded border border-ink-950 px-3 py-2 text-center font-mono text-sm uppercase tracking-wide text-ink-950"
+          class="mt-2 rounded bg-vital-600 px-3 py-2 text-center text-sm font-semibold text-white"
         >
-          Get in touch
+          Request a snapshot
         </a>
       </div>
     </details>

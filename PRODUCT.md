@@ -8,65 +8,88 @@ web
 
 ## Stack
 
-Astro (static output) + Tailwind CSS v4. Confirmed in an earlier session; not re-asked.
+Astro (static output) + Tailwind CSS v4 for the marketing site. The product itself runs on AWS `ca-central-1`
+(S3 + Glue + Athena, dbt, RDS PostgreSQL, FastAPI, Evidence.dev, Lambda → HubSpot).
 
 ## Users
 
-Owners and operations leads of allied health clinics in British Columbia — physiotherapy, chiropractic, massage
-therapy, occupational therapy, speech-language pathology, kinesiology, acupuncture/TCM, counselling therapy,
-podiatry, and dietetics. Often running multi-practitioner or multi-location practices, juggling scheduling,
-billing, and clinical work with no dedicated analytics staff.
+Owners and operations leads of Canadian private allied health clinics — physiotherapy, chiropractic, massage
+therapy, and mental health — running on practice management systems (Jane App, Cliniko, Owl Practice). Typically
+solo to multi-location, with no analyst on staff and no business intelligence beyond what the PMS reports.
 
 ## Product Purpose
 
-Datafore is building a growth and operations platform purpose-made for allied health clinics, starting in BC, with
-four connected pillars: (1) **Analytics** — turning scheduling, billing, and outcomes data into operating insight;
-(2) **Marketing Technology** — tools to help clinics attract and retain patients; (3) **CRM Enablement** —
-structured patient/lead relationship management built for how clinics actually work; (4) **AI Technology
-Partner** — applied AI across the above, not a bolted-on chatbot. Analytics is the initial wedge; the other three
-are confirmed as part of the platform's direction, not yet built out in equal depth.
+A PMS-agnostic **Clinic Intelligence Layer** that sits above practice management systems and the clinic's CRM.
+It turns raw clinic data into revenue recovery, automated patient reactivation, and predictive operational
+insight — and then acts on it, rather than stopping at a dashboard.
 
 ## Positioning
 
-Not a generic BI tool, not a generic marketing/CRM SaaS adapted to healthcare — one connected platform built from
-the ground up around how allied health clinics actually run: multi-discipline rosters, mixed payers (MSP, extended
-health, ICBC, WorkSafeBC, private pay), patient acquisition and retention, and owners who think in clinical terms,
-not spreadsheet or ad-platform terms.
+**"PMS tools are systems of record. AI is an engine of analysis. We are the system of action."**
+
+The differentiator is the closed loop, not the reporting. Raw analytics say *what* is wrong; Datafore says what
+to do and does it: detect a 90-day patient gap → create the CRM reactivation task → trigger the sequence →
+track the resulting booking → report the ROI. Three durable advantages:
+
+1. **Benchmarking network effect** — once enough clinics are on the platform, peer comparison becomes possible
+   in a way a single PMS vendor cannot offer (privacy and competitive conflicts) and a new entrant cannot
+   quickly replicate. *Not yet true — requires ~20–30 clinics. Must be described as forthcoming, never as live.*
+2. **Workflow integration lock-in** — the closed loop becomes the clinic's patient communication engine.
+3. **Compliance-first architecture** — Canadian data residency, PIPEDA/PIPA/PHIPA by design, de-identified
+   patient analytics. Most vendors won't do this properly for small Canadian clinics.
+
+Datafore is the neutral aggregator *above* all PMS tools, not a competitor to any one of them.
 
 ## Operating Context
 
-Clinics currently stitch together spreadsheet exports from separate scheduling and billing systems to get a
-performance picture. This site is the marketing/content site only — the analytics product itself is in active
-development with a small group of founding BC clinics; there is no live product UI to link to yet.
+Clinics collect large volumes of data and get effectively zero strategic intelligence from it. PMS reporting is
+operational, not strategic. No-shows, scheduling gaps, and patient churn cost an estimated **10–20% of revenue**.
+Marketing spend is untracked against actual bookings. No cross-clinic benchmarking exists in Canada today.
+
+Integration reality: Jane App via nightly S3 CSV export; Cliniko via REST API polling; Owl Practice via manual
+CSV export initially. Activation happens through HubSpot (contacts, deals, workflows, lists).
+
+Go-to-market is Vancouver/BC first, then Canada-wide, then US, then international. A free **"Practice Health
+Snapshot"** is the intended top-of-funnel offer.
 
 ## Capabilities and Constraints
 
-- Static site, deployed to S3 (no server) — no functional contact form; contact uses mailto/tel links.
-- No confirmed booking link (e.g. Calendly) or social profile URLs yet — do not fabricate them.
-- No real customer testimonials, logos, or case studies exist yet — do not invent them. Any illustrative product
-  data (e.g. sample dashboards) must be clearly a design illustration, not a claim of real customers or figures.
+- Marketing site is static, deployed to S3 and mirrored to a GitHub Pages review copy. No server, so no
+  functional forms — contact is via `mailto:`/`tel:`.
+- No confirmed booking link or social profile URLs. Do not fabricate them.
+- **Pre-revenue and pre-customer.** No clinics onboarded, no testimonials, no logos, no case studies, and no
+  benchmark dataset. None of these may be implied to exist.
+- The benchmarking capability is explicitly a future network effect and must be described in future tense.
+- Product is in active development against a 90-day technical roadmap; the platform is not generally available.
+- Illustrative figures on the site (e.g. a sample dashboard) must be labelled as illustrative in place.
+
+### Internal-only — do not publish without explicit approval
+
+Pricing tiers and setup fees, ARR/CAC/LTV/margin targets, the "moat" framing in strategy language, grant
+applications (IRAP, Infoway, SR&ED), database schemas, and the internal roadmap. These live in the strategy
+document, not on the marketing site.
 
 ## Brand Commitments
 
-Company name "Datafore" / "Datafore Analytics Inc." is fixed. Existing wordmark and icon are open to revisiting as
-part of this redesign (explicitly confirmed by the user). Contact facts are real and fixed: info@datafore.ca,
-+1 778 700 1733, 4353 Halifax Street, Burnaby, BC. Founder/team member Sandeep Mehra, Product Manager, Analytics
-(linkedin.com/in/smehra2), is real and should stay attributed correctly.
+Company name "Datafore" / "Datafore Analytics Inc." is fixed. Contact facts are real and fixed:
+info@datafore.ca, +1 778 700 1733, 4353 Halifax Street, Burnaby, BC. Sandeep Mehra, Product Manager, Analytics
+(linkedin.com/in/smehra2), is real and should stay attributed correctly. The wordmark is open to revision.
 
 ## Evidence on Hand
 
-None yet — pre-launch. No customers, logos, press, or benchmark data exist. Any demonstration data used in the
-design must be labeled illustrative/synthetic.
+None yet — pre-launch. The strongest honest proof available is the specificity of the mechanism itself (named
+PMS integrations, the closed-loop workflow, the compliance architecture), not customer outcomes. Any
+demonstration data must be labelled illustrative.
 
 ## Product Principles
 
-- Speak like clinicians, not like a generic dashboard vendor: the product's core idea is turning the measurement
-  instinct allied health professionals already use on patients back onto the clinic itself.
-- Earn trust through precision and restraint, not hype — the audience is professionally skeptical and handles
-  sensitive data.
-- Never claim capabilities, integrations, or results the product doesn't have yet; this is a pre-launch/early
-  access positioning, not a "buy now" SaaS site.
+- Sell the loop, not the dashboard. Every claim should point at an action the platform takes, not a chart it
+  draws.
+- Be concrete where competitors are vague: name the systems, name the workflow, name the leak.
+- Never claim capabilities, customers, or benchmark data that do not exist yet. The audience is professionally
+  skeptical and handles sensitive information.
+- Compliance is a feature, stated plainly, not buried.
 
 ## Accessibility & Inclusion
 
-No product-specific requirement established beyond standard WCAG AA (contrast, keyboard focus, semantic markup).
+WCAG AA — contrast, keyboard focus, semantic markup. No product-specific requirement beyond that.

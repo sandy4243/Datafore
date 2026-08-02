@@ -1,26 +1,27 @@
 ---
-import Seal from "./Seal.astro";
+import LoopMark from "./LoopMark.astro";
 import { withBase } from "../lib/paths";
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-ink-800 bg-ink-950 text-ink-300">
+<footer class="border-t border-graphite-800 bg-graphite-950 text-graphite-300">
   <div class="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-4">
     <div class="md:col-span-2">
       <a href={withBase("/")} class="flex items-center gap-2.5 text-white">
-        <Seal size={28} class="shrink-0 text-seal-400">
-          <path d="M42 36 L42 64 M42 36 C54 36 60 42 60 50 C60 58 54 64 42 64" />
-        </Seal>
-        <span class="font-display text-lg font-semibold tracking-tight">Datafore</span>
+        <LoopMark size={26} active={1} class="shrink-0 text-vital-300" />
+        <span class="font-display text-lg font-bold tracking-tight">Datafore</span>
       </a>
-      <p class="mt-4 max-w-sm text-sm leading-relaxed text-ink-400">
-        Datafore is a growth and operations platform for allied health clinics, starting in British Columbia —
-        analytics, marketing technology, CRM enablement, and applied AI, built around how clinics actually run.
+      <p class="mt-4 max-w-sm text-sm leading-relaxed text-graphite-400">
+        A clinic intelligence layer for Canadian allied health practices. We sit above your practice management
+        system and close the loop between what your data shows and what actually gets done.
+      </p>
+      <p class="mt-4 font-mono text-xs uppercase tracking-wide text-graphite-500">
+        Data held in Canada &middot; ca-central-1
       </p>
     </div>
 
     <div>
-      <p class="credential-label text-ink-400">Explore</p>
+      <p class="measure-label text-graphite-400">Explore</p>
       <ul class="mt-4 space-y-2 text-sm">
         <li><a href={withBase("/platform/")} class="hover:text-white">Platform</a></li>
         <li><a href={withBase("/about/")} class="hover:text-white">About</a></li>
@@ -30,7 +31,7 @@ const year = new Date().getFullYear();
     </div>
 
     <div>
-      <p class="credential-label text-ink-400">Get in touch</p>
+      <p class="measure-label text-graphite-400">Get in touch</p>
       <ul class="mt-4 space-y-2 text-sm">
         <li><a href="mailto:info@datafore.ca" class="hover:text-white">info@datafore.ca</a></li>
         <li><a href="tel:+17787001733" class="hover:text-white">+1 778 700 1733</a></li>
@@ -39,8 +40,8 @@ const year = new Date().getFullYear();
     </div>
   </div>
 
-  <div class="border-t border-ink-800">
-    <div class="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-6 font-mono text-xs uppercase tracking-wide text-ink-400 sm:flex-row sm:items-center sm:justify-between">
+  <div class="border-t border-graphite-800">
+    <div class="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-6 font-mono text-xs uppercase tracking-wide text-graphite-400 sm:flex-row sm:items-center sm:justify-between">
       <p>&copy; {year} Datafore Analytics Inc.</p>
       <a href={withBase("/privacy/")} class="hover:text-white">Privacy Policy</a>
     </div>
