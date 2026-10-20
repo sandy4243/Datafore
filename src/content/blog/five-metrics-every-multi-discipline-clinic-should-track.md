@@ -5,24 +5,22 @@ publishDate: 2026-07-08
 author: "Sandeep Mehra"
 ---
 
-If you're not sure where to start with clinic analytics, these five are a reasonable first pass — simple enough to
-track today, and useful enough to keep an eye on permanently.
+Not sure where to start with clinic analytics? These five are simple enough to track today and useful enough to
+keep watching.
 
-1. **Utilization by practitioner and room.** Not just how many visits happened, but how much of available capacity
-   was actually used. This is usually the fastest way to spot where a clinic has room to grow without adding staff.
+1. **Utilization by practitioner and room.** How much of the available time was booked, not just how many visits
+   happened. It's usually the fastest way to find room to grow without hiring.
 
-2. **Cancellation and no-show rate.** A rising trend here is often the earliest signal of a scheduling, reminder, or
-   patient-experience problem — well before it shows up in revenue.
+2. **Cancellation and no-show rate.** A rising trend is often the first sign of a scheduling, reminder or
+   patient-experience problem, well before it shows up in revenue.
 
-3. **Revenue per practitioner, by payer.** Aggregate revenue hides a lot. Breaking it down by practitioner and payer
-   (MSP, extended health, ICBC, WorkSafeBC, private pay) shows where a clinic is actually resilient versus exposed.
+3. **Revenue per practitioner, by payer.** Totals hide a lot. Splitting by practitioner and payer (MSP, extended
+   health, ICBC, WorkSafeBC, private pay) shows where a clinic is resilient and where it's exposed.
 
-4. **New versus returning patient mix.** A clinic that's healthy on total volume but losing returning patients is
-   often masking a retention problem that compounds over time.
+4. **New versus returning patients.** Healthy total volume can hide a retention problem that grows every month.
 
-5. **Time to bill and outstanding claims.** Slow billing cycles quietly tie up cash flow. Tracking this consistently
-   — not just when something goes wrong — makes it much easier to catch early.
+5. **Time to bill and outstanding claims.** Slow billing ties up cash. Track it every month, not only when something
+   goes wrong.
 
-None of these require a data team to track. What they do require is data from your scheduling and billing systems
-actually being pulled together in one place, consistently, without someone rebuilding the report by hand every
-month. That's the problem Datafore is built to solve for allied health clinics in BC.
+None of these need a data team. They do need your scheduling and billing data in one place, every month, without
+someone rebuilding the report by hand. That's what Datafore is built to do for allied health clinics in BC.

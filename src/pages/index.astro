@@ -1,73 +1,72 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { withBase } from "../lib/paths";
-import SnapshotExcerpt from "../components/SnapshotExcerpt.astro";
 import EngagementCycle from "../components/EngagementCycle.astro";
 import FounderNote from "../components/FounderNote.astro";
 
-const decisions = [
-  "Which patients to bring back into care, and when",
-  "Where clinical capacity is going unused",
-  "Which growth investments are actually paying back",
+const questions = [
+  "Which patients have stopped coming, and who should call them?",
+  "Which hours go unbooked, and for which practitioners?",
+  "Is your marketing bringing in patients?",
 ];
 
 const outcomes = [
   {
-    title: "Patients who stay in care",
-    body: "Lapsing patients are noticed early and re-engaged before they are lost, so continuity of care and revenue hold together.",
+    title: "More patients finish their care",
+    body: "Patients who stop booking are flagged early, while there is still time to bring them back.",
   },
   {
-    title: "A fuller, steadier schedule",
-    body: "See where capacity goes unused — by practitioner, day and service — and act on it while the week can still be saved.",
+    title: "A fuller schedule",
+    body: "See open time by practitioner, day and service, early enough to fill it.",
   },
   {
-    title: "Revenue you can explain",
-    body: "Understand what each service, payer and practitioner contributes, and where receivables are quietly ageing.",
+    title: "Revenue you understand",
+    body: "Know what each service, payer and practitioner brings in, and which invoices are overdue.",
   },
   {
-    title: "Growth decided on evidence",
-    body: "Tie marketing spend, hiring and expansion to the bookings and outcomes they actually produce.",
+    title: "Spending that pays back",
+    body: "Judge marketing, hiring and new locations by the bookings they produce.",
   },
 ];
 
 const engagement = [
   {
     name: "Diagnose",
-    body: "A Practice Health Snapshot built from your own data: utilisation, patient attrition, revenue mix, and where value is leaking.",
+    body: "A Practice Health Snapshot: a review of your own data that shows where patients, hours and revenue are slipping.",
   },
   {
     name: "Prioritise",
-    body: "Together we agree the few measures that matter most for your clinic, and targets you can hold us to.",
+    body: "We agree on the few numbers that matter most to your clinic, with targets you can hold us to.",
   },
   {
     name: "Activate",
-    body: "Datafore connects to the systems you already run, so findings become coordinated follow-up rather than another report.",
+    body: "Datafore connects to your systems and turns each finding into a follow-up task for your team.",
   },
   {
     name: "Review",
-    body: "Regular reviews of what moved, what didn't, and what to do next — the same discipline your practitioners apply to care.",
+    body: "We meet regularly to look at what improved, what didn't, and what to try next.",
   },
 ];
 
 const principles = [
   {
     title: "Held in Canada",
-    body: "Clinic data is designed to be stored and processed in Canadian data centres.",
+    body: "Designed to store and process clinic data in Canadian data centres.",
   },
   {
     title: "Private by design",
-    body: "Analysis runs on de-identified records; names and contact details stay out of the analytics layer.",
+    body: "Analysis runs on de-identified records. Names and contact details stay out.",
   },
   {
     title: "Accountable AI",
-    body: "Every recommendation traces back to the data behind it, and people decide what happens next.",
+    body: "Every recommendation shows the data behind it. People make the decisions.",
   },
 ];
 ---
 
 <Layout
   title="Datafore"
-  description="Datafore helps Canadian allied health clinics turn the data they already hold into clear decisions on retention, capacity and growth — and makes sure those decisions are acted on."
+  description="Datafore shows allied health clinics in Canada where patients, hours and revenue are slipping away, and helps them act on it."
 >
   <!-- Hero -->
   <section class="bg-navy-950 text-navy-200">
@@ -77,8 +76,8 @@ const principles = [
           Clinic intelligence for the business of care.
         </h1>
         <p class="mt-8 max-w-[58ch] text-lg leading-relaxed md:text-xl">
-          Datafore helps Canadian allied health clinics turn the data they already hold into clear decisions on
-          retention, capacity and growth — and makes sure those decisions are acted on.
+          Datafore shows allied health clinics where patients, hours and revenue are slipping away, and helps them act
+          on it.
         </p>
         <div class="mt-11 flex flex-wrap items-center gap-x-8 gap-y-4">
           <a
@@ -91,16 +90,16 @@ const principles = [
             href={withBase("/platform/")}
             class="font-medium text-white underline decoration-signal-300 decoration-1 underline-offset-[6px] hover:decoration-2"
           >
-            How we work with clinics
+            How it works
           </a>
         </div>
       </div>
 
       <aside class="settle-late self-end border-t border-navy-700 pt-6 lg:col-span-4 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
-        <h2 class="font-sans text-sm font-semibold tracking-normal text-white">The decisions we help leaders make</h2>
+        <h2 class="font-sans text-sm font-semibold tracking-normal text-white">Questions we answer</h2>
         <ul class="mt-5 divide-y divide-navy-800">
           {
-            decisions.map((d) => (
+            questions.map((d) => (
               <li class="py-4 font-display text-xl leading-snug text-navy-100">{d}</li>
             ))
           }
@@ -113,44 +112,26 @@ const principles = [
   <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
     <div class="grid gap-10 lg:grid-cols-12">
       <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem] lg:col-span-5">
-        Allied health clinics are rich in data and short on insight.
+        Your practice software records everything and explains nothing.
       </h2>
       <div class="space-y-6 text-lg leading-relaxed text-graphite-700 lg:col-span-6 lg:col-start-7">
         <p>
-          Practice management systems record every appointment, invoice and cancellation. They were built to run
-          the day, not to steer the business — so the decisions that shape a clinic's future, from hiring and hours
-          to marketing and new locations, are made on instinct and month-end spreadsheets.
+          Jane, Cliniko and Owl Practice log every appointment, invoice and cancellation. They were built for
+          booking and billing, so decisions on hiring, hours and marketing get made on instinct and month-end
+          spreadsheets.
         </p>
         <p>
-          The cost is quiet but real. No-shows, unfilled hours and patients who simply stop coming are estimated to
-          cost clinics between ten and twenty percent of their revenue — and with it, continuity of care for the
-          people they serve.
+          Meanwhile, no-shows, empty slots and patients who stop coming are estimated to cost clinics 10 to 20 percent
+          of their revenue.
         </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- What a Snapshot shows -->
-  <section class="bg-mist">
-    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-      <div class="grid gap-10 lg:grid-cols-12">
-        <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem] lg:col-span-5">What your data is already telling you.</h2>
-        <p class="text-lg leading-relaxed text-graphite-700 lg:col-span-6 lg:col-start-7">
-          Every engagement begins with a Practice Health Snapshot: a plain-language read of your own clinic's data,
-          with findings ranked by what they are worth and a first step for each. The excerpt below uses invented
-          figures to show the format.
-        </p>
-      </div>
-      <div class="mt-14">
-        <SnapshotExcerpt />
       </div>
     </div>
   </section>
 
   <!-- Outcomes -->
-  <section>
+  <section class="bg-mist">
     <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-      <h2 class="max-w-[22ch] text-[2rem] leading-[1.12] md:text-[2.75rem]">What clinic leaders gain.</h2>
+      <h2 class="max-w-[22ch] text-[2rem] leading-[1.12] md:text-[2.75rem]">What changes for your clinic.</h2>
       <div class="mt-16 grid gap-x-16 gap-y-12 md:grid-cols-2">
         {
           outcomes.map((o) => (
@@ -169,14 +150,12 @@ const principles = [
     <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
       <blockquote class="max-w-5xl">
         <p class="font-display text-[1.875rem] leading-[1.2] text-white md:text-[2.75rem] lg:text-[3.25rem]">
-          Practice software is built to record care. Clinic leaders need something that helps them run the
-          business of care.
+          Practice software records care. Clinic owners need help running the business.
         </p>
       </blockquote>
       <p class="mt-10 max-w-[62ch] text-lg leading-relaxed">
-        That is the gap Datafore exists to close: an intelligence layer above the systems you already use, which
-        doesn't stop at a report. It turns findings into coordinated action, and shows you what that action
-        returned.
+        Datafore sits on top of the software you already use. It turns what it finds into follow-up for your team,
+        then shows what each follow-up brought in.
       </p>
     </div>
   </section>
@@ -185,11 +164,10 @@ const principles = [
   <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
     <div class="grid gap-10 lg:grid-cols-12">
       <div class="lg:col-span-5">
-        <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem]">A partner, not another dashboard.</h2>
+        <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem]">How we work with you.</h2>
       </div>
       <p class="text-lg leading-relaxed text-graphite-700 lg:col-span-6 lg:col-start-7">
-        We work alongside clinic leaders in a deliberate sequence, the way a good clinician works with a patient:
-        understand first, agree what matters, act, and then check honestly whether it worked.
+        The way a good clinician treats a patient: assess, agree a plan, act, then reassess.
       </p>
     </div>
 
@@ -215,18 +193,17 @@ const principles = [
     <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
       <FounderNote heading="A note from our founder.">
         <p>
-          Datafore began as a data and analytics consultancy. Again and again I saw organisations with good data and
-          good reports, and very little changing because of them. The reporting was rarely the hard part. Acting on
-          it was.
+          Datafore began as a data and analytics consultancy. I kept seeing the same thing: good data, good reports,
+          and very little changing as a result.
         </p>
         <p>
-          Allied health clinics feel that gap more than most. Their owners are clinicians first, running a business on
-          software built to record care rather than to steer it. They deserve the quality of insight large health
-          systems take for granted, and a partner who stays until something actually improves.
+          Allied health clinics feel this more than most. Their owners are clinicians first, running a business on
+          software built for booking and billing. They deserve the kind of insight large health systems take for
+          granted.
         </p>
         <p>
-          That is the work I started Datafore to do, beginning here in British Columbia. If it sounds like your
-          clinic, I would like to hear from you.
+          I started Datafore to give them that, beginning here in British Columbia. If that sounds like your clinic,
+          I'd like to hear from you.
         </p>
         <a
           slot="after"
@@ -244,16 +221,16 @@ const principles = [
     <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
       <div class="grid gap-10 lg:grid-cols-12">
         <div class="lg:col-span-5">
-          <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem]">Built to be trusted with patient data.</h2>
+          <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem]">Built for patient data.</h2>
           <p class="mt-6 max-w-[48ch] text-lg leading-relaxed text-graphite-700">
-            Health information is the most sensitive thing a clinic holds. Stewardship is designed into how Datafore
-            works, not added as a policy afterwards.
+            Health information is the most sensitive thing a clinic holds. Protecting it is part of Datafore's design
+            from the start.
           </p>
           <a
             href={withBase("/trust/")}
             class="mt-8 inline-block font-medium text-navy-800 underline decoration-signal-500 underline-offset-[6px] hover:decoration-2"
           >
-            Our approach to trust and governance
+            How we protect clinic data
           </a>
         </div>
         <div class="grid gap-10 sm:grid-cols-3 lg:col-span-6 lg:col-start-7 lg:gap-8">
@@ -275,10 +252,10 @@ const principles = [
     <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
       <div class="grid gap-10 lg:grid-cols-12 lg:items-end">
         <div class="lg:col-span-7">
-          <h2 class="text-[2rem] leading-[1.12] text-white md:text-[3rem]">Shape Datafore with us.</h2>
+          <h2 class="text-[2rem] leading-[1.12] text-white md:text-[3rem]">Be one of our first clinics.</h2>
           <p class="mt-6 max-w-[56ch] text-lg leading-relaxed">
-            We are inviting a small number of allied health clinics in British Columbia to join our founding cohort,
-            beginning with a complimentary Practice Health Snapshot of your own data.
+            We're inviting a small group of BC allied health clinics to work with us first, starting with a free
+            Practice Health Snapshot of your own data.
           </p>
         </div>
         <div class="flex flex-wrap items-center gap-x-8 gap-y-4 lg:col-span-5 lg:justify-end">
@@ -286,7 +263,7 @@ const principles = [
             href={withBase("/contact/?topic=snapshot#message")}
             class="rounded-sm bg-white px-6 py-3.5 font-medium text-navy-950 transition-colors hover:bg-navy-100"
           >
-            Request a Practice Health Snapshot
+            Request a Snapshot
           </a>
         </div>
       </div>
