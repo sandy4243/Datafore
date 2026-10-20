@@ -3,10 +3,17 @@ import { unified } from "@astrojs/markdown-remark";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
-// The production build is served from the domain root (S3 -> www.datafore.ca).
-// `DEPLOY_TARGET=gh-pages` builds the review copy served from the repo subpath.
+// Two build targets:
+//   (default)              served from the root of https://datafore.ca
+//   DEPLOY_TARGET=gh-pages review copy served from the repo subpath on github.io
+// The apex is canonical: the previous Dorik site redirected www -> apex, so
+// keeping that preserves every existing canonical URL and inbound link.
 const isPagesPreview = process.env.DEPLOY_TARGET === "gh-pages";
 const base = isPagesPreview ? "/Datafore" : "/";
+
+// Astro does not apply `base` to redirect targets, so it is added here —
+// without it the preview build points outside its subpath and 404s.
+const withBase = (path) => (base === "/" ? path : base + path);
 
 /**
  * Markdown authors write ordinary root-relative links like `[contact](/contact/)`,
@@ -34,18 +41,31 @@ function rehypeBasePaths() {
 }
 
 export default defineConfig({
-  site: isPagesPreview ? "https://sandy4243.github.io" : "https://www.datafore.ca",
+  site: isPagesPreview ? "https://sandy4243.github.io" : "https://datafore.ca",
   base,
   integrations: [sitemap()],
-  redirects: {
-    // Post renamed when the site moved from an "analytics" framing to the
-    // system-of-action thesis. Keep the published URL alive.
-    // Astro does not apply `base` to redirect targets, so it is added here —
-    // without it the preview build points outside its subpath and 404s.
-    "/blog/why-allied-health-needs-purpose-built-analytics": `${
-      base === "/" ? "" : base
-    }/blog/the-gap-between-knowing-and-doing`,
-  },
+  // GitHub Pages cannot issue real 301s, so these become meta-refresh pages.
+  // That keeps old links working for visitors; it passes less search value than
+  // a server redirect would. Targets for the legacy Dorik URLs are a proposal —
+  // see docs/CUTOVER.md before the domain moves.
+  redirects: Object.fromEntries(
+    Object.entries({
+      // Renamed when the site moved to the system-of-action thesis.
+      "/blog/why-allied-health-needs-purpose-built-analytics": "/blog/the-gap-between-knowing-and-doing",
+
+      // Legacy Dorik pages (datafore.ca before the rebuild).
+      "/services": "/platform",
+      "/career": "/about",
+
+      // Legacy Dorik ELT/ETL posts and category. No equivalent content exists on
+      // the new site, so they land on the Insights index rather than 404.
+      "/post/ELT-vs-ETL-Choosing-the-Right-Data-Processing-Approach": "/blog",
+      "/post/Evaluating-an-ELT-tool": "/blog",
+      "/post/Harnessing-Business-Intelligence-for-Enhanced-Decision-Making": "/blog",
+      "/post/Unlocking-the-Power-of-ETLELT-The-Key-Importance-of-Data-Quality-and-Data-Lineage": "/blog",
+      "/category/ELT": "/blog",
+    }).map(([from, to]) => [from, withBase(to)]),
+  ),
   markdown: {
     processor: unified({ rehypePlugins: [rehypeBasePaths()] }),
   },

@@ -2,7 +2,7 @@
 
 ### ▶ [**View the live site — sandy4243.github.io/Datafore**](https://sandy4243.github.io/Datafore/)
 
-*Review copy, rebuilt automatically on every push to `main`. Production is [www.datafore.ca](https://www.datafore.ca).*
+*Review copy, rebuilt automatically on every push to `main`. The real site, [datafore.ca](https://datafore.ca), moves here at cutover — see [`docs/CUTOVER.md`](./docs/CUTOVER.md).*
 
 ---
 
@@ -52,27 +52,30 @@ public/
 
 ## Deployment
 
-Two workflows run on every push to `main`, from the same source:
+The site deploys to **GitHub Pages** from `.github/workflows/pages.yml` on every push to `main`. That workflow has
+two modes, chosen by the `CUSTOM_DOMAIN` repository variable:
 
-**Production — S3 (`.github/workflows/main.yml`)**
-Builds the site and syncs `dist/` to the `www.datafore.ca` S3 bucket (`ca-central-1`). Expects
-`AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` repo secrets. If a CloudFront distribution is later put in front
-of the bucket, uncomment the invalidation step in the workflow and add a `CLOUDFRONT_DISTRIBUTION_ID` secret.
+| `CUSTOM_DOMAIN` | Serves | Indexable |
+|---|---|---|
+| unset | `https://sandy4243.github.io/Datafore/` (review copy, from a subpath) | No — `noindex` and `Disallow: /` |
+| `true` | `https://datafore.ca` (the real site, from the root) | Yes |
 
-**Review copy — GitHub Pages (`.github/workflows/pages.yml`)**
-Publishes a browsable copy to `https://sandy4243.github.io/Datafore/`, so the site can be reviewed without
-touching production. This build is served from a repo subpath and is marked `noindex` so it never competes with
-the real domain in search.
+Merging code never flips the mode. Moving the domain is a deliberate, reversible sequence of steps, written up in
+**[`docs/CUTOVER.md`](./docs/CUTOVER.md)**.
 
-One-time setup, required before this workflow can succeed: **Settings → Pages → Build and deployment → Source:
-GitHub Actions**. The workflow does not auto-enable Pages, because the default workflow token is not permitted to
-create a Pages site and the attempt fails the run. Until the source is set, the build job fails at "Configure
-Pages" with `Get Pages site failed: Not Found`.
+One-time setup: **Settings → Pages → Build and deployment → Source: GitHub Actions**. The workflow does not
+auto-enable Pages, because the default workflow token is not permitted to create a Pages site. Until the source is
+set, the build fails at "Configure Pages" with `Get Pages site failed: Not Found`.
 
-Publishing Pages from a *private* repo also requires a paid GitHub plan; on the free plan the repo must be public.
+Pages from a *private* repo needs a paid GitHub plan, and the published site is public either way.
+
+`.github/workflows/pr-checks.yml` type-checks and builds both targets on every pull request.
+
+> **`main.yml` is legacy.** It syncs to an S3 bucket that never served `datafore.ca`, and fails on an expired AWS
+> token. It is not part of the deploy path and can be removed or made manual-only.
 
 ### Base paths
 
-Because the Pages copy is served from `/Datafore/` and production from `/`, internal links and `public/` asset
+Because the review copy is served from `/Datafore/` and the real site from `/`, internal links and `public/` asset
 URLs must go through `withBase()` in `src/lib/paths.ts` rather than being hardcoded. `DEPLOY_TARGET=gh-pages`
 selects the subpath build; the default build targets the domain root.

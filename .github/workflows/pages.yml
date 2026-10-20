@@ -1,8 +1,16 @@
-name: Preview (GitHub Pages)
+name: Deploy (GitHub Pages)
 
-# Publishes a review copy of the site to GitHub Pages so it can be looked at in
-# a browser. Production stays on S3 (see main.yml) — this build is served from
-# the repo subpath and is marked noindex.
+# Publishes the site to GitHub Pages. It runs in one of two modes, chosen by the
+# repository variable CUSTOM_DOMAIN (Settings -> Secrets and variables ->
+# Actions -> Variables):
+#
+#   unset / anything else  review copy at https://sandy4243.github.io/Datafore/,
+#                          served from a subpath and marked noindex
+#   CUSTOM_DOMAIN = true   the real site at https://datafore.ca, served from the
+#                          root and indexable
+#
+# Merging code never flips the mode. The variable is set as one deliberate step of
+# the domain cutover — see docs/CUTOVER.md.
 
 on:
   push:
@@ -45,7 +53,8 @@ jobs:
       - name: Build site
         run: npm run build
         env:
-          DEPLOY_TARGET: gh-pages
+          # "gh-pages" selects the subpath/noindex build; anything else is the root build.
+          DEPLOY_TARGET: ${{ vars.CUSTOM_DOMAIN == 'true' && 'custom-domain' || 'gh-pages' }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
