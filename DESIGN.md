@@ -217,19 +217,6 @@ beside it:
 All site placements go through `src/components/Logo.astro`. Never redraw or recolour the mark in code. The site's
 `navy-900` and `signal-500` are sampled from the wordmark and the arrow.
 
-### Snapshot excerpt (signature graphic)
-
-`SnapshotExcerpt.astro` shows the offer instead of describing it: an excerpt of a Practice Health Snapshot as one
-flat document (hairline border, no shadow) with two findings and a recommended first step. The findings are
-written as serif sentences that state the number; the charts sit under them.
-
-- **Heatmap** — a real `<table>` (days × hours) whose cells take one of five ordered classes on the navy ramp
-  (`navy-300` → `navy-900`; validated monotone with the light end at 2.1:1 on white). Closed hours are dashed
-  outlines. Every cell has a tooltip and screen-reader text.
-- **Visit chart** — an ordered list of columns, ≤24px wide with a 4px rounded top, 2px gaps, in `navy-300`, with
-  the one bar the finding is about in `signal-500`. Only the first, focal and last values are labelled.
-- Every figure in it is invented and says so in place. Never present it as a real clinic.
-
 ### Diagrams
 
 - **Engagement cycle** (`EngagementCycle.astro`) — four stages on a circle, joined by navy arcs that end in the

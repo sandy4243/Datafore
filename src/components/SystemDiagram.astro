@@ -11,15 +11,15 @@ import mark from "../assets/brand/mark.png";
 const sources = ["Jane App", "Cliniko", "Owl Practice"];
 
 const layer = [
-  { verb: "Understand", note: "one consistent view of the clinic" },
-  { verb: "Anticipate", note: "signals before month-end" },
-  { verb: "Act", note: "findings written into follow-up" },
-  { verb: "Prove", note: "each action traced to its result" },
+  { verb: "Understand", note: "one view of the clinic" },
+  { verb: "Anticipate", note: "problems flagged early" },
+  { verb: "Act", note: "follow-up tasks created" },
+  { verb: "Prove", note: "results traced back" },
 ];
 
 const destinations = [
   { name: "HubSpot", note: "Follow-up tasks and patient outreach" },
-  { name: "Clinic leadership", note: "Priorities, reviews and decisions" },
+  { name: "Clinic owners", note: "Priorities, reviews and decisions" },
 ];
 ---
 
@@ -47,7 +47,7 @@ const destinations = [
     <div class="bg-navy-900 p-6 text-navy-200 md:p-8">
       <div class="flex items-center gap-3">
         <Image src={mark} alt="" height={28} densities={[1, 2]} class="h-7 w-auto" />
-        <p class="text-sm font-semibold text-white">Datafore intelligence layer</p>
+        <p class="text-sm font-semibold text-white">Datafore</p>
       </div>
       <ul class="mt-6 divide-y divide-navy-700 border-t border-navy-700">
         {
@@ -71,7 +71,7 @@ const destinations = [
 
     <div class="border border-navy-100 bg-paper p-6 md:p-8">
       <p class="text-sm font-semibold text-navy-950">Where the work happens</p>
-      <p class="mt-1 text-sm text-graphite-600">The tools and people your clinic already relies on</p>
+      <p class="mt-1 text-sm text-graphite-600">Your team and the tools it already uses</p>
       <ul class="mt-6 divide-y divide-navy-100 border-t border-navy-100">
         {
           destinations.map((d) => (
@@ -91,8 +91,7 @@ const destinations = [
       <path d="M 13 1 L 2 6 L 13 11 L 10 6 z" class="fill-signal-500"></path>
     </svg>
     <span>
-      The loop closes: bookings that follow are traced back to the action that prompted them, so every step shows
-      what it returned.
+      Then the loop closes: new bookings are traced back to the follow-up that prompted them.
     </span>
   </figcaption>
 </figure>

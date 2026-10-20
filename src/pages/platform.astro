@@ -6,23 +6,23 @@ import SystemDiagram from "../components/SystemDiagram.astro";
 const capabilities = [
   {
     name: "Understand",
-    lead: "One clear view of the clinic.",
-    body: "Appointments, patients, invoices and payments are brought together from your practice management system into a single, consistent picture — across practitioners, services and locations, whichever system each one runs.",
+    lead: "See the whole clinic in one place.",
+    body: "Appointments, patients, invoices and payments from your practice management system, combined into one view across practitioners, services and locations.",
   },
   {
     name: "Anticipate",
-    lead: "The signals that matter, before month-end.",
-    body: "Patients drifting out of care, recurring gaps in the schedule, no-shows clustering by practitioner, receivables ageing by payer. The early signs that decide whether a quarter goes well — surfaced as they emerge.",
+    lead: "Spot problems before month-end.",
+    body: "Patients drifting out of care, recurring gaps in the schedule, no-shows by practitioner, overdue invoices by payer. Flagged as they happen, not after the quarter closes.",
   },
   {
     name: "Act",
-    lead: "Findings become follow-up.",
-    body: "Insight that stops at a report is still work waiting to happen. Datafore writes the follow-up into the CRM your team already uses, so the right patients are re-engaged and the right people are asked to act.",
+    lead: "Turn findings into follow-up.",
+    body: "Datafore creates follow-up tasks in the CRM your team already uses, so the right patients hear from you and someone owns each task.",
   },
   {
     name: "Prove",
-    lead: "See what each action returned.",
-    body: "Bookings are traced back to the action that prompted them. The question shifts from whether the work is worth it to how much it returned — and marketing spend becomes accountable to real appointments, not clicks.",
+    lead: "See what each action brought in.",
+    body: "New bookings are traced back to the follow-up or campaign that prompted them, so you know which efforts pay off.",
   },
 ];
 
@@ -30,17 +30,16 @@ const capabilities = [
 
 <Layout
   title="Platform"
-  description="Datafore is an intelligence layer above the practice management systems clinics already run: it brings clinic data together, surfaces what matters, turns findings into follow-up, and shows what that follow-up returned."
+  description="Datafore works on top of your practice management system: it combines your clinic data, flags what needs attention, turns it into follow-up, and tracks the result."
 >
   <section class="border-b border-navy-100">
     <div class="mx-auto max-w-7xl px-6 pb-20 pt-20 md:pt-28 lg:px-10">
       <h1 class="max-w-[18ch] text-[2.75rem] leading-[1.05] tracking-[-0.022em] sm:text-6xl lg:text-[4rem]">
-        One intelligence layer above the systems you already run.
+        Works on top of the software you already use.
       </h1>
       <p class="mt-8 max-w-[62ch] text-lg leading-relaxed text-graphite-700 md:text-xl">
-        Practice management systems are systems of record. They are good at it. Datafore is the layer above them
-        that reads what they hold, decides what needs attention, sees that it gets done, and checks whether it
-        worked.
+        Your practice management system is good at recording appointments and invoices. Datafore reads that data,
+        flags what needs attention, makes sure someone follows up, and checks whether it worked.
       </p>
     </div>
   </section>
@@ -64,11 +63,10 @@ const capabilities = [
   <section class="bg-mist">
     <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
       <div class="grid gap-10 lg:grid-cols-12">
-        <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem] lg:col-span-5">Designed for the systems clinics use.</h2>
+        <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem] lg:col-span-5">Works with the systems clinics use.</h2>
         <p class="text-lg leading-relaxed text-graphite-700 lg:col-span-6 lg:col-start-7">
-          Datafore sits above your software rather than replacing it, and your team keeps working the way it does
-          today. Connections are being brought online system by system through our founding phase, starting with Jane
-          App.
+          Your team keeps working the way it does today. We're connecting systems one at a time during our founding
+          phase, starting with Jane App.
         </p>
       </div>
       <div class="mt-14">
@@ -79,17 +77,15 @@ const capabilities = [
 
   <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
     <div class="grid gap-10 lg:grid-cols-12">
-      <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem] lg:col-span-5">It becomes more valuable as it grows.</h2>
+      <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem] lg:col-span-5">Benchmarks, as more clinics join.</h2>
       <div class="space-y-6 text-lg leading-relaxed text-graphite-700 lg:col-span-6 lg:col-start-7">
         <p>
-          On day one, Datafore compares your clinic with itself: practitioner to practitioner, month to month. As
-          more Canadian clinics join, that comparison can extend outward — how your retention or utilisation sits
-          against comparable practices, and what the strongest performers do differently.
+          At first, Datafore compares your clinic with itself: practitioner to practitioner, month to month. As more
+          clinics join, it will show how your retention and utilisation compare with similar practices.
         </p>
         <p>
-          No such benchmark exists for Canadian allied health today, and a single software vendor is poorly placed
-          to build one. A neutral layer that sits above every system is not. We will publish benchmarks only once
-          enough clinics take part to make them meaningful and to keep every clinic anonymous.
+          No such benchmark exists for allied health in Canada today. We'll publish one only when enough clinics take
+          part to make it meaningful and keep every clinic anonymous.
         </p>
       </div>
     </div>
@@ -99,10 +95,9 @@ const capabilities = [
     <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
       <div class="grid gap-10 lg:grid-cols-12 lg:items-end">
         <div class="lg:col-span-7">
-          <h2 class="text-[2rem] leading-[1.12] text-white md:text-[3rem]">Where Datafore is today.</h2>
+          <h2 class="text-[2rem] leading-[1.12] text-white md:text-[3rem]">Where we are today.</h2>
           <p class="mt-6 max-w-[58ch] text-lg leading-relaxed">
-            The platform is in active development, and we are forming a founding cohort of clinics in British
-            Columbia to shape it. We would rather tell you that plainly than imply a finished product.
+            Datafore is in active development. We're looking for a small group of BC clinics to help shape it.
           </p>
         </div>
         <div class="lg:col-span-5 lg:text-right">

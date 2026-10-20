@@ -6,27 +6,27 @@ const commitments = [
   {
     title: "Data residency in Canada",
     body: [
-      "Datafore is being built on Canadian infrastructure. Clinic data is designed to be stored and processed in Canadian data centres, so it remains subject to Canadian law.",
+      "Datafore is built on Canadian infrastructure. Clinic data is designed to be stored and processed in Canadian data centres, under Canadian law.",
     ],
   },
   {
     title: "Privacy by design",
     body: [
-      "Analysis runs on de-identified records. Patient identifiers are replaced with one-way pseudonyms, and names, email addresses and phone numbers are kept out of the analytics layer altogether.",
-      "We collect only what an analysis needs, and raw exports received from practice management systems are retained only briefly before deletion.",
+      "Analysis runs on de-identified records. Patient identifiers are replaced with one-way pseudonyms, and names, email addresses and phone numbers are kept out of the analytics layer.",
+      "We collect only what an analysis needs, and delete raw exports from practice management systems shortly after processing.",
     ],
   },
   {
     title: "Isolation and access control",
     body: [
-      "Each clinic's data is isolated from every other clinic's at the database level, encrypted in transit and at rest, and access to it is logged.",
+      "Each clinic's data is isolated at the database level, encrypted in transit and at rest, and every access is logged.",
     ],
   },
   {
     title: "Accountable use of AI",
     body: [
-      "AI helps surface patterns and draft next steps; people decide what happens. Every recommendation can be traced back to the data and the calculation behind it.",
-      "AI features operate on de-identified data, and are prevented from returning information that identifies a patient.",
+      "AI suggests; people decide. Every recommendation can be traced to the data and calculation behind it.",
+      "AI features work only on de-identified data and are blocked from returning anything that identifies a patient.",
     ],
   },
 ];
@@ -40,7 +40,7 @@ const frameworks = [
 
 <Layout
   title="Trust & governance"
-  description="How Datafore approaches stewardship of clinic and patient data: Canadian data residency, privacy by design, isolation and access control, and accountable use of AI."
+  description="How Datafore is designed to protect clinic and patient data: Canadian data residency, privacy by design, isolation and access control, and accountable AI."
 >
   <section class="border-b border-navy-100">
     <div class="mx-auto max-w-7xl px-6 pb-20 pt-20 md:pt-28 lg:px-10">
@@ -48,8 +48,7 @@ const frameworks = [
         Trust and governance.
       </h1>
       <p class="mt-8 max-w-[62ch] text-lg leading-relaxed text-graphite-700 md:text-xl">
-        Health information is the most sensitive thing a clinic holds. This page sets out how Datafore is designed to
-        handle it, and the principles we hold ourselves to.
+        Health information is the most sensitive thing a clinic holds. Here is how Datafore is designed to handle it.
       </p>
     </div>
   </section>
@@ -74,8 +73,8 @@ const frameworks = [
       <div class="lg:col-span-5">
         <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem]">Regulatory alignment.</h2>
         <p class="mt-6 max-w-[48ch] text-lg leading-relaxed text-graphite-700">
-          Datafore is designed to support clinics in meeting their obligations under Canadian privacy law, starting
-          with the frameworks that apply to private allied health practice in British Columbia.
+          Datafore is designed to help clinics meet their obligations under Canadian privacy law, starting with the
+          laws that apply to private allied health practice in British Columbia.
         </p>
       </div>
       <dl class="self-start divide-y divide-navy-100 border-y border-navy-100 lg:col-span-6 lg:col-start-7">
@@ -94,17 +93,15 @@ const frameworks = [
   <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
     <div class="grid gap-12 lg:grid-cols-12">
       <div class="lg:col-span-5">
-        <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem]">Being plain about status.</h2>
+        <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem]">Where things stand.</h2>
       </div>
       <div class="max-w-[60ch] space-y-6 text-lg leading-relaxed text-graphite-700 lg:col-span-7">
         <p>
-          The Datafore platform is in active development. The commitments above describe the architecture it is
-          being built to, rather than a certification it holds. As independent reviews and assessments are
-          completed, we will publish them here.
+          Datafore is in active development. The commitments above describe how the platform is being built, not a
+          certification it holds. We'll publish independent reviews here as they're completed.
         </p>
         <p>
-          If you are evaluating Datafore for a partnership, funding application or procurement, we are glad to walk
-          through any of this in detail.
+          Evaluating Datafore for a partnership, grant or procurement? We're happy to walk you through any of this.
         </p>
       </div>
     </div>

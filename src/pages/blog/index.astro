@@ -9,19 +9,19 @@ const posts = allPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publ
 
 <Layout
   title="Insights"
-  description="Perspectives from Datafore on leading an allied health clinic — what the numbers show, and what to do about them."
+  description="Notes from Datafore on running an allied health clinic by the numbers."
 >
   <section class="border-b border-navy-100">
     <div class="mx-auto max-w-7xl px-6 pb-20 pt-20 md:pt-28 lg:px-10">
       <h1 class="text-[2.75rem] leading-[1.05] tracking-[-0.022em] sm:text-6xl lg:text-[4.5rem]">Insights.</h1>
       <p class="mt-8 max-w-[58ch] text-lg leading-relaxed text-graphite-700 md:text-xl">
-        Perspectives on leading an allied health clinic — what the numbers show, and what to do about them.
+        Notes on running an allied health clinic by the numbers.
       </p>
     </div>
   </section>
 
   <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-24">
-    {posts.length === 0 && <p class="text-lg text-graphite-700">New perspectives are on the way.</p>}
+    {posts.length === 0 && <p class="text-lg text-graphite-700">New posts are on the way.</p>}
     <ul class="divide-y divide-navy-100 border-y border-navy-100">
       {
         posts.map((post) => (

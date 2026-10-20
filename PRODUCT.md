@@ -48,6 +48,18 @@ On the site this is expressed strategically rather than technically: Datafore is
 that helps leaders run *the business of care*, with outcomes (retention, capacity, revenue clarity, evidence-led
 growth) leading and mechanism second. The voice is that of a senior advisor — confident, plain, unhurried.
 
+### Voice rules
+
+The owner rejected an earlier draft as "too wordy, generic and AI-generated". Keep to these:
+
+- Short sentences and everyday words. Say each idea once; a paragraph that restates its heading is cut.
+- Concrete over abstract: "patients who stop booking", "empty slots", "overdue invoices", not "attrition",
+  "capacity", "receivables" or "value leakage".
+- Call the reader a clinic owner (not "clinic leader") and use "you" and "we".
+- Avoid the tells: "not X, but Y" contrasts, stacked em-dashes, tricolons for rhythm, and filler such as
+  "genuinely", "quietly", "actually", "seamless", "leverage", "unlock", "empower".
+- One "business of care" per page at most; it is the hero line, not a refrain.
+
 ## Operating Context
 
 Clinics collect large volumes of data and get effectively zero strategic intelligence from it. PMS reporting is

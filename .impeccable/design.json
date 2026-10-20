@@ -179,14 +179,6 @@
       "description": "The one arrow form: 2px navy shaft, filled signal-blue head, echoing the logo.",
       "html": "<svg class=\"ds-arrow\" viewBox=\"0 0 72 24\" width=\"72\" height=\"24\"><path d=\"M 6 12 H 60\" stroke=\"#031a4c\" stroke-width=\"2\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M 56 5 L 68 12 L 56 19 L 59 12 z\" fill=\"#0b57ee\"/></svg>",
       "css": ".ds-arrow { display: block; }"
-    },
-    {
-      "name": "Snapshot Heatmap Cell",
-      "kind": "custom",
-      "refersTo": "snapshot-heatmap",
-      "description": "Ordered navy classes for booked share; closed hours dashed. Illustrative data only.",
-      "html": "<div class=\"ds-heat\"><span style=\"background:#a3b3d9\"></span><span style=\"background:#7189c0\"></span><span style=\"background:#4a68aa\"></span><span style=\"background:#203b7a\"></span><span style=\"background:#031a4c\"></span><span class=\"ds-heat__closed\"></span></div>",
-      "css": ".ds-heat { display: flex; gap: 2px; } .ds-heat span { width: 40px; height: 28px; border-radius: 2px; } .ds-heat .ds-heat__closed { border: 1px dashed #cbd5ec; }"
     }
   ],
   "narrative": {
@@ -198,7 +190,7 @@
       "Signal blue as the only accent, used for underlines, rules and the current state — never a fill.",
       "Hairline rules and twelve-column asymmetry instead of cards; no shadows or gradients.",
       "One authored motion moment: the hero settles into place.",
-      "Graphics are authored, not stock: an illustrative Snapshot excerpt, an engagement cycle and a system diagram, all sharing the logo's arrow."
+      "Graphics are authored, not stock: an engagement cycle and a system diagram, both sharing the logo's arrow."
     ],
     "rules": [
       {
