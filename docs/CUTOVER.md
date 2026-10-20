@@ -1,5 +1,9 @@
 # Cutting datafore.ca over to GitHub Pages
 
+> **Completed in October 2026.** `datafore.ca` is served by GitHub Pages with HTTPS enforced. This page is kept as
+> the record of what changed and as the rollback plan. Current DNS is in [DNS.md](./DNS.md); day-to-day running
+> is in [OPERATIONS.md](./OPERATIONS.md).
+
 This is the runbook for moving `datafore.ca` from the old Dorik site to this repo, served by GitHub Pages.
 Merging code does **not** move the domain. Nothing changes for visitors until step 4, and everything before it
 is reversible.
@@ -31,11 +35,11 @@ so a change propagates within about five minutes for most resolvers.
 - [ ] **Decide the old Dorik URLs.** `astro.config.mjs` proposes: `/services` → `/platform`, `/career` →
       `/about`, and the four ELT/ETL posts plus `/category/ELT` → `/blog`. Change them if you want different
       targets, or migrate the posts instead.
-- [ ] **Decide about the booking link.** The old site links to `calendly.com/sandeep-datafore/initial` and this
-      one does not, so cutting over removes a way for people to book a call. Add it first if you want to keep it.
+- [x] **Decide about the booking link.** Done after cutover: the contact page links to
+      `calendly.com/sandeep-datafore/initial`.
 - [ ] **Export what you want from Dorik** (the four posts and any copy). Don't cancel Dorik yet.
-- [ ] **Fix email authentication** if you haven't. The domain has no SPF, DKIM or DMARC. This is independent
-      of the cutover but worth doing before bids go out.
+- [x] **Fix email authentication.** Done 20 October 2026: SPF, DKIM and DMARC all pass. See
+      [EMAIL.md](./EMAIL.md).
 - [ ] **Confirm your GitHub plan** if you intend to make the repo private. Pages from a private repo needs a
       paid plan, and downgrading later unpublishes the site.
 
@@ -116,7 +120,7 @@ an `@datafore.ca` address** to confirm mail is untouched.
 ### 8. Tell Google
 
 Add `datafore.ca` as a property in Search Console, submit `https://datafore.ca/sitemap-index.xml`, and use
-URL inspection on the home page.
+URL inspection on the home page. Step-by-step: [OPERATIONS.md](./OPERATIONS.md#google-search-console).
 
 ### 9. Retire Dorik
 
@@ -136,7 +140,8 @@ Within about five minutes the old site is back. The GitHub side can stay as it i
 - **No real 301s.** GitHub Pages can't issue server redirects, so the legacy URLs are meta-refresh pages. They
   work for visitors and carry less search value than a 301.
 - **No custom headers.** Security headers (CSP, HSTS beyond GitHub's default) can't be set.
-- **No server code.** The contact page uses `mailto:` and `tel:` links. A real form needs an outside service.
+- **No server code.** The contact form relies on an outside service (FormSubmit); see
+  [OPERATIONS.md](./OPERATIONS.md#contact-form).
 - **One site per repo, no per-PR preview URLs.**
 
 If those limits start to matter, Cloudflare Pages removes all four, and the move is mostly a DNS change.
