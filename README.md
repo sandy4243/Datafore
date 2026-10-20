@@ -1,16 +1,32 @@
 # Datafore
 
-Datafore Analytics — marketing and content website.
+### ▶ [**View the live site — sandy4243.github.io/Datafore**](https://sandy4243.github.io/Datafore/)
 
-This repo holds the public marketing site for Datafore, built with
-[Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com). It does not contain the Datafore
-analytics product itself, application code, infrastructure, or credentials.
+*Review copy, rebuilt automatically on every push to `main`. Production is [www.datafore.ca](https://www.datafore.ca).*
+
+---
+
+Marketing and content website for Datafore — a clinic intelligence layer for Canadian allied health practices.
+
+This repo holds the public marketing site only, built with [Astro](https://astro.build) and
+[Tailwind CSS](https://tailwindcss.com). It does not contain the Datafore product itself, application code,
+infrastructure, or credentials.
 
 ## Stack
 
 - **Astro** (static output) — pages, layouts, content collections
 - **Tailwind CSS v4** — styling, via `@tailwindcss/vite`
 - **Content collections** — blog posts live as Markdown in `src/content/blog/`
+
+## Working on this
+
+Two files carry the context that isn't obvious from the code, and both are worth reading before making changes:
+
+- **[`PRODUCT.md`](./PRODUCT.md)** — product truth: who this is for, what it does, what must never be claimed
+  (there are no customers or benchmark data yet), and what stays internal (pricing, unit economics, roadmap).
+- **[`DESIGN.md`](./DESIGN.md)** — the design system: tokens, type ramp, components, and the named rules the
+  site is built on. A detector checks the built output against it, so undocumented colours and sizes surface
+  as drift.
 
 ## Getting started
 

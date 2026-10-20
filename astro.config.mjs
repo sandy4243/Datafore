@@ -37,6 +37,15 @@ export default defineConfig({
   site: isPagesPreview ? "https://sandy4243.github.io" : "https://www.datafore.ca",
   base,
   integrations: [sitemap()],
+  redirects: {
+    // Post renamed when the site moved from an "analytics" framing to the
+    // system-of-action thesis. Keep the published URL alive.
+    // Astro does not apply `base` to redirect targets, so it is added here —
+    // without it the preview build points outside its subpath and 404s.
+    "/blog/why-allied-health-needs-purpose-built-analytics": `${
+      base === "/" ? "" : base
+    }/blog/the-gap-between-knowing-and-doing`,
+  },
   markdown: {
     processor: unified({ rehypePlugins: [rehypeBasePaths()] }),
   },
