@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { withBase } from "../lib/paths";
+import SystemDiagram from "../components/SystemDiagram.astro";
 
 const capabilities = [
   {
@@ -25,12 +26,6 @@ const capabilities = [
   },
 ];
 
-const systems = [
-  { name: "Jane App", role: "Practice management" },
-  { name: "Cliniko", role: "Practice management" },
-  { name: "Owl Practice", role: "Practice management" },
-  { name: "HubSpot", role: "CRM and patient communication" },
-];
 ---
 
 <Layout
@@ -67,24 +62,18 @@ const systems = [
   </section>
 
   <section class="bg-mist">
-    <div class="mx-auto grid max-w-7xl gap-12 px-6 py-24 lg:grid-cols-12 lg:px-10 lg:py-28">
-      <div class="lg:col-span-5">
-        <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem]">Designed for the systems clinics use.</h2>
-        <p class="mt-6 max-w-[48ch] text-lg leading-relaxed text-graphite-700">
-          Datafore sits above your software rather than replacing it. Your team keeps working the way it does today.
-          Connections are being brought online system by system through our founding phase, starting with Jane App.
+    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
+      <div class="grid gap-10 lg:grid-cols-12">
+        <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem] lg:col-span-5">Designed for the systems clinics use.</h2>
+        <p class="text-lg leading-relaxed text-graphite-700 lg:col-span-6 lg:col-start-7">
+          Datafore sits above your software rather than replacing it, and your team keeps working the way it does
+          today. Connections are being brought online system by system through our founding phase, starting with Jane
+          App.
         </p>
       </div>
-      <dl class="grid gap-px self-start overflow-hidden rounded-sm border border-navy-100 bg-navy-100 sm:grid-cols-2 lg:col-span-6 lg:col-start-7">
-        {
-          systems.map((s) => (
-            <div class="bg-paper p-6">
-              <dt class="font-display text-xl text-navy-950">{s.name}</dt>
-              <dd class="mt-1 text-graphite-600">{s.role}</dd>
-            </div>
-          ))
-        }
-      </dl>
+      <div class="mt-14">
+        <SystemDiagram />
+      </div>
     </div>
   </section>
 

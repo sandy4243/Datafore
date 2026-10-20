@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { withBase } from "../lib/paths";
+import SnapshotExcerpt from "../components/SnapshotExcerpt.astro";
+import EngagementCycle from "../components/EngagementCycle.astro";
+import FounderNote from "../components/FounderNote.astro";
 
 const decisions = [
   "Which patients to bring back into care, and when",
@@ -127,8 +130,25 @@ const principles = [
     </div>
   </section>
 
-  <!-- Outcomes -->
+  <!-- What a Snapshot shows -->
   <section class="bg-mist">
+    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+      <div class="grid gap-10 lg:grid-cols-12">
+        <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem] lg:col-span-5">What your data is already telling you.</h2>
+        <p class="text-lg leading-relaxed text-graphite-700 lg:col-span-6 lg:col-start-7">
+          Every engagement begins with a Practice Health Snapshot: a plain-language read of your own clinic's data,
+          with findings ranked by what they are worth and a first step for each. The excerpt below uses invented
+          figures to show the format.
+        </p>
+      </div>
+      <div class="mt-14">
+        <SnapshotExcerpt />
+      </div>
+    </div>
+  </section>
+
+  <!-- Outcomes -->
+  <section>
     <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
       <h2 class="max-w-[22ch] text-[2rem] leading-[1.12] md:text-[2.75rem]">What clinic leaders gain.</h2>
       <div class="mt-16 grid gap-x-16 gap-y-12 md:grid-cols-2">
@@ -173,20 +193,54 @@ const principles = [
       </p>
     </div>
 
-    <ol class="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-      {
-        engagement.map((s) => (
-          <li class="border-t-2 border-navy-900 pt-6">
-            <h3 class="text-2xl">{s.name}</h3>
-            <p class="mt-3 leading-relaxed text-graphite-700">{s.body}</p>
-          </li>
-        ))
-      }
-    </ol>
+    <div class="mt-16 grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
+      <div class="flex justify-center lg:col-span-5 lg:justify-start">
+        <EngagementCycle />
+      </div>
+      <ol class="divide-y divide-navy-100 border-y border-navy-100 lg:col-span-6 lg:col-start-7">
+        {
+          engagement.map((s) => (
+            <li class="py-6">
+              <h3 class="text-2xl">{s.name}</h3>
+              <p class="mt-2 leading-relaxed text-graphite-700">{s.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- Founder's note -->
+  <section class="bg-mist">
+    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+      <FounderNote heading="A note from our founder.">
+        <p>
+          Datafore began as a data and analytics consultancy. Again and again I saw organisations with good data and
+          good reports, and very little changing because of them. The reporting was rarely the hard part. Acting on
+          it was.
+        </p>
+        <p>
+          Allied health clinics feel that gap more than most. Their owners are clinicians first, running a business on
+          software built to record care rather than to steer it. They deserve the quality of insight large health
+          systems take for granted, and a partner who stays until something actually improves.
+        </p>
+        <p>
+          That is the work I started Datafore to do, beginning here in British Columbia. If it sounds like your
+          clinic, I would like to hear from you.
+        </p>
+        <a
+          slot="after"
+          href={withBase("/about/")}
+          class="mt-5 inline-block font-medium text-navy-800 underline decoration-signal-500 underline-offset-[6px] hover:decoration-2"
+        >
+          More about Datafore
+        </a>
+      </FounderNote>
+    </div>
   </section>
 
   <!-- Trust -->
-  <section class="bg-mist">
+  <section>
     <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
       <div class="grid gap-10 lg:grid-cols-12">
         <div class="lg:col-span-5">
