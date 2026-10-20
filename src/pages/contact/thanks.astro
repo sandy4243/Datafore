@@ -1,0 +1,22 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { withBase } from "../../lib/paths";
+---
+
+<Layout title="Message sent" description="Thank you for contacting Datafore." noindex>
+  <section class="mx-auto max-w-7xl px-6 pb-32 pt-24 md:pt-32 lg:px-10">
+    <h1 class="max-w-[18ch] text-[2.75rem] leading-[1.05] tracking-[-0.022em] sm:text-6xl">
+      Thank you. Your message is on its way.
+    </h1>
+    <p class="mt-8 max-w-[52ch] text-lg leading-relaxed text-graphite-700">
+      We read every message ourselves and will reply personally. If it's urgent, call us on
+      <a href="tel:+17787001733" class="figures text-navy-800 underline decoration-signal-500 underline-offset-4">+1 778 700 1733</a>.
+    </p>
+    <a
+      href={withBase("/")}
+      class="mt-10 inline-block rounded-sm bg-navy-900 px-6 py-3.5 font-medium text-white transition-colors hover:bg-navy-700"
+    >
+      Back to home
+    </a>
+  </section>
+</Layout>

@@ -62,10 +62,11 @@ Snapshot"** is the intended top-of-funnel offer.
 
 ## Capabilities and Constraints
 
-- Marketing site is static, served by GitHub Pages at https://datafore.ca. No server, so no functional forms —
-  contact is via `mailto:`/`tel:`.
-- A Calendly booking link exists (calendly.com/sandeep-datafore/initial) but the owner has deferred adding it to
-  the site. No confirmed social profile URLs beyond the LinkedIn profile below. Do not fabricate them.
+- Marketing site is static, served by GitHub Pages at https://datafore.ca. The contact form posts to FormSubmit
+  (formsubmit.co), which emails each enquiry to info@datafore.ca; no server or account. FormSubmit only delivers
+  after the one-time "Activate" link it emails to that inbox is clicked.
+- Booking: the contact page links to Calendly (calendly.com/sandeep-datafore/initial) for an introductory call.
+  No confirmed social profile URLs beyond the LinkedIn profile below. Do not fabricate them.
 - Founding cohort: Datafore is *inviting* BC clinics to join a founding cohort. No clinic has joined yet; never
   word it as though one has.
 - **Pre-revenue and pre-customer.** No clinics onboarded, no testimonials, no logos, no case studies, and no
