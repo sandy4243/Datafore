@@ -1,90 +1,64 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import LoopMark from "../components/LoopMark.astro";
 import { withBase } from "../lib/paths";
 
-const stages = [
+const capabilities = [
   {
-    stage: "Assess",
-    lead: "One model, whichever system you run.",
-    body: "Datafore reads appointments, patients, invoices and payments from your practice management system and normalises them into a single clinic model. Jane App arrives as a nightly export; Cliniko through its API; Owl Practice by export while a direct connector is built. Because the model is the same underneath, everything downstream works regardless of what you run — including if you switch, or run different systems across locations.",
-    detail: ["Jane App", "Cliniko", "Owl Practice"],
+    name: "Understand",
+    lead: "One clear view of the clinic.",
+    body: "Appointments, patients, invoices and payments are brought together from your practice management system into a single, consistent picture — across practitioners, services and locations, whichever system each one runs.",
   },
   {
-    stage: "Detect",
-    lead: "The leaks surface without anyone going looking.",
-    body: "Utilisation by practitioner, room and location. No-shows and late cancellations, and where they cluster. Patients drifting past 90 days. Recurring soft spots in the week. Receivables ageing across payers. These are the numbers that decide whether a clinic has a good year, and they are usually assembled by hand, once a quarter, if at all.",
-    detail: ["Utilisation", "Churn risk", "Receivables", "Payer mix"],
+    name: "Anticipate",
+    lead: "The signals that matter, before month-end.",
+    body: "Patients drifting out of care, recurring gaps in the schedule, no-shows clustering by practitioner, receivables ageing by payer. The early signs that decide whether a quarter goes well — surfaced as they emerge.",
   },
   {
-    stage: "Act",
-    lead: "The step almost every other tool leaves to you.",
-    body: "A finding that lands in a dashboard is still work waiting to happen. Datafore writes it into the system your team already opens: a reactivation task against the right contact in HubSpot, the email sequence triggered, the front desk given a list worth calling. The clinic changes behaviour because the work arrived, not because a chart moved.",
-    detail: ["HubSpot contacts", "Deals", "Workflows", "Lists"],
+    name: "Act",
+    lead: "Findings become follow-up.",
+    body: "Insight that stops at a report is still work waiting to happen. Datafore writes the follow-up into the CRM your team already uses, so the right patients are re-engaged and the right people are asked to act.",
   },
   {
-    stage: "Verify",
-    lead: "Closing the loop is what makes it a loop.",
-    body: "The booking that follows an action is traced back to it, so the question stops being whether the platform is worth it and becomes how much it returned last month. That same trace is what makes marketing spend legible: attribution runs to an actual appointment, not a click.",
-    detail: ["Attribution", "Executive summary", "ROI reporting"],
+    name: "Prove",
+    lead: "See what each action returned.",
+    body: "Bookings are traced back to the action that prompted them. The question shifts from whether the work is worth it to how much it returned — and marketing spend becomes accountable to real appointments, not clicks.",
   },
 ];
 
-const compounding = [
-  {
-    title: "It gets sharper as the network grows",
-    body: "Today Datafore compares you against yourself — practitioner to practitioner, month to month. As more Canadian clinics join, the comparison becomes external: how your no-show rate sits against comparable practices, and what the better performers do differently. No cross-clinic benchmark exists in Canada today, and a single practice management vendor cannot build one without sitting on both sides of a competitive conflict.",
-    status: "Planned — requires a critical mass of clinics",
-  },
-  {
-    title: "It's neutral by design",
-    body: "Datafore sits above practice management systems rather than competing with one, so adding a system is a mapping exercise rather than a rebuild. That is what lets a multi-location group with mismatched software see one number.",
-    status: "Core to the architecture",
-  },
-  {
-    title: "Compliance is the foundation, not a page",
-    body: "Canadian data residency, hashed patient identifiers, per-clinic isolation at the database level, and access logging. Built for PIPEDA and provincial legislation from the start, because retrofitting it onto an American analytics stack is how small Canadian clinics end up exposed.",
-    status: "In place from day one",
-  },
+const systems = [
+  { name: "Jane App", role: "Practice management" },
+  { name: "Cliniko", role: "Practice management" },
+  { name: "Owl Practice", role: "Practice management" },
+  { name: "HubSpot", role: "CRM and patient communication" },
 ];
 ---
 
 <Layout
   title="Platform"
-  description="How Datafore works: it reads your practice management data, finds the revenue leaking out of your schedule, acts on it through your CRM, and traces what came back."
+  description="Datafore is an intelligence layer above the practice management systems clinics already run: it brings clinic data together, surfaces what matters, turns findings into follow-up, and shows what that follow-up returned."
 >
-  <section class="border-b border-graphite-200 bg-bone">
-    <div class="mx-auto max-w-6xl px-6 py-16 md:py-20">
-      <h1 class="max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight text-graphite-950 md:text-5xl">
-        Practice management systems are systems of record. Datafore is the system of action.
+  <section class="border-b border-navy-100">
+    <div class="mx-auto max-w-7xl px-6 pb-20 pt-20 md:pt-28 lg:px-10">
+      <h1 class="max-w-[18ch] text-[2.75rem] leading-[1.05] tracking-[-0.022em] sm:text-6xl lg:text-[4rem]">
+        One intelligence layer above the systems you already run.
       </h1>
-      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-graphite-600">
-        Recording what happened is a solved problem — your software does it well. What's missing is the layer that
-        reads it, decides what needs doing, does it, and then checks whether it worked.
+      <p class="mt-8 max-w-[62ch] text-lg leading-relaxed text-graphite-700 md:text-xl">
+        Practice management systems are systems of record. They are good at it. Datafore is the layer above them
+        that reads what they hold, decides what needs attention, sees that it gets done, and checks whether it
+        worked.
       </p>
     </div>
   </section>
 
-  <!-- THE FOUR STAGES -->
-  <section class="mx-auto max-w-6xl px-6 py-16">
-    <ol class="space-y-px overflow-hidden rounded-lg border border-graphite-200 bg-graphite-200">
+  <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
+    <ol class="divide-y divide-navy-100 border-y border-navy-100">
       {
-        stages.map((s, i) => (
-          <li class="grid gap-6 bg-white p-8 md:grid-cols-[auto_1fr] md:gap-10 md:p-10">
-            <div class="flex items-center gap-4 md:flex-col md:items-start">
-              <LoopMark size={44} active={i} class="shrink-0 text-vital-600" />
-              <p class="measure-label md:mt-1">{s.stage}</p>
-            </div>
-            <div>
-              <h2 class="text-xl font-semibold text-graphite-950">{s.lead}</h2>
-              <p class="mt-3 leading-relaxed text-graphite-600">{s.body}</p>
-              <ul class="mt-4 flex flex-wrap gap-2">
-                {s.detail.map((d) => (
-                  <li class="rounded border border-graphite-200 bg-bone px-3 py-1 font-mono text-xs text-graphite-600">
-                    {d}
-                  </li>
-                ))}
-              </ul>
+        capabilities.map((c) => (
+          <li class="grid gap-4 py-10 lg:grid-cols-12 lg:gap-10 lg:py-14">
+            <h2 class="text-[2rem] leading-[1.1] md:text-[2.5rem] lg:col-span-4">{c.name}</h2>
+            <div class="max-w-[58ch] lg:col-span-7 lg:col-start-6">
+              <p class="text-xl font-medium leading-snug text-navy-950">{c.lead}</p>
+              <p class="mt-3 text-lg leading-relaxed text-graphite-700">{c.body}</p>
             </div>
           </li>
         ))
@@ -92,40 +66,65 @@ const compounding = [
     </ol>
   </section>
 
-  <!-- WHY IT COMPOUNDS -->
-  <section class="border-y border-graphite-200 bg-bone-dim">
-    <div class="mx-auto max-w-6xl px-6 py-16">
-      <h2 class="max-w-2xl text-2xl font-semibold text-graphite-950 md:text-3xl">Why it gets more useful over time.</h2>
-      <div class="mt-10 grid gap-6 md:grid-cols-3">
+  <section class="bg-mist">
+    <div class="mx-auto grid max-w-7xl gap-12 px-6 py-24 lg:grid-cols-12 lg:px-10 lg:py-28">
+      <div class="lg:col-span-5">
+        <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem]">Designed for the systems clinics use.</h2>
+        <p class="mt-6 max-w-[48ch] text-lg leading-relaxed text-graphite-700">
+          Datafore sits above your software rather than replacing it. Your team keeps working the way it does today.
+          Connections are being brought online system by system through our founding phase, starting with Jane App.
+        </p>
+      </div>
+      <dl class="grid gap-px self-start overflow-hidden rounded-sm border border-navy-100 bg-navy-100 sm:grid-cols-2 lg:col-span-6 lg:col-start-7">
         {
-          compounding.map((c) => (
-            <div class="flex flex-col rounded-lg border border-graphite-200 bg-white p-6">
-              <h3 class="text-lg font-semibold text-graphite-950">{c.title}</h3>
-              <p class="mt-3 flex-1 text-sm leading-relaxed text-graphite-600">{c.body}</p>
-              <p class="mt-5 border-t border-graphite-100 pt-3 font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-graphite-500">
-                {c.status}
-              </p>
+          systems.map((s) => (
+            <div class="bg-paper p-6">
+              <dt class="font-display text-xl text-navy-950">{s.name}</dt>
+              <dd class="mt-1 text-graphite-600">{s.role}</dd>
             </div>
           ))
         }
+      </dl>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
+    <div class="grid gap-10 lg:grid-cols-12">
+      <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem] lg:col-span-5">It becomes more valuable as it grows.</h2>
+      <div class="space-y-6 text-lg leading-relaxed text-graphite-700 lg:col-span-6 lg:col-start-7">
+        <p>
+          On day one, Datafore compares your clinic with itself: practitioner to practitioner, month to month. As
+          more Canadian clinics join, that comparison can extend outward — how your retention or utilisation sits
+          against comparable practices, and what the strongest performers do differently.
+        </p>
+        <p>
+          No such benchmark exists for Canadian allied health today, and a single software vendor is poorly placed
+          to build one. A neutral layer that sits above every system is not. We will publish benchmarks only once
+          enough clinics take part to make them meaningful and to keep every clinic anonymous.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- STATUS -->
-  <section class="mx-auto max-w-3xl px-6 py-16 text-center">
-    <h2 class="text-2xl font-semibold text-graphite-950">Where this actually stands</h2>
-    <p class="mt-4 leading-relaxed text-graphite-600">
-      Datafore is in active development with a small group of founding clinics in British Columbia. The Jane App
-      pipeline and the reporting layer are the current focus; Cliniko follows, and cross-clinic benchmarking
-      arrives once enough clinics are on the platform to make it meaningful and safely anonymous. We would rather
-      tell you that plainly than imply a finished product.
-    </p>
-    <a
-      href={withBase("/contact/")}
-      class="mt-8 inline-block rounded bg-vital-600 px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-vital-700"
-    >
-      Talk to us about your clinic
-    </a>
+  <section class="bg-navy-950 text-navy-200">
+    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
+      <div class="grid gap-10 lg:grid-cols-12 lg:items-end">
+        <div class="lg:col-span-7">
+          <h2 class="text-[2rem] leading-[1.12] text-white md:text-[3rem]">Where Datafore is today.</h2>
+          <p class="mt-6 max-w-[58ch] text-lg leading-relaxed">
+            The platform is in active development, and we are forming a founding cohort of clinics in British
+            Columbia to shape it. We would rather tell you that plainly than imply a finished product.
+          </p>
+        </div>
+        <div class="lg:col-span-5 lg:text-right">
+          <a
+            href={withBase("/contact/")}
+            class="inline-block rounded-sm bg-white px-6 py-3.5 font-medium text-navy-950 transition-colors hover:bg-navy-100"
+          >
+            Start a conversation
+          </a>
+        </div>
+      </div>
+    </div>
   </section>
 </Layout>

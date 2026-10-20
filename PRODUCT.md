@@ -17,6 +17,10 @@ Owners and operations leads of Canadian private allied health clinics — physio
 therapy, and mental health — running on practice management systems (Jane App, Cliniko, Owl Practice). Typically
 solo to multi-location, with no analyst on staff and no business intelligence beyond what the PMS reports.
 
+Secondary audience: evaluators — prospective partners, funders, grant reviewers and procurement panels — who need
+to find governance, status and company facts quickly. The site is also used as supporting material for bids, so
+the `/trust/` page and plain statements of status matter as much as the marketing claims.
+
 ## Product Purpose
 
 A PMS-agnostic **Clinic Intelligence Layer** that sits above practice management systems and the clinic's CRM.
@@ -40,6 +44,10 @@ track the resulting booking → report the ROI. Three durable advantages:
 
 Datafore is the neutral aggregator *above* all PMS tools, not a competitor to any one of them.
 
+On the site this is expressed strategically rather than technically: Datafore is a clinic intelligence partner
+that helps leaders run *the business of care*, with outcomes (retention, capacity, revenue clarity, evidence-led
+growth) leading and mechanism second. The voice is that of a senior advisor — confident, plain, unhurried.
+
 ## Operating Context
 
 Clinics collect large volumes of data and get effectively zero strategic intelligence from it. PMS reporting is
@@ -54,9 +62,12 @@ Snapshot"** is the intended top-of-funnel offer.
 
 ## Capabilities and Constraints
 
-- Marketing site is static, deployed to S3 and mirrored to a GitHub Pages review copy. No server, so no
-  functional forms — contact is via `mailto:`/`tel:`.
-- No confirmed booking link or social profile URLs. Do not fabricate them.
+- Marketing site is static, served by GitHub Pages at https://datafore.ca. No server, so no functional forms —
+  contact is via `mailto:`/`tel:`.
+- A Calendly booking link exists (calendly.com/sandeep-datafore/initial) but the owner has deferred adding it to
+  the site. No confirmed social profile URLs beyond the LinkedIn profile below. Do not fabricate them.
+- Founding cohort: Datafore is *inviting* BC clinics to join a founding cohort. No clinic has joined yet; never
+  word it as though one has.
 - **Pre-revenue and pre-customer.** No clinics onboarded, no testimonials, no logos, no case studies, and no
   benchmark dataset. None of these may be implied to exist.
 - The benchmarking capability is explicitly a future network effect and must be described in future tense.
@@ -73,7 +84,12 @@ document, not on the marketing site.
 
 Company name "Datafore" / "Datafore Analytics Inc." is fixed. Contact facts are real and fixed:
 info@datafore.ca, +1 778 700 1733, 4353 Halifax Street, Burnaby, BC. Sandeep Mehra, Product Manager, Analytics
-(linkedin.com/in/smehra2), is real and should stay attributed correctly. The wordmark is open to revision.
+(linkedin.com/in/smehra2), is real and should stay attributed correctly.
+
+Logo: a bright-blue cube cluster flowing into an arrow, a heavy geometric navy "Datafore" wordmark, and the
+tagline **"Forward with Data"** in blue. The site palette (navy, signal blue) is drawn from it. Until the artwork
+file is committed, `src/components/Logo.astro` renders an interim text wordmark and the favicon is a "D"
+monogram.
 
 ## Evidence on Hand
 

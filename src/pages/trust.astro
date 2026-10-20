@@ -1,0 +1,136 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { withBase } from "../lib/paths";
+
+const commitments = [
+  {
+    title: "Data residency in Canada",
+    body: [
+      "Datafore is being built on Canadian infrastructure. Clinic data is designed to be stored and processed in Canadian data centres, so it remains subject to Canadian law.",
+    ],
+  },
+  {
+    title: "Privacy by design",
+    body: [
+      "Analysis runs on de-identified records. Patient identifiers are replaced with one-way pseudonyms, and names, email addresses and phone numbers are kept out of the analytics layer altogether.",
+      "We collect only what an analysis needs, and raw exports received from practice management systems are retained only briefly before deletion.",
+    ],
+  },
+  {
+    title: "Isolation and access control",
+    body: [
+      "Each clinic's data is isolated from every other clinic's at the database level, encrypted in transit and at rest, and access to it is logged.",
+    ],
+  },
+  {
+    title: "Accountable use of AI",
+    body: [
+      "AI helps surface patterns and draft next steps; people decide what happens. Every recommendation can be traced back to the data and the calculation behind it.",
+      "AI features operate on de-identified data, and are prevented from returning information that identifies a patient.",
+    ],
+  },
+];
+
+const frameworks = [
+  { name: "PIPEDA", scope: "Federal private-sector privacy law" },
+  { name: "PIPA (British Columbia)", scope: "Provincial private-sector privacy law" },
+  { name: "PHIPA (Ontario)", scope: "Provincial personal health information law" },
+];
+---
+
+<Layout
+  title="Trust & governance"
+  description="How Datafore approaches stewardship of clinic and patient data: Canadian data residency, privacy by design, isolation and access control, and accountable use of AI."
+>
+  <section class="border-b border-navy-100">
+    <div class="mx-auto max-w-7xl px-6 pb-20 pt-20 md:pt-28 lg:px-10">
+      <h1 class="max-w-[16ch] text-[2.75rem] leading-[1.05] tracking-[-0.022em] sm:text-6xl lg:text-[4.5rem]">
+        Trust and governance.
+      </h1>
+      <p class="mt-8 max-w-[62ch] text-lg leading-relaxed text-graphite-700 md:text-xl">
+        Health information is the most sensitive thing a clinic holds. This page sets out how Datafore is designed to
+        handle it, and the principles we hold ourselves to.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
+    <div class="divide-y divide-navy-100 border-y border-navy-100">
+      {
+        commitments.map((c) => (
+          <div class="grid gap-4 py-10 lg:grid-cols-12 lg:gap-10 lg:py-12">
+            <h2 class="text-[1.75rem] leading-[1.15] md:text-[2.125rem] lg:col-span-5">{c.title}</h2>
+            <div class="max-w-[60ch] space-y-4 text-lg leading-relaxed text-graphite-700 lg:col-span-7">
+              {c.body.map((para) => <p>{para}</p>)}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="bg-mist">
+    <div class="mx-auto grid max-w-7xl gap-12 px-6 py-24 lg:grid-cols-12 lg:px-10 lg:py-28">
+      <div class="lg:col-span-5">
+        <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem]">Regulatory alignment.</h2>
+        <p class="mt-6 max-w-[48ch] text-lg leading-relaxed text-graphite-700">
+          Datafore is designed to support clinics in meeting their obligations under Canadian privacy law, starting
+          with the frameworks that apply to private allied health practice in British Columbia.
+        </p>
+      </div>
+      <dl class="self-start divide-y divide-navy-100 border-y border-navy-100 lg:col-span-6 lg:col-start-7">
+        {
+          frameworks.map((f) => (
+            <div class="flex flex-col gap-1 py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+              <dt class="font-display text-xl text-navy-950">{f.name}</dt>
+              <dd class="text-graphite-600">{f.scope}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
+    <div class="grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem]">Being plain about status.</h2>
+      </div>
+      <div class="max-w-[60ch] space-y-6 text-lg leading-relaxed text-graphite-700 lg:col-span-7">
+        <p>
+          The Datafore platform is in active development. The commitments above describe the architecture it is
+          being built to, rather than a certification it holds. As independent reviews and assessments are
+          completed, we will publish them here.
+        </p>
+        <p>
+          If you are evaluating Datafore for a partnership, funding application or procurement, we are glad to walk
+          through any of this in detail.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-navy-100 bg-mist">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-12 lg:px-10">
+      <h2 class="text-[1.75rem] leading-[1.15] lg:col-span-5">Company information</h2>
+      <dl class="grid gap-x-10 gap-y-6 text-graphite-700 sm:grid-cols-2 lg:col-span-7">
+        <div>
+          <dt class="text-sm font-semibold text-navy-950">Legal name</dt>
+          <dd class="mt-1">Datafore Analytics Inc.</dd>
+        </div>
+        <div>
+          <dt class="text-sm font-semibold text-navy-950">Headquarters</dt>
+          <dd class="mt-1">4353 Halifax Street, Burnaby, British Columbia, Canada</dd>
+        </div>
+        <div>
+          <dt class="text-sm font-semibold text-navy-950">Enquiries</dt>
+          <dd class="mt-1"><a href="mailto:info@datafore.ca?subject=Partnership%20or%20evaluation%20enquiry" class="text-navy-800 underline decoration-signal-500 underline-offset-4">info@datafore.ca</a></dd>
+        </div>
+        <div>
+          <dt class="text-sm font-semibold text-navy-950">Privacy</dt>
+          <dd class="mt-1"><a href={withBase("/privacy/")} class="text-navy-800 underline decoration-signal-500 underline-offset-4">Website privacy policy</a></dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+</Layout>

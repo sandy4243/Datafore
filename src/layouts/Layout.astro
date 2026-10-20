@@ -22,6 +22,8 @@ const ogImage = new URL(withBase("/images/og-datafore.png"), Astro.site);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
+    <link rel="apple-touch-icon" href={withBase("/apple-touch-icon.png")} />
+    <meta name="theme-color" content="#10204d" />
     <link rel="canonical" href={canonicalURL} />
     {/* The Pages copy is a review build; keep it out of search results. */}
     {isPreviewDeploy && <meta name="robots" content="noindex, nofollow" />}
@@ -37,30 +39,25 @@ const ogImage = new URL(withBase("/images/og-datafore.png"), Astro.site);
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Datafore — a clinic intelligence layer for Canadian allied health practices." />
+    <meta property="og:image:alt" content="Datafore — clinic intelligence for Canadian allied health." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <!--
-      THESIS: Clinic performance presented as a credential — issued, referenced, standing —
-      refusing the category-default wall of charts and gradient SaaS hero.
-      OWN-WORLD: Paper ground, ink near-black, one brass "seal" accent. Ruled hairlines, engraved
-      circular seals with tick rings, IBM Plex Sans/Mono, tracked mono micro-labels (REG. NO., CRED. NO.).
-      STORY: A BC clinic owner sees their own numbers treated with professional rigor, understands
-      Datafore covers analytics, marketing, CRM and AI, and asks for early access.
-      FIRST VIEWPORT: Left, the license-grade headline plus two square-cornered actions; right, a
-      slightly rotated credential card carrying seal, registration number and three labelled figures.
-      FORM: Credential/registry document. Candidate 5 of the grounded list. Seed key 93026951.
+      THESIS: Datafore as a trusted advisor to clinic leaders, not a tool vendor. The page argues
+      outcomes, partnership and stewardship; mechanism is supporting evidence, not the headline.
+      OWN-WORLD: Premium advisory brief. White page, wordmark navy, the logo's signal blue as a sparing
+      accent. Source Serif 4 for the voice, Public Sans for everything functional. Hairline rules,
+      wide margins, full-bleed navy bands for the statements that matter. No monospace, no cards-as-structure.
+      STORY: A clinic owner sees their business understood at the level of strategy, believes Datafore
+      can be trusted with patient data, and starts a conversation. An evaluator finds governance in one click.
+      FIRST VIEWPORT: Navy band. A serif statement of the outcome at display size, a one-paragraph
+      positioning line, two actions; a quiet right column naming the three decisions we help leaders make.
+      FORM: User-pinned direction ("Premium advisory"), brief-chosen; no concept roll.
       FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
     -->
     <Header />

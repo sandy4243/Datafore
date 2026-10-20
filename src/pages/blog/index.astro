@@ -9,34 +9,40 @@ const posts = allPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publ
 
 <Layout
   title="Insights"
-  description="Notes from Datafore on running the business side of an allied health clinic — what the numbers show, and what to do about them."
+  description="Perspectives from Datafore on leading an allied health clinic — what the numbers show, and what to do about them."
 >
-  <section class="border-b border-graphite-200 bg-bone">
-    <div class="mx-auto max-w-6xl px-6 py-16 md:py-20">
-      <h1 class="text-4xl font-bold tracking-tight text-graphite-950 md:text-5xl">Insights</h1>
-      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-graphite-600">
-        Notes on running the business side of an allied health clinic — what the numbers show, and what to do
-        about them.
+  <section class="border-b border-navy-100">
+    <div class="mx-auto max-w-7xl px-6 pb-20 pt-20 md:pt-28 lg:px-10">
+      <h1 class="text-[2.75rem] leading-[1.05] tracking-[-0.022em] sm:text-6xl lg:text-[4.5rem]">Insights.</h1>
+      <p class="mt-8 max-w-[58ch] text-lg leading-relaxed text-graphite-700 md:text-xl">
+        Perspectives on leading an allied health clinic — what the numbers show, and what to do about them.
       </p>
     </div>
   </section>
 
-  <section class="mx-auto max-w-4xl px-6 py-16">
-    {posts.length === 0 && <p class="text-graphite-600">New posts are on the way.</p>}
-    <ul class="divide-y divide-graphite-200 border-t border-graphite-200">
+  <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-24">
+    {posts.length === 0 && <p class="text-lg text-graphite-700">New perspectives are on the way.</p>}
+    <ul class="divide-y divide-navy-100 border-y border-navy-100">
       {
         posts.map((post) => (
-          <li class="py-10 first:pt-0">
-            <a href={withBase(`/blog/${post.id}/`)} class="group">
-              <p class="font-mono text-xs uppercase tracking-wide text-graphite-500">
+          <li>
+            <a href={withBase(`/blog/${post.id}/`)} class="group grid gap-3 py-10 no-underline lg:grid-cols-12 lg:gap-10">
+              <time
+                datetime={post.data.publishDate.toISOString()}
+                class="figures text-sm text-graphite-600 lg:col-span-3 lg:pt-2"
+              >
                 {post.data.publishDate.toLocaleDateString("en-CA", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
                 })}
-              </p>
-              <h2 class="mt-2 text-2xl font-semibold text-graphite-950 group-hover:text-vital-700">{post.data.title}</h2>
-              <p class="mt-2 leading-relaxed text-graphite-600">{post.data.description}</p>
+              </time>
+              <div class="lg:col-span-8">
+                <h2 class="text-[1.75rem] leading-[1.18] transition-colors group-hover:text-navy-700 md:text-[2.125rem]">
+                  {post.data.title}
+                </h2>
+                <p class="mt-3 max-w-[62ch] text-lg leading-relaxed text-graphite-700">{post.data.description}</p>
+              </div>
             </a>
           </li>
         ))

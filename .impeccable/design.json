@@ -1,62 +1,102 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-02T03:40:00Z",
+  "generatedAt": "2026-10-20T09:30:00Z",
   "title": "Design System: Datafore",
   "extensions": {
     "colorMeta": {
-      "vital-600": {
+      "navy-900": {
         "role": "primary",
-        "displayName": "Vital Teal",
-        "canonical": "#1f675c",
-        "tonalRamp": ["#0a1e1b", "#12312d", "#16403a", "#1a5249", "#1f675c", "#2c8173", "#74beb0", "#d4ebe6"]
+        "displayName": "Datafore Navy",
+        "canonical": "#10204d",
+        "tonalRamp": [
+          "#0b1638",
+          "#10204d",
+          "#172d63",
+          "#203b7a",
+          "#2b4d94",
+          "#4a68aa",
+          "#7189c0",
+          "#a3b3d9",
+          "#cbd5ec",
+          "#e5eaf6",
+          "#f3f5fb"
+        ]
       },
-      "graphite-950": {
+      "signal-500": {
+        "role": "secondary",
+        "displayName": "Signal Blue",
+        "canonical": "#2f72f0",
+        "tonalRamp": [
+          "#174bb3",
+          "#1d5fe0",
+          "#2f72f0",
+          "#8fb3f7",
+          "#c3d6fb"
+        ]
+      },
+      "graphite-700": {
         "role": "neutral",
         "displayName": "Graphite",
-        "canonical": "#0f1214",
-        "tonalRamp": ["#0f1214", "#1a1e21", "#2b3034", "#42484d", "#545b61", "#656c73", "#b9bfc3", "#eceeef"]
+        "canonical": "#3a4045",
+        "tonalRamp": [
+          "#262b2f",
+          "#3a4045",
+          "#4b5258",
+          "#5f666d",
+          "#b9bfc3",
+          "#dcdfe1"
+        ]
       },
-      "risk-500": {
-        "role": "tertiary",
-        "displayName": "At Risk",
-        "canonical": "#a55c15",
-        "tonalRamp": ["#3d2108", "#57300b", "#71400e", "#8b4c12", "#a55c15", "#c47a2c", "#e0ab6d", "#fbeadb"]
-      },
-      "steady-600": {
-        "role": "tertiary",
-        "displayName": "Steady",
-        "canonical": "#2f6b3d",
-        "tonalRamp": ["#0e2213", "#153320", "#1d472a", "#265834", "#2f6b3d", "#468d56", "#7bb888", "#dcefe0"]
-      },
-      "bone": {
+      "paper": {
         "role": "neutral",
-        "displayName": "Bone",
-        "canonical": "#fbfbfa",
-        "tonalRamp": ["#2b3034", "#42484d", "#656c73", "#8b9399", "#b9bfc3", "#dcdfe1", "#f2f3f2", "#fbfbfa"]
+        "displayName": "Paper",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#f3f5f8",
+          "#ffffff"
+        ]
       }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "The page-opening claim, one per page." },
-      "label": { "displayName": "Measure Label", "purpose": "Section marks, system names, figures. Mono, uppercase, 0.14em tracking." }
-    },
-    "shadows": [
-      {
-        "name": "instrument-lift",
-        "value": "0 1px 2px rgba(15,18,20,0.04), 0 18px 44px -20px rgba(15,18,20,0.28)",
-        "purpose": "The hero loop panel only. One shadow per page; everything else is flat."
+      "display": {
+        "displayName": "Display",
+        "purpose": "The page-opening claim, one per page. Source Serif 4."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section claims, written as sentences with a full stop."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Definition-list terms and small headings. Public Sans semibold, sentence case."
       }
-    ],
+    },
+    "shadows": [],
     "motion": [
+      {
+        "name": "settle",
+        "value": "900ms cubic-bezier(0.16, 1, 0.3, 1), opacity + 14px rise; .settle-late +140ms",
+        "purpose": "The hero entrance. The one authored motion moment; off under reduced motion."
+      },
       {
         "name": "state-transition",
         "value": "transition-colors, ~150ms",
-        "purpose": "Button, link and border colour changes on hover and focus. The system's only motion."
+        "purpose": "Button and link colour changes on hover and focus."
       }
     ],
     "breakpoints": [
-      { "name": "sm", "value": "640px" },
-      { "name": "md", "value": "768px" },
-      { "name": "lg", "value": "1024px" }
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
     ]
   },
   "components": [
@@ -65,103 +105,118 @@
       "kind": "button",
       "refersTo": "button-primary",
       "description": "The main action on light grounds.",
-      "html": "<a class=\"ds-btn-primary\" href=\"#\">Request a Practice Health Snapshot</a>",
-      "css": ".ds-btn-primary { display: inline-block; background: #1f675c; color: #fff; padding: 12px 24px; border-radius: 4px; font-family: 'Public Sans', system-ui, sans-serif; font-size: .875rem; font-weight: 600; text-decoration: none; transition: background-color 150ms; } .ds-btn-primary:hover { background: #1a5249; } .ds-btn-primary:focus-visible { outline: 2px solid #2c8173; outline-offset: 2px; }"
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Start a conversation</a>",
+      "css": ".ds-btn-primary { display: inline-block; background: #10204d; color: #fff; padding: 14px 24px; border-radius: 4px; font-family: 'Public Sans Variable', system-ui, sans-serif; font-weight: 500; text-decoration: none; transition: background-color 150ms; } .ds-btn-primary:hover { background: #203b7a; } .ds-btn-primary:focus-visible { outline: 2px solid #2f72f0; outline-offset: 3px; }"
     },
     {
       "name": "Secondary Button",
       "kind": "button",
       "refersTo": "button-secondary",
-      "description": "Lower-emphasis companion action. Hairline border, no fill.",
-      "html": "<a class=\"ds-btn-secondary\" href=\"#\">See how the loop works</a>",
-      "css": ".ds-btn-secondary { display: inline-block; background: transparent; color: #42484d; padding: 12px 24px; border: 1px solid #b9bfc3; border-radius: 4px; font-family: 'Public Sans', system-ui, sans-serif; font-size: .875rem; font-weight: 600; text-decoration: none; transition: color 150ms, border-color 150ms; } .ds-btn-secondary:hover { color: #0f1214; border-color: #0f1214; } .ds-btn-secondary:focus-visible { outline: 2px solid #2c8173; outline-offset: 2px; }"
+      "description": "Companion action. Navy hairline, no fill.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\">Get in touch</a>",
+      "css": ".ds-btn-secondary { display: inline-block; background: #fff; color: #10204d; padding: 14px 24px; border: 1px solid #10204d; border-radius: 4px; font-family: 'Public Sans Variable', system-ui, sans-serif; font-weight: 500; text-decoration: none; transition: background-color 150ms; } .ds-btn-secondary:hover { background: #f3f5fb; } .ds-btn-secondary:focus-visible { outline: 2px solid #2f72f0; outline-offset: 3px; }"
     },
     {
-      "name": "Loop Mark",
+      "name": "On-dark Button",
+      "kind": "button",
+      "refersTo": "button-on-dark",
+      "description": "Primary action inside navy bands.",
+      "html": "<div class=\"ds-dark\"><a class=\"ds-btn-dark\" href=\"#\">Request a Practice Health Snapshot</a></div>",
+      "css": ".ds-dark { background: #0b1638; padding: 32px; } .ds-btn-dark { display: inline-block; background: #fff; color: #0b1638; padding: 14px 24px; border-radius: 4px; font-family: 'Public Sans Variable', system-ui, sans-serif; font-weight: 500; text-decoration: none; transition: background-color 150ms; } .ds-btn-dark:hover { background: #e5eaf6; }"
+    },
+    {
+      "name": "Text Link",
+      "kind": "link",
+      "refersTo": "link",
+      "description": "Navy text with a signal-blue underline that thickens on hover.",
+      "html": "<a class=\"ds-link\" href=\"#\">Our approach to trust and governance</a>",
+      "css": ".ds-link { font-family: 'Public Sans Variable', system-ui, sans-serif; font-weight: 500; color: #172d63; text-decoration: underline; text-decoration-color: #2f72f0; text-underline-offset: 6px; text-decoration-thickness: 1px; } .ds-link:hover { text-decoration-thickness: 2px; }"
+    },
+    {
+      "name": "Split Section",
+      "kind": "layout",
+      "refersTo": "section-split",
+      "description": "Serif headline in columns 1–5, body in 7–12. The default section form.",
+      "html": "<section class=\"ds-split\"><h2>Allied health clinics are rich in data and short on insight.</h2><p>Practice management systems record every appointment, invoice and cancellation. They were built to run the day, not to steer the business.</p></section>",
+      "css": ".ds-split { display: grid; grid-template-columns: 5fr 1fr 6fr; gap: 0; } .ds-split h2 { font-family: 'Source Serif 4 Variable', Georgia, serif; font-weight: 500; font-size: 2.75rem; line-height: 1.12; letter-spacing: -.015em; color: #0b1638; margin: 0; } .ds-split p { grid-column: 3; font-family: 'Public Sans Variable', system-ui, sans-serif; font-size: 1.125rem; line-height: 1.625; color: #3a4045; margin: 0; }"
+    },
+    {
+      "name": "Ruled Item",
+      "kind": "list",
+      "refersTo": "ruled-item",
+      "description": "Parallel items opened by a hairline rule, never boxed in cards.",
+      "html": "<div class=\"ds-ruled\"><h3>Patients who stay in care</h3><p>Lapsing patients are noticed early and re-engaged before they are lost.</p></div>",
+      "css": ".ds-ruled { border-top: 1px solid #cbd5ec; padding-top: 24px; max-width: 28rem; } .ds-ruled h3 { font-family: 'Source Serif 4 Variable', Georgia, serif; font-weight: 500; font-size: 1.5rem; color: #0b1638; margin: 0; } .ds-ruled p { font-family: 'Public Sans Variable', system-ui, sans-serif; line-height: 1.625; color: #3a4045; margin: 12px 0 0; }"
+    },
+    {
+      "name": "Statement Band",
       "kind": "custom",
-      "refersTo": "loop-mark",
-      "description": "The signature mark: a segmented loop with one node live. The active node advances across a sequence to carry stage.",
-      "html": "<span class=\"ds-loop\"><svg viewBox=\"0 0 100 100\" width=\"44\" height=\"44\" fill=\"none\" aria-hidden=\"true\"><circle cx=\"50\" cy=\"50\" r=\"30\" stroke=\"currentColor\" stroke-width=\"5\" opacity=\".3\" stroke-linecap=\"round\" stroke-dasharray=\"38 9\"/><circle cx=\"50\" cy=\"20\" r=\"11\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"5\"/><circle cx=\"80\" cy=\"50\" r=\"6.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"5\" opacity=\".55\"/><circle cx=\"50\" cy=\"80\" r=\"6.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"5\" opacity=\".55\"/><circle cx=\"20\" cy=\"50\" r=\"6.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"5\" opacity=\".55\"/></svg></span>",
-      "css": ".ds-loop { display: inline-flex; color: #1f675c; }"
-    },
-    {
-      "name": "Measure Label",
-      "kind": "custom",
-      "refersTo": "typography.label",
-      "description": "Section marks, system names, and figures. Mono, never prose.",
-      "html": "<p class=\"ds-measure-label\">Utilisation &middot; Churn risk</p>",
-      "css": ".ds-measure-label { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: .6875rem; font-weight: 500; text-transform: uppercase; letter-spacing: .14em; color: #656c73; margin: 0; }"
-    },
-    {
-      "name": "Status Dot",
-      "kind": "custom",
-      "refersTo": "status-dot",
-      "description": "Clinical state marker. Amber for leaking, teal for acting, green for recovered.",
-      "html": "<span class=\"ds-dot ds-dot--risk\"></span><span class=\"ds-dot ds-dot--acting\"></span><span class=\"ds-dot ds-dot--steady\"></span>",
-      "css": ".ds-dot { display: inline-block; width: 8px; height: 8px; border-radius: 9999px; margin-right: 10px; } .ds-dot--risk { background: #a55c15; } .ds-dot--acting { background: #2c8173; } .ds-dot--steady { background: #2f6b3d; }"
-    },
-    {
-      "name": "Discipline Chip",
-      "kind": "chip",
-      "refersTo": "chip-discipline",
-      "description": "Static taxonomy of disciplines and systems served. Not a filter.",
-      "html": "<span class=\"ds-chip\">Physiotherapy</span>",
-      "css": ".ds-chip { display: inline-block; background: #fff; color: #545b61; border: 1px solid #dcdfe1; border-radius: 4px; padding: 6px 14px; font-family: 'Public Sans', system-ui, sans-serif; font-size: .75rem; font-weight: 500; }"
-    },
-    {
-      "name": "Loop Panel",
-      "kind": "card",
-      "refersTo": "card-panel",
-      "description": "The one lifted surface — it represents a loop actually running.",
-      "html": "<div class=\"ds-panel\"><p class=\"ds-panel__kicker\">One loop, running</p><ul class=\"ds-panel__rows\"><li><span class=\"ds-dot ds-dot--risk\"></span>41 patients passed 90 days since their last visit.</li><li><span class=\"ds-dot ds-dot--steady\"></span>9 rebooked within three weeks.</li></ul><p class=\"ds-panel__note\">Illustrative example &middot; not client data</p></div>",
-      "css": ".ds-panel { background: #fff; border: 1px solid #dcdfe1; border-radius: 8px; padding: 24px; max-width: 380px; box-shadow: 0 1px 2px rgba(15,18,20,.04), 0 18px 44px -20px rgba(15,18,20,.28); font-family: 'Public Sans', system-ui, sans-serif; } .ds-panel__kicker { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: .6875rem; text-transform: uppercase; letter-spacing: .14em; color: #656c73; margin: 0 0 16px; border-bottom: 1px solid #eceeef; padding-bottom: 16px; } .ds-panel__rows { list-style: none; margin: 0; padding: 0; } .ds-panel__rows li { display: flex; align-items: flex-start; font-size: .875rem; line-height: 1.6; color: #42484d; margin-bottom: 14px; } .ds-panel__rows .ds-dot { margin-top: 7px; flex-shrink: 0; } .ds-panel__note { border-top: 1px solid #eceeef; padding-top: 16px; margin: 8px 0 0; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: .6875rem; text-transform: uppercase; letter-spacing: .1em; color: #656c73; }"
+      "refersTo": "statement-band",
+      "description": "Full-bleed navy band carrying the point of view in the serif.",
+      "html": "<blockquote class=\"ds-statement\"><p>Practice software is built to record care. Clinic leaders need something that helps them run the business of care.</p></blockquote>",
+      "css": ".ds-statement { background: #10204d; margin: 0; padding: 64px 48px; } .ds-statement p { font-family: 'Source Serif 4 Variable', Georgia, serif; font-size: 2.75rem; line-height: 1.2; color: #fff; margin: 0; max-width: 24ch; }"
     },
     {
       "name": "Navigation Link",
       "kind": "nav",
       "refersTo": "nav-link",
-      "description": "Graphite at rest, vital teal when current.",
-      "html": "<nav class=\"ds-nav\"><a href=\"#\">Home</a><a href=\"#\" aria-current=\"page\">Platform</a><a href=\"#\">About</a></nav>",
-      "css": ".ds-nav { display: flex; gap: 32px; } .ds-nav a { font-family: 'Public Sans', system-ui, sans-serif; font-size: .875rem; font-weight: 500; color: #545b61; text-decoration: none; transition: color 150ms; } .ds-nav a:hover, .ds-nav a[aria-current='page'] { color: #1a5249; } .ds-nav a:focus-visible { outline: 2px solid #2c8173; outline-offset: 2px; }"
+      "description": "Graphite at rest; navy with a signal underline when current.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Platform</a><a href=\"#\">Trust</a><a href=\"#\">Insights</a><a href=\"#\">About</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 32px; } .ds-nav a { font-family: 'Public Sans Variable', system-ui, sans-serif; font-size: .9375rem; color: #4b5258; text-decoration: none; } .ds-nav a:hover, .ds-nav a[aria-current='page'] { color: #0b1638; } .ds-nav a[aria-current='page'] { text-decoration: underline; text-decoration-color: #2f72f0; text-underline-offset: 8px; }"
     }
   ],
   "narrative": {
-    "northStar": "The Clinical Loop",
-    "overview": "Every practitioner Datafore serves already runs a disciplined loop: assess, treat, reassess. Nobody would accept a course of treatment that skipped the reassessment. Datafore's entire thesis is that clinics deserve the same method applied to the business — and that most software stops at the assessment. The design system is built from that loop rather than from the analytics category.\n\nThe surface reads as clinical instrumentation: a bone-white ground, cool graphite text, and a single vital teal that marks whatever is live or actionable. It is calm and precise rather than energetic; this audience is professionally skeptical, handles sensitive patient data, and is sold to by dashboard vendors constantly. Restraint is the credibility.\n\nThe confirmed anti-references are the generic analytics landing page and the previous brass-and-paper registry identity, which read as legal rather than clinical.",
+    "northStar": "The Advisory Brief",
+    "overview": "Datafore presents as a strategic partner to allied health clinic leaders, not a tool vendor. The site reads like a well-made brief from a serious advisory firm: a confident point of view set in a literary serif, on a white page, with the deep navy of the Datafore wordmark carrying the weight and the logo's bright blue doing the pointing.\n\nIt speaks to clinic owners first and to evaluators — partners, funders, procurement panels — second, so governance, status and company facts are always one click away and stated plainly. Credibility comes from restraint and candour: Datafore is pre-customer, and the site never implies otherwise.\n\nAnti-references: the generic SaaS analytics landing page, the earlier teal-and-mono Clinical Loop identity (too technical, too tactical), and the brass registry identity before it (too legal).",
     "keyCharacteristics": [
-      "Bone ground, graphite text, one vital teal — plus signal colours that only ever mean state.",
-      "The loop mark, segmented and advancing, as the recurring form.",
-      "Hairline rules and shared borders rather than scattered shadows.",
-      "Monospace reserved for measurements, systems, and identifiers.",
-      "Mechanisms shown working, not described."
+      "White paper and mist grounds, with full-bleed navy bands for the strategic statements.",
+      "Source Serif 4 for every heading and statement; Public Sans for everything functional.",
+      "Signal blue as the only accent, used for underlines, rules and the current state — never a fill.",
+      "Hairline rules and twelve-column asymmetry instead of cards; no shadows or gradients.",
+      "One authored motion moment: the hero settles into place."
     ],
     "rules": [
-      { "name": "The State Rule", "body": "Amber and green are clinical status, never decoration. If a colour is not reporting the condition of something, it is graphite or teal.", "section": "colors" },
-      { "name": "The Live Colour Rule", "body": "Teal marks what is acting. A static container never takes teal just to look branded; the one exception is the closing CTA band, where the action is the content.", "section": "colors" },
-      { "name": "The Contrast Floor", "body": "graphite-500 is the lightest text on any light ground and graphite-400 on graphite-950. Every pair is verified at 4.5:1 or better.", "section": "colors" },
-      { "name": "The Instrument Rule", "body": "Monospace is for things that are measured or named by a system. Prose is never mono.", "section": "typography" },
-      { "name": "The No-Eyebrow Rule", "body": "No kicker sits above a heading. Mono labels mark fields and sections; they never introduce a headline.", "section": "typography" },
-      { "name": "The One Shadow Rule", "body": "Exactly one element per page may cast a shadow. A second turns the page into a card wall and the first stops meaning anything.", "section": "elevation" }
+      {
+        "name": "The One Accent Rule",
+        "body": "Signal blue is the only colour besides navy and the neutrals, and it never fills a surface.",
+        "section": "colors"
+      },
+      {
+        "name": "The Contrast Floor",
+        "body": "graphite-600 is the lightest text on light grounds and navy-300 on navy. navy-400 is never text on white.",
+        "section": "colors"
+      },
+      {
+        "name": "The No-Eyebrow Rule",
+        "body": "Nothing sits above a heading to introduce it: no kicker, category label or section number.",
+        "section": "typography"
+      },
+      {
+        "name": "The Full-Stop Rule",
+        "body": "Section headlines are sentences that make a claim, and end with a full stop.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Rule",
+        "body": "No shadows, gradients or blur. Depth comes from the ground changing between bands.",
+        "section": "elevation"
+      }
     ],
     "dos": [
-      "Do use teal to mark what is acting, and signal colours to report state.",
-      "Do advance the loop mark's active node across a sequence so the mark carries meaning.",
-      "Do separate sections with a ground change closed by a hairline.",
-      "Do build grids as a 1px gap over a graphite-200 ground so panels share rules.",
-      "Do name the real systems — Jane App, Cliniko, Owl Practice, HubSpot. Specificity is the trust signal this product has before it has customers.",
-      "Do label every illustrative figure as illustrative, in place.",
-      "Do route internal links and public/ assets through withBase(); markdown links are rewritten at build."
+      "Do state Datafore's status plainly: in development, forming a founding cohort in British Columbia.",
+      "Do phrase security and privacy as what the platform is designed to do, not as certifications held.",
+      "Do name the real systems — Jane App, Cliniko, Owl Practice, HubSpot.",
+      "Do describe benchmarking in the future tense.",
+      "Do label illustrative figures as illustrative, in place.",
+      "Do route internal links and public/ assets through withBase()."
     ],
     "donts": [
-      "Don't use teal as a decorative fill on a static container.",
-      "Don't use amber or green for anything that is not a clinical state.",
-      "Don't use rounded-full on anything that is not a loop node or a status dot.",
-      "Don't put an eyebrow or kicker above a heading, or number sections 01 / 02 / 03.",
-      "Don't add a coloured border-left to callouts or list items; use a hairline divider list instead.",
-      "Don't add a second shadow to a page.",
-      "Don't set text lighter than graphite-500 on light grounds or graphite-400 on graphite-950.",
-      "Don't claim benchmarking as available. It requires a critical mass of clinics and is described as forthcoming, always.",
-      "Don't publish pricing, ARR/CAC/LTV, or roadmap detail — those live in the strategy document."
+      "Don't claim clinics, customers, results or testimonials that don't exist.",
+      "Don't publish pricing, ARR/CAC/LTV, grants, or roadmap detail.",
+      "Don't build the page from cards, or add shadows or gradients.",
+      "Don't put a kicker or number above a heading.",
+      "Don't use monospace, or signal blue as a fill.",
+      "Don't set text in navy-400 on light grounds."
     ]
   }
 }

@@ -4,51 +4,69 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout
   title="Contact"
-  description="Request a free Practice Health Snapshot, or talk to Datafore about clinic intelligence for your allied health practice."
+  description="Start a conversation with Datafore — request a complimentary Practice Health Snapshot for your clinic, or get in touch about partnerships and evaluations."
 >
-  <section class="border-b border-graphite-200 bg-bone">
-    <div class="mx-auto max-w-6xl px-6 py-16 md:py-20">
-      <h1 class="text-4xl font-bold tracking-tight text-graphite-950 md:text-5xl">Request a Practice Health Snapshot</h1>
-      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-graphite-600">
-        Send us a note and we'll run a snapshot on your clinic's own data: where utilisation sits, what no-shows
-        and gaps are costing, and how many patients have quietly lapsed. It's free, there's no commitment, and the
-        findings are yours regardless of what you do next.
+  <section class="border-b border-navy-100">
+    <div class="mx-auto max-w-7xl px-6 pb-20 pt-20 md:pt-28 lg:px-10">
+      <h1 class="max-w-[16ch] text-[2.75rem] leading-[1.05] tracking-[-0.022em] sm:text-6xl lg:text-[4.5rem]">
+        Start a conversation.
+      </h1>
+      <p class="mt-8 max-w-[60ch] text-lg leading-relaxed text-graphite-700 md:text-xl">
+        Whether you lead a clinic or are evaluating Datafore as a partner, we read every message ourselves and reply
+        personally.
       </p>
     </div>
   </section>
 
-  <section class="mx-auto max-w-4xl px-6 py-16">
-    <div class="grid gap-6 sm:grid-cols-2">
-      <a
-        href="mailto:info@datafore.ca?subject=Practice%20Health%20Snapshot"
-        class="rounded-lg border border-graphite-200 bg-white p-6 transition-colors hover:border-vital-500"
-      >
-        <p class="measure-label text-vital-700">Email</p>
-        <p class="mt-2 text-lg font-semibold text-graphite-950">info@datafore.ca</p>
-        <p class="mt-1 text-sm text-graphite-600">Usually the fastest way to reach us.</p>
-      </a>
-      <a
-        href="tel:+17787001733"
-        class="rounded-lg border border-graphite-200 bg-white p-6 transition-colors hover:border-vital-500"
-      >
-        <p class="measure-label text-vital-700">Phone</p>
-        <p class="mt-2 text-lg font-semibold text-graphite-950">+1 778 700 1733</p>
-        <p class="mt-1 text-sm text-graphite-600">Burnaby, BC — Pacific time.</p>
-      </a>
+  <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
+    <div class="grid gap-px overflow-hidden rounded-sm border border-navy-100 bg-navy-100 lg:grid-cols-2">
+      <div class="flex flex-col bg-paper p-8 md:p-12">
+        <h2 class="text-[1.75rem] leading-[1.15] md:text-[2.25rem]">For clinic leaders</h2>
+        <p class="mt-5 flex-1 text-lg leading-relaxed text-graphite-700">
+          Request a complimentary Practice Health Snapshot. We'll look at your own data — utilisation, patient
+          attrition, revenue mix — and show you where value is leaking. The findings are yours, whatever you decide
+          next.
+        </p>
+        <p class="mt-5 text-graphite-600">
+          It helps to mention which practice management system you use, and roughly how many practitioners and
+          locations you have.
+        </p>
+        <a
+          href="mailto:info@datafore.ca?subject=Practice%20Health%20Snapshot"
+          class="mt-8 self-start rounded-sm bg-navy-900 px-6 py-3.5 font-medium text-white transition-colors hover:bg-navy-700"
+        >
+          Request a Snapshot
+        </a>
+      </div>
+
+      <div class="flex flex-col bg-paper p-8 md:p-12">
+        <h2 class="text-[1.75rem] leading-[1.15] md:text-[2.25rem]">For partners and evaluators</h2>
+        <p class="mt-5 flex-1 text-lg leading-relaxed text-graphite-700">
+          For partnerships, funding applications, procurement or research collaboration, write to us and we'll set up
+          a time to walk through our approach, architecture and governance in detail.
+        </p>
+        <a
+          href="mailto:info@datafore.ca?subject=Partnership%20or%20evaluation%20enquiry"
+          class="mt-8 self-start rounded-sm border border-navy-900 px-6 py-3.5 font-medium text-navy-900 transition-colors hover:bg-navy-50"
+        >
+          Get in touch
+        </a>
+      </div>
     </div>
 
-    <div class="mt-6 rounded-lg border border-graphite-200 bg-white p-6">
-      <p class="measure-label text-vital-700">Office</p>
-      <p class="mt-2 text-lg font-semibold text-graphite-950">4353 Halifax Street, Burnaby, BC, Canada</p>
-    </div>
-
-    <div class="mt-10 rounded-lg bg-bone-dim p-6">
-      <h2 class="font-semibold text-graphite-950">Useful things to mention</h2>
-      <ul class="mt-3 space-y-1.5 text-sm leading-relaxed text-graphite-600">
-        <li>Which practice management system you run (Jane, Cliniko, Owl, or something else).</li>
-        <li>Roughly how many practitioners and locations.</li>
-        <li>The number you most wish you had a straight answer to.</li>
-      </ul>
-    </div>
+    <dl class="mt-16 grid gap-10 border-t border-navy-100 pt-10 sm:grid-cols-3">
+      <div>
+        <dt class="text-sm font-semibold text-navy-950">Email</dt>
+        <dd class="mt-2 text-lg"><a href="mailto:info@datafore.ca" class="text-navy-800 underline decoration-signal-500 underline-offset-4">info@datafore.ca</a></dd>
+      </div>
+      <div>
+        <dt class="text-sm font-semibold text-navy-950">Phone</dt>
+        <dd class="figures mt-2 text-lg"><a href="tel:+17787001733" class="text-navy-800 underline decoration-signal-500 underline-offset-4">+1 778 700 1733</a></dd>
+      </div>
+      <div>
+        <dt class="text-sm font-semibold text-navy-950">Office</dt>
+        <dd class="mt-2 text-lg leading-relaxed text-graphite-700">4353 Halifax Street<br />Burnaby, BC, Canada</dd>
+      </div>
+    </dl>
   </section>
 </Layout>

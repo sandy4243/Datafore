@@ -1,288 +1,235 @@
 ---
 name: Datafore
-description: The clinical loop — assess, act, verify — applied to the clinic itself.
+description: Premium advisory — a clinic intelligence partner that speaks to clinic leaders and evaluators as a peer.
 colors:
-  vital-950: "#0a1e1b"
-  vital-900: "#12312d"
-  vital-800: "#16403a"
-  vital-700: "#1a5249"
-  vital-600: "#1f675c"
-  vital-500: "#2c8173"
-  vital-300: "#74beb0"
-  vital-200: "#a9d8ce"
-  vital-100: "#d4ebe6"
-  graphite-950: "#0f1214"
-  graphite-900: "#1a1e21"
-  graphite-800: "#2b3034"
-  graphite-700: "#42484d"
-  graphite-600: "#545b61"
-  graphite-500: "#656c73"
-  graphite-400: "#8b9399"
+  navy-950: "#0b1638"
+  navy-900: "#10204d"
+  navy-800: "#172d63"
+  navy-700: "#203b7a"
+  navy-600: "#2b4d94"
+  navy-500: "#4a68aa"
+  navy-400: "#7189c0"
+  navy-300: "#a3b3d9"
+  navy-200: "#cbd5ec"
+  navy-100: "#e5eaf6"
+  navy-50: "#f3f5fb"
+  signal-700: "#174bb3"
+  signal-600: "#1d5fe0"
+  signal-500: "#2f72f0"
+  signal-300: "#8fb3f7"
+  signal-200: "#c3d6fb"
+  graphite-800: "#262b2f"
+  graphite-700: "#3a4045"
+  graphite-600: "#4b5258"
+  graphite-500: "#5f666d"
   graphite-300: "#b9bfc3"
   graphite-200: "#dcdfe1"
-  graphite-100: "#eceeef"
-  risk-500: "#a55c15"
-  risk-100: "#fbeadb"
-  steady-600: "#2f6b3d"
-  steady-100: "#dcefe0"
-  bone: "#fbfbfa"
-  bone-dim: "#f2f3f2"
-  surface-card: "#ffffff"
+  paper: "#ffffff"
+  mist: "#f3f5f8"
 typography:
   display:
-    fontFamily: "Public Sans, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(2.25rem, 5vw, 3rem)"
-    fontWeight: 700
-    lineHeight: 1.08
-    letterSpacing: "-0.025em"
+    fontFamily: "Source Serif 4 Variable, Iowan Old Style, Georgia, serif"
+    fontSize: "clamp(2.75rem, 6vw, 5rem)"
+    fontWeight: 500
+    lineHeight: 1.05
+    letterSpacing: "-0.022em"
   headline:
-    fontFamily: "Public Sans, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1.875rem"
-    fontWeight: 600
-    lineHeight: 1.2
-    letterSpacing: "-0.025em"
+    fontFamily: "Source Serif 4 Variable, Iowan Old Style, Georgia, serif"
+    fontSize: "clamp(2rem, 4vw, 2.75rem)"
+    fontWeight: 500
+    lineHeight: 1.12
+    letterSpacing: "-0.015em"
   title:
-    fontFamily: "Public Sans, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1.125rem"
-    fontWeight: 600
-    lineHeight: 1.4
+    fontFamily: "Source Serif 4 Variable, Iowan Old Style, Georgia, serif"
+    fontSize: "1.5rem"
+    fontWeight: 500
+    lineHeight: 1.3
   body:
-    fontFamily: "Public Sans, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1rem"
+    fontFamily: "Public Sans Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.125rem"
     fontWeight: 400
     lineHeight: 1.625
   label:
-    fontFamily: "IBM Plex Mono, ui-monospace, SFMono-Regular, monospace"
-    fontSize: "0.6875rem"
-    fontWeight: 500
+    fontFamily: "Public Sans Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "0.875rem"
+    fontWeight: 600
     lineHeight: 1.4
-    letterSpacing: "0.14em"
 rounded:
   none: "0px"
-  sm: "2px"
-  md: "4px"
-  lg: "8px"
-  full: "9999px"
+  sm: "4px"
 spacing:
   xs: "8px"
-  sm: "12px"
+  sm: "16px"
   md: "24px"
   lg: "40px"
-  section: "64px"
+  section: "96px"
 components:
   button-primary:
-    backgroundColor: "{colors.vital-600}"
-    textColor: "{colors.surface-card}"
-    rounded: "{rounded.md}"
-    padding: "12px 24px"
+    backgroundColor: "{colors.navy-900}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.sm}"
+    padding: "14px 24px"
   button-primary-hover:
-    backgroundColor: "{colors.vital-700}"
+    backgroundColor: "{colors.navy-700}"
   button-secondary:
-    backgroundColor: "{colors.bone}"
-    textColor: "{colors.graphite-700}"
-    rounded: "{rounded.md}"
-    padding: "12px 24px"
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.navy-900}"
+    rounded: "{rounded.sm}"
+    padding: "14px 24px"
   button-secondary-hover:
-    textColor: "{colors.graphite-950}"
+    backgroundColor: "{colors.navy-50}"
   button-on-dark:
-    backgroundColor: "{colors.surface-card}"
-    textColor: "{colors.vital-900}"
-    rounded: "{rounded.md}"
-    padding: "12px 32px"
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.navy-950}"
+    rounded: "{rounded.sm}"
+    padding: "14px 24px"
   button-on-dark-hover:
-    backgroundColor: "{colors.vital-100}"
-  chip-discipline:
-    backgroundColor: "{colors.surface-card}"
-    textColor: "{colors.graphite-600}"
-    rounded: "{rounded.md}"
-    padding: "6px 14px"
-  card-panel:
-    backgroundColor: "{colors.surface-card}"
-    textColor: "{colors.graphite-800}"
-    rounded: "{rounded.lg}"
-    padding: "24px"
+    backgroundColor: "{colors.navy-100}"
+  link:
+    textColor: "{colors.navy-800}"
 ---
 
 # Design System: Datafore
 
 ## Overview
 
-**Creative North Star: "The Clinical Loop"**
+**North star: the advisory brief.** Datafore presents as a strategic partner to clinic leaders, not a tool vendor.
+The site should read like a well-made brief from a serious advisory firm: a confident point of view, set in a
+literary serif, on a white page, with deep navy carrying the weight and a single bright blue doing the pointing.
 
-Every practitioner Datafore serves already runs a disciplined loop: assess, treat, reassess. Nobody would
-accept a course of treatment that skipped the reassessment. Datafore's entire thesis is that clinics deserve
-the same method applied to the business — and that most software stops at the assessment. The design system is
-built from that loop rather than from the analytics category.
+Two audiences read it. Clinic owners and directors come first: they need to recognise their problem and trust that
+Datafore understands the business of care. Evaluators — partners, funders, procurement panels — come second: they
+need to find governance, status and company facts quickly, stated plainly.
 
-The surface reads as clinical instrumentation: a bone-white ground, cool graphite text, and a single vital teal
-that marks whatever is live or actionable. It is calm and precise rather than energetic; this audience is
-professionally skeptical, handles sensitive patient data, and is sold to by dashboard vendors constantly.
-Restraint is the credibility. Colour is reserved for state, which means an amber or green in this system always
-means something is at risk or steady — never that a box needed brightening.
+The design earns credibility through restraint and candour rather than product screenshots or metrics. Datafore is
+pre-customer; the site never implies otherwise.
 
-The confirmed anti-references are two: the generic analytics landing page (saturated blue, pill buttons, a grid
-of identical icon-heading-text cards, `01 / 02 / 03` steps) and the previous Datafore identity, a brass-and-paper
-"registry document" world that was handsome but read as legal or bureaucratic rather than clinical.
+**Anti-references:** the generic SaaS analytics landing page (gradient hero, dashboard mock, logo wall, stat
+tiles); the earlier "Clinical Loop" teal-and-mono identity, which read as technical and tactical; and the brass
+registry identity before it, which read as legal.
 
-**Key Characteristics:**
-- Bone ground, graphite text, one vital teal — plus signal colours that only ever mean state.
-- The loop mark, segmented and advancing, as the recurring form.
-- Hairline rules and shared borders rather than scattered shadows.
-- Monospace reserved for measurements, systems, and identifiers.
-- Mechanisms shown working, not described.
+### Key characteristics
+
+- White paper ground, mist bands, and full-bleed navy bands for the strategic statements.
+- Source Serif 4 for every heading and statement; Public Sans for everything functional.
+- Signal blue as the only accent — underlines, the active nav state, rules — never a fill.
+- Hairline rules and twelve-column asymmetry instead of cards.
+- One authored motion moment: the hero settles into place on load.
 
 ## Colors
 
-Clinical instrumentation: a near-white ground, cool neutral text, one vital accent, and two signal states.
+The palette is taken from the Datafore logo: the navy of the wordmark and the bright blue of the mark and tagline.
 
-### Primary
-- **Vital Teal** (`vital-600`): The live colour. Primary actions, the active node in the loop mark, current
-  navigation, and the boundary of the Datafore layer in the architecture diagram. It marks what is *acting*.
-- **Deep Vital** (`vital-700`): Hover for every filled teal control, and teal text on tinted grounds.
-- **Vital Ground** (`vital-950`): The closing call-to-action band — the one place teal owns a full region.
+### Primary — Navy
 
-### Secondary — Signal
-- **At Risk** (`risk-500`): Something leaking: lapsed patients, ageing receivables, a gap. Never decorative.
-- **Steady** (`steady-600`): A recovered or healthy state — the closing half of the loop.
+Headings (`navy-950`), primary actions (`navy-900`), and the dark bands (`navy-950` for the hero and closing
+invitation, `navy-900` for the point-of-view statement). `navy-100` is the hairline on light grounds; `navy-700`
+and `navy-800` are the hairlines on dark ones.
 
-### Neutral
-- **Graphite 950**: Headings and the dark full-bleed sections.
-- **Graphite 800**: Body text on light grounds.
-- **Graphite 600**: Secondary copy and navigation at rest.
-- **Graphite 500**: The smallest labels. The floor for text on any light ground.
-- **Graphite 200**: Hairline rules, card borders, and the 1px gaps between grid cells.
-- **Bone** / **Bone Dim**: The page ground and its alternating band.
-- **Card White**: Reserved for panels that carry a mechanism or a measurement.
+### Accent — Signal
+
+`signal-500` underlines links and marks the current page. `signal-300` is its counterpart on dark grounds (links,
+the footer tagline). Signal never fills a container or a button.
+
+### Neutral — Graphite, Paper, Mist
+
+Body copy is `graphite-700` on paper and mist; secondary copy is `graphite-600`. `paper` is the page; `mist`
+alternates with it to pace long pages. No cream, no warm greys.
 
 ### Named Rules
 
-**The State Rule.** Amber and green are clinical status, never decoration. If a colour is not reporting the
-condition of something, it is graphite or teal.
-
-**The Live Colour Rule.** Teal marks what is acting. A static container never takes teal just to look branded;
-the one exception is the closing CTA band, where the action *is* the content.
-
-**The Contrast Floor.** `graphite-500` is the lightest text on any light ground and `graphite-400` on
-`graphite-950`. Every pair in this file is verified at 4.5:1 or better; `risk-500` and `graphite-500` were both
-darkened from their first draft specifically to clear it on `bone-dim`.
+- **The One Accent Rule.** Signal blue is the only colour besides navy and the neutrals. If something needs
+  emphasis, it gets weight, size or position, not a new hue.
+- **The Contrast Floor.** `graphite-600` is the lightest text on light grounds; `navy-300` is the lightest text on
+  navy. `navy-400` fails AA on white and is never used for text.
 
 ## Typography
 
-**Display Font:** Public Sans (with `ui-sans-serif`, `system-ui`)
-**Body Font:** Public Sans
-**Label/Mono Font:** IBM Plex Mono (with `ui-monospace`, `SFMono-Regular`)
-
-**Character:** Public Sans is a public-service face, drawn for clarity in health and government contexts — it
-carries institutional plainness without the corporate gloss of the usual product-marketing sans. Plex Mono
-handles measurements and system names, where tabular figures and unambiguous characters matter.
+**Source Serif 4** (variable, with optical sizes) carries the voice: h1–h3, the hero list, the point-of-view
+quote, and definition terms. **Public Sans** carries body, navigation, labels and controls. Both are self-hosted
+via Fontsource. There is no monospace on the site.
 
 ### Hierarchy
-- **Display** (700, `clamp(2.25rem, 5vw, 3rem)`, 1.08): The page-opening claim, one per page.
-- **Headline** (600, 1.875rem, 1.2): Section headings.
-- **Title** (600, 1.125rem, 1.4): Panel and stage titles.
-- **Body** (400, 1rem, 1.625): Paragraph copy. Measure stays under 75ch.
-- **Label** (500, 0.6875rem, 0.14em tracking, uppercase, mono): Section marks, system names, and figures.
-  Carried by `.measure-label`.
+
+- **Display** — one per page, 2.75rem to 5rem, weight 500, tight leading, balanced wrapping.
+- **Headline** — section openers, 2rem to 2.75rem, often sitting in the left five columns opposite its body copy.
+- **Title** — item headings within a section (outcomes, beliefs, stages), 1.5rem.
+- **Body** — 1.125rem at 1.625 leading, `text-wrap: pretty`, measure capped near 60ch.
+- **Label** — Public Sans 0.875rem semibold, used for `dt` labels and the hero aside heading. Sentence case.
 
 ### Named Rules
 
-**The Instrument Rule.** Monospace is for things that are measured or named by a system — utilisation, a PMS
-name, an integration, a status line. Prose is never mono.
-
-**The No-Eyebrow Rule.** No kicker sits above a heading. Mono labels mark fields and sections; they never
-introduce a headline.
+- **The No-Eyebrow Rule.** Nothing sits above a heading to introduce it — no kicker, no category label, no
+  section number. The heading carries the section.
+- **The Full-Stop Rule.** Section headlines are written as sentences and end with a full stop. They make a claim.
+- **Figures** — phone numbers, dates and quantities use the `.figures` class for tabular lining numerals.
 
 ## Layout
 
-A centred column at `max-width: 72rem` with `1.5rem` gutters holding from 320px up. Long-form pages narrow to
-`48rem`/`56rem` to keep measure under 75ch.
+A `max-w-7xl` container with `px-6` (`lg:px-10`) gutters. Sections run `py-24` (`lg:py-28` to `lg:py-32`).
 
-Sections are separated by ground changes rather than whitespace alone: `bone` → `graphite-950` → `bone` →
-`bone-dim` → `vital-950`, each closed with a hairline. The dark bands are used to carry the two hardest
-statements on the page (the size of the leak, and the ask), so the page has a rhythm of claim and quiet rather
-than uniform density.
-
-Vertical rhythm is `4rem`–`5rem` between sections, `1.5rem`–`2.5rem` within, always more space above a heading
-than below it. The hero is an asymmetric `1.05fr 1fr` grid that stacks below `md`; the loop runs four-up on
-`lg`, two-up on `sm`, stacked below. No page scrolls horizontally at any width down to 320px.
+The default section is a twelve-column split: the headline in columns 1–5, the body in 7–12. Lists of parallel
+items (outcomes, stages, beliefs, commitments) sit in a grid where each item is opened by a hairline `border-t`,
+or in a `divide-y` list of full-width rows. Bands alternate paper → mist → navy to pace the page.
 
 ## Elevation & Depth
 
-Flat by default, with one exception. Structure comes from hairline borders and ground changes — grid cells are a
-1px gap over a `graphite-200` ground, so panels share rules like cells in a table rather than floating as tiles.
-
-### Shadow Vocabulary
-- **Instrument lift** (`box-shadow: 0 1px 2px rgba(15,18,20,0.04), 0 18px 44px -20px rgba(15,18,20,0.28)`):
-  The hero loop panel only — the one element representing something live.
-
-### Named Rules
-
-**The One Shadow Rule.** Exactly one element per page may cast a shadow. A second turns the page into a card
-wall and the first stops meaning anything.
+None. The system is flat: no shadows, no gradients, no blur. Depth comes from the ground changing.
 
 ## Shapes
 
-Square by default: `4px` on controls and chips, `8px` on panels. **Nothing is pill-shaped.** `rounded-full` is
-reserved for the loop nodes and the small status dots, which are true circles because they are states.
-
-The recurring silhouette is the **loop**: a segmented circle with four nodes, one filled. Across a sequence the
-filled node advances, so the mark itself carries the stage rather than repeating as a logo.
+`rounded-sm` (4px in Tailwind v4) on buttons, the portrait and the contact panel grid. Nothing is pill-shaped or circular.
 
 ## Components
 
 ### Buttons
-- **Shape:** `4px` corners.
-- **Primary:** `vital-600` fill, white label, `12px 24px`, semibold.
-- **Hover / Focus:** Darkens to `vital-700`. Focus shows the global teal ring.
-- **Secondary:** No fill, `graphite-300` hairline, `graphite-700` label, both darkening to `graphite-950`.
-- **On the vital band:** Inverted — white fill, `vital-900` label, hovering to `vital-100`.
 
-### Chips
-- **Style:** White fill, `graphite-200` hairline, `graphite-600` label, `4px` corners.
-- **State:** Static. A taxonomy of disciplines and systems, not filters — they do not select.
+- **Primary** — `bg-navy-900`, white text, `hover:bg-navy-700`, `rounded-sm`, `px-6 py-3.5`.
+- **Secondary** — 1px `navy-900` border, navy text, `hover:bg-navy-50`.
+- **On dark** — white fill, `navy-950` text, `hover:bg-navy-100`.
 
-### Cards / Panels
-- **Corner Style:** `8px`; grid cells share rules via a 1px gap.
-- **Background:** White against `bone`/`bone-dim`.
-- **Shadow Strategy:** None, except the hero loop panel.
-- **Border:** `graphite-200` hairline; `vital-600` at 2px marks the Datafore layer in the architecture diagram,
-  which is the one place a border carries meaning rather than structure.
-- **Internal Padding:** `24px` mobile, `32px`–`40px` from `md`.
+### Text links
+
+Navy (or white on dark) with a 1px signal underline at a 6px offset, thickening to 2px on hover.
 
 ### Navigation
-- Public Sans medium at `0.875rem`, `graphite-600` at rest, `vital-700` when current.
-- Sticky, `bone/90` with backdrop blur, closed by a hairline.
-- Below `md` it becomes a native `<details>` disclosure — no JavaScript, works before hydration.
 
-### Loop Mark (signature component)
-An authored inline SVG on a 100×100 viewBox: a segmented circle at `r=30` (stroke 5, 30% opacity,
-`stroke-dasharray="38 9"`) with four nodes at the quarter positions. The active node is filled at `r=11`; the
-rest are `r=6.5` outlines at 55% opacity. Colour inherits via `currentColor`. Stroke weights are deliberately
-heavy so the mark stays legible at 24px inline — the first draft used stroke 2 and disappeared at small sizes.
-The `active` prop is how a sequence shows progress.
+Header: wordmark, four links (Platform, Trust, Insights, About), and the primary "Start a conversation" button.
+The current page gets `aria-current` and a signal underline. A `<details>` disclosure on mobile.
+
+### Panel grid
+
+Used sparingly (contact paths, integrated systems): a `gap-px` grid over a `navy-100` ground, so the panels share
+hairline borders. It is not a card wall; use it only when the items are genuinely parallel choices.
+
+### Logo
+
+`src/components/Logo.astro` is an interim text wordmark (Public Sans 800, tight tracking), with `onLight` and
+`onDark` tones. It is replaced by the supplied logo artwork once that is in the repo. The favicon and touch icon
+are an interim "D" monogram.
+
+### Motion
+
+The hero settles in on load (`.settle`, 900ms, `cubic-bezier(0.16, 1, 0.3, 1)`, with `.settle-late` delayed
+140ms). Everything else is a 150ms colour transition. `prefers-reduced-motion` disables the settle.
 
 ## Do's and Don'ts
 
-### Do:
-- **Do** use teal to mark what is acting, and signal colours to report state.
-- **Do** advance the loop mark's `active` node across a sequence so the mark carries meaning.
-- **Do** separate sections with a ground change closed by a hairline.
-- **Do** build grids as a 1px gap over a `graphite-200` ground so panels share rules.
-- **Do** name the real systems — Jane App, Cliniko, Owl Practice, HubSpot. Specificity is the trust signal this
-  product has before it has customers.
-- **Do** label every illustrative figure as illustrative, in place. There are no customers yet and nothing may
-  imply otherwise.
-- **Do** route internal links and `public/` assets through `withBase()`; markdown links are rewritten at build.
+### Do
 
-### Don't:
-- **Don't** use teal as a decorative fill on a static container.
-- **Don't** use amber or green for anything that is not a clinical state.
-- **Don't** use `rounded-full` on anything that is not a loop node or a status dot.
-- **Don't** put an eyebrow or kicker above a heading, or number sections `01 / 02 / 03` — the loop stages carry
-  their own names.
-- **Don't** add a coloured `border-left` to callouts or list items; use a hairline divider list instead.
-- **Don't** add a second shadow to a page.
-- **Don't** set text lighter than `graphite-500` on light grounds or `graphite-400` on `graphite-950`.
-- **Don't** claim benchmarking as available. It requires a critical mass of clinics and is described as
-  forthcoming, always.
-- **Don't** publish pricing, ARR/CAC/LTV, or roadmap detail — those live in the strategy document.
+- Do state Datafore's status plainly: in development, forming a founding cohort in British Columbia.
+- Do phrase security and privacy as what the platform is *designed to* do, not as certifications held.
+- Do name the real systems — Jane App, Cliniko, Owl Practice, HubSpot — and say connections come online in turn.
+- Do describe benchmarking in the future tense, conditional on enough clinics taking part.
+- Do label any illustrative figure as illustrative, in place.
+- Do route internal links and `public/` assets through `withBase()`; markdown links are rewritten at build.
+
+### Don't
+
+- Don't claim clinics, customers, results or testimonials that don't exist.
+- Don't publish pricing, ARR/CAC/LTV, grants, or roadmap detail.
+- Don't use cards as the page structure, or add shadows or gradients.
+- Don't put a kicker or number above a heading.
+- Don't add a coloured border-left to callouts.
+- Don't use monospace, or set text in `navy-400` on light grounds.
+- Don't use signal blue as a fill.

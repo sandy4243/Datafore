@@ -1,8 +1,8 @@
 # Datafore
 
-### ▶ [**View the live site — sandy4243.github.io/Datafore**](https://sandy4243.github.io/Datafore/)
+### ▶ [**View the live site — datafore.ca**](https://datafore.ca)
 
-*Review copy, rebuilt automatically on every push to `main`. The real site, [datafore.ca](https://datafore.ca), moves here at cutover — see [`docs/CUTOVER.md`](./docs/CUTOVER.md).*
+*Served by GitHub Pages and rebuilt automatically on every push to `main`. How the domain was moved, and how to move it back, is in [`docs/CUTOVER.md`](./docs/CUTOVER.md).*
 
 ---
 
@@ -44,7 +44,7 @@ src/
   components/   Header, Footer, shared UI
   content/blog/ blog posts (Markdown)
   layouts/      shared page layout (SEO head, header/footer)
-  pages/        route -> page mapping (index, about, platform, blog, contact, privacy)
+  pages/        route -> page mapping (index, platform, trust, about, blog, contact, privacy)
   styles/       global.css (Tailwind + brand tokens)
 public/
   images/       static images served as-is
@@ -58,7 +58,7 @@ two modes, chosen by the `CUSTOM_DOMAIN` repository variable:
 | `CUSTOM_DOMAIN` | Serves | Indexable |
 |---|---|---|
 | unset | `https://sandy4243.github.io/Datafore/` (review copy, from a subpath) | No — `noindex` and `Disallow: /` |
-| `true` | `https://datafore.ca` (the real site, from the root) | Yes |
+| `true` | `https://datafore.ca` (the real site, from the root) — **current setting** | Yes |
 
 Merging code never flips the mode. Moving the domain is a deliberate, reversible sequence of steps, written up in
 **[`docs/CUTOVER.md`](./docs/CUTOVER.md)**.

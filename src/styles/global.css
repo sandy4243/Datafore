@@ -1,108 +1,153 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* Self-hosted, so visitors' browsers make no third-party font requests. */
+@import "@fontsource-variable/source-serif-4/opsz.css";
+@import "@fontsource-variable/public-sans/wght.css";
+
 @theme {
-  /* Public Sans is a public-service face — built for clarity in health and
-     government contexts, which is the register this audience reads in. */
-  --font-display: "Public Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
-  /* Mono carries measurements and identifiers; tabular figures matter here. */
-  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+  /* Source Serif 4 carries the voice: an editorial serif with optical sizes,
+     so display settings draw from its display cut automatically. */
+  --font-display: "Source Serif 4 Variable", "Iowan Old Style", Georgia, serif;
+  /* Public Sans carries everything functional: body, navigation, controls. */
+  --font-sans: "Public Sans Variable", ui-sans-serif, system-ui, sans-serif;
 
-  /* Vital — the clinical teal. Primary action, the loop itself, active state. */
-  --color-vital-50: #eff7f5;
-  --color-vital-100: #d4ebe6;
-  --color-vital-200: #a9d8ce;
-  --color-vital-300: #74beb0;
-  --color-vital-400: #479e8f;
-  --color-vital-500: #2c8173;
-  --color-vital-600: #1f675c;
-  --color-vital-700: #1a5249;
-  --color-vital-800: #16403a;
-  --color-vital-900: #12312d;
-  --color-vital-950: #0a1e1b;
+  /* Navy — taken from the Datafore wordmark. Headlines, primary actions, and
+     the full-bleed bands that carry the strategic statements. */
+  --color-navy-50: #f3f5fb;
+  --color-navy-100: #e5eaf6;
+  --color-navy-200: #cbd5ec;
+  --color-navy-300: #a3b3d9;
+  --color-navy-400: #7189c0;
+  --color-navy-500: #4a68aa;
+  --color-navy-600: #2b4d94;
+  --color-navy-700: #203b7a;
+  --color-navy-800: #172d63;
+  --color-navy-900: #10204d;
+  --color-navy-950: #0b1638;
 
-  /* Graphite — cool neutral. Text, rules, and the dark ground. */
-  --color-graphite-50: #f7f8f8;
-  --color-graphite-100: #eceeef;
+  /* Signal — the bright blue of the logo's arrow and tagline. The accent:
+     rules, links, the active state, one highlight per view. Never a field. */
+  --color-signal-200: #c3d6fb;
+  --color-signal-300: #8fb3f7;
+  --color-signal-500: #2f72f0;
+  --color-signal-600: #1d5fe0;
+  --color-signal-700: #174bb3;
+
+  /* Graphite — cool neutral text on light grounds. */
   --color-graphite-200: #dcdfe1;
   --color-graphite-300: #b9bfc3;
-  --color-graphite-400: #8b9399;
-  --color-graphite-500: #656c73;
-  --color-graphite-600: #545b61;
-  --color-graphite-700: #42484d;
-  --color-graphite-800: #2b3034;
-  --color-graphite-900: #1a1e21;
-  --color-graphite-950: #0f1214;
+  --color-graphite-500: #5f666d;
+  --color-graphite-600: #4b5258;
+  --color-graphite-700: #3a4045;
+  --color-graphite-800: #262b2f;
 
-  /* Signal — clinical status, not decoration. Used only to mark state. */
-  --color-risk-100: #fbeadb;
-  --color-risk-500: #a55c15;
-  --color-risk-600: #96540f;
-  --color-steady-100: #dcefe0;
-  --color-steady-600: #2f6b3d;
-
-  /* Grounds */
-  --color-bone: #fbfbfa;
-  --color-bone-dim: #f2f3f2;
+  /* Grounds — white page, and a cool mist for alternating bands. Not cream. */
+  --color-paper: #ffffff;
+  --color-mist: #f3f5f8;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Browser surfaces belong to the design too. */
+    scrollbar-color: var(--color-navy-300) var(--color-navy-50);
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-bone font-sans text-graphite-800 antialiased;
+    @apply bg-paper font-sans text-graphite-800 antialiased;
+    caret-color: var(--color-signal-600);
+    font-feature-settings: "kern", "liga";
   }
 
   h1,
   h2,
-  h3,
+  h3 {
+    @apply font-display text-navy-950;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
   h4 {
-    @apply font-display font-semibold tracking-tight text-graphite-950;
+    @apply font-sans font-semibold text-navy-950;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
   }
 
   ::selection {
-    background-color: var(--color-vital-200);
-    color: var(--color-vital-950);
+    background-color: var(--color-navy-100);
+    color: var(--color-navy-950);
   }
 
-  /* One focus ring for the whole system, legible on light and dark grounds. */
+  /* One focus ring for the whole system, legible on white and on navy. */
   :focus-visible {
-    outline: 2px solid var(--color-vital-500);
-    outline-offset: 2px;
+    outline: 2px solid var(--color-signal-500);
+    outline-offset: 3px;
     border-radius: 2px;
   }
 }
 
 @layer components {
-  .measure-label {
-    @apply font-mono text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-graphite-500;
+  /* Figures in running text and tables line up. */
+  .figures {
+    font-variant-numeric: tabular-nums lining-nums;
   }
 }
 
-/* The typography plugin ships Tailwind's default grays, which read as a
-   different system on the long-form pages. Bind its variables to our palette.
+/* The typography plugin ships Tailwind's default grays. Bind it to the palette.
    Deliberately unlayered: the plugin registers `prose` as a utility, and
    layered CSS would lose the cascade to it. */
 .prose {
   --tw-prose-body: var(--color-graphite-700);
-  --tw-prose-headings: var(--color-graphite-950);
+  --tw-prose-headings: var(--color-navy-950);
   --tw-prose-lead: var(--color-graphite-600);
-  --tw-prose-links: var(--color-vital-600);
-  --tw-prose-bold: var(--color-graphite-950);
+  --tw-prose-links: var(--color-navy-700);
+  --tw-prose-bold: var(--color-navy-950);
   --tw-prose-counters: var(--color-graphite-500);
-  --tw-prose-bullets: var(--color-graphite-300);
+  --tw-prose-bullets: var(--color-navy-300);
   --tw-prose-hr: var(--color-graphite-200);
-  --tw-prose-quotes: var(--color-graphite-800);
-  --tw-prose-quote-borders: var(--color-vital-300);
+  --tw-prose-quotes: var(--color-navy-900);
+  --tw-prose-quote-borders: var(--color-signal-300);
   --tw-prose-captions: var(--color-graphite-500);
-  --tw-prose-code: var(--color-graphite-900);
-  --tw-prose-pre-code: var(--color-graphite-100);
-  --tw-prose-pre-bg: var(--color-graphite-950);
+  --tw-prose-code: var(--color-navy-900);
+  --tw-prose-pre-code: var(--color-navy-100);
+  --tw-prose-pre-bg: var(--color-navy-950);
   --tw-prose-th-borders: var(--color-graphite-300);
   --tw-prose-td-borders: var(--color-graphite-200);
+}
+
+.prose :where(h2, h3) {
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+/* The one authored moment: the hero settles into place on first load. */
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.settle {
+  animation: settle 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.settle-late {
+  animation: settle 900ms cubic-bezier(0.16, 1, 0.3, 1) 140ms both;
 }
 
 @media (prefers-reduced-motion: reduce) {

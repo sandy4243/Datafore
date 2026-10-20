@@ -1,0 +1,27 @@
+---
+/**
+ * The Datafore lockup. Every placement of the logo goes through here, so the
+ * artwork is swapped in one place.
+ *
+ * TEMPORARY: renders a plain text wordmark until the logo artwork is added to
+ * the repo. The real mark (cubes resolving into an arrow) is deliberately not
+ * imitated in code; it ships as the supplied artwork or not at all.
+ */
+interface Props {
+  /** "onLight" for white grounds, "onDark" for navy grounds. */
+  tone?: "onLight" | "onDark";
+  class?: string;
+}
+
+const { tone = "onLight", class: className = "" } = Astro.props;
+---
+
+<span
+  class:list={[
+    "font-sans text-[1.375rem] leading-none font-extrabold tracking-[-0.03em]",
+    tone === "onDark" ? "text-white" : "text-navy-900",
+    className,
+  ]}
+>
+  Datafore
+</span>
