@@ -217,6 +217,42 @@ beside it:
 All site placements go through `src/components/Logo.astro`. Never redraw or recolour the mark in code. The site's
 `navy-900` and `signal-500` are sampled from the wordmark and the arrow.
 
+### Snapshot excerpt (signature graphic)
+
+`SnapshotExcerpt.astro` shows the offer instead of describing it: an excerpt of a Practice Health Snapshot as one
+flat document (hairline border, no shadow) with two findings and a recommended first step. The findings are
+written as serif sentences that state the number; the charts sit under them.
+
+- **Heatmap** — a real `<table>` (days × hours) whose cells take one of five ordered classes on the navy ramp
+  (`navy-300` → `navy-900`; validated monotone with the light end at 2.1:1 on white). Closed hours are dashed
+  outlines. Every cell has a tooltip and screen-reader text.
+- **Visit chart** — an ordered list of columns, ≤24px wide with a 4px rounded top, 2px gaps, in `navy-300`, with
+  the one bar the finding is about in `signal-500`. Only the first, focal and last values are labelled.
+- Every figure in it is invented and says so in place. Never present it as a real clinic.
+
+### Diagrams
+
+- **Engagement cycle** (`EngagementCycle.astro`) — four stages on a circle, joined by navy arcs that end in the
+  logo's signal-blue arrowhead, with "Assess, act, reassess." in the serif italic at the centre. Decorative; the
+  ordered list beside it carries the content.
+- **System diagram** (`SystemDiagram.astro`) — practice management systems → the Datafore layer (the one
+  navy-900 panel) → where the work happens, joined by the same arrow, plus the return loop as a caption. Built in
+  HTML so labels stay at reading size; connectors rotate to vertical when the columns stack.
+
+Arrows across the site share one form: a 2px navy shaft and a filled signal-blue head, echoing the logo.
+
+### Founder's note
+
+`FounderNote.astro`: a 4:5 portrait, a heading, the letter set in Source Serif at 1.25–1.375rem in `navy-950`
+(the only place body copy is serif, which is what makes it read as a personal letter), and a sign-off with the
+name in the serif italic over "Founder, Datafore Analytics Inc.". The letter is passed in per page.
+
+### Photography
+
+Only the founder portrait exists today. When real photographs arrive (the team, a clinic at work), they take
+the founder's treatment: natural light, `rounded-sm`, `object-cover`, never tinted or duotoned, and never stock
+images presented as Datafore's own clinics. Good homes for them are the About hero and the founder's note.
+
 ### Motion
 
 The hero settles in on load (`.settle`, 900ms, `cubic-bezier(0.16, 1, 0.3, 1)`, with `.settle-late` delayed

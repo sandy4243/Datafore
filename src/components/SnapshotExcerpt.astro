@@ -1,0 +1,167 @@
+---
+/**
+ * An excerpt of a Practice Health Snapshot, drawn with illustrative data so
+ * the offer is shown rather than described. Every figure here is invented and
+ * labelled as such in place; none of it comes from a real clinic.
+ *
+ * Both charts are plain HTML (a table and an ordered list) so the text stays at
+ * reading size on a phone and the data is available to screen readers.
+ */
+
+const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const hours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
+// Share of practitioner hours booked, by weekday and start hour. null = closed.
+const booked: (number | null)[][] = [
+  [78, 92, 95, 88, 70, 74, 80, 86, 94, 97, 90],
+  [80, 90, 93, 85, 62, 48, 44, 46, 88, 95, 92],
+  [76, 91, 94, 87, 72, 76, 82, 88, 95, 98, 91],
+  [79, 89, 92, 84, 60, 47, 42, 50, 87, 96, 89],
+  [82, 93, 96, 90, 74, 70, 68, 72, 85, 88, null],
+  [88, 96, 98, 94, 80, null, null, null, null, null, null],
+];
+
+// The finding: Tuesday and Thursday, 1 pm to 4 pm, against everything else.
+const softRows = [1, 3];
+const softCols = [5, 6, 7];
+const soft: number[] = [];
+const rest: number[] = [];
+booked.forEach((row, r) =>
+  row.forEach((v, c) => {
+    if (v === null) return;
+    (softRows.includes(r) && softCols.includes(c) ? soft : rest).push(v);
+  }),
+);
+const mean = (xs: number[]) => Math.round(xs.reduce((a, b) => a + b, 0) / xs.length);
+const softMean = mean(soft);
+const restMean = mean(rest);
+
+// Five ordered classes on one navy ramp (validated: monotone, light end ≥ 2:1 on white).
+const bins = [
+  { min: 90, label: "90% +", cls: "bg-navy-900" },
+  { min: 80, label: "80–89%", cls: "bg-navy-700" },
+  { min: 65, label: "65–79%", cls: "bg-navy-500" },
+  { min: 50, label: "50–64%", cls: "bg-navy-400" },
+  { min: 0, label: "Under 50%", cls: "bg-navy-300" },
+];
+const binFor = (v: number) => bins.find((b) => v >= b.min)!;
+const hourLabel = (h: number) => (h === 12 ? "12" : h > 12 ? `${h - 12}` : `${h}`);
+const hourName = (h: number) => (h === 12 ? "12 pm" : h > 12 ? `${h - 12} pm` : `${h} am`);
+
+// Of 100 new patients starting a care plan, how many attend each visit.
+const visits = [100, 74, 51, 40, 33, 28, 24, 21];
+const focusVisit = 3;
+const labelled = new Set([1, focusVisit, visits.length]);
+---
+
+<figure class="border border-navy-100 bg-paper">
+  <header class="flex flex-col gap-2 border-b border-navy-100 px-6 py-5 sm:flex-row sm:items-baseline sm:justify-between md:px-10">
+    <p class="font-display text-xl text-navy-950">Practice Health Snapshot</p>
+    <p class="text-sm text-graphite-600">Excerpt from an illustrative clinic. Sample data, not a real clinic.</p>
+  </header>
+
+  <div class="grid lg:grid-cols-12">
+    <!-- Capacity -->
+    <section class="border-b border-navy-100 px-6 py-8 md:px-10 lg:col-span-7 lg:border-b-0 lg:border-r">
+      <h3 class="max-w-[30ch] text-[1.375rem] leading-snug">
+        Tuesday and Thursday afternoons run at <span class="figures">{softMean}%</span> booked, against{" "}
+        <span class="figures">{restMean}%</span> for the rest of the week.
+      </h3>
+
+      <table class="figures mt-7 w-full table-fixed border-separate border-spacing-[2px] text-xs text-graphite-600">
+        <caption class="sr-only">Share of practitioner hours booked, by weekday and start hour. Illustrative data.</caption>
+        <thead>
+          <tr>
+            <th scope="col" class="w-10 sm:w-12"><span class="sr-only">Day</span></th>
+            {
+              hours.map((h, i) => (
+                <th scope="col" class="pb-1 text-left font-normal">
+                  <span class:list={[i % 2 === 1 && "sr-only sm:not-sr-only"]}>{hourLabel(h)}</span>
+                </th>
+              ))
+            }
+          </tr>
+        </thead>
+        <tbody>
+          {
+            booked.map((row, r) => (
+              <tr>
+                <th scope="row" class="pr-2 text-left font-normal">{days[r]}</th>
+                {row.map((v, c) =>
+                  v === null ? (
+                    <td class="h-6 rounded-[2px] border border-dashed border-navy-200 sm:h-7" title={`${dayNames[r]} ${hourName(hours[c])} · closed`}>
+                      <span class="sr-only">Closed</span>
+                    </td>
+                  ) : (
+                    <td
+                      class:list={["h-6 rounded-[2px] sm:h-7", binFor(v).cls]}
+                      title={`${dayNames[r]} ${hourName(hours[c])} · ${v}% booked`}
+                    >
+                      <span class="sr-only">{v}%</span>
+                    </td>
+                  ),
+                )}
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+
+      <div class="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-graphite-600" aria-hidden="true">
+        <span>Hours booked</span>
+        {
+          bins
+            .slice()
+            .reverse()
+            .map((b) => (
+              <span class="inline-flex items-center gap-1.5">
+                <span class:list={["inline-block h-3 w-3 rounded-[2px]", b.cls]} />
+                {b.label}
+              </span>
+            ))
+        }
+        <span class="inline-flex items-center gap-1.5">
+          <span class="inline-block h-3 w-3 rounded-[2px] border border-dashed border-navy-200"></span>
+          Closed
+        </span>
+      </div>
+    </section>
+
+    <!-- Continuity -->
+    <section class="px-6 py-8 md:px-10 lg:col-span-5">
+      <h3 class="max-w-[26ch] text-[1.375rem] leading-snug">
+        Only half of new patients return for a third visit.
+      </h3>
+
+      <ol class="figures mt-7 flex h-48 items-end gap-[2px] border-b border-navy-200" aria-label="Patients attending each visit, of 100 starting a care plan. Illustrative data.">
+        {
+          visits.map((n, i) => (
+            <li class="flex h-full flex-1 flex-col items-center justify-end" title={`Visit ${i + 1} · ${n} of 100 patients`}>
+              <span class:list={["mb-1.5 text-xs", labelled.has(i + 1) ? "text-navy-950" : "sr-only"]}>
+                {n}
+                <span class="sr-only"> of 100 patients attend visit {i + 1}</span>
+              </span>
+              <span
+                aria-hidden="true"
+                class:list={["block w-full max-w-6 rounded-t-[4px]", i + 1 === focusVisit ? "bg-signal-500" : "bg-navy-300"]}
+                style={`height: calc((100% - 1.5rem) * ${n / 100})`}
+              />
+            </li>
+          ))
+        }
+      </ol>
+      <div class="figures mt-2 flex gap-[2px] text-xs text-graphite-600" aria-hidden="true">
+        {visits.map((_, i) => <span class="flex-1 text-center">{i + 1}</span>)}
+      </div>
+      <p class="mt-3 text-xs text-graphite-600">Visit number, for every 100 patients starting a care plan</p>
+    </section>
+  </div>
+
+  <footer class="border-t border-navy-100 bg-navy-50 px-6 py-6 md:px-10">
+    <p class="max-w-[72ch] leading-relaxed text-graphite-700">
+      <span class="font-semibold text-navy-950">Recommended first step.</span>{" "}
+      Offer the open Tuesday and Thursday afternoon hours to patients who stopped after one or two visits, and track
+      who rebooks. One action addresses both findings, and its result is measurable within a month.
+    </p>
+  </footer>
+</figure>

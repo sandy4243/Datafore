@@ -83,8 +83,9 @@ document, not on the marketing site.
 ## Brand Commitments
 
 Company name "Datafore" / "Datafore Analytics Inc." is fixed. Contact facts are real and fixed:
-info@datafore.ca, +1 778 700 1733, 4353 Halifax Street, Burnaby, BC. Sandeep Mehra, Product Manager, Analytics
-(linkedin.com/in/smehra2), is real and should stay attributed correctly.
+info@datafore.ca, +1 778 700 1733, 4353 Halifax Street, Burnaby, BC. Sandeep Mehra, Founder
+(linkedin.com/in/smehra2), is real and should stay attributed correctly. The site carries first-person founder's
+notes from him (home page and About); they are drafts in his voice and he owns their wording.
 
 Logo: a bright-blue cube cluster flowing into an arrow, a heavy geometric navy "Datafore" wordmark, and the
 tagline **"Forward with Data"** in blue. The master file is `src/assets/brand/datafore-logo-source.png`; the site

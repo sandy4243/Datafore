@@ -1,0 +1,44 @@
+---
+/**
+ * A signed note from the founder: portrait, a letter set in the serif, and a
+ * sign-off. The letter itself is passed in, so the home page and About page
+ * can each say what fits their place in the story.
+ */
+import { Image } from "astro:assets";
+import sandeepPhoto from "../assets/sandeep-mehra.jpg";
+
+interface Props {
+  heading: string;
+  headingLevel?: "h2" | "h3";
+}
+
+const { heading, headingLevel = "h2" } = Astro.props;
+const Heading = headingLevel;
+---
+
+<div class="grid gap-12 lg:grid-cols-12 lg:gap-10">
+  <div class="lg:col-span-4">
+    <Image
+      src={sandeepPhoto}
+      alt="Sandeep Mehra, founder of Datafore"
+      width={360}
+      height={450}
+      densities={[1, 2]}
+      fit="cover"
+      position="top"
+      class="aspect-[4/5] w-full max-w-[18rem] rounded-sm object-cover object-top"
+    />
+  </div>
+
+  <div class="lg:col-span-7 lg:col-start-6">
+    <Heading class="text-[2rem] leading-[1.12] md:text-[2.75rem]">{heading}</Heading>
+    <div class="mt-8 max-w-[58ch] space-y-6 font-display text-[1.25rem] leading-[1.6] text-navy-950 md:text-[1.375rem]">
+      <slot />
+    </div>
+    <div class="mt-10 border-t border-navy-200 pt-6">
+      <p class="font-display text-2xl italic text-navy-950">Sandeep Mehra</p>
+      <p class="mt-1 text-graphite-600">Founder, Datafore Analytics Inc.</p>
+      <slot name="after" />
+    </div>
+  </div>
+</div>

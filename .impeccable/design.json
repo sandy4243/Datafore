@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-20T09:30:00Z",
+  "generatedAt": "2026-10-20T10:05:00Z",
   "title": "Design System: Datafore",
   "extensions": {
     "colorMeta": {
@@ -163,6 +163,30 @@
       "description": "Graphite at rest; navy with a signal underline when current.",
       "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Platform</a><a href=\"#\">Trust</a><a href=\"#\">Insights</a><a href=\"#\">About</a></nav>",
       "css": ".ds-nav { display: flex; gap: 32px; } .ds-nav a { font-family: 'Public Sans Variable', system-ui, sans-serif; font-size: .9375rem; color: #4b5258; text-decoration: none; } .ds-nav a:hover, .ds-nav a[aria-current='page'] { color: #021238; } .ds-nav a[aria-current='page'] { text-decoration: underline; text-decoration-color: #0b57ee; text-underline-offset: 8px; }"
+    },
+    {
+      "name": "Founder Note",
+      "kind": "custom",
+      "refersTo": "founder-note",
+      "description": "A signed letter from the founder: portrait, serif body in navy-950, italic serif sign-off.",
+      "html": "<div class=\"ds-note\"><p>Datafore began as a data and analytics consultancy. The reporting was rarely the hard part. Acting on it was.</p><p class=\"ds-note__name\">Sandeep Mehra</p><p class=\"ds-note__role\">Founder, Datafore Analytics Inc.</p></div>",
+      "css": ".ds-note { max-width: 36rem; } .ds-note p { font-family: 'Source Serif 4 Variable', Georgia, serif; font-size: 1.375rem; line-height: 1.6; color: #021238; margin: 0 0 24px; } .ds-note .ds-note__name { font-style: italic; font-size: 1.5rem; border-top: 1px solid #cbd5ec; padding-top: 24px; margin: 0; } .ds-note .ds-note__role { font-family: 'Public Sans Variable', system-ui, sans-serif; font-size: 1rem; color: #4b5258; }"
+    },
+    {
+      "name": "Flow Arrow",
+      "kind": "custom",
+      "refersTo": "flow-arrow",
+      "description": "The one arrow form: 2px navy shaft, filled signal-blue head, echoing the logo.",
+      "html": "<svg class=\"ds-arrow\" viewBox=\"0 0 72 24\" width=\"72\" height=\"24\"><path d=\"M 6 12 H 60\" stroke=\"#031a4c\" stroke-width=\"2\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M 56 5 L 68 12 L 56 19 L 59 12 z\" fill=\"#0b57ee\"/></svg>",
+      "css": ".ds-arrow { display: block; }"
+    },
+    {
+      "name": "Snapshot Heatmap Cell",
+      "kind": "custom",
+      "refersTo": "snapshot-heatmap",
+      "description": "Ordered navy classes for booked share; closed hours dashed. Illustrative data only.",
+      "html": "<div class=\"ds-heat\"><span style=\"background:#a3b3d9\"></span><span style=\"background:#7189c0\"></span><span style=\"background:#4a68aa\"></span><span style=\"background:#203b7a\"></span><span style=\"background:#031a4c\"></span><span class=\"ds-heat__closed\"></span></div>",
+      "css": ".ds-heat { display: flex; gap: 2px; } .ds-heat span { width: 40px; height: 28px; border-radius: 2px; } .ds-heat .ds-heat__closed { border: 1px dashed #cbd5ec; }"
     }
   ],
   "narrative": {
@@ -173,7 +197,8 @@
       "Source Serif 4 for every heading and statement; Public Sans for everything functional.",
       "Signal blue as the only accent, used for underlines, rules and the current state — never a fill.",
       "Hairline rules and twelve-column asymmetry instead of cards; no shadows or gradients.",
-      "One authored motion moment: the hero settles into place."
+      "One authored motion moment: the hero settles into place.",
+      "Graphics are authored, not stock: an illustrative Snapshot excerpt, an engagement cycle and a system diagram, all sharing the logo's arrow."
     ],
     "rules": [
       {

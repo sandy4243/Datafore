@@ -1,8 +1,7 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import { withBase } from "../lib/paths";
-import sandeepPhoto from "../assets/sandeep-mehra.jpg";
+import FounderNote from "../components/FounderNote.astro";
 
 const beliefs = [
   {
@@ -71,32 +70,31 @@ const beliefs = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
-    <div class="grid gap-12 lg:grid-cols-12">
-      <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem] lg:col-span-5">Leadership.</h2>
-      <div class="flex flex-col gap-8 sm:flex-row sm:items-start lg:col-span-7">
-        <Image
-          src={sandeepPhoto}
-          alt="Sandeep Mehra"
-          width={224}
-          height={224}
-          densities={[1, 2]}
-          class="h-32 w-32 shrink-0 rounded-sm object-cover"
-        />
-        <div>
-          <h3 class="text-[1.75rem]">Sandeep Mehra</h3>
-          <p class="mt-1 text-graphite-600">Product Manager, Analytics</p>
-          <a
-            href="https://www.linkedin.com/in/smehra2/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="mt-4 inline-block font-medium text-navy-800 underline decoration-signal-500 underline-offset-[6px] hover:decoration-2"
-          >
-            Profile on LinkedIn
-          </a>
-        </div>
-      </div>
-    </div>
+  <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+    <FounderNote heading="From the founder.">
+      <p>
+        Allied health is personal work. A physiotherapist, chiropractor or counsellor builds a practice one patient
+        relationship at a time, and the business behind that practice deserves the same care.
+      </p>
+      <p>
+        My background is in data and analytics, and the lesson I keep relearning is that the value is never in the
+        dashboard. It is in the decision someone makes because of it, and in checking honestly whether that decision
+        worked. That is the discipline I want to bring to every clinic we work with.
+      </p>
+      <p>
+        While Datafore is young, every clinic in our founding cohort will work with me directly. I would rather earn
+        your trust one conversation at a time than ask for it up front.
+      </p>
+      <a
+        slot="after"
+        href="https://www.linkedin.com/in/smehra2/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-5 inline-block font-medium text-navy-800 underline decoration-signal-500 underline-offset-[6px] hover:decoration-2"
+      >
+        Sandeep on LinkedIn
+      </a>
+    </FounderNote>
   </section>
 
   <section class="bg-navy-950 text-navy-200">

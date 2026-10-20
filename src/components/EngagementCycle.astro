@@ -1,0 +1,72 @@
+---
+/**
+ * The engagement model drawn as a continuous cycle: four stages joined by
+ * arcs that end in the logo's arrowhead blue. Decorative companion to the
+ * ordered list beside it, which carries the content for assistive tech.
+ */
+const stages = ["Diagnose", "Prioritise", "Activate", "Review"];
+
+const cx = 300;
+const cy = 236;
+const r = 168;
+const toPoint = (deg: number) => {
+  const rad = (deg * Math.PI) / 180;
+  return [cx + r * Math.cos(rad), cy + r * Math.sin(rad)].map((n) => +n.toFixed(2));
+};
+
+// Stage nodes at top, right, bottom, left; arcs run clockwise between them,
+// stopping short of each node so the arrowhead lands in clear space.
+const nodeAngles = [-90, 0, 90, 180];
+const nodes = nodeAngles.map(toPoint);
+const arcs = nodeAngles.map((a) => {
+  const [x1, y1] = toPoint(a + 13);
+  const [x2, y2] = toPoint(a + 77);
+  return `M ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2}`;
+});
+
+const labels = [
+  { x: cx, y: cy - r - 26, anchor: "middle" },
+  { x: cx + r + 22, y: cy + 7, anchor: "start" },
+  { x: cx, y: cy + r + 40, anchor: "middle" },
+  { x: cx - r - 22, y: cy + 7, anchor: "end" },
+];
+---
+
+<svg viewBox="0 0 600 472" class="h-auto w-full max-w-[34rem]" aria-hidden="true" focusable="false">
+  <defs>
+    <marker id="cycle-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M 1 1 L 9 5 L 1 9 L 3.2 5 z" class="fill-signal-500"></path>
+    </marker>
+  </defs>
+
+  <circle cx={cx} cy={cy} r={r} fill="none" class="stroke-navy-100" stroke-width="10"></circle>
+  {
+    arcs.map((d) => (
+      <path d={d} fill="none" class="stroke-navy-900" stroke-width="2" stroke-linecap="round" marker-end="url(#cycle-arrow)" />
+    ))
+  }
+  {
+    nodes.map(([x, y]) => (
+      <circle cx={x} cy={y} r="8" class="fill-navy-900 stroke-paper" stroke-width="3" />
+    ))
+  }
+  {
+    stages.map((s, i) => (
+      <text
+        x={labels[i].x}
+        y={labels[i].y}
+        text-anchor={labels[i].anchor}
+        class="fill-navy-950 font-display"
+        font-size="24"
+      >
+        {s}
+      </text>
+    ))
+  }
+  <text x={cx} y={cy - 6} text-anchor="middle" class="fill-graphite-600 font-display italic" font-size="21">
+    Assess, act,
+  </text>
+  <text x={cx} y={cy + 22} text-anchor="middle" class="fill-graphite-600 font-display italic" font-size="21">
+    reassess.
+  </text>
+</svg>

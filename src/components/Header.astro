@@ -9,7 +9,12 @@ const nav = [
   { href: withBase("/about/"), label: "About" },
 ];
 const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
-const isCurrent = (href: string) => (href.replace(/\/+$/, "") || "/") === currentPath;
+const trim = (href: string) => href.replace(/\/+$/, "") || "/";
+// The exact page is "page"; a page inside a section (a single post under
+// Insights) marks its section as current too.
+const currentState = (href: string) =>
+  trim(href) === currentPath ? "page" : currentPath.startsWith(`${trim(href)}/`) ? "true" : undefined;
+const isCurrent = (href: string) => currentState(href) !== undefined;
 ---
 
 <header class="sticky top-0 z-50 border-b border-navy-100 bg-paper/95 backdrop-blur-sm">
@@ -23,7 +28,7 @@ const isCurrent = (href: string) => (href.replace(/\/+$/, "") || "/") === curren
         nav.map((item) => (
           <a
             href={item.href}
-            aria-current={isCurrent(item.href) ? "page" : undefined}
+            aria-current={currentState(item.href)}
             class:list={[
               "text-[0.9375rem] transition-colors hover:text-navy-950",
               isCurrent(item.href)

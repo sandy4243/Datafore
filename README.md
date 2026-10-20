@@ -69,10 +69,8 @@ set, the build fails at "Configure Pages" with `Get Pages site failed: Not Found
 
 Pages from a *private* repo needs a paid GitHub plan, and the published site is public either way.
 
-`.github/workflows/pr-checks.yml` type-checks and builds both targets on every pull request.
-
-> **`main.yml` is legacy.** It syncs to an S3 bucket that never served `datafore.ca`, and fails on an expired AWS
-> token. It is not part of the deploy path and can be removed or made manual-only.
+`.github/workflows/pr-checks.yml` type-checks and builds both targets on every pull request. These two are the
+only workflows; the old S3 sync (`main.yml`) has been removed.
 
 ### Base paths
 

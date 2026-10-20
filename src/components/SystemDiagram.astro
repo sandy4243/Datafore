@@ -1,0 +1,98 @@
+---
+/**
+ * Where Datafore sits: practice management systems on one side, the places
+ * work actually happens on the other, and the intelligence layer between.
+ * Built as HTML so every label stays at reading size; the connectors rotate
+ * from horizontal to vertical when the columns stack.
+ */
+import { Image } from "astro:assets";
+import mark from "../assets/brand/mark.png";
+
+const sources = ["Jane App", "Cliniko", "Owl Practice"];
+
+const layer = [
+  { verb: "Understand", note: "one consistent view of the clinic" },
+  { verb: "Anticipate", note: "signals before month-end" },
+  { verb: "Act", note: "findings written into follow-up" },
+  { verb: "Prove", note: "each action traced to its result" },
+];
+
+const destinations = [
+  { name: "HubSpot", note: "Follow-up tasks and patient outreach" },
+  { name: "Clinic leadership", note: "Priorities, reviews and decisions" },
+];
+---
+
+<figure>
+  <div class="grid items-stretch lg:grid-cols-[1fr_4.5rem_1.2fr_4.5rem_1fr]">
+    <div class="border border-navy-100 bg-paper p-6 md:p-8">
+      <p class="text-sm font-semibold text-navy-950">Practice management systems</p>
+      <p class="mt-1 text-sm text-graphite-600">Appointments, patients, invoices, payments</p>
+      <ul class="mt-6 divide-y divide-navy-100 border-t border-navy-100">
+        {
+          sources.map((s) => (
+            <li class="py-3 font-display text-xl text-navy-950">{s}</li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="flex items-center justify-center py-3 lg:py-0" aria-hidden="true">
+      <svg viewBox="0 0 72 24" class="h-6 w-[4.5rem] rotate-90 lg:rotate-0">
+        <path d="M 6 12 H 60" class="stroke-navy-900" stroke-width="2" stroke-linecap="round" fill="none"></path>
+        <path d="M 56 5 L 68 12 L 56 19 L 59 12 z" class="fill-signal-500"></path>
+      </svg>
+    </div>
+
+    <div class="bg-navy-900 p-6 text-navy-200 md:p-8">
+      <div class="flex items-center gap-3">
+        <Image src={mark} alt="" height={28} densities={[1, 2]} class="h-7 w-auto" />
+        <p class="text-sm font-semibold text-white">Datafore intelligence layer</p>
+      </div>
+      <ul class="mt-6 divide-y divide-navy-700 border-t border-navy-700">
+        {
+          layer.map((l) => (
+            <li class="flex flex-col gap-0.5 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+              <span class="font-display text-xl text-white">{l.verb}</span>
+              <span class="text-sm">{l.note}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="mt-5 text-sm text-navy-300">Designed to run on Canadian infrastructure, on de-identified records.</p>
+    </div>
+
+    <div class="flex items-center justify-center py-3 lg:py-0" aria-hidden="true">
+      <svg viewBox="0 0 72 24" class="h-6 w-[4.5rem] rotate-90 lg:rotate-0">
+        <path d="M 6 12 H 60" class="stroke-navy-900" stroke-width="2" stroke-linecap="round" fill="none"></path>
+        <path d="M 56 5 L 68 12 L 56 19 L 59 12 z" class="fill-signal-500"></path>
+      </svg>
+    </div>
+
+    <div class="border border-navy-100 bg-paper p-6 md:p-8">
+      <p class="text-sm font-semibold text-navy-950">Where the work happens</p>
+      <p class="mt-1 text-sm text-graphite-600">The tools and people your clinic already relies on</p>
+      <ul class="mt-6 divide-y divide-navy-100 border-t border-navy-100">
+        {
+          destinations.map((d) => (
+            <li class="py-3">
+              <span class="block font-display text-xl text-navy-950">{d.name}</span>
+              <span class="mt-0.5 block text-sm text-graphite-600">{d.note}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <figcaption class="mt-8 flex max-w-[64ch] items-start gap-4 text-graphite-700 lg:mx-auto lg:items-center">
+    <svg viewBox="0 0 40 24" class="mt-1 h-6 w-10 shrink-0 lg:mt-0" aria-hidden="true">
+      <path d="M 4 18 H 28 a 6 6 0 0 0 0 -12 H 10" class="stroke-navy-900" stroke-width="2" stroke-linecap="round" fill="none"></path>
+      <path d="M 13 1 L 2 6 L 13 11 L 10 6 z" class="fill-signal-500"></path>
+    </svg>
+    <span>
+      The loop closes: bookings that follow are traced back to the action that prompted them, so every step shows
+      what it returned.
+    </span>
+  </figcaption>
+</figure>
