@@ -87,9 +87,8 @@ info@datafore.ca, +1 778 700 1733, 4353 Halifax Street, Burnaby, BC. Sandeep Meh
 (linkedin.com/in/smehra2), is real and should stay attributed correctly.
 
 Logo: a bright-blue cube cluster flowing into an arrow, a heavy geometric navy "Datafore" wordmark, and the
-tagline **"Forward with Data"** in blue. The site palette (navy, signal blue) is drawn from it. Until the artwork
-file is committed, `src/components/Logo.astro` renders an interim text wordmark and the favicon is a "D"
-monogram.
+tagline **"Forward with Data"** in blue. The master file is `src/assets/brand/datafore-logo-source.png`; the site
+palette (navy, signal blue) is sampled from it, and the favicon is cut from the mark.
 
 ## Evidence on Hand
 

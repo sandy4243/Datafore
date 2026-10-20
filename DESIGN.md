@@ -2,8 +2,8 @@
 name: Datafore
 description: Premium advisory — a clinic intelligence partner that speaks to clinic leaders and evaluators as a peer.
 colors:
-  navy-950: "#0b1638"
-  navy-900: "#10204d"
+  navy-950: "#021238"
+  navy-900: "#031a4c"
   navy-800: "#172d63"
   navy-700: "#203b7a"
   navy-600: "#2b4d94"
@@ -13,9 +13,9 @@ colors:
   navy-200: "#cbd5ec"
   navy-100: "#e5eaf6"
   navy-50: "#f3f5fb"
-  signal-700: "#174bb3"
-  signal-600: "#1d5fe0"
-  signal-500: "#2f72f0"
+  signal-700: "#073a9f"
+  signal-600: "#0848c9"
+  signal-500: "#0b57ee"
   signal-300: "#8fb3f7"
   signal-200: "#c3d6fb"
   graphite-800: "#262b2f"
@@ -118,7 +118,7 @@ registry identity before it, which read as legal.
 
 ## Colors
 
-The palette is taken from the Datafore logo: the navy of the wordmark and the bright blue of the mark and tagline.
+The palette is sampled from the Datafore logo: `navy-900` is the wordmark navy and `signal-500` the arrow blue.
 
 ### Primary — Navy
 
@@ -204,9 +204,18 @@ hairline borders. It is not a card wall; use it only when the items are genuinel
 
 ### Logo
 
-`src/components/Logo.astro` is an interim text wordmark (Public Sans 800, tight tracking), with `onLight` and
-`onDark` tones. It is replaced by the supplied logo artwork once that is in the repo. The favicon and touch icon
-are an interim "D" monogram.
+The supplied artwork — blue cubes resolving into an arrow, the navy "Datafore" wordmark, and the tagline "Forward
+with Data" — is the master, kept at `src/assets/brand/datafore-logo-source.png`. Cuts on a transparent ground live
+beside it:
+
+- `logo.png` — mark and wordmark, for light grounds (the header). The tagline is dropped at this size.
+- `logo-on-dark.png` — the same with the wordmark knocked out to white, for navy grounds (the footer).
+- `logo-lockup.png` / `logo-lockup-on-dark.png` — full lockup with tagline, for large placements (the OG image).
+- `mark.png` — the cube-and-arrow mark alone, the source for `favicon.ico`, `favicon-32.png` and
+  `apple-touch-icon.png`.
+
+All site placements go through `src/components/Logo.astro`. Never redraw or recolour the mark in code. The site's
+`navy-900` and `signal-500` are sampled from the wordmark and the arrow.
 
 ### Motion
 

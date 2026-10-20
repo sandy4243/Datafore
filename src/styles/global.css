@@ -23,16 +23,16 @@
   --color-navy-600: #2b4d94;
   --color-navy-700: #203b7a;
   --color-navy-800: #172d63;
-  --color-navy-900: #10204d;
-  --color-navy-950: #0b1638;
+  --color-navy-900: #031a4c;
+  --color-navy-950: #021238;
 
   /* Signal — the bright blue of the logo's arrow and tagline. The accent:
      rules, links, the active state, one highlight per view. Never a field. */
   --color-signal-200: #c3d6fb;
   --color-signal-300: #8fb3f7;
-  --color-signal-500: #2f72f0;
-  --color-signal-600: #1d5fe0;
-  --color-signal-700: #174bb3;
+  --color-signal-500: #0b57ee;
+  --color-signal-600: #0848c9;
+  --color-signal-700: #073a9f;
 
   /* Graphite — cool neutral text on light grounds. */
   --color-graphite-200: #dcdfe1;

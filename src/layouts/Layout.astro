@@ -21,9 +21,10 @@ const ogImage = new URL(withBase("/images/og-datafore.png"), Astro.site);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
+    <link rel="icon" href={withBase("/favicon.ico")} sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href={withBase("/favicon-32.png")} />
     <link rel="apple-touch-icon" href={withBase("/apple-touch-icon.png")} />
-    <meta name="theme-color" content="#10204d" />
+    <meta name="theme-color" content="#031a4c" />
     <link rel="canonical" href={canonicalURL} />
     {/* The Pages copy is a review build; keep it out of search results. */}
     {isPreviewDeploy && <meta name="robots" content="noindex, nofollow" />}

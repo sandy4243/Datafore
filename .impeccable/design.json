@@ -7,10 +7,10 @@
       "navy-900": {
         "role": "primary",
         "displayName": "Datafore Navy",
-        "canonical": "#10204d",
+        "canonical": "#031a4c",
         "tonalRamp": [
-          "#0b1638",
-          "#10204d",
+          "#021238",
+          "#031a4c",
           "#172d63",
           "#203b7a",
           "#2b4d94",
@@ -25,11 +25,11 @@
       "signal-500": {
         "role": "secondary",
         "displayName": "Signal Blue",
-        "canonical": "#2f72f0",
+        "canonical": "#0b57ee",
         "tonalRamp": [
-          "#174bb3",
-          "#1d5fe0",
-          "#2f72f0",
+          "#073a9f",
+          "#0848c9",
+          "#0b57ee",
           "#8fb3f7",
           "#c3d6fb"
         ]
@@ -106,7 +106,7 @@
       "refersTo": "button-primary",
       "description": "The main action on light grounds.",
       "html": "<a class=\"ds-btn-primary\" href=\"#\">Start a conversation</a>",
-      "css": ".ds-btn-primary { display: inline-block; background: #10204d; color: #fff; padding: 14px 24px; border-radius: 4px; font-family: 'Public Sans Variable', system-ui, sans-serif; font-weight: 500; text-decoration: none; transition: background-color 150ms; } .ds-btn-primary:hover { background: #203b7a; } .ds-btn-primary:focus-visible { outline: 2px solid #2f72f0; outline-offset: 3px; }"
+      "css": ".ds-btn-primary { display: inline-block; background: #031a4c; color: #fff; padding: 14px 24px; border-radius: 4px; font-family: 'Public Sans Variable', system-ui, sans-serif; font-weight: 500; text-decoration: none; transition: background-color 150ms; } .ds-btn-primary:hover { background: #203b7a; } .ds-btn-primary:focus-visible { outline: 2px solid #0b57ee; outline-offset: 3px; }"
     },
     {
       "name": "Secondary Button",
@@ -114,7 +114,7 @@
       "refersTo": "button-secondary",
       "description": "Companion action. Navy hairline, no fill.",
       "html": "<a class=\"ds-btn-secondary\" href=\"#\">Get in touch</a>",
-      "css": ".ds-btn-secondary { display: inline-block; background: #fff; color: #10204d; padding: 14px 24px; border: 1px solid #10204d; border-radius: 4px; font-family: 'Public Sans Variable', system-ui, sans-serif; font-weight: 500; text-decoration: none; transition: background-color 150ms; } .ds-btn-secondary:hover { background: #f3f5fb; } .ds-btn-secondary:focus-visible { outline: 2px solid #2f72f0; outline-offset: 3px; }"
+      "css": ".ds-btn-secondary { display: inline-block; background: #fff; color: #031a4c; padding: 14px 24px; border: 1px solid #031a4c; border-radius: 4px; font-family: 'Public Sans Variable', system-ui, sans-serif; font-weight: 500; text-decoration: none; transition: background-color 150ms; } .ds-btn-secondary:hover { background: #f3f5fb; } .ds-btn-secondary:focus-visible { outline: 2px solid #0b57ee; outline-offset: 3px; }"
     },
     {
       "name": "On-dark Button",
@@ -122,7 +122,7 @@
       "refersTo": "button-on-dark",
       "description": "Primary action inside navy bands.",
       "html": "<div class=\"ds-dark\"><a class=\"ds-btn-dark\" href=\"#\">Request a Practice Health Snapshot</a></div>",
-      "css": ".ds-dark { background: #0b1638; padding: 32px; } .ds-btn-dark { display: inline-block; background: #fff; color: #0b1638; padding: 14px 24px; border-radius: 4px; font-family: 'Public Sans Variable', system-ui, sans-serif; font-weight: 500; text-decoration: none; transition: background-color 150ms; } .ds-btn-dark:hover { background: #e5eaf6; }"
+      "css": ".ds-dark { background: #021238; padding: 32px; } .ds-btn-dark { display: inline-block; background: #fff; color: #021238; padding: 14px 24px; border-radius: 4px; font-family: 'Public Sans Variable', system-ui, sans-serif; font-weight: 500; text-decoration: none; transition: background-color 150ms; } .ds-btn-dark:hover { background: #e5eaf6; }"
     },
     {
       "name": "Text Link",
@@ -130,7 +130,7 @@
       "refersTo": "link",
       "description": "Navy text with a signal-blue underline that thickens on hover.",
       "html": "<a class=\"ds-link\" href=\"#\">Our approach to trust and governance</a>",
-      "css": ".ds-link { font-family: 'Public Sans Variable', system-ui, sans-serif; font-weight: 500; color: #172d63; text-decoration: underline; text-decoration-color: #2f72f0; text-underline-offset: 6px; text-decoration-thickness: 1px; } .ds-link:hover { text-decoration-thickness: 2px; }"
+      "css": ".ds-link { font-family: 'Public Sans Variable', system-ui, sans-serif; font-weight: 500; color: #172d63; text-decoration: underline; text-decoration-color: #0b57ee; text-underline-offset: 6px; text-decoration-thickness: 1px; } .ds-link:hover { text-decoration-thickness: 2px; }"
     },
     {
       "name": "Split Section",
@@ -138,7 +138,7 @@
       "refersTo": "section-split",
       "description": "Serif headline in columns 1–5, body in 7–12. The default section form.",
       "html": "<section class=\"ds-split\"><h2>Allied health clinics are rich in data and short on insight.</h2><p>Practice management systems record every appointment, invoice and cancellation. They were built to run the day, not to steer the business.</p></section>",
-      "css": ".ds-split { display: grid; grid-template-columns: 5fr 1fr 6fr; gap: 0; } .ds-split h2 { font-family: 'Source Serif 4 Variable', Georgia, serif; font-weight: 500; font-size: 2.75rem; line-height: 1.12; letter-spacing: -.015em; color: #0b1638; margin: 0; } .ds-split p { grid-column: 3; font-family: 'Public Sans Variable', system-ui, sans-serif; font-size: 1.125rem; line-height: 1.625; color: #3a4045; margin: 0; }"
+      "css": ".ds-split { display: grid; grid-template-columns: 5fr 1fr 6fr; gap: 0; } .ds-split h2 { font-family: 'Source Serif 4 Variable', Georgia, serif; font-weight: 500; font-size: 2.75rem; line-height: 1.12; letter-spacing: -.015em; color: #021238; margin: 0; } .ds-split p { grid-column: 3; font-family: 'Public Sans Variable', system-ui, sans-serif; font-size: 1.125rem; line-height: 1.625; color: #3a4045; margin: 0; }"
     },
     {
       "name": "Ruled Item",
@@ -146,7 +146,7 @@
       "refersTo": "ruled-item",
       "description": "Parallel items opened by a hairline rule, never boxed in cards.",
       "html": "<div class=\"ds-ruled\"><h3>Patients who stay in care</h3><p>Lapsing patients are noticed early and re-engaged before they are lost.</p></div>",
-      "css": ".ds-ruled { border-top: 1px solid #cbd5ec; padding-top: 24px; max-width: 28rem; } .ds-ruled h3 { font-family: 'Source Serif 4 Variable', Georgia, serif; font-weight: 500; font-size: 1.5rem; color: #0b1638; margin: 0; } .ds-ruled p { font-family: 'Public Sans Variable', system-ui, sans-serif; line-height: 1.625; color: #3a4045; margin: 12px 0 0; }"
+      "css": ".ds-ruled { border-top: 1px solid #cbd5ec; padding-top: 24px; max-width: 28rem; } .ds-ruled h3 { font-family: 'Source Serif 4 Variable', Georgia, serif; font-weight: 500; font-size: 1.5rem; color: #021238; margin: 0; } .ds-ruled p { font-family: 'Public Sans Variable', system-ui, sans-serif; line-height: 1.625; color: #3a4045; margin: 12px 0 0; }"
     },
     {
       "name": "Statement Band",
@@ -154,7 +154,7 @@
       "refersTo": "statement-band",
       "description": "Full-bleed navy band carrying the point of view in the serif.",
       "html": "<blockquote class=\"ds-statement\"><p>Practice software is built to record care. Clinic leaders need something that helps them run the business of care.</p></blockquote>",
-      "css": ".ds-statement { background: #10204d; margin: 0; padding: 64px 48px; } .ds-statement p { font-family: 'Source Serif 4 Variable', Georgia, serif; font-size: 2.75rem; line-height: 1.2; color: #fff; margin: 0; max-width: 24ch; }"
+      "css": ".ds-statement { background: #031a4c; margin: 0; padding: 64px 48px; } .ds-statement p { font-family: 'Source Serif 4 Variable', Georgia, serif; font-size: 2.75rem; line-height: 1.2; color: #fff; margin: 0; max-width: 24ch; }"
     },
     {
       "name": "Navigation Link",
@@ -162,7 +162,7 @@
       "refersTo": "nav-link",
       "description": "Graphite at rest; navy with a signal underline when current.",
       "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Platform</a><a href=\"#\">Trust</a><a href=\"#\">Insights</a><a href=\"#\">About</a></nav>",
-      "css": ".ds-nav { display: flex; gap: 32px; } .ds-nav a { font-family: 'Public Sans Variable', system-ui, sans-serif; font-size: .9375rem; color: #4b5258; text-decoration: none; } .ds-nav a:hover, .ds-nav a[aria-current='page'] { color: #0b1638; } .ds-nav a[aria-current='page'] { text-decoration: underline; text-decoration-color: #2f72f0; text-underline-offset: 8px; }"
+      "css": ".ds-nav { display: flex; gap: 32px; } .ds-nav a { font-family: 'Public Sans Variable', system-ui, sans-serif; font-size: .9375rem; color: #4b5258; text-decoration: none; } .ds-nav a:hover, .ds-nav a[aria-current='page'] { color: #021238; } .ds-nav a[aria-current='page'] { text-decoration: underline; text-decoration-color: #0b57ee; text-underline-offset: 8px; }"
     }
   ],
   "narrative": {
