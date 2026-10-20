@@ -28,6 +28,16 @@ Two files carry the context that isn't obvious from the code, and both are worth
   site is built on. A detector checks the built output against it, so undocumented colours and sizes surface
   as drift.
 
+Running the site — hosting, the contact form, booking, search, DNS and email — is documented in `docs/`:
+
+- **[`docs/OPERATIONS.md`](./docs/OPERATIONS.md)** — every service the site depends on, where it is configured,
+  routine jobs, and open items. Start here.
+- **[`docs/DNS.md`](./docs/DNS.md)** — every DNS record for datafore.ca, what it does, and Route 53 gotchas.
+- **[`docs/EMAIL.md`](./docs/EMAIL.md)** — SPF, DKIM and DMARC for Google Workspace, test results, and the plan
+  for tightening DMARC.
+- **[`docs/CUTOVER.md`](./docs/CUTOVER.md)** — how the domain moved from Dorik to GitHub Pages, and how to roll
+  back.
+
 ## Getting started
 
 ```bash
