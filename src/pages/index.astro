@@ -1,283 +1,241 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import LoopMark from "../components/LoopMark.astro";
 import { withBase } from "../lib/paths";
 
-// The closed loop, in the clinic's own language. This is the product's thesis,
-// so it leads the page rather than sitting in a feature grid.
-const loop = [
+const decisions = [
+  "Which patients to bring back into care, and when",
+  "Where clinical capacity is going unused",
+  "Which growth investments are actually paying back",
+];
+
+const outcomes = [
   {
-    stage: "Assess",
-    body: "We read your appointments, invoices and payments nightly, and normalise them into one model — whichever system you run.",
-    detail: "Jane · Cliniko · Owl Practice",
+    title: "Patients who stay in care",
+    body: "Lapsing patients are noticed early and re-engaged before they are lost, so continuity of care and revenue hold together.",
   },
   {
-    stage: "Detect",
-    body: "The leaks surface on their own: patients past 90 days, recurring Tuesday-afternoon gaps, receivables ageing, no-shows clustering by practitioner.",
-    detail: "Utilisation · churn risk · receivables",
+    title: "A fuller, steadier schedule",
+    body: "See where capacity goes unused — by practitioner, day and service — and act on it while the week can still be saved.",
   },
   {
-    stage: "Act",
-    body: "Datafore writes the task into your CRM and triggers the reactivation sequence. The work happens instead of landing on a to-do list.",
-    detail: "HubSpot contacts, deals, workflows",
+    title: "Revenue you can explain",
+    body: "Understand what each service, payer and practitioner contributes, and where receivables are quietly ageing.",
   },
   {
-    stage: "Verify",
-    body: "The resulting booking is tracked back to the action that caused it, so you see what the loop actually returned.",
-    detail: "Attribution back to revenue",
+    title: "Growth decided on evidence",
+    body: "Tie marketing spend, hiring and expansion to the bookings and outcomes they actually produce.",
   },
 ];
 
-const leaks = [
-  { label: "No-shows", body: "Empty chairs that were already paid for in staff time." },
-  { label: "Schedule gaps", body: "Recurring soft spots nobody notices until the month closes." },
-  { label: "Patient churn", body: "People who quietly stopped coming and were never called." },
-  { label: "Untracked spend", body: "Marketing running with no line back to actual bookings." },
+const engagement = [
+  {
+    name: "Diagnose",
+    body: "A Practice Health Snapshot built from your own data: utilisation, patient attrition, revenue mix, and where value is leaking.",
+  },
+  {
+    name: "Prioritise",
+    body: "Together we agree the few measures that matter most for your clinic, and targets you can hold us to.",
+  },
+  {
+    name: "Activate",
+    body: "Datafore connects to the systems you already run, so findings become coordinated follow-up rather than another report.",
+  },
+  {
+    name: "Review",
+    body: "Regular reviews of what moved, what didn't, and what to do next — the same discipline your practitioners apply to care.",
+  },
 ];
 
-const disciplines = ["Physiotherapy", "Chiropractic", "Massage Therapy", "Mental Health"];
+const principles = [
+  {
+    title: "Held in Canada",
+    body: "Clinic data is designed to be stored and processed in Canadian data centres.",
+  },
+  {
+    title: "Private by design",
+    body: "Analysis runs on de-identified records; names and contact details stay out of the analytics layer.",
+  },
+  {
+    title: "Accountable AI",
+    body: "Every recommendation traces back to the data behind it, and people decide what happens next.",
+  },
+];
 ---
 
 <Layout
   title="Datafore"
-  description="Datafore is a clinic intelligence layer for Canadian allied health practices. It sits above Jane, Cliniko and Owl, finds the revenue leaking out of your schedule, and closes the loop by acting on it."
+  description="Datafore helps Canadian allied health clinics turn the data they already hold into clear decisions on retention, capacity and growth — and makes sure those decisions are acted on."
 >
-  <!-- HERO -->
-  <section class="border-b border-graphite-200 bg-bone">
-    <div class="mx-auto grid max-w-6xl gap-14 px-6 py-20 md:grid-cols-[1.05fr_1fr] md:items-center md:py-24">
-      <div>
-        <h1 class="text-4xl font-bold leading-[1.08] tracking-tight text-graphite-950 md:text-5xl">
-          Your practice software records what happened. It doesn't do anything about it.
+  <!-- Hero -->
+  <section class="bg-navy-950 text-navy-200">
+    <div class="mx-auto grid max-w-7xl gap-14 px-6 pb-24 pt-20 md:pt-28 lg:grid-cols-12 lg:gap-10 lg:px-10 lg:pb-32">
+      <div class="settle lg:col-span-8">
+        <h1 class="text-[2.75rem] leading-[1.04] tracking-[-0.022em] text-white sm:text-6xl lg:text-[5rem]">
+          Clinic intelligence for the business of care.
         </h1>
-        <p class="mt-6 max-w-xl text-lg leading-relaxed text-graphite-600">
-          Datafore is a clinic intelligence layer for Canadian allied health practices. It reads the data your
-          practice management system already collects, finds the revenue leaking out of your schedule, and then
-          closes the loop — creating the task, triggering the follow-up, and tracking what came back.
+        <p class="mt-8 max-w-[58ch] text-lg leading-relaxed md:text-xl">
+          Datafore helps Canadian allied health clinics turn the data they already hold into clear decisions on
+          retention, capacity and growth — and makes sure those decisions are acted on.
         </p>
-        <div class="mt-10 flex flex-wrap gap-3">
+        <div class="mt-11 flex flex-wrap items-center gap-x-8 gap-y-4">
           <a
             href={withBase("/contact/")}
-            class="rounded bg-vital-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-vital-700"
+            class="rounded-sm bg-white px-6 py-3.5 font-medium text-navy-950 transition-colors hover:bg-navy-100"
           >
-            Request a Practice Health Snapshot
+            Start a conversation
           </a>
           <a
             href={withBase("/platform/")}
-            class="rounded border border-graphite-300 px-6 py-3 text-sm font-semibold text-graphite-700 transition-colors hover:border-graphite-950 hover:text-graphite-950"
+            class="font-medium text-white underline decoration-signal-300 decoration-1 underline-offset-[6px] hover:decoration-2"
           >
-            See how the loop works
+            How we work with clinics
           </a>
         </div>
-        <p class="mt-4 text-sm text-graphite-500">
-          Free, no commitment. We show you what your own data says.
-        </p>
       </div>
 
-      <!-- The mechanism, demonstrated. -->
-      <div class="rounded-lg border border-graphite-200 bg-white p-6 shadow-[0_1px_2px_rgba(15,18,20,0.04),0_18px_44px_-20px_rgba(15,18,20,0.28)]">
-        <div class="flex items-center justify-between border-b border-graphite-100 pb-4">
-          <p class="measure-label">One loop, running</p>
-          <LoopMark size={30} active={2} class="text-vital-600" />
-        </div>
-
-        <ol class="mt-5 space-y-4">
-          <li class="flex gap-3">
-            <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-risk-500"></span>
-            <p class="text-sm leading-relaxed text-graphite-700">
-              <span class="font-semibold text-graphite-950">41 patients</span> passed 90 days since their last visit.
-            </p>
-          </li>
-          <li class="flex gap-3">
-            <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-vital-500"></span>
-            <p class="text-sm leading-relaxed text-graphite-700">
-              Reactivation tasks written to the CRM and the email sequence triggered.
-            </p>
-          </li>
-          <li class="flex gap-3">
-            <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-steady-600"></span>
-            <p class="text-sm leading-relaxed text-graphite-700">
-              <span class="font-semibold text-graphite-950">9 rebooked</span> within three weeks, traced back to the sequence.
-            </p>
-          </li>
-        </ol>
-
-        <p class="mt-6 border-t border-graphite-100 pt-4 font-mono text-[0.6875rem] uppercase leading-relaxed tracking-[0.1em] text-graphite-500">
-          Illustrative example · not client data
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- THE LEAK -->
-  <section class="border-b border-graphite-200 bg-graphite-950 text-graphite-200">
-    <div class="mx-auto max-w-6xl px-6 py-16">
-      <div class="grid gap-10 md:grid-cols-2 md:gap-16">
-        <div>
-          <h2 class="text-2xl font-semibold text-white md:text-3xl">
-            Somewhere between 10 and 20 percent of clinic revenue leaks out quietly.
-          </h2>
-          <p class="mt-4 leading-relaxed text-graphite-400">
-            Not through anything dramatic. Through gaps nobody had time to look at.
-          </p>
-        </div>
-        <dl class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+      <aside class="settle-late self-end border-t border-navy-700 pt-6 lg:col-span-4 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+        <h2 class="font-sans text-sm font-semibold tracking-normal text-white">The decisions we help leaders make</h2>
+        <ul class="mt-5 divide-y divide-navy-800">
           {
-            leaks.map((l) => (
-              <div>
-                <dt class="font-semibold text-white">{l.label}</dt>
-                <dd class="mt-1 text-sm leading-relaxed text-graphite-400">{l.body}</dd>
-              </div>
+            decisions.map((d) => (
+              <li class="py-4 font-display text-xl leading-snug text-navy-100">{d}</li>
             ))
           }
-        </dl>
-      </div>
+        </ul>
+      </aside>
     </div>
   </section>
 
-  <!-- THE LOOP -->
-  <section class="mx-auto max-w-6xl px-6 py-16 md:py-20">
-    <div class="max-w-2xl">
-      <h2 class="text-2xl font-semibold text-graphite-950 md:text-3xl">
-        You already run this loop on patients. We run it on the clinic.
+  <!-- The opportunity -->
+  <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+    <div class="grid gap-10 lg:grid-cols-12">
+      <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem] lg:col-span-5">
+        Allied health clinics are rich in data and short on insight.
       </h2>
-      <p class="mt-4 leading-relaxed text-graphite-600">
-        Assess, act, reassess. It's the method your practitioners use every day, and almost nobody applies it to
-        the business itself — because the tools stop at the report.
-      </p>
-    </div>
-
-    <ol class="mt-12 grid gap-px overflow-hidden rounded-lg border border-graphite-200 bg-graphite-200 sm:grid-cols-2 lg:grid-cols-4">
-      {
-        loop.map((s, i) => (
-          <li class="flex flex-col bg-white p-6">
-            <LoopMark size={34} active={i} class="text-vital-600" />
-            <h3 class="mt-4 text-lg font-semibold text-graphite-950">{s.stage}</h3>
-            <p class="mt-2 flex-1 text-sm leading-relaxed text-graphite-600">{s.body}</p>
-            <p class="mt-4 border-t border-graphite-100 pt-3 font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-graphite-500">
-              {s.detail}
-            </p>
-          </li>
-        ))
-      }
-    </ol>
-
-    <p class="mt-8 max-w-2xl text-graphite-600">
-      Most tools stop after the second step. The last two are the ones that change a number.
-    </p>
-  </section>
-
-  <!-- WHERE IT SITS -->
-  <section class="border-y border-graphite-200 bg-bone-dim">
-    <div class="mx-auto max-w-6xl px-6 py-16">
-      <div class="max-w-2xl">
-        <h2 class="text-2xl font-semibold text-graphite-950 md:text-3xl">It sits above what you already run.</h2>
-        <p class="mt-4 leading-relaxed text-graphite-600">
-          Datafore doesn't replace your practice management system and doesn't ask your front desk to change how
-          they work. It reads from what you have and writes into the tools you already use.
+      <div class="space-y-6 text-lg leading-relaxed text-graphite-700 lg:col-span-6 lg:col-start-7">
+        <p>
+          Practice management systems record every appointment, invoice and cancellation. They were built to run
+          the day, not to steer the business — so the decisions that shape a clinic's future, from hiring and hours
+          to marketing and new locations, are made on instinct and month-end spreadsheets.
+        </p>
+        <p>
+          The cost is quiet but real. No-shows, unfilled hours and patients who simply stop coming are estimated to
+          cost clinics between ten and twenty percent of their revenue — and with it, continuity of care for the
+          people they serve.
         </p>
       </div>
+    </div>
+  </section>
 
-      <div class="mt-10 grid items-stretch gap-4 md:grid-cols-[1fr_auto_1fr_auto_1fr]">
-        <div class="rounded-lg border border-graphite-200 bg-white p-5">
-          <p class="measure-label">Reads from</p>
-          <ul class="mt-3 space-y-1.5 text-sm font-medium text-graphite-800">
-            <li>Jane App</li>
-            <li>Cliniko</li>
-            <li>Owl Practice</li>
-          </ul>
-        </div>
-
-        <div class="flex items-center justify-center text-graphite-400" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="rotate-90 md:rotate-0">
-            <path d="M4 12h15M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </div>
-
-        <div class="rounded-lg border-2 border-vital-600 bg-white p-5">
-          <p class="measure-label text-vital-700">Datafore</p>
-          <ul class="mt-3 space-y-1.5 text-sm font-medium text-graphite-800">
-            <li>Normalised clinic model</li>
-            <li>Leak detection</li>
-            <li>Benchmarks (as the network grows)</li>
-          </ul>
-        </div>
-
-        <div class="flex items-center justify-center text-graphite-400" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="rotate-90 md:rotate-0">
-            <path d="M4 12h15M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </div>
-
-        <div class="rounded-lg border border-graphite-200 bg-white p-5">
-          <p class="measure-label">Writes into</p>
-          <ul class="mt-3 space-y-1.5 text-sm font-medium text-graphite-800">
-            <li>HubSpot CRM</li>
-            <li>Reactivation sequences</li>
-            <li>Executive summaries</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="mt-8 flex flex-wrap gap-2">
+  <!-- Outcomes -->
+  <section class="bg-mist">
+    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+      <h2 class="max-w-[22ch] text-[2rem] leading-[1.12] md:text-[2.75rem]">What clinic leaders gain.</h2>
+      <div class="mt-16 grid gap-x-16 gap-y-12 md:grid-cols-2">
         {
-          disciplines.map((d) => (
-            <span class="rounded border border-graphite-200 bg-white px-3.5 py-1.5 text-xs font-medium text-graphite-600">
-              {d}
-            </span>
+          outcomes.map((o) => (
+            <div class="border-t border-navy-200 pt-6">
+              <h3 class="text-2xl leading-snug">{o.title}</h3>
+              <p class="mt-3 max-w-[48ch] leading-relaxed text-graphite-700">{o.body}</p>
+            </div>
           ))
         }
       </div>
     </div>
   </section>
 
-  <!-- COMPLIANCE -->
-  <section class="mx-auto max-w-6xl px-6 py-16">
-    <div class="grid gap-10 md:grid-cols-2 md:gap-16">
-      <div>
-        <h2 class="text-2xl font-semibold text-graphite-950 md:text-3xl">Built for Canadian clinic data.</h2>
-        <p class="mt-4 leading-relaxed text-graphite-600">
-          Patient data is the most sensitive thing your clinic holds, so residency and de-identification are part
-          of the architecture rather than a policy page.
+  <!-- Point of view -->
+  <section class="bg-navy-900 text-navy-200">
+    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+      <blockquote class="max-w-5xl">
+        <p class="font-display text-[1.875rem] leading-[1.2] text-white md:text-[2.75rem] lg:text-[3.25rem]">
+          Practice software is built to record care. Clinic leaders need something that helps them run the
+          business of care.
         </p>
-      </div>
-      <ul class="divide-y divide-graphite-200 border-t border-graphite-200">
-        <li class="py-4">
-          <p class="font-semibold text-graphite-950">Data stays in Canada</p>
-          <p class="mt-1 text-sm leading-relaxed text-graphite-600">Storage and processing in AWS ca-central-1.</p>
-        </li>
-        <li class="py-4">
-          <p class="font-semibold text-graphite-950">Analytics on de-identified records</p>
-          <p class="mt-1 text-sm leading-relaxed text-graphite-600">
-            Patient identifiers are hashed; names, emails and phone numbers never enter the analytics layer.
-          </p>
-        </li>
-        <li class="py-4">
-          <p class="font-semibold text-graphite-950">PIPEDA, PIPA and PHIPA by design</p>
-          <p class="mt-1 text-sm leading-relaxed text-graphite-600">
-            Access is logged, raw exports expire, and each clinic's data is isolated at the database level.
-          </p>
-        </li>
-      </ul>
+      </blockquote>
+      <p class="mt-10 max-w-[62ch] text-lg leading-relaxed">
+        That is the gap Datafore exists to close: an intelligence layer above the systems you already use, which
+        doesn't stop at a report. It turns findings into coordinated action, and shows you what that action
+        returned.
+      </p>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="border-t border-graphite-200 bg-vital-950">
-    <div class="mx-auto max-w-3xl px-6 py-20 text-center">
-      <h2 class="text-3xl font-semibold text-white">Start with your own numbers.</h2>
-      <p class="mx-auto mt-4 max-w-xl leading-relaxed text-vital-200">
-        We'll run a free Practice Health Snapshot on your clinic's data and show you where the revenue is going.
-        No commitment, and you keep the findings either way.
+  <!-- Engagement model -->
+  <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+    <div class="grid gap-10 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem]">A partner, not another dashboard.</h2>
+      </div>
+      <p class="text-lg leading-relaxed text-graphite-700 lg:col-span-6 lg:col-start-7">
+        We work alongside clinic leaders in a deliberate sequence, the way a good clinician works with a patient:
+        understand first, agree what matters, act, and then check honestly whether it worked.
       </p>
-      <a
-        href={withBase("/contact/")}
-        class="mt-8 inline-block rounded bg-white px-8 py-3 text-sm font-semibold text-vital-900 transition-colors hover:bg-vital-100"
-      >
-        Request a Practice Health Snapshot
-      </a>
-      <p class="mt-6 text-sm text-vital-300">
-        We're onboarding a small group of founding clinics in BC.
-      </p>
+    </div>
+
+    <ol class="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+      {
+        engagement.map((s) => (
+          <li class="border-t-2 border-navy-900 pt-6">
+            <h3 class="text-2xl">{s.name}</h3>
+            <p class="mt-3 leading-relaxed text-graphite-700">{s.body}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <!-- Trust -->
+  <section class="bg-mist">
+    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
+      <div class="grid gap-10 lg:grid-cols-12">
+        <div class="lg:col-span-5">
+          <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem]">Built to be trusted with patient data.</h2>
+          <p class="mt-6 max-w-[48ch] text-lg leading-relaxed text-graphite-700">
+            Health information is the most sensitive thing a clinic holds. Stewardship is designed into how Datafore
+            works, not added as a policy afterwards.
+          </p>
+          <a
+            href={withBase("/trust/")}
+            class="mt-8 inline-block font-medium text-navy-800 underline decoration-signal-500 underline-offset-[6px] hover:decoration-2"
+          >
+            Our approach to trust and governance
+          </a>
+        </div>
+        <div class="grid gap-10 sm:grid-cols-3 lg:col-span-6 lg:col-start-7 lg:gap-8">
+          {
+            principles.map((p) => (
+              <div class="border-t border-navy-200 pt-6">
+                <h3 class="font-sans text-base font-semibold tracking-normal">{p.title}</h3>
+                <p class="mt-2 leading-relaxed text-graphite-700">{p.body}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founding cohort -->
+  <section class="bg-navy-950 text-navy-200">
+    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
+      <div class="grid gap-10 lg:grid-cols-12 lg:items-end">
+        <div class="lg:col-span-7">
+          <h2 class="text-[2rem] leading-[1.12] text-white md:text-[3rem]">Shape Datafore with us.</h2>
+          <p class="mt-6 max-w-[56ch] text-lg leading-relaxed">
+            We are inviting a small number of allied health clinics in British Columbia to join our founding cohort,
+            beginning with a complimentary Practice Health Snapshot of your own data.
+          </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-x-8 gap-y-4 lg:col-span-5 lg:justify-end">
+          <a
+            href={withBase("/contact/")}
+            class="rounded-sm bg-white px-6 py-3.5 font-medium text-navy-950 transition-colors hover:bg-navy-100"
+          >
+            Request a Practice Health Snapshot
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 </Layout>

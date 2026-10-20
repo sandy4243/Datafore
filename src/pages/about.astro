@@ -1,94 +1,123 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import LoopMark from "../components/LoopMark.astro";
 import { withBase } from "../lib/paths";
 import sandeepPhoto from "../assets/sandeep-mehra.jpg";
+
+const beliefs = [
+  {
+    title: "Allied health deserves better intelligence.",
+    body: "Physiotherapy, chiropractic, massage therapy and mental health clinics deliver much of the hands-on, community-based care Canadians rely on, most often as independent businesses. They deserve the same quality of insight that large health systems take for granted.",
+  },
+  {
+    title: "Insight is only worth what it changes.",
+    body: "A report nobody acts on is a cost, not an asset. We measure our work by the decisions it improves and the results that follow.",
+  },
+  {
+    title: "Trust is earned in the architecture.",
+    body: "Clinics are custodians of their patients' information. Privacy and accountability are designed into how we work from the start, not promised afterwards.",
+  },
+];
 ---
 
 <Layout
   title="About"
-  description="Datafore is a clinic intelligence company based in Burnaby, BC, building the layer between what clinic data shows and what actually gets done."
+  description="Datafore is a Canadian clinic intelligence company based in Burnaby, BC, bringing the discipline of data to the business of care."
 >
-  <section class="border-b border-graphite-200 bg-bone">
-    <div class="mx-auto max-w-6xl px-6 py-16 md:py-20">
-      <h1 class="text-4xl font-bold tracking-tight text-graphite-950 md:text-5xl">About Datafore</h1>
-      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-graphite-600">
-        Datafore began as a data and analytics consultancy, helping organisations get value out of data they
-        already had. Doing that work repeatedly made one gap obvious: the reporting was rarely the hard part.
-        Getting anything to happen as a result was.
+  <section class="border-b border-navy-100">
+    <div class="mx-auto max-w-7xl px-6 pb-20 pt-20 md:pt-28 lg:px-10">
+      <h1 class="max-w-[20ch] text-[2.75rem] leading-[1.05] tracking-[-0.022em] sm:text-6xl lg:text-[4rem]">
+        Bringing the discipline of data to the business of care.
+      </h1>
+      <p class="mt-8 max-w-[62ch] text-lg leading-relaxed text-graphite-700 md:text-xl">
+        Datafore began as a data and analytics consultancy, helping organisations get real value from data they
+        already held. Doing that work again and again made one thing clear: the reporting was rarely the hard part.
+        Getting anything to change as a result was.
       </p>
     </div>
   </section>
 
-  <section class="mx-auto max-w-6xl px-6 py-16">
-    <div class="grid gap-12 md:grid-cols-2">
-      <div>
-        <h2 class="text-2xl font-semibold text-graphite-950">Why allied health</h2>
-        <p class="mt-4 leading-relaxed text-graphite-600">
-          Private clinics — physiotherapy, chiropractic, massage therapy, mental health — sit on years of detailed
-          operational data and get almost no strategic use out of it. Their software was built to run the day, not
-          to answer how the business is doing. Owners end up reconstructing the picture by hand, if at all, while a
-          meaningful share of revenue leaves through no-shows, gaps and quiet patient churn.
+  <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
+    <div class="grid gap-10 lg:grid-cols-12">
+      <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem] lg:col-span-5">Why allied health.</h2>
+      <div class="max-w-[60ch] space-y-6 text-lg leading-relaxed text-graphite-700 lg:col-span-7">
+        <p>
+          Private clinics sit on years of detailed operational data and get almost no strategic use from it. Their
+          software was built to run the day, not to answer how the business is doing. Owners reconstruct the
+          picture by hand, if at all, while revenue and continuity of care slip away through no-shows, gaps and
+          patients who quietly stop coming.
         </p>
-        <p class="mt-4 leading-relaxed text-graphite-600">
-          It's a gap that shows up in every clinic we talk to, and it's specific enough to solve properly rather
-          than generically.
-        </p>
-      </div>
-      <div>
-        <h2 class="text-2xl font-semibold text-graphite-950">How we think about it</h2>
-        <p class="mt-4 leading-relaxed text-graphite-600">
-          Practitioners already run a disciplined loop: assess, treat, reassess. Nobody would accept a course of
-          treatment that skipped the reassessment. Yet that's exactly how clinic reporting usually works — a number
-          is produced, and nothing follows from it.
-        </p>
-        <p class="mt-4 leading-relaxed text-graphite-600">
-          Datafore applies the clinical method to the clinic itself. That's the whole idea, and everything in the
-          product is downstream of it.
+        <p>
+          Practitioners already work in a disciplined loop: assess, treat, reassess. Datafore applies that same
+          discipline to the clinic itself — and everything we build follows from that idea.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="border-t border-graphite-200 bg-bone-dim">
-    <div class="mx-auto max-w-6xl px-6 py-16">
-      <p class="measure-label text-vital-700">Team</p>
-      <div class="mt-6 flex flex-col items-start gap-6 rounded-lg border border-graphite-200 bg-white p-6 sm:flex-row sm:items-center">
+  <section class="bg-mist">
+    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
+      <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem]">What we believe.</h2>
+      <div class="mt-14 grid gap-12 md:grid-cols-3 md:gap-10">
+        {
+          beliefs.map((b) => (
+            <div class="border-t border-navy-200 pt-6">
+              <h3 class="text-[1.5rem] leading-snug">{b.title}</h3>
+              <p class="mt-4 leading-relaxed text-graphite-700">{b.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
+    <div class="grid gap-12 lg:grid-cols-12">
+      <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem] lg:col-span-5">Leadership.</h2>
+      <div class="flex flex-col gap-8 sm:flex-row sm:items-start lg:col-span-7">
         <Image
           src={sandeepPhoto}
           alt="Sandeep Mehra"
           width={224}
           height={224}
           densities={[1, 2]}
-          class="h-28 w-28 rounded-full object-cover"
+          class="h-32 w-32 shrink-0 rounded-sm object-cover"
         />
-        <div class="flex-1">
-          <div class="flex items-center gap-3">
-            <h3 class="text-xl font-semibold text-graphite-950">Sandeep Mehra</h3>
-            <LoopMark size={24} active={3} class="text-vital-600" />
-          </div>
-          <p class="text-sm font-medium text-vital-700">Product Manager, Analytics</p>
+        <div>
+          <h3 class="text-[1.75rem]">Sandeep Mehra</h3>
+          <p class="mt-1 text-graphite-600">Product Manager, Analytics</p>
           <a
             href="https://www.linkedin.com/in/smehra2/"
             target="_blank"
             rel="noopener noreferrer"
-            class="mt-2 inline-block text-sm font-medium text-graphite-600 underline decoration-graphite-300 underline-offset-4 hover:text-vital-700"
+            class="mt-4 inline-block font-medium text-navy-800 underline decoration-signal-500 underline-offset-[6px] hover:decoration-2"
           >
-            Connect on LinkedIn
+            Profile on LinkedIn
           </a>
         </div>
       </div>
-      <p class="mt-8 max-w-xl leading-relaxed text-graphite-600">
-        We're based in Burnaby, BC, and small by design at this stage — building alongside founding clinics across
-        the province before going wider. If that's the kind of problem you want to work on, get in touch.
-      </p>
-      <a
-        href={withBase("/contact/")}
-        class="mt-6 inline-block rounded bg-vital-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-vital-700"
-      >
-        Get in touch
-      </a>
+    </div>
+  </section>
+
+  <section class="bg-navy-950 text-navy-200">
+    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
+      <div class="grid gap-10 lg:grid-cols-12 lg:items-end">
+        <div class="lg:col-span-7">
+          <h2 class="text-[2rem] leading-[1.12] text-white md:text-[3rem]">Based in British Columbia.</h2>
+          <p class="mt-6 max-w-[56ch] text-lg leading-relaxed">
+            Datafore Analytics Inc. is headquartered in Burnaby. We are starting close to home, with clinics across
+            the province, before taking the work further across Canada.
+          </p>
+        </div>
+        <div class="lg:col-span-5 lg:text-right">
+          <a
+            href={withBase("/contact/")}
+            class="inline-block rounded-sm bg-white px-6 py-3.5 font-medium text-navy-950 transition-colors hover:bg-navy-100"
+          >
+            Start a conversation
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 </Layout>

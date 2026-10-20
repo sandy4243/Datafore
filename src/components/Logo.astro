@@ -1,0 +1,31 @@
+---
+/**
+ * The Datafore lockup. Every placement of the logo goes through here, so the
+ * artwork is swapped in one place.
+ *
+ * Cut from the master artwork in src/assets/brand/datafore-logo-source.png:
+ * the mark and wordmark on a transparent ground, without the "Forward with
+ * Data" tagline, which is illegible at header size. The on-dark cut knocks the
+ * navy wordmark out to white and keeps the mark in its own blues.
+ */
+import { Image } from "astro:assets";
+import logoOnLight from "../assets/brand/logo.png";
+import logoOnDark from "../assets/brand/logo-on-dark.png";
+
+interface Props {
+  /** "onLight" for white grounds, "onDark" for navy grounds. */
+  tone?: "onLight" | "onDark";
+  class?: string;
+}
+
+const { tone = "onLight", class: className = "" } = Astro.props;
+---
+
+<Image
+  src={tone === "onDark" ? logoOnDark : logoOnLight}
+  alt="Datafore"
+  height={44}
+  densities={[1, 2, 3]}
+  loading="eager"
+  class:list={["h-9 w-auto md:h-11", className]}
+/>

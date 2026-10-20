@@ -26,3 +26,6 @@ yarn-error.log*
 .claude/skills/
 .claude/hooks/
 .claude/settings.local.json
+
+# Agents shipped by the impeccable skill installer
+.claude/agents/
