@@ -12,6 +12,7 @@ lives in the linked pages.
 | Contact form | FormSubmit (formsubmit.co) | `src/components/ContactForm.astro` | [Contact form](#contact-form) |
 | Call booking | Calendly | `src/pages/contact.astro` (`bookingURL`) | [Booking](#call-booking) |
 | Search | Google Search Console | search.google.com/search-console | [Search Console](#google-search-console) |
+| Research reports | DuckDB (build) and DuckDB-WASM (browser) | `reports/`, `src/content/reports/` | [Research](#research-reports) |
 | Analytics | None yet | — | [Analytics](#analytics) |
 
 ## Hosting and deploys
@@ -82,6 +83,23 @@ Redirects for the known old URLs are in `astro.config.mjs`.
 
 Then update this section and the [DNS.md](./DNS.md) table.
 
+## Research reports
+
+`/research/` publishes analysis of public datasets. How to add or update a report is in
+[`reports/README.md`](../reports/README.md); how the charts look is in `DESIGN.md`.
+
+- **Pipeline.** `npm run reports` runs before every `dev` and `build`. It runs each `reports/<id>/queries/*.sql`
+  with DuckDB (Node), writes JSON for the static figures to `src/generated/` and Parquet for the explorer to
+  `public/data/reports/`, then makes sure the DuckDB-WASM Parquet extension is in `public/duckdb-extensions/`.
+  All three outputs are gitignored and rebuilt each time. A failing query fails the build with the file name.
+- **Network at build time.** The build downloads DuckDB's Excel extension (for `read_xlsx`) and the WASM Parquet
+  extension from extensions.duckdb.org. GitHub Actions has network access, so this needs no setup.
+- **What visitors download.** Only the report page loads the explorer, and only when it scrolls into view: the
+  DuckDB-WASM engine (about 34 MB uncompressed, about 8 MB if GitHub Pages compresses it), the Parquet extension
+  (3 MB) and the data file (a few KB). All are served from datafore.ca; nothing goes to a third party.
+- **Upgrading DuckDB-WASM** (`@duckdb/duckdb-wasm` in `package.json`): the extension script asks the new
+  build for its version and fetches the matching extension, so no other change is needed. Re-test an explorer.
+
 ## Analytics
 
 None. The site sets no cookies and loads no tracking scripts, which the privacy policy reflects. Adding Google
@@ -95,3 +113,9 @@ Analytics or Tag Manager needs a cookie-consent banner and a privacy policy upda
 - [ ] Analytics with consent, if wanted.
 - [ ] Real photography (team, clinic at work) to replace graphics where it helps; guidance in `DESIGN.md`.
 - [ ] Making the repo private needs a paid GitHub plan (Pages from a private repo); the site stays public either way.
+- [ ] **CIHI terms of use** for the physiotherapist report: confirm that publishing figures from the data tables
+      on a commercial site, and keeping the source file in this (public) repo, is allowed, and add the CIHI page
+      URL to the report's `source.url`.
+- [ ] After the first deploy with the explorer, check that GitHub Pages serves `duckdb-eh.*.wasm` compressed
+      (`content-encoding: gzip`). If not, consider loading the engine from jsDelivr (5 MB compressed) and noting it
+      in the privacy policy.

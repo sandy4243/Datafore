@@ -110,6 +110,13 @@ None yet — pre-launch. The strongest honest proof available is the specificity
 PMS integrations, the closed-loop workflow, the compliance architecture), not customer outcomes. Any
 demonstration data must be labelled illustrative.
 
+**Research** (`/research/`) is the one place the site shows real data: Datafore's analysis of **public,
+aggregate** datasets (first: CIHI, *Physiotherapists in Canada, 2025*), with static charts and an in-browser
+DuckDB explorer. It demonstrates analytical capability to clinics and evaluators. Rules: public sources only,
+never clinic or patient data; cite the publisher exactly; state method changes between years; label our
+interpretation as ours; never imply the findings came from Datafore's platform or clients; check the publisher's
+terms for commercial use. How to add a report: `reports/README.md`.
+
 ## Product Principles
 
 - Sell the loop, not the dashboard. Every claim should point at an action the platform takes, not a chart it

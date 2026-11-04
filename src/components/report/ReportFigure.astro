@@ -1,0 +1,42 @@
+---
+/**
+ * The frame every report figure shares: a title (the figure's subject, not its
+ * finding; the finding is the prose heading above it), the chart, a note and
+ * source line, and a table view of the same data.
+ */
+interface Props {
+  title: string;
+  subtitle?: string;
+  note?: string;
+  /** Where in the source this comes from, e.g. "Table 12". Appended to the report's source. */
+  table?: string;
+  /** Override the report-level source line. */
+  source?: string;
+  dataTable?: string;
+}
+
+const { title, subtitle, note, table, source, dataTable } = Astro.props;
+const sourceLine = [source ?? Astro.locals.report?.source, table].filter(Boolean).join(", ");
+---
+
+<figure class="not-prose my-14 border-t border-navy-200 pt-6">
+  <figcaption class="mb-6">
+    <span class="block font-sans text-base font-semibold text-navy-950">{title}</span>
+    {subtitle && <span class="mt-1 block text-sm text-graphite-600">{subtitle}</span>}
+  </figcaption>
+  <slot />
+  <div class="mt-5 space-y-1 text-sm leading-relaxed text-graphite-600">
+    {note && <p>{note}</p>}
+    {sourceLine && <p>Source: {sourceLine}.</p>}
+  </div>
+  {
+    dataTable && (
+      <details class="mt-4 text-sm">
+        <summary class="cursor-pointer font-medium text-navy-800 underline decoration-signal-500 underline-offset-4">
+          Show the data
+        </summary>
+        <div class="mt-3 overflow-x-auto" set:html={dataTable} />
+      </details>
+    )
+  }
+</figure>

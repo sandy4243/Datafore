@@ -1,0 +1,122 @@
+---
+title: "Physiotherapists in BC: more of them, unevenly spread"
+description: "BC's physiotherapist supply grew by half between 2016 and 2025, and three in four now work in community settings such as clinics. Access still varies five-fold between health regions."
+publishDate: 2026-11-04
+author: "Datafore"
+source:
+  short: "CIHI, Physiotherapists in Canada, 2025"
+  citation: "Canadian Institute for Health Information. Physiotherapists in Canada, 2025 — Data Tables. Ottawa, ON: CIHI; 2026."
+---
+
+import LineChart from "../../components/report/LineChart.astro";
+import BarList from "../../components/report/BarList.astro";
+import Explorer from "../../components/report/Explorer.astro";
+import Num from "../../components/report/Num.astro";
+
+CIHI's latest workforce tables cover ten years of physiotherapists across Canada. We read them as a BC clinic owner
+would: how many physiotherapists there are, where they work, and where they are scarce.
+
+## Supply grew by half in nine years
+
+BC had <Num query="headlines" field="bc_supply_2016" /> physiotherapists eligible to practise in 2016 and
+<Num query="headlines" field="bc_supply_2025" /> in 2025, an increase of
+<Num query="headlines" field="bc_supply_growth_pct" format="pct0" />. Canada grew
+<Num query="headlines" field="ca_supply_growth_pct" format="pct0" /> over the same years.
+
+<LineChart
+  query="bc_supply"
+  x="year"
+  y="supply"
+  label="Physiotherapists"
+  flag="new_standard"
+  flagLabel="2025: new CIHI reporting standard"
+  title="Physiotherapists eligible to practise in BC, 2016 to 2025"
+  note="Supply counts everyone registered and eligible to practise that year, working or not. BC moved to CIHI's new reporting standard in 2025, so compare 2025 with earlier years with care."
+  table="Tables 3a and 3b"
+/>
+
+Much of the growth came from abroad. Physiotherapists educated outside Canada made up
+<Num query="headlines" field="bc_intl_share_2016" format="pct0" /> of BC's supply in 2016 and
+<Num query="headlines" field="bc_intl_share_2025" format="pct0" /> in 2025, above the national share of
+<Num query="headlines" field="ca_intl_share_2025" format="pct0" />.
+
+## Three in four work in community settings
+
+CIHI counts group and solo professional practices as community settings, so this is where private clinics sit. In
+2016, <Num query="headlines" field="bc_community_2016" format="pct" /> of BC physiotherapists in direct care worked in
+the community. By 2025 it was <Num query="headlines" field="bc_community_2025" format="pct" />, while the hospital
+share fell from <Num query="headlines" field="bc_hospital_2016" format="pct" /> to
+<Num query="headlines" field="bc_hospital_2025" format="pct" />.
+
+<LineChart
+  query="bc_place_of_work"
+  x="year"
+  format="pct"
+  yMax={100}
+  series={[
+    { y: "community_pct", label: "Community settings", role: "focus" },
+    { y: "hospital_pct", label: "Hospitals", role: "context" },
+  ]}
+  flag="new_standard"
+  flagLabel="2025: new CIHI reporting standard"
+  title="Where BC physiotherapists in direct care work, 2016 to 2025"
+  subtitle="Share of physiotherapists employed in direct care"
+  note="Long-term care and other settings make up the rest. Under the 2025 standard, a physiotherapist who works in several places is counted in each."
+  table="Tables 10a and 10b"
+/>
+
+## Access varies five-fold across the province
+
+Per person, <Num query="headlines" field="top_region" /> has about
+<Num query="headlines" field="top_to_bottom_ratio" /> times as many physiotherapists in direct care as the
+<Num query="headlines" field="bottom_region" />: <Num query="headlines" field="top_region_per_10k" format="dec1" /> per
+10,000 people against <Num query="headlines" field="bottom_region_per_10k" format="dec1" />. The provincial rate is
+<Num query="headlines" field="bc_per_10k_2025" format="dec1" />.
+
+<BarList
+  query="bc_regions_2025"
+  label="label"
+  value="per_10k"
+  role="role"
+  labelHeading="Health service delivery area"
+  valueLabel="Per 10,000 people"
+  format="dec1"
+  title="Physiotherapists in direct care per 10,000 people, by BC health service delivery area, 2025"
+  note="Physiotherapists are placed in a region by the postal code they report. Those whose postal code falls outside BC's regions count toward the provincial rate only."
+  table="Table 12"
+/>
+
+## What this means for clinic owners
+
+These are province-wide figures, not a picture of any one clinic. Three things stand out:
+
+- Most physiotherapy in BC now happens in community settings. Competition for patients, and for staff, is mostly
+  between clinics.
+- Where physiotherapists are scarce, as in Fraser East, the Northern Interior and the Northeast, a clinic faces less
+  competition for patients and a smaller pool to hire from.
+- One in three BC physiotherapists was educated outside Canada, so credential recognition and onboarding matter
+  when you hire.
+
+## Explore the regions
+
+Pick a province or territory and a year to see how physiotherapists in direct care are spread across its health
+regions.
+
+<Explorer
+  query="regions_per_10k"
+  view="bars"
+  format="dec1"
+  valueLabel="Per 10,000 people"
+  controls={[
+    { name: "jurisdiction", label: "Province or territory", default: "British Columbia" },
+    { name: "year", label: "Year", default: 2025, order: "desc" },
+  ]}
+  sql={`SELECT label, value, role
+FROM data
+WHERE jurisdiction = $jurisdiction
+  AND year = $year
+  AND value IS NOT NULL
+ORDER BY role NULLS LAST, value DESC`}
+  title="Physiotherapists in direct care per 10,000 people, by health region"
+  note="CIHI does not report every region in every year. This release has no regional figures for Prince Edward Island, Quebec or the Northwest Territories and Nunavut."
+/>

@@ -1,0 +1,101 @@
+---
+/**
+ * A line chart from one report query.
+ *
+ *   <LineChart query="bc_supply" x="year" y="supply" label="Supply" title="…" />
+ *   <LineChart query="bc_place_of_work" x="year" format="pct" yMax={100}
+ *     series={[{ y: "community_pct", label: "Community", role: "focus" },
+ *              { y: "hospital_pct", label: "Hospital", role: "context" }]} title="…" />
+ *
+ * One series uses the primary role and needs no legend. With several, give the
+ * series the finding is about role "focus" and the rest "context".
+ */
+import ReportFigure from "./ReportFigure.astro";
+import { loadQuery, requireColumns } from "../../lib/reports/data";
+import { lineChartSVG, lineTooltipData, type LineSpec, type Role } from "../../lib/charts/line";
+import { dataTableHTML } from "../../lib/charts/table";
+import type { FormatName } from "../../lib/charts/format";
+
+interface Props {
+  query: string;
+  x: string;
+  y?: string;
+  label?: string;
+  series?: { y: string; label: string; role?: Role }[];
+  /** Boolean column: points where it is true get a hollow marker. */
+  flag?: string;
+  flagLabel?: string;
+  format?: FormatName;
+  yMax?: number;
+  title: string;
+  subtitle?: string;
+  note?: string;
+  table?: string;
+  report?: string;
+}
+
+const p = Astro.props;
+const format = p.format ?? "int";
+const result = loadQuery(p.report ?? Astro.locals.report?.id, p.query);
+const { rows } = result;
+const defs = p.series ?? [{ y: p.y!, label: p.label ?? p.y!, role: "primary" as Role }];
+
+requireColumns(result, [p.x, p.flag, ...defs.map((d) => d.y)], `<LineChart query="${p.query}">`);
+
+const spec: LineSpec = {
+  title: p.title,
+  format,
+  yMax: p.yMax,
+  series: defs.map((d) => ({
+    label: d.label,
+    role: d.role ?? (defs.length > 1 ? "context" : "primary"),
+    points: rows.map((r) => ({
+      x: Number(r[p.x]),
+      y: r[d.y] === null || r[d.y] === undefined ? null : Number(r[d.y]),
+      flag: p.flag ? Boolean(r[p.flag]) : false,
+    })),
+  })),
+};
+const hasFlag = p.flag && rows.some((r) => r[p.flag!]);
+const table = dataTableHTML(
+  [{ key: p.x, label: p.x === "year" ? "Year" : p.x }, ...defs.map((d) => ({ key: d.y, label: d.label, format }))],
+  rows,
+);
+---
+
+<ReportFigure title={p.title} subtitle={p.subtitle} note={p.note} table={p.table} dataTable={table}>
+  {
+    (defs.length > 1 || hasFlag) && (
+      <ul class="mb-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-graphite-700" aria-label="Legend">
+        {defs.length > 1 &&
+          spec.series.map((s) => (
+            <li class="flex items-center gap-2">
+              <span class:list={["dv-key", `dv-${s.role}`]} />
+              {s.label}
+            </li>
+          ))}
+        {hasFlag && (
+          <li class="flex items-center gap-2">
+            <span class="dv-key-flag" />
+            {p.flagLabel ?? "Reported under a different method"}
+          </li>
+        )}
+      </ul>
+    )
+  }
+  <div
+    class="relative rounded-sm focus-visible:outline-offset-4"
+    data-line-chart
+    data-tooltip={JSON.stringify(lineTooltipData(spec))}
+    tabindex="0"
+    aria-label={`${p.title}. Use the arrow keys to read values by year.`}
+  >
+    <div class="hidden sm:block" set:html={lineChartSVG(spec, "wide")} />
+    <div class="sm:hidden" set:html={lineChartSVG(spec, "narrow")} />
+  </div>
+</ReportFigure>
+
+<script>
+  import { enhanceLineCharts } from "../../lib/charts/interact";
+  enhanceLineCharts();
+</script>
