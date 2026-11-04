@@ -34,3 +34,6 @@ yarn-error.log*
 
 # Agents shipped by the impeccable skill installer
 .claude/agents/
+
+# Source files whose licence doesn't allow redistribution stay local (see reports/README.md).
+reports/physiotherapists-bc-2025/source/*.xlsx

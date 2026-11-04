@@ -115,6 +115,9 @@ Analytics or Tag Manager needs a cookie-consent banner and a privacy policy upda
 - [ ] Analytics with consent, if wanted.
 - [ ] Real photography (team, clinic at work) to replace graphics where it helps; guidance in `DESIGN.md`.
 - [ ] Making the repo private needs a paid GitHub plan (Pages from a private repo); the site stays public either way.
-- [ ] **CIHI terms of use** for the physiotherapist report: confirm that publishing figures from the data tables
-      on a commercial site, and keeping the source file in this (public) repo, is allowed, and add the CIHI page
-      URL to the report's `source.url`.
+- [ ] **CIHI permission.** The physiotherapist report is offline (draft, Nov 2026): CIHI's terms of use require
+      written permission for commercial use, use in software and redistribution. A permission request to
+      copyright@cihi.ca was drafted on 4 Nov 2026. If granted: restore the workbook (it is gitignored; see
+      `reports/physiotherapists-bc-2025/source/README.md`) in a way the permission allows, set `draft: false`,
+      remove the `/research/physiotherapists-bc-2025` redirect in `astro.config.mjs`, add any wording CIHI
+      requires and the CIHI page URL to `source.url`. The workbook remains in git history (and in PR #12's refs).
