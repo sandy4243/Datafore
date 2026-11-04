@@ -56,16 +56,20 @@ export default defineConfig({
       "/blog/why-allied-health-needs-purpose-built-analytics": "/blog/the-gap-between-knowing-and-doing",
 
       // Legacy Dorik pages (datafore.ca before the rebuild).
+      // Insights merged into Research & Insights; Trust hidden for now (Nov 2026).
+      "/blog": "/research",
+      "/trust": "/about",
+
       "/services": "/platform",
       "/career": "/about",
 
       // Legacy Dorik ELT/ETL posts and category. No equivalent content exists on
       // the new site, so they land on the Insights index rather than 404.
-      "/post/ELT-vs-ETL-Choosing-the-Right-Data-Processing-Approach": "/blog",
-      "/post/Evaluating-an-ELT-tool": "/blog",
-      "/post/Harnessing-Business-Intelligence-for-Enhanced-Decision-Making": "/blog",
-      "/post/Unlocking-the-Power-of-ETLELT-The-Key-Importance-of-Data-Quality-and-Data-Lineage": "/blog",
-      "/category/ELT": "/blog",
+      "/post/ELT-vs-ETL-Choosing-the-Right-Data-Processing-Approach": "/research",
+      "/post/Evaluating-an-ELT-tool": "/research",
+      "/post/Harnessing-Business-Intelligence-for-Enhanced-Decision-Making": "/research",
+      "/post/Unlocking-the-Power-of-ETLELT-The-Key-Importance-of-Data-Quality-and-Data-Lineage": "/research",
+      "/category/ELT": "/research",
     }).map(([from, to]) => [from, withBase(to)]),
   ),
   markdown: {

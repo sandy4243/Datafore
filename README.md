@@ -59,7 +59,7 @@ src/
   layouts/      shared page layout (SEO head, header/footer)
   lib/charts/   chart rendering shared by static figures and the explorer
   lib/explorer/ the in-browser DuckDB-WASM explorer
-  pages/        route -> page mapping (index, platform, trust, research, about, blog, contact, privacy)
+  pages/        route -> page mapping (index, platform, research, about, blog posts, contact, privacy; _trust is hidden)
   styles/       global.css (Tailwind, brand tokens, chart roles)
 public/
   images/       static images served as-is

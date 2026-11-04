@@ -2,20 +2,25 @@
 import Logo from "./Logo.astro";
 import { withBase } from "../lib/paths";
 
+// `sections`: other path prefixes that belong to the item, so a blog post marks
+// "Research & Insights" as current. (Trust is hidden until there is independent
+// assurance to point to; the page is kept as src/pages/_trust.astro.)
 const nav = [
   { href: withBase("/platform/"), label: "Platform" },
-  { href: withBase("/trust/"), label: "Trust" },
-  { href: withBase("/research/"), label: "Research" },
-  { href: withBase("/blog/"), label: "Insights" },
+  { href: withBase("/research/"), label: "Research & Insights", sections: [withBase("/blog/")] },
   { href: withBase("/about/"), label: "About" },
 ];
 const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
 const trim = (href: string) => href.replace(/\/+$/, "") || "/";
-// The exact page is "page"; a page inside a section (a single post under
-// Insights) marks its section as current too.
-const currentState = (href: string) =>
-  trim(href) === currentPath ? "page" : currentPath.startsWith(`${trim(href)}/`) ? "true" : undefined;
-const isCurrent = (href: string) => currentState(href) !== undefined;
+// The exact page is "page"; a page inside a section (a single report or post)
+// marks its section as current too.
+const currentState = (item: { href: string; sections?: string[] }) =>
+  trim(item.href) === currentPath
+    ? "page"
+    : [item.href, ...(item.sections ?? [])].some((h) => currentPath.startsWith(`${trim(h)}/`))
+      ? "true"
+      : undefined;
+const isCurrent = (item: { href: string; sections?: string[] }) => currentState(item) !== undefined;
 ---
 
 <header class="sticky top-0 z-50 border-b border-navy-100 bg-paper/95 backdrop-blur-sm">
@@ -29,10 +34,10 @@ const isCurrent = (href: string) => currentState(href) !== undefined;
         nav.map((item) => (
           <a
             href={item.href}
-            aria-current={currentState(item.href)}
+            aria-current={currentState(item)}
             class:list={[
               "text-[0.9375rem] transition-colors hover:text-navy-950",
-              isCurrent(item.href)
+              isCurrent(item)
                 ? "text-navy-950 underline decoration-signal-500 decoration-2 underline-offset-[10px]"
                 : "text-graphite-600",
             ]}

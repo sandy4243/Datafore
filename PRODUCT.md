@@ -19,7 +19,14 @@ solo to multi-location, with no analyst on staff and no business intelligence be
 
 Secondary audience: evaluators — prospective partners, funders, grant reviewers and procurement panels — who need
 to find governance, status and company facts quickly. The site is also used as supporting material for bids, so
-the `/trust/` page and plain statements of status matter as much as the marketing claims.
+plain statements of status matter as much as the marketing claims.
+
+The Trust & governance page is **hidden** (since Nov 2026) until there is independent assurance to point to, such
+as a privacy impact assessment, a legal privacy review or a security attestation. Note that PIPA and PIPEDA are
+laws, not certifications: there is no official "PIPEDA certified" status, so the page must never imply one. The
+page is kept as `src/pages/_trust.astro` (the underscore stops Astro publishing it) and `/trust` redirects to
+`/about`. To bring it back: rename it to `trust.astro`, remove the redirect in `astro.config.mjs`, and re-add the
+nav and footer links.
 
 ## Product Purpose
 

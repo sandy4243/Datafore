@@ -74,7 +74,7 @@ To finish:
    quoted line, keeping the SPF and `MS=` lines (see [DNS.md](./DNS.md#route-53-rules-that-catch-people-out)).
    Click *Verify*; retry after 15 minutes if needed.
 3. **Sitemaps** → submit `sitemap-index.xml`.
-4. Optional: **URL inspection** → `https://datafore.ca/` → *Request indexing*; repeat for `/platform/`, `/trust/`
+4. Optional: **URL inspection** → `https://datafore.ca/` → *Request indexing*; repeat for `/platform/`, `/research/`
    and `/about/`.
 5. Optional: in Bing Webmaster Tools, *Import from Google Search Console* (this also covers DuckDuckGo).
 
@@ -95,8 +95,8 @@ Then update this section and the [DNS.md](./DNS.md) table.
 - **Network at build time.** The build downloads DuckDB's Excel extension (for `read_xlsx`) and the WASM Parquet
   extension from extensions.duckdb.org. GitHub Actions has network access, so this needs no setup.
 - **What visitors download.** Only the report page loads the explorer, and only when it scrolls into view: the
-  DuckDB-WASM engine (about 34 MB uncompressed, about 8 MB if GitHub Pages compresses it), the Parquet extension
-  (3 MB) and the data file (a few KB). All are served from datafore.ca; nothing goes to a third party.
+  DuckDB-WASM engine (34 MB, served gzipped at 7.8 MB; checked on the live site 4 Nov 2026), the Parquet
+  extension (3 MB, 0.7 MB gzipped) and the data file (a few KB). The browser caches them after the first visit. All are served from datafore.ca; nothing goes to a third party.
 - **Upgrading DuckDB-WASM** (`@duckdb/duckdb-wasm` in `package.json`): the extension script asks the new
   build for its version and fetches the matching extension, so no other change is needed. Re-test an explorer.
 
@@ -108,6 +108,8 @@ Analytics or Tag Manager needs a cookie-consent banner and a privacy policy upda
 ## Open items
 
 - [ ] Verify Google Search Console (above).
+- [ ] Trust & governance page is hidden until there is independent assurance to point to (a privacy impact
+      assessment, legal privacy review or security attestation). How to bring it back: `PRODUCT.md`, Users.
 - [ ] Tighten DMARC to `p=quarantine`, then `p=reject` ([EMAIL.md](./EMAIL.md#dmarc-plan)), from about mid-November
       2026 once reports are clean.
 - [ ] Analytics with consent, if wanted.
@@ -116,6 +118,3 @@ Analytics or Tag Manager needs a cookie-consent banner and a privacy policy upda
 - [ ] **CIHI terms of use** for the physiotherapist report: confirm that publishing figures from the data tables
       on a commercial site, and keeping the source file in this (public) repo, is allowed, and add the CIHI page
       URL to the report's `source.url`.
-- [ ] After the first deploy with the explorer, check that GitHub Pages serves `duckdb-eh.*.wasm` compressed
-      (`content-encoding: gzip`). If not, consider loading the engine from jsDelivr (5 MB compressed) and noting it
-      in the privacy policy.
