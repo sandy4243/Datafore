@@ -118,11 +118,13 @@ PMS integrations, the closed-loop workflow, the compliance architecture), not cu
 demonstration data must be labelled illustrative.
 
 **Research** (`/research/`) is the one place the site shows real data: Datafore's analysis of **public,
-aggregate** datasets (first: CIHI, *Physiotherapists in Canada, 2025*), with static charts and an in-browser
+aggregate** datasets, with static charts and an in-browser
 DuckDB explorer. It demonstrates analytical capability to clinics and evaluators. Rules: public sources only,
 never clinic or patient data; cite the publisher exactly; state method changes between years; label our
 interpretation as ours; never imply the findings came from Datafore's platform or clients; check the publisher's
-terms for commercial use. How to add a report: `reports/README.md`.
+terms for commercial use: Datafore is a commercial user, so "non-commercial only" data (e.g. CIHI's) needs written
+permission first. The first report, on CIHI's physiotherapist tables, is offline until CIHI grants it. How to
+add a report: `reports/README.md`.
 
 ## Product Principles
 

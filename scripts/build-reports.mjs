@@ -16,6 +16,9 @@
  * Both output folders are generated: they are gitignored and rebuilt on every
  * `npm run dev` and `npm run build`.
  *
+ * Only data folders used by a published report are built: a report marked
+ * `draft: true` publishes neither its page nor its data files.
+ *
  * Usage: node scripts/build-reports.mjs [report-id …]
  */
 import { DuckDBInstance } from "@duckdb/node-api";
@@ -29,11 +32,28 @@ const reportsDir = join(root, "reports");
 const jsonOut = join(root, "src", "generated", "reports");
 const parquetOut = join(root, "public", "data", "reports");
 
+// Data folders used by published reports, from each MDX file's frontmatter
+// (`data:` names the folder; otherwise it is the file name).
+const contentDir = join(root, "src", "content", "reports");
+const published = new Set();
+for (const file of existsSync(contentDir) ? await readdir(contentDir) : []) {
+  if (!file.endsWith(".mdx")) continue;
+  const front = (await readFile(join(contentDir, file), "utf8")).match(/^---\n([\s\S]*?)\n---/)?.[1] ?? "";
+  if (/^draft:\s*true\s*$/m.test(front)) continue;
+  published.add(front.match(/^data:\s*["']?([^"'\n]+)["']?\s*$/m)?.[1].trim() ?? file.replace(/\.mdx$/, ""));
+}
+
 const only = process.argv.slice(2);
-const reports = (await readdir(reportsDir, { withFileTypes: true }))
+const folders = (await readdir(reportsDir, { withFileTypes: true }))
   .filter((d) => d.isDirectory() && !d.name.startsWith("_") && !d.name.startsWith("."))
-  .map((d) => d.name)
-  .filter((name) => only.length === 0 || only.includes(name));
+  .map((d) => d.name);
+for (const name of folders.filter((n) => !published.has(n))) {
+  console.log(`  ${name}: skipped (no published report uses it)`);
+  // Clear anything a previous build left, so a draft's data is never deployed.
+  await rm(join(jsonOut, name), { recursive: true, force: true });
+  await rm(join(parquetOut, name), { recursive: true, force: true });
+}
+const reports = folders.filter((name) => published.has(name) && (only.length === 0 || only.includes(name)));
 
 /** A query file holds one SELECT (CTEs allowed). Strip comments and the final semicolon. */
 const statementOf = (sql) =>

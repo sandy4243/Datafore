@@ -59,6 +59,8 @@ export default defineConfig({
       // Insights merged into Research & Insights; Trust hidden for now (Nov 2026).
       "/blog": "/research",
       "/trust": "/about",
+      // CIHI physiotherapist report offline pending permission (Nov 2026). Remove when it is republished.
+      "/research/physiotherapists-bc-2025": "/research",
 
       "/services": "/platform",
       "/career": "/about",

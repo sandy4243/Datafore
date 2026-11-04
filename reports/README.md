@@ -57,8 +57,15 @@ finding is about is `focus` and the others `context`. Colours come from the char
 - Cite the publisher exactly as they ask (`source.citation`), and say when a method changes between years
   (the `flag` marker and a note).
 - Describe what the data shows. Anything about what it means for clinics is labelled as our reading of it.
-- Check the publisher's terms before publishing, including whether commercial use or redistributing the source
-  file needs permission.
+- **Check the publisher's terms before you start**, and record what they allow in the report folder. Datafore is
+  a company and this is its marketing site, so "non-commercial use only" terms (CIHI's, for example) do not cover
+  us without written permission. Prefer openly licensed sources that allow commercial use with attribution:
+  Statistics Canada (Statistics Canada Open Licence) and the BC Data Catalogue (often the Open Government Licence
+  – British Columbia).
+- **Commit a source file only if its licence allows redistribution.** Otherwise keep it local, gitignore it, and
+  leave a `source/README.md` saying where to download it (see the physiotherapists report). Note that the
+  explorer's Parquet file republishes the data too.
+- A report with `draft: true` publishes neither its page nor its data files.
 - Write in the voice set out in `PRODUCT.md`: short sentences, plain words.
 
 ## Updating a report
