@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import { withBase } from "../lib/paths";
 import EngagementCycle from "../components/EngagementCycle.astro";
-import FounderNote from "../components/FounderNote.astro";
 
 const questions = [
   "Which patients have stopped coming, and who should call them?",
@@ -188,36 +187,8 @@ const principles = [
     </div>
   </section>
 
-  <!-- Founder's note -->
-  <section class="bg-mist">
-    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-      <FounderNote heading="A note from our founder.">
-        <p>
-          Datafore began as a data and analytics consultancy. I kept seeing the same thing: good data, good reports,
-          and very little changing as a result.
-        </p>
-        <p>
-          Allied health clinics feel this more than most. Their owners are clinicians first, running a business on
-          software built for booking and billing. They deserve the kind of insight large health systems take for
-          granted.
-        </p>
-        <p>
-          I started Datafore to give them that, beginning here in British Columbia. If that sounds like your clinic,
-          I'd like to hear from you.
-        </p>
-        <a
-          slot="after"
-          href={withBase("/about/")}
-          class="mt-5 inline-block font-medium text-navy-800 underline decoration-signal-500 underline-offset-[6px] hover:decoration-2"
-        >
-          More about Datafore
-        </a>
-      </FounderNote>
-    </div>
-  </section>
-
   <!-- Trust -->
-  <section>
+  <section class="bg-mist">
     <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
       <div class="grid gap-10 lg:grid-cols-12">
         <div class="lg:col-span-5">
@@ -226,12 +197,6 @@ const principles = [
             Health information is the most sensitive thing a clinic holds. Protecting it is part of Datafore's design
             from the start.
           </p>
-          <a
-            href={withBase("/trust/")}
-            class="mt-8 inline-block font-medium text-navy-800 underline decoration-signal-500 underline-offset-[6px] hover:decoration-2"
-          >
-            How we protect clinic data
-          </a>
         </div>
         <div class="grid gap-10 sm:grid-cols-3 lg:col-span-6 lg:col-start-7 lg:gap-8">
           {

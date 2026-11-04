@@ -129,7 +129,7 @@
       "kind": "link",
       "refersTo": "link",
       "description": "Navy text with a signal-blue underline that thickens on hover.",
-      "html": "<a class=\"ds-link\" href=\"#\">Our approach to trust and governance</a>",
+      "html": "<a class=\"ds-link\" href=\"#\">Research &amp; Insights</a>",
       "css": ".ds-link { font-family: 'Public Sans Variable', system-ui, sans-serif; font-weight: 500; color: #172d63; text-decoration: underline; text-decoration-color: #0b57ee; text-underline-offset: 6px; text-decoration-thickness: 1px; } .ds-link:hover { text-decoration-thickness: 2px; }"
     },
     {
@@ -161,7 +161,7 @@
       "kind": "nav",
       "refersTo": "nav-link",
       "description": "Graphite at rest; navy with a signal underline when current.",
-      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Platform</a><a href=\"#\">Trust</a><a href=\"#\">Insights</a><a href=\"#\">About</a></nav>",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Platform</a><a href=\"#\">Research &amp; Insights</a><a href=\"#\">About</a></nav>",
       "css": ".ds-nav { display: flex; gap: 32px; } .ds-nav a { font-family: 'Public Sans Variable', system-ui, sans-serif; font-size: .9375rem; color: #4b5258; text-decoration: none; } .ds-nav a:hover, .ds-nav a[aria-current='page'] { color: #021238; } .ds-nav a[aria-current='page'] { text-decoration: underline; text-decoration-color: #0b57ee; text-underline-offset: 8px; }"
     },
     {

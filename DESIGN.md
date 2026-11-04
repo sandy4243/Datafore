@@ -194,7 +194,7 @@ Navy (or white on dark) with a 1px signal underline at a 6px offset, thickening 
 
 ### Navigation
 
-Header: wordmark, four links (Platform, Trust, Insights, About), and the primary "Start a conversation" button.
+Header: wordmark, three links (Platform, Research & Insights, About), and the primary "Start a conversation" button.
 The current page gets `aria-current` and a signal underline. A `<details>` disclosure on mobile.
 
 ### Panel grid
@@ -243,7 +243,9 @@ images presented as Datafore's own clinics. Good homes for them are the About he
 ### Research reports and charts
 
 Reports live at `/research/<id>/` (how to add one: `reports/README.md`). They are Read surfaces: prose at a
-68ch measure in the serif-headed article layout used by Insights, with figures allowed the full 56rem column.
+68ch measure in the serif-headed article layout used by articles, with figures allowed the full 56rem column.
+Reports and articles share one index at `/research/` ("Research & Insights"), newest first, each marked
+"Research" or "Article" in the meta column.
 
 **Colour comes only from chart roles.** Charts never name a hex value or a brand step. They use these tokens,
 defined in `global.css` in an `@theme static` block that points at the brand palette:
