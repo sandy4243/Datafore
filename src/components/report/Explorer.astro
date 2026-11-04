@@ -1,0 +1,112 @@
+---
+/**
+ * An interactive view over one report query, run in the visitor's browser with
+ * DuckDB-WASM against the query's published Parquet file.
+ *
+ *   <Explorer query="regions_per_10k" view="bars" format="dec1"
+ *     controls={[{ name: "jurisdiction", label: "Province or territory", default: "British Columbia" },
+ *                { name: "year", label: "Year", default: 2025, order: "desc" }]}
+ *     sql={`SELECT label, value, role FROM data WHERE jurisdiction = $jurisdiction AND year = $year ORDER BY …`}
+ *     title="…" />
+ *
+ * The SQL selects from the view `data`, and each `$name` binds the control with
+ * that name. Result columns: view="bars" → label, value, optional role
+ * ("reference" draws the reference line, "focus" highlights a bar);
+ * view="line" → x, y, series, optional role per row.
+ *
+ * Nothing loads until the explorer scrolls near the viewport; the engine is a
+ * few megabytes, fetched once and cached by the browser.
+ */
+import { parquetURL } from "../../lib/reports/data";
+import type { FormatName } from "../../lib/charts/format";
+
+interface Props {
+  query: string;
+  view?: "bars" | "line";
+  sql: string;
+  controls: { name: string; label: string; default?: string | number; order?: "asc" | "desc" }[];
+  format?: FormatName;
+  yMax?: number;
+  valueLabel?: string;
+  title: string;
+  note?: string;
+  report?: string;
+}
+
+const p = Astro.props;
+const report = p.report ?? Astro.locals.report?.id;
+if (!report) throw new Error(`<Explorer query="${p.query}">: no report id.`);
+const sql = p.sql.trim();
+const config = {
+  title: p.title,
+  dataUrl: parquetURL(report, p.query),
+  view: p.view ?? "bars",
+  sql,
+  controls: p.controls,
+  format: p.format ?? "int",
+  yMax: p.yMax,
+  valueLabel: p.valueLabel ?? "Value",
+};
+---
+
+<section class="not-prose my-16 bg-mist px-6 py-8 md:px-10 md:py-10" data-explorer data-config={JSON.stringify(config)}>
+  <p class="font-sans text-base font-semibold text-navy-950">{p.title}</p>
+  <form class="mt-5 flex flex-wrap gap-x-6 gap-y-4" data-controls onsubmit="return false">
+    {
+      p.controls.map((c) => (
+        <label class="flex flex-col gap-1.5 text-sm font-semibold text-navy-950">
+          {c.label}
+          <select
+            name={c.name}
+            disabled
+            class="min-w-[12rem] rounded-sm border border-navy-200 bg-paper px-3 py-2.5 font-normal text-graphite-800 focus:border-signal-500 focus:outline-2 focus:outline-signal-500 disabled:text-graphite-500"
+          >
+            <option>{c.default ?? "Loading…"}</option>
+          </select>
+        </label>
+      ))
+    }
+  </form>
+  <p data-status aria-live="polite" class="mt-4 min-h-[1.25rem] text-sm text-graphite-600">
+    The explorer runs a small database in your browser. It starts when you reach this section.
+  </p>
+  <div data-output class="mt-4 min-h-[12rem]"></div>
+  {p.note && <p class="mt-6 text-sm leading-relaxed text-graphite-600">{p.note}</p>}
+  <details class="mt-4 text-sm">
+    <summary class="cursor-pointer font-medium text-navy-800 underline decoration-signal-500 underline-offset-4">
+      Show the data
+    </summary>
+    <div class="mt-3 overflow-x-auto" data-table></div>
+  </details>
+  <details class="mt-3 text-sm">
+    <summary class="cursor-pointer font-medium text-navy-800 underline decoration-signal-500 underline-offset-4">
+      The SQL behind this view
+    </summary>
+    <pre
+      class="mt-3 overflow-x-auto rounded-sm bg-navy-950 p-4 text-[0.8125rem] leading-relaxed text-navy-100"><code>{sql}</code></pre>
+  </details>
+  <noscript>
+    <p class="mt-4 text-sm text-graphite-700">
+      The explorer needs JavaScript. The figures and data tables above show the same figures.
+    </p>
+  </noscript>
+</section>
+
+<script>
+  const explorers = document.querySelectorAll<HTMLElement>("[data-explorer]");
+  if (explorers.length) {
+    const start = (el: HTMLElement) =>
+      import("../../lib/explorer/explorer").then(({ mountExplorer }) => mountExplorer(el));
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          io.unobserve(entry.target);
+          void start(entry.target as HTMLElement);
+        }
+      },
+      { rootMargin: "600px 0px" },
+    );
+    explorers.forEach((el) => io.observe(el));
+  }
+</script>

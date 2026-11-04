@@ -1,0 +1,62 @@
+---
+/**
+ * Ranked horizontal bars from one report query.
+ *
+ *   <BarList query="bc_regions_2025" label="label" value="per_10k" format="dec1"
+ *     role="role" title="…" />
+ *
+ * Optional `role` column: a row whose role is "reference" becomes the vertical
+ * reference line (e.g. the provincial rate) instead of a bar; "focus" highlights
+ * a bar. Rows are shown in query order, so sort in the SQL.
+ */
+import ReportFigure from "./ReportFigure.astro";
+import { loadQuery, requireColumns } from "../../lib/reports/data";
+import { barListHTML } from "../../lib/charts/bars";
+import { dataTableHTML } from "../../lib/charts/table";
+import type { FormatName } from "../../lib/charts/format";
+
+interface Props {
+  query: string;
+  /** Column holding the category name. */
+  label: string;
+  /** Column holding the value. */
+  value: string;
+  role?: string;
+  /** Table-view headings. */
+  labelHeading?: string;
+  valueLabel?: string;
+  format?: FormatName;
+  title: string;
+  subtitle?: string;
+  note?: string;
+  table?: string;
+  report?: string;
+}
+
+const p = Astro.props;
+const format = p.format ?? "int";
+const result = loadQuery(p.report ?? Astro.locals.report?.id, p.query);
+requireColumns(result, [p.label, p.value, p.role], `<BarList query="${p.query}">`);
+const { rows } = result;
+const roleOf = (r: (typeof rows)[number]) => (p.role ? r[p.role] : null);
+const ref = rows.find((r) => roleOf(r) === "reference");
+const bars = rows.filter((r) => roleOf(r) !== "reference");
+
+const html = barListHTML({
+  title: p.title,
+  format,
+  rows: bars.map((r) => ({ label: String(r[p.label]), value: Number(r[p.value]), focus: roleOf(r) === "focus" })),
+  reference: ref ? { label: String(ref[p.label]), value: Number(ref[p.value]) } : undefined,
+});
+const table = dataTableHTML(
+  [
+    { key: p.label, label: p.labelHeading ?? p.label },
+    { key: p.value, label: p.valueLabel ?? p.value, format },
+  ],
+  rows,
+);
+---
+
+<ReportFigure title={p.title} subtitle={p.subtitle} note={p.note} table={p.table} dataTable={table}>
+  <Fragment set:html={html} />
+</ReportFigure>

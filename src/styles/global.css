@@ -6,7 +6,9 @@
 @import "@fontsource-variable/source-serif-4/opsz-italic.css";
 @import "@fontsource-variable/public-sans/wght.css";
 
-@theme {
+/* `static`: every brand token is emitted as a CSS variable even when no utility
+   uses it, so charts and scripts can rely on var(--color-…) existing. */
+@theme static {
   /* Source Serif 4 carries the voice: an editorial serif with optical sizes,
      so display settings draw from its display cut automatically. */
   --font-display: "Source Serif 4 Variable", "Iowan Old Style", Georgia, serif;
@@ -46,6 +48,24 @@
   /* Grounds — white page, and a cool mist for alternating bands. Not cream. */
   --color-paper: #ffffff;
   --color-mist: #f3f5f8;
+}
+
+/* Chart roles. Charts never name a brand hex or step directly: they use these
+   roles, which point at the brand tokens above. Re-mapping a role (or changing a
+   brand token) re-colours every chart, server-rendered and in-browser alike.
+   Validated with the dataviz palette checker against white:
+   primary, focus and context pass lightness, CVD separation and 3:1 contrast;
+   focus + context is an emphasis pair (context is meant to read as grey). */
+@theme static {
+  --color-chart-primary: var(--color-navy-600); /* the one series, bars */
+  --color-chart-focus: var(--color-signal-500); /* the series or bar the finding is about */
+  --color-chart-context: var(--color-navy-400); /* comparison series beside the focus */
+  --color-chart-reference: var(--color-signal-500); /* reference lines (e.g. provincial rate) */
+  --color-chart-grid: var(--color-navy-100); /* gridlines */
+  --color-chart-axis: var(--color-navy-200); /* baselines and tick marks */
+  --color-chart-label: var(--color-graphite-600); /* tick and axis text */
+  --color-chart-ink: var(--color-navy-950); /* values and direct labels */
+  --color-chart-surface: var(--color-paper); /* gaps and marker rings */
 }
 
 @layer base {
@@ -101,6 +121,166 @@
   /* Figures in running text and tables line up. */
   .figures {
     font-variant-numeric: tabular-nums lining-nums;
+  }
+
+  /* ---- Charts (src/lib/charts). Colours come only from the chart roles. ---- */
+  .dv-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    font-family: var(--font-sans);
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+  .dv-grid {
+    stroke: var(--color-chart-grid);
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+  }
+  .dv-baseline {
+    stroke: var(--color-chart-axis);
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+  }
+  .dv-tick {
+    fill: var(--color-chart-label);
+    font-size: 12px;
+  }
+  .dv-value {
+    fill: var(--color-chart-ink);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .dv-line {
+    fill: none;
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+  .dv-dot {
+    stroke: var(--color-chart-surface);
+    stroke-width: 2;
+  }
+  .dv-dot-flag {
+    fill: var(--color-chart-surface) !important;
+    stroke-width: 2;
+  }
+  .dv-primary { stroke: var(--color-chart-primary); fill: var(--color-chart-primary); }
+  .dv-focus { stroke: var(--color-chart-focus); fill: var(--color-chart-focus); }
+  .dv-context { stroke: var(--color-chart-context); fill: var(--color-chart-context); }
+  .dv-line.dv-primary, .dv-line.dv-focus, .dv-line.dv-context { fill: none; }
+  .dv-dot-flag.dv-primary { stroke: var(--color-chart-primary); }
+  .dv-dot-flag.dv-focus { stroke: var(--color-chart-focus); }
+  .dv-dot-flag.dv-context { stroke: var(--color-chart-context); }
+  .dv-crosshair {
+    stroke: var(--color-chart-axis);
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+  }
+  .dv-key {
+    display: inline-block;
+    width: 1rem;
+    height: 2px;
+    border-radius: 1px;
+    vertical-align: middle;
+  }
+  .dv-key.dv-primary { background: var(--color-chart-primary); }
+  .dv-key.dv-focus { background: var(--color-chart-focus); }
+  .dv-key.dv-context { background: var(--color-chart-context); }
+  .dv-key-flag {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 9999px;
+    border: 2px solid var(--color-chart-label);
+    vertical-align: middle;
+  }
+
+  /* Ranked bars: HTML, so labels stay at reading size on a phone. */
+  .dv-bars {
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .dv-bar-row {
+    display: grid;
+    grid-template-columns: minmax(6.5rem, 13rem) minmax(0, 1fr) 3.25rem;
+    column-gap: 0.75rem;
+    align-items: center;
+  }
+  @container (max-width: 34rem) {
+    .dv-bar-row {
+      grid-template-columns: minmax(0, 1fr) 3.25rem;
+      row-gap: 3px;
+      padding-bottom: 4px;
+    }
+    .dv-bar-label {
+      grid-column: 1 / -1;
+    }
+  }
+  .dv-bar-label {
+    font-size: 0.875rem;
+    line-height: 1.25;
+    color: var(--color-graphite-700);
+  }
+  .dv-bar-track {
+    position: relative;
+    height: 16px;
+  }
+  .dv-bar {
+    position: absolute;
+    inset-block: 0;
+    left: 0;
+    border-radius: 0 4px 4px 0;
+    background: var(--color-chart-primary);
+    transition: filter 120ms;
+  }
+  .dv-bar.dv-focus { background: var(--color-chart-focus); }
+  .dv-bar-row:hover .dv-bar { filter: brightness(1.18); }
+  .dv-bar-value {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-chart-ink);
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+  .dv-bars[data-ref] .dv-bar-track::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: -4px;
+    bottom: -4px;
+    left: var(--dv-ref);
+    border-left: 2px solid var(--color-chart-reference);
+    pointer-events: none;
+  }
+  .dv-ref-key {
+    margin-bottom: 0.875rem;
+    font-size: 0.875rem;
+    color: var(--color-graphite-700);
+  }
+  .dv-ref-key strong {
+    color: var(--color-chart-ink);
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+  .dv-ref-swatch {
+    display: inline-block;
+    width: 2px;
+    height: 0.875rem;
+    margin-right: 0.5rem;
+    vertical-align: -2px;
+    background: var(--color-chart-reference);
+  }
+
+  .dv-tooltip {
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+    min-width: 9rem;
+    border: 1px solid var(--color-navy-100);
+    background: var(--color-paper);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8125rem;
   }
 }
 

@@ -50,12 +50,17 @@ npm run preview   # preview the production build locally
 ## Project structure
 
 ```
+reports/        research data: one folder per report (source files + SQL); see reports/README.md
+scripts/        build-reports.mjs (runs report SQL with DuckDB), vendor-duckdb-extensions.mjs
 src/
-  components/   Header, Footer, shared UI
+  components/   Header, Footer, shared UI; report/ holds the figure components
   content/blog/ blog posts (Markdown)
+  content/reports/ research reports (MDX)
   layouts/      shared page layout (SEO head, header/footer)
-  pages/        route -> page mapping (index, platform, trust, about, blog, contact, privacy)
-  styles/       global.css (Tailwind + brand tokens)
+  lib/charts/   chart rendering shared by static figures and the explorer
+  lib/explorer/ the in-browser DuckDB-WASM explorer
+  pages/        route -> page mapping (index, platform, trust, research, about, blog, contact, privacy)
+  styles/       global.css (Tailwind, brand tokens, chart roles)
 public/
   images/       static images served as-is
 ```

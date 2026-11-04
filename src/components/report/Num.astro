@@ -1,0 +1,24 @@
+---
+/**
+ * A number in the report's prose, read from a query so the text can never drift
+ * from the data:  <Num query="headlines" field="bc_supply_2025" />
+ * Reads the first row unless `where` picks one, e.g. where={{ year: 2025 }}.
+ */
+import { loadQuery } from "../../lib/reports/data";
+import { formatValue, type FormatName } from "../../lib/charts/format";
+
+interface Props {
+  query: string;
+  field: string;
+  format?: FormatName;
+  where?: Record<string, string | number>;
+  report?: string;
+}
+
+const { query, field, format = "int", where, report } = Astro.props;
+const { rows } = loadQuery(report ?? Astro.locals.report?.id, query);
+const row = where ? rows.find((r) => Object.entries(where).every(([k, v]) => String(r[k]) === String(v))) : rows[0];
+if (!row || !(field in row)) throw new Error(`<Num>: no field "${field}" in ${query}${where ? ` where ${JSON.stringify(where)}` : ""}.`);
+---
+
+<span class="figures">{formatValue(row[field], format)}</span>

@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import { unified } from "@astrojs/markdown-remark";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
+import mdx from "@astrojs/mdx";
 
 // Two build targets:
 //   (default)              served from the root of https://datafore.ca
@@ -44,7 +45,7 @@ export default defineConfig({
   site: isPagesPreview ? "https://sandy4243.github.io" : "https://datafore.ca",
   base,
   // The form confirmation page is a destination, not content: keep it out of the sitemap.
-  integrations: [sitemap({ filter: (page) => !page.includes("/contact/thanks") })],
+  integrations: [mdx(), sitemap({ filter: (page) => !page.includes("/contact/thanks") })],
   // GitHub Pages cannot issue real 301s, so these become meta-refresh pages.
   // That keeps old links working for visitors; it passes less search value than
   // a server redirect would. Targets for the legacy Dorik URLs are a proposal —

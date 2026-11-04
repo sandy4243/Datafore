@@ -147,7 +147,7 @@ alternates with it to pace long pages. No cream, no warm greys.
 
 **Source Serif 4** (variable, with optical sizes) carries the voice: h1–h3, the hero list, the point-of-view
 quote, and definition terms. **Public Sans** carries body, navigation, labels and controls. Both are self-hosted
-via Fontsource. There is no monospace on the site.
+via Fontsource. Monospace appears in one place only: the SQL shown under a research explorer, because it is code.
 
 ### Hierarchy
 
@@ -240,6 +240,49 @@ Only the founder portrait exists today. When real photographs arrive (the team, 
 the founder's treatment: natural light, `rounded-sm`, `object-cover`, never tinted or duotoned, and never stock
 images presented as Datafore's own clinics. Good homes for them are the About hero and the founder's note.
 
+### Research reports and charts
+
+Reports live at `/research/<id>/` (how to add one: `reports/README.md`). They are Read surfaces: prose at a
+68ch measure in the serif-headed article layout used by Insights, with figures allowed the full 56rem column.
+
+**Colour comes only from chart roles.** Charts never name a hex value or a brand step. They use these tokens,
+defined in `global.css` in an `@theme static` block that points at the brand palette:
+
+| Role | Maps to | Used for |
+|---|---|---|
+| `chart-primary` | `navy-600` | the single series; bars |
+| `chart-focus` | `signal-500` | the series or bar the finding is about |
+| `chart-context` | `navy-400` | comparison series beside the focus (meant to read as grey) |
+| `chart-reference` | `signal-500` | reference lines, e.g. a provincial rate |
+| `chart-grid` / `chart-axis` | `navy-100` / `navy-200` | gridlines; baselines and the crosshair |
+| `chart-label` / `chart-ink` | `graphite-600` / `navy-950` | tick text; values and direct labels |
+| `chart-surface` | `paper` | marker rings and gaps |
+
+Change a brand token or re-point a role and every chart follows, the server-rendered figures and the in-browser
+explorer alike. Re-run the dataviz palette validator after any change: primary, focus and context must keep
+passing lightness, colour-vision separation and 3:1 contrast against white. (`navy-900` fails as a chart colour;
+it is too dark to read as a hue.) The brand palette is emitted with `@theme static` so every token exists as a CSS
+variable even when no utility uses it.
+
+**Marks.** Lines 2px with round joins; markers 8px with a 2px surface ring; a hollow marker means "reported
+differently" and is named in the legend. Bars are 16px, square at the baseline with a 4px rounded end, and carry
+their value at the tip. Gridlines are 1px solid `chart-grid`; no dashes, no chart borders, no shadows.
+
+**Labels.** Direct labels only at line ends (and the start, for one series); everything else is in the hover
+tooltip, which shows every series at the year under the pointer (value first), and in the "Show the data" table.
+Text never takes a series colour. A legend appears only with two or more series, as short line keys.
+
+**Responsive.** Line charts render twice, a 720-wide and a 360-wide SVG, and CSS shows the one that fits, so
+text stays legible on a phone. Bar lists are HTML; each row switches from label | bar | value to label-above-bar
+below 34rem of chart width (a container query, so the narrower explorer adapts on its own).
+
+**Figure anatomy.** A hairline rule, the figure title in Public Sans semibold (the subject, not the finding;
+the finding is the serif heading above it in the prose), an optional subtitle, the chart, a note and source
+line in `graphite-600`, then "Show the data".
+
+**Explorer.** A mist panel holding labelled selects, a status line (`aria-live`), the chart, and two
+disclosures: the data table and the SQL. It loads DuckDB-WASM only when scrolled near.
+
 ### Motion
 
 The hero settles in on load (`.settle`, 900ms, `cubic-bezier(0.16, 1, 0.3, 1)`, with `.settle-late` delayed
@@ -263,5 +306,6 @@ The hero settles in on load (`.settle`, 900ms, `cubic-bezier(0.16, 1, 0.3, 1)`, 
 - Don't use cards as the page structure, or add shadows or gradients.
 - Don't put a kicker or number above a heading.
 - Don't add a coloured border-left to callouts.
-- Don't use monospace, or set text in `navy-400` on light grounds.
+- Don't use monospace outside code (the explorer's SQL), or set text in `navy-400` on light grounds.
+- Don't pick colours inside a chart or report. Use the chart roles; change a role in `global.css` if needed.
 - Don't use signal blue as a fill.
