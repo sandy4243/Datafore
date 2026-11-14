@@ -331,37 +331,55 @@
   animation: settle 900ms cubic-bezier(0.16, 1, 0.3, 1) 140ms both;
 }
 
-/* ---- Hero signature (SignalField.astro). The resting state is the resolved
-   arrow; each square animates in from its scattered offset, then the streams
-   and the head draw. ---- */
-@keyframes sf-resolve {
-  from {
-    transform: translate(var(--dx), var(--dy)) rotate(var(--r));
-    opacity: 0.35;
-  }
-}
-@keyframes sf-draw {
+/* ---- Home hero artwork (components/art/KnowledgeFlow.astro): streams of data
+   draw in, meet at knowledge, branch into ideas, and one carries on as action.
+   The resting state is the full drawing; then light keeps travelling along it. ---- */
+@keyframes kf-draw {
   from {
     stroke-dashoffset: 1;
   }
 }
-@keyframes sf-head {
+@keyframes kf-in {
   from {
     opacity: 0;
-    transform: translateX(-18px);
   }
 }
-.sf-sq {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: sf-resolve 1700ms cubic-bezier(0.16, 1, 0.3, 1) var(--delay) both;
+@keyframes kf-pulse {
+  from {
+    stroke-dashoffset: 1.08;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
-.sf-stream {
+.kf-draw {
   stroke-dasharray: 1;
-  animation: sf-draw 900ms cubic-bezier(0.16, 1, 0.3, 1) 900ms both;
+  animation: kf-draw var(--kf-dur, 1400ms) cubic-bezier(0.16, 1, 0.3, 1) var(--kf-delay, 0ms) both;
 }
-.sf-head {
-  animation: sf-head 800ms cubic-bezier(0.16, 1, 0.3, 1) 1400ms both;
+.kf-in {
+  animation: kf-in 700ms cubic-bezier(0.16, 1, 0.3, 1) var(--kf-delay, 0ms) both;
+}
+.kf-pulse {
+  stroke-dasharray: 0.08 1;
+  stroke-dashoffset: 1.08;
+  animation: kf-pulse var(--kf-pdur, 6s) linear var(--kf-pdelay, 3s) infinite;
+}
+.kf-label {
+  display: none;
+}
+@media (min-width: 64rem) {
+  .kf-label {
+    display: inline;
+  }
+}
+.is-paused .kf-pulse {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kf-pulse {
+    animation: none;
+    opacity: 0;
+  }
 }
 
 /* ---- Editorial artwork (components/art/FlowArt.astro): pulses of light travel

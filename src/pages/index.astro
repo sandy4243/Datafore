@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { withBase } from "../lib/paths";
-import SignalField from "../components/exhibits/SignalField.astro";
+import KnowledgeFlow from "../components/art/KnowledgeFlow.astro";
 import PatientLoop from "../components/exhibits/PatientLoop.astro";
 import ServiceBlueprint from "../components/exhibits/ServiceBlueprint.astro";
 import FlowArt from "../components/art/FlowArt.astro";
@@ -42,15 +42,21 @@ const outcomes = [
   title="Datafore"
   description="Datafore shows allied health clinics in Canada where patients, hours and revenue are slipping away, and helps them act on it."
 >
-  <!-- Hero: the statement, and the signature (scattered data resolving into one direction) -->
+  <!-- Hero: the statement, and the artwork (streams of data combining into knowledge, ideas, action) -->
   <section class="overflow-hidden bg-navy-950 text-navy-200">
-    <div class="mx-auto max-w-7xl px-6 pb-16 pt-16 md:pt-24 lg:px-10 lg:pb-20">
-      <div class="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
-        <div class="settle lg:col-span-7">
+    <div class="mx-auto max-w-7xl px-6 pb-16 lg:px-10 lg:pb-20 lg:pt-28">
+      <div class="relative">
+        <!-- Below lg a full-width banner; from lg it bleeds off the right edge behind a mask. -->
+        <div
+          class="-mx-6 h-60 sm:h-80 lg:absolute lg:-top-28 lg:bottom-[-2rem] lg:left-[42%] lg:right-[calc((100%-100vw)/2)] lg:mx-0 lg:h-auto lg:[mask-image:linear-gradient(to_right,transparent,black_36%)]"
+        >
+          <KnowledgeFlow />
+        </div>
+        <div class="settle relative mt-10 lg:mt-0 lg:max-w-[46rem]">
           <h1 class="text-[2.75rem] leading-[1.04] tracking-[-0.022em] text-white sm:text-6xl lg:text-[5rem]">
             Clinic intelligence for the business of care.
           </h1>
-          <p class="mt-8 max-w-[52ch] text-lg leading-relaxed md:text-xl">
+          <p class="mt-8 max-w-[46ch] text-lg leading-relaxed md:text-xl">
             Datafore shows allied health clinics where patients, hours and revenue are slipping away, and helps them
             act on it.
           </p>
@@ -69,12 +75,9 @@ const outcomes = [
             </a>
           </div>
         </div>
-        <div class="-mx-2 sm:mx-auto sm:max-w-xl lg:col-span-5 lg:mx-0 lg:max-w-none">
-          <SignalField />
-        </div>
       </div>
 
-      <div class="settle-late mt-16 grid gap-6 border-t border-navy-800 pt-8 lg:mt-20 lg:grid-cols-12 lg:gap-10">
+      <div class="settle-late relative mt-16 grid gap-6 border-t border-navy-800 pt-8 lg:mt-24 lg:grid-cols-12 lg:gap-10">
         <h2 class="font-sans text-sm font-semibold tracking-normal text-white lg:col-span-3">Questions we answer</h2>
         <ul class="grid gap-6 sm:grid-cols-3 sm:gap-8 lg:col-span-9">
           {questions.map((q) => <li class="font-display text-xl leading-snug text-navy-100">{q}</li>)}
