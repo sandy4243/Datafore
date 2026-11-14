@@ -96,6 +96,12 @@ const ogImage = new URL(withBase("/images/og-datafore.png"), Astro.site);
           { threshold: 0.2, rootMargin: "0px 0px -8% 0px" },
         );
         exhibits.forEach((el) => io.observe(el));
+
+        // Ambient artwork moves only while it is on screen.
+        const ambient = new IntersectionObserver((entries) => {
+          for (const e of entries) e.target.classList.toggle("is-paused", !e.isIntersecting);
+        });
+        document.querySelectorAll("[data-ambient]").forEach((el) => ambient.observe(el));
       }
     </script>
   </body>

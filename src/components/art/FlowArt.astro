@@ -1,0 +1,120 @@
+---
+/**
+ * Editorial artwork: a generative flow field in the brand blues. Streamlines
+ * converge on a focal point (the logo's idea, data resolving into direction)
+ * and a few signal-blue pulses travel along them, slowly and continuously.
+ *
+ * Every piece is seeded from a string (a page's slug), so each report or
+ * article has its own composition, and the same one on every build. Paths are
+ * computed here at build time; the motion is CSS only (global.css, .fa-*),
+ * paused off screen and absent under reduced motion. Decorative.
+ */
+interface Props {
+  seed: string;
+  /** "hero" for page headers, "thumb" for index listings (fewer lines). */
+  density?: "hero" | "thumb";
+  class?: string;
+}
+
+const { seed, density = "hero", class: className = "" } = Astro.props;
+
+// --- Seeded randomness --------------------------------------------------
+let h = 2166136261;
+for (const ch of seed) h = Math.imul(h ^ ch.charCodeAt(0), 16777619);
+let state = h >>> 0;
+const rand = () => {
+  state = (state + 0x6d2b79f5) | 0;
+  let t = Math.imul(state ^ (state >>> 15), 1 | state);
+  t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+  return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+};
+const between = (a: number, b: number) => a + (b - a) * rand();
+
+// --- The field ------------------------------------------------------------
+const W = 1200, H = 640;
+// Focal point: where the streams meet. Right of centre, at a seeded height.
+const fx = between(760, 940), fy = between(220, 420);
+// Smooth seeded noise: a sum of a few sine waves.
+const waves = Array.from({ length: 4 }, () => ({
+  a: between(0.25, 0.6), fx: between(0.002, 0.007), fy: between(0.002, 0.007), p: between(0, Math.PI * 2),
+}));
+const noise = (x: number, y: number) => waves.reduce((s, w) => s + w.a * Math.sin(x * w.fx + y * w.fy + w.p), 0);
+
+/** Direction at a point: toward the focal point near it, rightward past it, bent by noise. */
+function angle(x: number, y: number) {
+  const toFocal = Math.atan2(fy - y, fx - x);
+  const pull = Math.min(1, Math.max(0, x / fx)) ** 1.6; // stronger pull as lines approach
+  const past = x > fx ? Math.min(1, (x - fx) / 120) : 0; // after the focal point, straighten out
+  const base = toFocal * pull * (1 - past);
+  return base + noise(x, y) * (1 - pull) * 0.9;
+}
+
+const lineCount = density === "hero" ? 110 : 46;
+const step = density === "hero" ? 14 : 18;
+const round = (n: number) => Math.round(n);
+
+type Line = { d: string; tone: string; width: number; opacity: number; pulse: boolean; delay: number; dur: number };
+const lines: Line[] = [];
+for (let i = 0; i < lineCount; i++) {
+  let x = between(-80, fx * 0.55);
+  let y = between(-40, H + 40);
+  const pts: string[] = [`${round(x)} ${round(y)}`];
+  for (let s = 0; s < 140 && x < W + 40 && y > -80 && y < H + 80; s++) {
+    const a = angle(x, y);
+    x += Math.cos(a) * step;
+    y += Math.sin(a) * step;
+    pts.push(`${round(x)} ${round(y)}`);
+  }
+  if (pts.length < 6) continue;
+  const r = rand();
+  const tone = r < 0.06 ? "stroke-signal-500" : r < 0.24 ? "stroke-navy-500" : r < 0.62 ? "stroke-navy-600" : "stroke-navy-700";
+  lines.push({
+    d: "M " + pts.join(" L "),
+    tone,
+    width: tone === "stroke-signal-500" ? 1.6 : between(0.8, 1.5),
+    opacity: tone === "stroke-signal-500" ? 0.95 : between(0.45, 0.9),
+    pulse: rand() < (density === "hero" ? 0.2 : 0.14),
+    delay: Math.round(between(0, 9000)),
+    dur: Math.round(between(7000, 13000)),
+  });
+}
+
+// Data points where some lines begin: the squares of the logo, scattered.
+const squares = Array.from({ length: density === "hero" ? 26 : 12 }, () => ({
+  x: round(between(10, fx * 0.5)),
+  y: round(between(10, H - 10)),
+  s: round(between(4, 11)),
+  tone: rand() < 0.3 ? "fill-navy-500" : "fill-navy-600",
+}));
+---
+
+<svg
+  viewBox={`0 0 ${W} ${H}`}
+  preserveAspectRatio="xMidYMid slice"
+  class:list={["flow-art block h-full w-full bg-navy-950", className]}
+  data-ambient
+  aria-hidden="true"
+  focusable="false"
+>
+  {squares.map((q) => <rect x={q.x} y={q.y} width={q.s} height={q.s} rx="1" class={q.tone} />)}
+  {
+    lines.map((l) => (
+      <path d={l.d} class:list={["fill-none", l.tone]} stroke-width={l.width} opacity={l.opacity} stroke-linecap="round" />
+    ))
+  }
+  {
+    lines
+      .filter((l) => l.pulse)
+      .map((l) => (
+        <path
+          d={l.d}
+          pathLength="1"
+          class="fa-pulse fill-none stroke-signal-300"
+          stroke-width={l.width + 1}
+          stroke-linecap="round"
+          style={`--fa-delay:-${l.delay}ms;--fa-dur:${l.dur}ms`}
+        />
+      ))
+  }
+  <circle cx={round(fx)} cy={round(fy)} r="5" class="fill-signal-500"></circle>
+</svg>

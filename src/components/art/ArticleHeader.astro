@@ -1,0 +1,54 @@
+---
+/**
+ * Header for a report or article: a full-bleed navy band with the title, the
+ * standfirst and the byline on the left, and the piece's own artwork (FlowArt,
+ * seeded from its slug) bleeding off the right edge. Below lg the artwork sits
+ * on top as a banner.
+ */
+import FlowArt from "./FlowArt.astro";
+import { withBase } from "../../lib/paths";
+
+interface Props {
+  seed: string;
+  title: string;
+  description: string;
+  author: string;
+  date: Date;
+  /** Extra byline item, e.g. the data source. */
+  detail?: string;
+}
+
+const { seed, title, description, author, date, detail } = Astro.props;
+const when = date.toLocaleDateString("en-CA", { year: "numeric", month: "long", day: "numeric" });
+---
+
+<header class="relative overflow-hidden bg-navy-950 text-navy-200">
+  <div class="h-48 sm:h-60 lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[52%] lg:[mask-image:linear-gradient(to_right,transparent,black_28%)]">
+    <FlowArt seed={seed} />
+  </div>
+  <div class="relative mx-auto max-w-7xl px-6 pb-16 pt-10 lg:px-10 lg:pb-24 lg:pt-24">
+    <div class="lg:max-w-[46rem] lg:pr-10">
+      <a
+        href={withBase("/research/")}
+        class="text-sm font-medium text-white underline decoration-signal-300 underline-offset-4 hover:decoration-2"
+      >
+        All research &amp; insights
+      </a>
+      <h1 class="mt-8 text-[2.5rem] leading-[1.08] tracking-[-0.02em] text-white md:text-[3.5rem]">{title}</h1>
+      <p class="mt-6 max-w-[56ch] text-lg leading-relaxed md:text-xl">{description}</p>
+      <p class="mt-8 flex flex-wrap gap-x-2 text-sm text-navy-300">
+        <span class="font-semibold text-white">{author}</span>
+        <span aria-hidden="true" class="text-navy-600">/</span>
+        <time datetime={date.toISOString()} class="figures">{when}</time>
+        {
+          detail && (
+            <>
+              <span aria-hidden="true" class="text-navy-600">/</span>
+              <span>{detail}</span>
+            </>
+          )
+        }
+      </p>
+    </div>
+  </div>
+</header>

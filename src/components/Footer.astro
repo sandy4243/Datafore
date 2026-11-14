@@ -1,7 +1,7 @@
 ---
 import Logo from "./Logo.astro";
 import { withBase } from "../lib/paths";
-import { bookingURL, email, phone } from "../lib/contact";
+import { bookingURL, email } from "../lib/contact";
 
 const year = new Date().getFullYear();
 // The closing invitation sits on every page except the contact pages, where it
@@ -66,11 +66,12 @@ const showInvite = !path.startsWith(withBase("/contact/"));
 
     <div class="md:col-span-4">
       <p class="text-sm font-semibold text-white">Contact</p>
-      <ul class="mt-4 space-y-2.5">
-        <li><a href={`mailto:${email}`} class="hover:text-white">{email}</a></li>
-        <li><a href={phone.href} class="figures hover:text-white">{phone.display}</a></li>
-        <li class="leading-relaxed">Datafore Analytics Inc.<br />4353 Halifax Street, Burnaby, BC, Canada</li>
-      </ul>
+      <a
+        href={`mailto:${email}`}
+        class="mt-4 inline-block text-lg text-white underline decoration-signal-300 decoration-1 underline-offset-[6px] hover:decoration-2"
+      >
+        {email}
+      </a>
     </div>
   </div>
 

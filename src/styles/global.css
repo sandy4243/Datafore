@@ -364,6 +364,33 @@
   animation: sf-head 800ms cubic-bezier(0.16, 1, 0.3, 1) 1400ms both;
 }
 
+/* ---- Editorial artwork (components/art/FlowArt.astro): pulses of light travel
+   along the streamlines, continuously and slowly. Paused while off screen
+   (.is-paused, set by Layout's observer); still under reduced motion. ---- */
+@keyframes fa-travel {
+  from {
+    stroke-dashoffset: 1.06;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.fa-pulse {
+  stroke-dasharray: 0.06 1;
+  stroke-dashoffset: 1.06;
+  animation: fa-travel var(--fa-dur, 9s) linear var(--fa-delay, 0s) infinite;
+}
+.is-paused .fa-pulse,
+.flow-art.is-paused .fa-pulse {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fa-pulse {
+    animation: none;
+    opacity: 0;
+  }
+}
+
 /* ---- Exhibits draw once as they scroll into view. Without JavaScript (no
    `.js` on <html>) or once `.is-drawn` is set, everything rests drawn.
    - .d-line / .d-line-y  a rule that draws along x / y
