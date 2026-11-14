@@ -1,20 +1,26 @@
 ---
 /**
- * Where Datafore sits: practice management systems on one side, the places
- * work actually happens on the other, and the intelligence layer between.
- * Built as HTML so every label stays at reading size; the connectors rotate
- * from horizontal to vertical when the columns stack.
+ * Where Datafore sits, as an integration map: practice management systems
+ * (sources) → the Datafore layer, with its four capabilities as a flow (core)
+ * → the places work happens (consumers), plus the return loop. Built as HTML
+ * so every label stays at reading size; the connectors rotate from horizontal
+ * to vertical when the columns stack. "Act" is the one focal (signal) node.
+ * Draws once on scroll (global.css, [data-draw]).
  */
 import { Image } from "astro:assets";
 import mark from "../assets/brand/mark.png";
 
-const sources = ["Jane App", "Cliniko", "Owl Practice"];
+const sources = [
+  { name: "Jane App", status: "Connecting first" },
+  { name: "Cliniko", status: "In turn" },
+  { name: "Owl Practice", status: "In turn" },
+];
 
 const layer = [
-  { verb: "Understand", note: "one view of the clinic" },
-  { verb: "Anticipate", note: "problems flagged early" },
-  { verb: "Act", note: "follow-up tasks created" },
-  { verb: "Prove", note: "results traced back" },
+  { verb: "Understand", note: "One view of the clinic" },
+  { verb: "Anticipate", note: "Problems flagged early" },
+  { verb: "Act", note: "Follow-up tasks created", focal: true },
+  { verb: "Prove", note: "Results traced back" },
 ];
 
 const destinations = [
@@ -23,15 +29,18 @@ const destinations = [
 ];
 ---
 
-<figure>
-  <div class="grid items-stretch lg:grid-cols-[1fr_4.5rem_1.2fr_4.5rem_1fr]">
-    <div class="border border-navy-100 bg-paper p-6 md:p-8">
+<figure data-draw>
+  <div class="grid items-stretch lg:grid-cols-[minmax(0,1fr)_4.5rem_minmax(0,1.25fr)_4.5rem_minmax(0,1fr)]">
+    <div class="d-in border border-navy-100 bg-paper p-6 md:p-8" style="--i:0">
       <p class="text-sm font-semibold text-navy-950">Practice management systems</p>
       <p class="mt-1 text-sm text-graphite-600">Appointments, patients, invoices, payments</p>
       <ul class="mt-6 divide-y divide-navy-100 border-t border-navy-100">
         {
           sources.map((s) => (
-            <li class="py-3 font-display text-xl text-navy-950">{s}</li>
+            <li class="flex items-baseline justify-between gap-4 py-3">
+              <span class="font-display text-xl text-navy-950">{s.name}</span>
+              <span class="text-sm text-graphite-600">{s.status}</span>
+            </li>
           ))
         }
       </ul>
@@ -39,37 +48,47 @@ const destinations = [
 
     <div class="flex items-center justify-center py-3 lg:py-0" aria-hidden="true">
       <svg viewBox="0 0 72 24" class="h-6 w-[4.5rem] rotate-90 lg:rotate-0">
-        <path d="M 6 12 H 60" class="stroke-navy-900" stroke-width="2" stroke-linecap="round" fill="none"></path>
-        <path d="M 56 5 L 68 12 L 56 19 L 59 12 z" class="fill-signal-500"></path>
+        <path d="M 6 12 H 60" class="d-path stroke-navy-900" pathLength="1" stroke-width="2" stroke-linecap="round" fill="none" style="--i:1"></path>
+        <path d="M 56 5 L 68 12 L 56 19 L 59 12 z" class="d-in fill-signal-500" style="--i:2"></path>
       </svg>
     </div>
 
-    <div class="bg-navy-900 p-6 text-navy-200 md:p-8">
+    <div class="d-in bg-navy-900 p-6 text-navy-200 md:p-8" style="--i:2">
       <div class="flex items-center gap-3">
         <Image src={mark} alt="" height={28} densities={[1, 2]} class="h-7 w-auto" />
         <p class="text-sm font-semibold text-white">Datafore</p>
       </div>
-      <ul class="mt-6 divide-y divide-navy-700 border-t border-navy-700">
+      <ol class="relative mt-6">
+        <span class="d-line-y absolute bottom-6 left-[5px] top-6 w-0.5 bg-navy-600" style="--i:3" aria-hidden="true"></span>
         {
-          layer.map((l) => (
-            <li class="flex flex-col gap-0.5 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+          layer.map((l, i) => (
+            <li class="d-in relative flex flex-col gap-0.5 py-3 pl-8 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4" style={`--i:${3 + i * 0.6}`}>
+              <span
+                class:list={[
+                  "absolute left-0 top-[1.15rem] block h-3 w-3 border-2",
+                  l.focal ? "border-signal-500 bg-signal-500" : "border-navy-300 bg-navy-900",
+                ]}
+                aria-hidden="true"
+              />
               <span class="font-display text-xl text-white">{l.verb}</span>
               <span class="text-sm">{l.note}</span>
             </li>
           ))
         }
-      </ul>
-      <p class="mt-5 text-sm text-navy-300">Designed to run on Canadian infrastructure, on de-identified records.</p>
+      </ol>
+      <p class="mt-5 border-t border-navy-700 pt-4 text-sm text-navy-300">
+        Designed to run on Canadian infrastructure, on de-identified records.
+      </p>
     </div>
 
     <div class="flex items-center justify-center py-3 lg:py-0" aria-hidden="true">
       <svg viewBox="0 0 72 24" class="h-6 w-[4.5rem] rotate-90 lg:rotate-0">
-        <path d="M 6 12 H 60" class="stroke-navy-900" stroke-width="2" stroke-linecap="round" fill="none"></path>
-        <path d="M 56 5 L 68 12 L 56 19 L 59 12 z" class="fill-signal-500"></path>
+        <path d="M 6 12 H 60" class="d-path stroke-navy-900" pathLength="1" stroke-width="2" stroke-linecap="round" fill="none" style="--i:5.5"></path>
+        <path d="M 56 5 L 68 12 L 56 19 L 59 12 z" class="d-in fill-signal-500" style="--i:6.5"></path>
       </svg>
     </div>
 
-    <div class="border border-navy-100 bg-paper p-6 md:p-8">
+    <div class="d-in border border-navy-100 bg-paper p-6 md:p-8" style="--i:6.5">
       <p class="text-sm font-semibold text-navy-950">Where the work happens</p>
       <p class="mt-1 text-sm text-graphite-600">Your team and the tools it already uses</p>
       <ul class="mt-6 divide-y divide-navy-100 border-t border-navy-100">
@@ -85,7 +104,7 @@ const destinations = [
     </div>
   </div>
 
-  <figcaption class="mt-8 flex max-w-[64ch] items-start gap-4 text-graphite-700 lg:mx-auto lg:items-center">
+  <figcaption class="d-in mt-8 flex max-w-[64ch] items-start gap-4 text-graphite-700 lg:mx-auto lg:items-center" style="--i:8">
     <svg viewBox="0 0 40 24" class="mt-1 h-6 w-10 shrink-0 lg:mt-0" aria-hidden="true">
       <path d="M 4 18 H 28 a 6 6 0 0 0 0 -12 H 10" class="stroke-navy-900" stroke-width="2" stroke-linecap="round" fill="none"></path>
       <path d="M 13 1 L 2 6 L 13 11 L 10 6 z" class="fill-signal-500"></path>
