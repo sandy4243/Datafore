@@ -217,7 +217,15 @@ Navy (or white on dark) with a 1px signal underline at a 6px offset, thickening 
 
 ### Navigation
 
-Header: wordmark, three links (Platform, Research & Insights, About), and the primary "Start a conversation" button.
+Header: wordmark, three links (Platform, Research & Insights, About), and the primary "Contact us" button (hidden on
+the contact page itself).
+
+### Closing invitation
+
+Every page except the contact pages ends the same way: the footer opens with "Be one of our first clinics.", the
+cohort line, a "Request a Snapshot" button and a "Book a call" link (Calendly). Pages don't add their own closing
+CTA band; a page that needs a contextual ask (a research report) uses one inline link above the footer. Contact
+details and the booking link live in `src/lib/contact.ts`.
 The current page gets `aria-current` and a signal underline. A `<details>` disclosure on mobile.
 
 ### Panel grid
@@ -258,6 +266,9 @@ layout restacks on a phone (no fixed-width SVG with 12px text).
 - **Data path** (`DataPath.astro`) — one patient record as the practice software holds it, the same record with
   name and contact details removed inside the Canadian boundary, and the recommendation the team sees with the data
   behind it. Values are abstract bars, never invented names or numbers.
+- **Report to result** (`ReportToResult.astro`, About) — data → report → decision → action → result, with the
+  point where most analytics stops and the stretch Datafore covers marked beneath. Action is the focal node.
+- **What happens next** (inline on Contact) — three steps from the first call to the walkthrough of the Snapshot.
 - **System diagram** (`SystemDiagram.astro`) — practice management systems → the Datafore layer (the one navy-900
   panel, with the four capabilities as a flow) → where the work happens, plus the return loop.
 
@@ -290,7 +301,7 @@ images presented as Datafore's own clinics. Good homes for them are the About he
 ### Research reports and charts
 
 Reports live at `/research/<id>/` (how to add one: `reports/README.md`). They are Read surfaces: prose at a
-68ch measure in the serif-headed article layout used by articles, with figures allowed the full 56rem column.
+62ch measure (about 80 characters of Public Sans) in the serif-headed article layout used by articles, with figures allowed the full 56rem column.
 Reports and articles share one index at `/research/` ("Research & Insights"), newest first, each marked
 "Research" or "Article" in the meta column.
 

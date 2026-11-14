@@ -1,7 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { withBase } from "../lib/paths";
 import FounderNote from "../components/FounderNote.astro";
+import ReportToResult from "../components/exhibits/ReportToResult.astro";
+import { email } from "../lib/contact";
+
+// For evaluators: the company in one place, stated plainly.
+const facts = [
+  { term: "Company", detail: "Datafore Analytics Inc." },
+  { term: "Headquarters", detail: "Burnaby, British Columbia" },
+  { term: "Founder", detail: "Sandeep Mehra" },
+  { term: "Focus", detail: "Clinic intelligence for allied health clinics in Canada" },
+  { term: "Status", detail: "In development; forming a founding cohort of BC clinics" },
+  { term: "Patient data", detail: "Designed to be stored and processed in Canada, on de-identified records" },
+];
 
 const beliefs = [
   {
@@ -32,6 +43,9 @@ const beliefs = [
         Datafore started as a data and analytics consultancy. The lesson from that work: the report is rarely the
         hard part. Getting anything to change because of it is.
       </p>
+      <div class="mt-16 lg:mt-20">
+        <ReportToResult />
+      </div>
     </div>
   </section>
 
@@ -94,25 +108,25 @@ const beliefs = [
     </FounderNote>
   </section>
 
-  <section class="bg-navy-950 text-navy-200">
-    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
-      <div class="grid gap-10 lg:grid-cols-12 lg:items-end">
-        <div class="lg:col-span-7">
-          <h2 class="text-[2rem] leading-[1.12] text-white md:text-[3rem]">Based in British Columbia.</h2>
-          <p class="mt-6 max-w-[56ch] text-lg leading-relaxed">
-            Datafore Analytics Inc. is headquartered in Burnaby. We're starting with clinics across BC, then the rest
-            of Canada.
-          </p>
-        </div>
-        <div class="lg:col-span-5 lg:text-right">
-          <a
-            href={withBase("/contact/")}
-            class="inline-block rounded-sm bg-white px-6 py-3.5 font-medium text-navy-950 transition-colors hover:bg-navy-100"
-          >
-            Start a conversation
-          </a>
-        </div>
+  <section class="bg-mist">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-24 lg:grid-cols-12 lg:px-10 lg:py-28">
+      <div class="lg:col-span-5">
+        <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem]">The company.</h2>
+        <p class="mt-6 max-w-[44ch] text-lg leading-relaxed text-graphite-700">
+          Starting with clinics across BC, then the rest of Canada. For partnership or procurement questions, write to
+          <a href={`mailto:${email}`} class="text-navy-800 underline decoration-signal-500 underline-offset-4">{email}</a>.
+        </p>
       </div>
+      <dl class="divide-y divide-navy-200 border-y border-navy-200 lg:col-span-6 lg:col-start-7">
+        {
+          facts.map((f) => (
+            <div class="grid gap-1 py-4 sm:grid-cols-[10rem_1fr] sm:gap-6">
+              <dt class="text-sm font-semibold text-navy-950 sm:pt-0.5">{f.term}</dt>
+              <dd class="leading-relaxed text-graphite-700">{f.detail}</dd>
+            </div>
+          ))
+        }
+      </dl>
     </div>
   </section>
 </Layout>

@@ -1,31 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { withBase } from "../lib/paths";
 import SystemDiagram from "../components/SystemDiagram.astro";
-
-const capabilities = [
-  {
-    name: "Understand",
-    lead: "See the whole clinic in one place.",
-    body: "Appointments, patients, invoices and payments from your practice management system, combined into one view across practitioners, services and locations.",
-  },
-  {
-    name: "Anticipate",
-    lead: "Spot problems before month-end.",
-    body: "Patients drifting out of care, recurring gaps in the schedule, no-shows by practitioner, overdue invoices by payer. Flagged as they happen, not after the quarter closes.",
-  },
-  {
-    name: "Act",
-    lead: "Turn findings into follow-up.",
-    body: "Datafore creates follow-up tasks in the CRM your team already uses, so the right patients hear from you and someone owns each task.",
-  },
-  {
-    name: "Prove",
-    lead: "See what each action brought in.",
-    body: "New bookings are traced back to the follow-up or campaign that prompted them, so you know which efforts pay off.",
-  },
-];
-
+import DataPath from "../components/exhibits/DataPath.astro";
 ---
 
 <Layout
@@ -56,30 +32,23 @@ const capabilities = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
-    <ol class="divide-y divide-navy-100 border-y border-navy-100">
-      {
-        capabilities.map((c) => (
-          <li class="grid gap-4 py-10 lg:grid-cols-12 lg:gap-10 lg:py-14">
-            <h2 class="flex items-center gap-4 text-[2rem] leading-[1.1] md:text-[2.75rem] lg:col-span-4">
-              <span
-                class:list={["block h-3.5 w-3.5 shrink-0", c.name === "Act" ? "bg-signal-500" : "bg-navy-600"]}
-                aria-hidden="true"
-              />
-              {c.name}
-            </h2>
-            <div class="max-w-[58ch] lg:col-span-7 lg:col-start-6">
-              <p class="text-xl font-medium leading-snug text-navy-950">{c.lead}</p>
-              <p class="mt-3 text-lg leading-relaxed text-graphite-700">{c.body}</p>
-            </div>
-          </li>
-        ))
-      }
-    </ol>
+  <!-- Exhibit: the path a patient record takes -->
+  <section id="patient-data" class="scroll-mt-24">
+    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
+      <div class="grid gap-8 lg:grid-cols-12 lg:gap-10">
+        <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem] lg:col-span-5">Built for patient data.</h2>
+        <p class="max-w-[52ch] text-lg leading-relaxed text-graphite-700 lg:col-span-6 lg:col-start-7 lg:self-end">
+          Health information is the most sensitive thing a clinic holds. Here is the path one record takes.
+        </p>
+      </div>
+      <div class="mt-16">
+        <DataPath />
+      </div>
+    </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
-    <div class="grid gap-10 lg:grid-cols-12">
+  <section class="bg-mist">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-24 lg:grid-cols-12 lg:px-10 lg:py-28">
       <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem] lg:col-span-5">Benchmarks, as more clinics join.</h2>
       <div class="space-y-6 text-lg leading-relaxed text-graphite-700 lg:col-span-6 lg:col-start-7">
         <p>
@@ -94,24 +63,4 @@ const capabilities = [
     </div>
   </section>
 
-  <section class="bg-navy-950 text-navy-200">
-    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
-      <div class="grid gap-10 lg:grid-cols-12 lg:items-end">
-        <div class="lg:col-span-7">
-          <h2 class="text-[2rem] leading-[1.12] text-white md:text-[2.75rem]">Where we are today.</h2>
-          <p class="mt-6 max-w-[58ch] text-lg leading-relaxed">
-            Datafore is in active development. We're looking for a small group of BC clinics to help shape it.
-          </p>
-        </div>
-        <div class="lg:col-span-5 lg:text-right">
-          <a
-            href={withBase("/contact/")}
-            class="inline-block rounded-sm bg-white px-6 py-3.5 font-medium text-navy-950 transition-colors hover:bg-navy-100"
-          >
-            Start a conversation
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
 </Layout>

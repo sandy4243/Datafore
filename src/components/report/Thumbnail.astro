@@ -1,0 +1,43 @@
+---
+/**
+ * A report's lead chart in miniature, for the /research/ index: lines only, no
+ * axes or labels (the report itself carries those). The first series is the
+ * focus; the rest are context. Colours come from the chart roles.
+ */
+import { loadQuery, requireColumns } from "../../lib/reports/data";
+
+interface Props {
+  report: string;
+  query: string;
+  x: string;
+  y: string[];
+}
+
+const { report, query, x, y } = Astro.props;
+const result = loadQuery(report, query);
+requireColumns(result, [x, ...y], `thumbnail for ${report}`);
+
+const W = 240, H = 120, pad = 6;
+const xs = result.rows.map((r) => Number(r[x]));
+const values = result.rows.flatMap((r) => y.map((k) => Number(r[k]))).filter(Number.isFinite);
+const [x0, x1] = [Math.min(...xs), Math.max(...xs)];
+const [v0, v1] = [Math.min(...values), Math.max(...values)];
+const sx = (v: number) => pad + ((v - x0) / (x1 - x0 || 1)) * (W - 2 * pad);
+const sy = (v: number) => H - pad - ((v - v0) / (v1 - v0 || 1)) * (H - 2 * pad);
+const lines = y
+  .map((k, i) => ({
+    role: i === 0 ? "dv-focus" : "dv-context",
+    d: result.rows
+      .filter((r) => r[k] !== null)
+      .map((r, j) => `${j ? "L" : "M"} ${sx(Number(r[x])).toFixed(1)} ${sy(Number(r[k])).toFixed(1)}`)
+      .join(" "),
+  }))
+  .reverse(); // focus drawn last, on top
+const last = result.rows.at(-1)!;
+---
+
+<svg viewBox={`0 0 ${W} ${H}`} class="dv-svg" aria-hidden="true" focusable="false">
+  <line x1={pad} x2={W - pad} y1={H - pad} y2={H - pad} class="dv-baseline"></line>
+  {lines.map((l) => <path d={l.d} class:list={["dv-line", l.role]} />)}
+  <circle cx={sx(Number(last[x]))} cy={sy(Number(last[y[0]]))} r="4" class="dv-dot dv-focus"></circle>
+</svg>

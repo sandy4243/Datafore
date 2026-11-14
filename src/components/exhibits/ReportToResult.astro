@@ -1,0 +1,53 @@
+---
+/**
+ * Why Datafore exists, as one line of five steps from data to result. Most
+ * analytics work stops at the report; Datafore carries the work through to the
+ * result. The bracket under the last four steps is the claim. "Action" is the
+ * one focal (signal) node: the step most often missing.
+ * Draws once on scroll (global.css, [data-draw]).
+ */
+const steps = [
+  { name: "Data", note: "What the practice software records" },
+  { name: "Report", note: "What happened, summarised" },
+  { name: "Decision", note: "What to do about it" },
+  { name: "Action", note: "Someone actually does it", focal: true },
+  { name: "Result", note: "Checked: did it work?" },
+];
+---
+
+<figure data-draw>
+  <ol class="relative grid gap-y-8 sm:grid-cols-5 sm:gap-x-6">
+    <span class="d-line-y absolute bottom-2 left-[6px] top-2 w-0.5 bg-navy-200 sm:hidden" aria-hidden="true"></span>
+    <span
+      class="d-line absolute left-[6px] right-[calc((100%-6rem)/5-6px)] top-[6px] hidden h-0.5 bg-navy-200 sm:block"
+      aria-hidden="true"></span>
+    {
+      steps.map((s, i) => (
+        <li class="relative pl-10 sm:pl-0">
+          <span
+            class:list={[
+              "d-in absolute left-0 top-1.5 block h-3.5 w-3.5 border-2 sm:static",
+              s.focal ? "border-signal-500 bg-signal-500" : "border-navy-600 bg-paper",
+            ]}
+            style={`--i:${i + 1}`}
+            aria-hidden="true"
+          />
+          <div class="d-in sm:mt-5" style={`--i:${i + 1.5}`}>
+            <p class="font-display text-xl text-navy-950">{s.name}</p>
+            <p class="mt-1 text-sm leading-relaxed text-graphite-600">{s.note}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+
+  <!-- Where most work stops, and what Datafore covers. From sm, laid on the same five columns. -->
+  <div class="mt-8 grid gap-4 text-sm sm:grid-cols-5 sm:gap-x-6">
+    <p class="d-in border-t-2 border-navy-200 pt-3 text-graphite-600 sm:col-span-2" style="--i:7">
+      Most analytics stops at the report.
+    </p>
+    <p class="d-in relative border-t-2 border-signal-500 pt-3 font-semibold text-navy-950 sm:col-span-4 sm:col-start-2" style="--i:8">
+      Datafore carries the work from the report to the result.
+    </p>
+  </div>
+</figure>

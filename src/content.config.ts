@@ -32,6 +32,13 @@ const reports = defineCollection({
       citation: z.string(),
       url: z.url().optional(),
     }),
+    /**
+     * Small chart beside the report on the /research/ index, drawn from one of its
+     * queries: `x` column, then one or more `y` columns; the first is the focus.
+     */
+    thumbnail: z
+      .object({ query: z.string(), x: z.string(), y: z.array(z.string()).min(1) })
+      .optional(),
     draft: z.boolean().default(false),
   }),
 });

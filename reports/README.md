@@ -22,11 +22,16 @@ Published at `/research/<report-id>/`, listed at `/research/`.
    Queries run inside the report folder, so read sources by relative path:
    `read_xlsx('source/file.xlsx', sheet = 'Table 2', range = 'A3:L29', header = false, all_varchar = true)`,
    `read_csv('source/file.csv')`. Any query can read another by name (`SELECT … FROM bc_supply`).
-   Put repeated plumbing in `_setup.sql` (see the physiotherapists report's `cihi()` macro).
+   Put repeated plumbing in `_setup.sql` (shared views over the source files; see
+   `allied-health-clinics-bc-2026`).
+   For Statistics Canada tables, copy that report's `fetch.mjs`: it downloads only the series you name from the
+   Web Data Service and writes them to `source/` as CSV, with Statistics Canada's quality letters.
 3. **Check the data.** `npm run reports` (or `npm run reports -- <report-id>`) writes
    `src/generated/reports/<report-id>/<name>.json`. Open it and check the numbers against the source by hand.
-4. **Write the report.** Copy `src/content/reports/physiotherapists-bc-2025.mdx`, then edit the frontmatter
+4. **Write the report.** Copy `src/content/reports/allied-health-clinics-bc-2026.mdx`, then edit the frontmatter
    (`title`, `description`, `publishDate`, `source.short`, `source.citation`, `source.url` if known) and the body.
+   Optionally add `thumbnail: { query, x, y: [focus, other…] }` to show a small chart beside the report on the
+   `/research/` index.
 5. **Preview.** `npm run dev` and open `/research/<report-id>/`. Then open a PR as usual; merging publishes.
 
 ## Figures
@@ -38,7 +43,7 @@ frontmatter, plus the `table` you name) and a "Show the data" table automaticall
 |---|---|---|
 | `<LineChart>` | change over time | `query`, `x`, then `y` + `label` for one series, or `series={[{ y, label, role }]}`; `format`; `yMax`; `flag` (boolean column → hollow marker) + `flagLabel` |
 | `<BarList>` | ranking categories | `query`, `label` (category column), `value`, `role` (column: `"reference"` row → reference line, `"focus"` → highlighted bar); sort in the SQL |
-| `<Explorer>` | let readers choose | `query`, `view="bars"` or `"line"`, `controls={[{ name, label, default, order }]}`, `sql` (selects from `data`, `$name` binds a control) |
+| `<Explorer>` | let readers choose | `query`, `view="bars"` or `"line"`, `controls={[{ name, label, default, order }]}`, `sql` (selects from `data`, `$name` binds a control); `labelHeading` (category column in its table) and `emptyMessage` |
 | `<Num>` | a number in the prose | `query`, `field`, `format`; reads the first row, or `where={{ col: value }}` |
 
 Formats: `int` (5,317), `dec1` (8.7), `pct` (75.4%), `pct0` (50%). Percentages arrive already scaled (75.4, not

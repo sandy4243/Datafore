@@ -1,10 +1,48 @@
 ---
 import Logo from "./Logo.astro";
 import { withBase } from "../lib/paths";
+import { bookingURL, email, phone } from "../lib/contact";
+
 const year = new Date().getFullYear();
+// The closing invitation sits on every page except the contact pages, where it
+// would point at the page you're already on.
+const path = Astro.url.pathname;
+const showInvite = !path.startsWith(withBase("/contact/"));
 ---
 
-<footer class="border-t border-navy-800 bg-navy-950 text-navy-300">
+<footer class="bg-navy-950 text-navy-300">
+  {
+    showInvite && (
+      <div class="border-b border-navy-800">
+        <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-12 lg:items-end lg:px-10 lg:py-24">
+          <div class="lg:col-span-7">
+            <h2 class="text-[2rem] leading-[1.12] text-white md:text-[2.75rem]">Be one of our first clinics.</h2>
+            <p class="mt-6 max-w-[56ch] text-lg leading-relaxed text-navy-200">
+              We're inviting a small group of BC allied health clinics to work with us first, starting with a free
+              Practice Health Snapshot of your own data.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-x-8 gap-y-4 lg:col-span-5 lg:justify-end">
+            <a
+              href={withBase("/contact/?topic=snapshot#message")}
+              class="rounded-sm bg-white px-6 py-3.5 font-medium text-navy-950 transition-colors hover:bg-navy-100"
+            >
+              Request a Snapshot
+            </a>
+            <a
+              href={bookingURL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-medium text-white underline decoration-signal-300 decoration-1 underline-offset-[6px] hover:decoration-2"
+            >
+              Book a call<span class="sr-only"> (opens Calendly in a new tab)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   <div class="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-12 lg:px-10">
     <div class="md:col-span-5">
       <a href={withBase("/")} class="inline-flex items-center" aria-label="Datafore — home">
@@ -22,14 +60,15 @@ const year = new Date().getFullYear();
         <li><a href={withBase("/platform/")} class="hover:text-white">Platform</a></li>
         <li><a href={withBase("/research/")} class="hover:text-white">Research &amp; Insights</a></li>
         <li><a href={withBase("/about/")} class="hover:text-white">About</a></li>
+        <li><a href={withBase("/contact/")} class="hover:text-white">Contact</a></li>
       </ul>
     </nav>
 
     <div class="md:col-span-4">
       <p class="text-sm font-semibold text-white">Contact</p>
       <ul class="mt-4 space-y-2.5">
-        <li><a href="mailto:info@datafore.ca" class="hover:text-white">info@datafore.ca</a></li>
-        <li><a href="tel:+17787001733" class="figures hover:text-white">+1 778 700 1733</a></li>
+        <li><a href={`mailto:${email}`} class="hover:text-white">{email}</a></li>
+        <li><a href={phone.href} class="figures hover:text-white">{phone.display}</a></li>
         <li class="leading-relaxed">Datafore Analytics Inc.<br />4353 Halifax Street, Burnaby, BC, Canada</li>
       </ul>
     </div>
