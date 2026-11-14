@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
 import { withBase } from "../../lib/paths";
+import ArticleHeader from "../../components/art/ArticleHeader.astro";
 
 export async function getStaticPaths() {
   const reports = await getCollection("reports", ({ data }) => !data.draft);
@@ -17,22 +18,14 @@ const date = (d: Date) => d.toLocaleDateString("en-CA", { year: "numeric", month
 
 <Layout title={entry.data.title} description={entry.data.description}>
   <article>
-    <header class="border-b border-navy-100">
-      <div class="mx-auto max-w-4xl px-6 pb-14 pt-16 md:pt-24">
-        <a href={withBase("/research/")} class="text-sm font-medium text-navy-800 underline decoration-signal-500 underline-offset-4">
-          All research &amp; insights
-        </a>
-        <h1 class="mt-8 text-[2.5rem] leading-[1.08] tracking-[-0.02em] md:text-[3.5rem]">{entry.data.title}</h1>
-        <p class="mt-6 max-w-[60ch] text-lg leading-relaxed text-graphite-700 md:text-xl">{entry.data.description}</p>
-        <p class="mt-8 flex flex-wrap gap-x-2 text-sm text-graphite-600">
-          <span class="font-semibold text-navy-950">{entry.data.author}</span>
-          <span aria-hidden="true" class="text-graphite-300">/</span>
-          <time datetime={entry.data.publishDate.toISOString()} class="figures">{date(entry.data.publishDate)}</time>
-          <span aria-hidden="true" class="text-graphite-300">/</span>
-          <span>Data: {entry.data.source.short}</span>
-        </p>
-      </div>
-    </header>
+    <ArticleHeader
+      seed={`research/${entry.id}`}
+      title={entry.data.title}
+      description={entry.data.description}
+      author={entry.data.author}
+      date={entry.data.publishDate}
+      detail={`Data: ${entry.data.source.short}`}
+    />
 
     <div class="mx-auto max-w-4xl px-6 py-14 md:py-20">
       <div class="prose prose-lg max-w-none [&>:not(figure,section)]:max-w-[62ch]">

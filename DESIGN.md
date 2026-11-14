@@ -130,7 +130,9 @@ registry identity before it, which read as legal.
 - Hairline rules and twelve-column asymmetry instead of cards.
 - At least one exhibit per pitch page, so no page reads as an essay.
 - Two authored motion moments: the hero's signature (scattered squares resolving into one arrow) on load, and
-  exhibits drawing themselves once as they scroll into view.
+  exhibits drawing themselves once as they scroll into view. Plus one ambient one: editorial artwork, where light
+  travels slowly along the lines.
+- Every report and article has its own generative artwork, in the manner of a consultancy's insight imagery.
 
 ## Colors
 
@@ -223,7 +225,9 @@ the contact page itself).
 ### Closing invitation
 
 Every page except the contact pages ends the same way: the footer opens with "Be one of our first clinics.", the
-cohort line, a "Request a Snapshot" button and a "Book a call" link (Calendly). Pages don't add their own closing
+cohort line, a "Request a Snapshot" button and a "Book a call" link (Calendly). Below it the footer carries the
+logo, the site links and one contact line: the email address, as a `mailto:` link. The phone number and street
+address are on the contact page only. Pages don't add their own closing
 CTA band; a page that needs a contextual ask (a research report) uses one inline link above the footer. Contact
 details and the booking link live in `src/lib/contact.ts`.
 The current page gets `aria-current` and a signal underline. A `<details>` disclosure on mobile.
@@ -286,6 +290,20 @@ layout restacks on a phone (no fixed-width SVG with 12px text).
   accent-tint → `navy-50`, link → `navy-700`; title → Source Serif 4, node-name → Public Sans 600, sublabel and
   arrow-label → Public Sans 400 (not mono), eyebrow → not used. Then rebuild the draft as an Astro component.
 
+### Editorial artwork
+
+`components/art/FlowArt.astro`: a generative flow field on `navy-950`. Streamlines in `navy-500`–`navy-700`
+converge on one `signal-500` focal point, with a few logo squares at their origins and a handful of `signal-300`
+pulses that travel along the lines (CSS only; paused off screen; still under reduced motion). Each piece is seeded
+from the page's slug, so every report and article has its own composition and keeps it across builds.
+
+- **Article header** (`ArticleHeader.astro`, reports and articles): a full-bleed navy band, title and standfirst
+  left, the artwork bleeding off the right edge behind a mask; a banner above the title on phones.
+- **Listings**: articles show their artwork at 16:10 on the `/research/` index; reports show their real lead chart
+  (`thumbnail`) on mist at the same size. The newest report appears on the home page with its artwork.
+- It is decoration, not data: never put numbers, labels or a chart's shape into it, and never use stock imagery in
+  its place.
+
 ### Founder's note
 
 `FounderNote.astro`: a 4:5 portrait, a heading, the letter set in Source Serif at 1.25–1.375rem in `navy-950`
@@ -344,6 +362,8 @@ line in `graphite-600`, then "Show the data".
 disclosures: the data table and the SQL. It loads DuckDB-WASM only when scrolled near.
 
 ### Motion
+
+Ambient: editorial artwork pulses run continuously at 7–13s per pass, linear, only while on screen.
 
 Two authored moments, both with the exponential ease-out `cubic-bezier(0.16, 1, 0.3, 1)`:
 
