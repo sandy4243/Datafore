@@ -33,12 +33,6 @@ typography:
     fontWeight: 500
     lineHeight: 1.05
     letterSpacing: "-0.022em"
-  display-inner:
-    fontFamily: "Source Serif 4 Variable, Iowan Old Style, Georgia, serif"
-    fontSize: "4rem"
-    fontWeight: 500
-    lineHeight: 1.05
-    letterSpacing: "-0.022em"
   headline:
     fontFamily: "Source Serif 4 Variable, Iowan Old Style, Georgia, serif"
     fontSize: "clamp(2rem, 4vw, 2.75rem)"
@@ -55,11 +49,6 @@ typography:
     fontSize: "1.125rem"
     fontWeight: 400
     lineHeight: 1.625
-  nav:
-    fontFamily: "Public Sans Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.9375rem"
-    fontWeight: 400
-    lineHeight: 1.4
   label:
     fontFamily: "Public Sans Variable, ui-sans-serif, system-ui, sans-serif"
     fontSize: "0.875rem"
@@ -112,10 +101,8 @@ Two audiences read it. Clinic owners and directors come first: they need to reco
 Datafore understands the business of care. Evaluators — partners, funders, procurement panels — come second: they
 need to find governance, status and company facts quickly, stated plainly.
 
-The design earns credibility through candour and **exhibits**: drawings of how Datafore works, in the manner of
-the figures in a strategy brief. It never uses product screenshots or invented metrics. Datafore is pre-customer;
-the site never implies otherwise, so exhibits show the *mechanism* (a patient's path, where data goes, what the
-team sees) and never results.
+The design earns credibility through restraint and candour rather than product screenshots or metrics. Datafore is
+pre-customer; the site never implies otherwise.
 
 **Anti-references:** the generic SaaS analytics landing page (gradient hero, dashboard mock, logo wall, stat
 tiles); the earlier "Clinical Loop" teal-and-mono identity, which read as technical and tactical; and the brass
@@ -125,12 +112,9 @@ registry identity before it, which read as legal.
 
 - White paper ground, mist bands, and full-bleed navy bands for the strategic statements.
 - Source Serif 4 for every heading and statement; Public Sans for everything functional.
-- Signal blue as the only accent: underlines, the active nav state, rules, and the marks inside exhibits. Never
-  a container or button fill.
+- Signal blue as the only accent — underlines, the active nav state, rules — never a fill.
 - Hairline rules and twelve-column asymmetry instead of cards.
-- At least one exhibit per pitch page, so no page reads as an essay.
-- Two authored motion moments: the hero's signature (scattered squares resolving into one arrow) on load, and
-  exhibits drawing themselves once as they scroll into view.
+- One authored motion moment: the hero settles into place on load.
 
 ## Colors
 
@@ -145,8 +129,7 @@ and `navy-800` are the hairlines on dark ones.
 ### Accent — Signal
 
 `signal-500` underlines links and marks the current page. `signal-300` is its counterpart on dark grounds (links,
-the footer tagline). Inside an exhibit, signal fills **marks**: the one focal node, arrowheads, the squares nearest
-the arrow in the hero signature, and the chart focus series. It never fills a container, a panel or a button.
+the footer tagline). Signal never fills a container or a button.
 
 ### Neutral — Graphite, Paper, Mist
 
@@ -157,8 +140,6 @@ alternates with it to pace long pages. No cream, no warm greys.
 
 - **The One Accent Rule.** Signal blue is the only colour besides navy and the neutrals. If something needs
   emphasis, it gets weight, size or position, not a new hue.
-- **The One Focal Rule.** An exhibit has at most one signal-filled node: the step the figure exists to show.
-  Everything else is navy and neutrals.
 - **The Contrast Floor.** `graphite-600` is the lightest text on light grounds; `navy-300` is the lightest text on
   navy. `navy-400` fails AA on white and is never used for text.
 
@@ -171,7 +152,6 @@ via Fontsource. Monospace appears in one place only: the SQL shown under a resea
 ### Hierarchy
 
 - **Display** — one per page, 2.75rem to 5rem, weight 500, tight leading, balanced wrapping.
-  Inner pages (Platform, About) cap it at 4rem (`display-inner`); the home hero alone reaches 5rem.
 - **Headline** — section openers, 2rem to 2.75rem, often sitting in the left five columns opposite its body copy.
 - **Title** — item headings within a section (outcomes, beliefs, stages), 1.5rem.
 - **Body** — 1.125rem at 1.625 leading, `text-wrap: pretty`, measure capped near 60ch.
@@ -183,8 +163,6 @@ via Fontsource. Monospace appears in one place only: the SQL shown under a resea
   section number. The heading carries the section.
 - **The Full-Stop Rule.** Section headlines are written as sentences and end with a full stop. They make a claim.
 - **Figures** — phone numbers, dates and quantities use the `.figures` class for tabular lining numerals.
-- **The Cited Figure Rule.** A page may set one number at display size (serif, 5rem and up), and only when its
-  source is cited beside it. An uncited or "estimated" number stays in the prose.
 
 ## Layout
 
@@ -196,8 +174,7 @@ or in a `divide-y` list of full-width rows. Bands alternate paper → mist → n
 
 ## Elevation & Depth
 
-None. The system is flat: no shadows, no gradients, no blur, including the sticky header (solid paper with a
-hairline). Depth comes from the ground changing.
+None. The system is flat: no shadows, no gradients, no blur. Depth comes from the ground changing.
 
 ## Shapes
 
@@ -240,40 +217,16 @@ beside it:
 All site placements go through `src/components/Logo.astro`. Never redraw or recolour the mark in code. The site's
 `navy-900` and `signal-500` are sampled from the wordmark and the arrow.
 
-### Exhibits
+### Diagrams
 
-An exhibit is a figure that draws the mechanism: how Datafore works, not what it has achieved. Each one is a
-component in `src/components/exhibits/`, built in HTML and inline SVG so labels stay at reading size and the
-layout restacks on a phone (no fixed-width SVG with 12px text).
+- **Engagement cycle** (`EngagementCycle.astro`) — four stages on a circle, joined by navy arcs that end in the
+  logo's signal-blue arrowhead, with "Assess, act, reassess." in the serif italic at the centre. Decorative; the
+  ordered list beside it carries the content.
+- **System diagram** (`SystemDiagram.astro`) — practice management systems → the Datafore layer (the one
+  navy-900 panel) → where the work happens, joined by the same arrow, plus the return loop as a caption. Built in
+  HTML so labels stay at reading size; connectors rotate to vertical when the columns stack.
 
-- **Hero signature** (`SignalField.astro`) — squares scattered on the navy hero resolve into three streams and one
-  signal-blue arrow: the logo's idea (data resolving into direction), drawn as flat squares. It is a motif, not the
-  mark; the mark itself is never redrawn. Decorative (`aria-hidden`).
-- **Patient loop** (`PatientLoop.astro`) — one patient who goes quiet, followed through six steps from the missed
-  rebooking to the booking traced back. The flag step is the focal node.
-- **Service blueprint** (`ServiceBlueprint.astro`) — the four engagement stages (Diagnose, Prioritise, Activate,
-  Review) as columns; above the line of visibility what the clinic sees, below it what the platform does
-  (Understand, Anticipate, Act, Prove). This is where the two four-word frameworks meet; don't present them as
-  separate lists elsewhere on the same page.
-- **Data path** (`DataPath.astro`) — one patient record as the practice software holds it, the same record with
-  name and contact details removed inside the Canadian boundary, and the recommendation the team sees with the data
-  behind it. Values are abstract bars, never invented names or numbers.
-- **System diagram** (`SystemDiagram.astro`) — practice management systems → the Datafore layer (the one navy-900
-  panel, with the four capabilities as a flow) → where the work happens, plus the return loop.
-
-**Exhibit rules.**
-
-- Mechanism only: no invented clinic figures, patient names or results. An illustrative value is an abstract mark.
-- One focal node in signal (the One Focal Rule); arrows share one form: a 2px navy shaft and a filled signal-blue
-  head, echoing the logo. On navy grounds the shaft is `navy-500`.
-- Labels are real text in Public Sans (names in the serif), at 0.875rem or larger. No monospace, no eyebrows, no
-  uppercase tracking.
-- A visual exhibit never stands alone: the same content is in text (a list, `dl` or caption) for assistive tech.
-- **Diagram skin.** When drafting a new exhibit with the diagram-design skill, map its roles to these tokens and use
-  `Font source: system` with the site's own fonts: paper → `paper`, paper-2 → `mist`, ink → `navy-950`, muted →
-  `graphite-600`, soft → `graphite-600`, rule → `navy-100`, rule-solid → `navy-200`, accent → `signal-500`,
-  accent-tint → `navy-50`, link → `navy-700`; title → Source Serif 4, node-name → Public Sans 600, sublabel and
-  arrow-label → Public Sans 400 (not mono), eyebrow → not used. Then rebuild the draft as an Astro component.
+Arrows across the site share one form: a 2px navy shaft and a filled signal-blue head, echoing the logo.
 
 ### Founder's note
 
@@ -334,16 +287,8 @@ disclosures: the data table and the SQL. It loads DuckDB-WASM only when scrolled
 
 ### Motion
 
-Two authored moments, both with the exponential ease-out `cubic-bezier(0.16, 1, 0.3, 1)`:
-
-- **On load, the hero.** The copy settles (`.settle`, 900ms; `.settle-late` delayed 140ms) while the signature
-  resolves: squares travel from scattered to their streams (about 1.6s, staggered left to right), then the arrow
-  draws. Pure CSS; the resting state is the resolved arrow.
-- **On scroll, each exhibit draws once.** Lines and arrows draw, then nodes and labels arrive in reading order
-  (`[data-draw]`, set to `.is-drawn` by an IntersectionObserver at about a fifth in view; it never replays). Without
-  JavaScript, exhibits render fully drawn.
-
-Everything else is a 150ms colour transition. `prefers-reduced-motion` shows every resting state at once.
+The hero settles in on load (`.settle`, 900ms, `cubic-bezier(0.16, 1, 0.3, 1)`, with `.settle-late` delayed
+140ms). Everything else is a 150ms colour transition. `prefers-reduced-motion` disables the settle.
 
 ## Do's and Don'ts
 
@@ -360,10 +305,9 @@ Everything else is a 150ms colour transition. `prefers-reduced-motion` shows eve
 
 - Don't claim clinics, customers, results or testimonials that don't exist.
 - Don't publish pricing, ARR/CAC/LTV, grants, or roadmap detail.
-- Don't use cards as the page structure, or add shadows, gradients or backdrop blur.
-- Don't invent data for an exhibit; draw the mechanism. Don't let a page go without an exhibit.
+- Don't use cards as the page structure, or add shadows or gradients.
 - Don't put a kicker or number above a heading.
 - Don't add a coloured border-left to callouts.
 - Don't use monospace outside code (the explorer's SQL), or set text in `navy-400` on light grounds.
 - Don't pick colours inside a chart or report. Use the chart roles; change a role in `global.css` if needed.
-- Don't use signal blue as a container or button fill; inside exhibits it fills marks only, one focal node each.
+- Don't use signal blue as a fill.

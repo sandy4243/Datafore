@@ -49,8 +49,6 @@ const ogImage = new URL(withBase("/images/og-datafore.png"), Astro.site);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    {/* Before first paint, so exhibits start undrawn only when the script that draws them will run. */}
-    <script is:inline>document.documentElement.classList.add("js");</script>
   </head>
   <body>
     <!--
@@ -61,42 +59,15 @@ const ogImage = new URL(withBase("/images/og-datafore.png"), Astro.site);
       wide margins, full-bleed navy bands for the statements that matter. No monospace, no cards-as-structure.
       STORY: A clinic owner sees their business understood at the level of strategy, believes Datafore
       can be trusted with patient data, and starts a conversation. An evaluator finds governance in one click.
-      FIRST VIEWPORT: Navy band. A serif statement at display size, a one-paragraph positioning line, two
-      actions; on the right the signature (scattered squares resolving into one arrow); below, the questions we answer.
-      EXHIBITS: every pitch page draws the mechanism (src/components/exhibits), never invented results.
+      FIRST VIEWPORT: Navy band. A serif statement of the outcome at display size, a one-paragraph
+      positioning line, two actions; a quiet right column naming the three decisions we help leaders make.
       FORM: User-pinned direction ("Premium advisory"), brief-chosen; no concept roll.
       FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
     -->
-    <a
-      href="#main"
-      class="sr-only rounded-sm bg-navy-900 px-4 py-3 font-medium text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60]"
-    >
-      Skip to content
-    </a>
     <Header />
-    <main id="main" tabindex="-1" class="focus:outline-none">
+    <main>
       <slot />
     </main>
     <Footer />
-
-    <script>
-      // Exhibits draw once, about a fifth of the way into view (see global.css).
-      const exhibits = document.querySelectorAll<HTMLElement>("[data-draw]");
-      if (!("IntersectionObserver" in window)) {
-        exhibits.forEach((el) => el.classList.add("is-drawn"));
-      } else {
-        const io = new IntersectionObserver(
-          (entries) => {
-            for (const e of entries) {
-              if (!e.isIntersecting) continue;
-              e.target.classList.add("is-drawn");
-              io.unobserve(e.target);
-            }
-          },
-          { threshold: 0.2, rootMargin: "0px 0px -8% 0px" },
-        );
-        exhibits.forEach((el) => io.observe(el));
-      }
-    </script>
   </body>
 </html>

@@ -311,7 +311,7 @@
   font-weight: 500;
 }
 
-/* Authored moment one: the hero settles into place on first load. */
+/* The one authored moment: the hero settles into place on first load. */
 @keyframes settle {
   from {
     opacity: 0;
@@ -331,95 +331,11 @@
   animation: settle 900ms cubic-bezier(0.16, 1, 0.3, 1) 140ms both;
 }
 
-/* ---- Hero signature (SignalField.astro). The resting state is the resolved
-   arrow; each square animates in from its scattered offset, then the streams
-   and the head draw. ---- */
-@keyframes sf-resolve {
-  from {
-    transform: translate(var(--dx), var(--dy)) rotate(var(--r));
-    opacity: 0.35;
-  }
-}
-@keyframes sf-draw {
-  from {
-    stroke-dashoffset: 1;
-  }
-}
-@keyframes sf-head {
-  from {
-    opacity: 0;
-    transform: translateX(-18px);
-  }
-}
-.sf-sq {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: sf-resolve 1700ms cubic-bezier(0.16, 1, 0.3, 1) var(--delay) both;
-}
-.sf-stream {
-  stroke-dasharray: 1;
-  animation: sf-draw 900ms cubic-bezier(0.16, 1, 0.3, 1) 900ms both;
-}
-.sf-head {
-  animation: sf-head 800ms cubic-bezier(0.16, 1, 0.3, 1) 1400ms both;
-}
-
-/* ---- Exhibits draw once as they scroll into view. Without JavaScript (no
-   `.js` on <html>) or once `.is-drawn` is set, everything rests drawn.
-   - .d-line / .d-line-y  a rule that draws along x / y
-   - .d-path              an SVG path with pathLength="1"
-   - .d-in                a node or label that arrives; --i orders it ---- */
-.d-line,
-.d-line-y,
-.d-path,
-.d-in {
-  transition:
-    transform 1100ms cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
-    stroke-dashoffset 1300ms cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: calc(var(--i, 0) * 130ms);
-}
-.d-line {
-  transform-origin: left center;
-}
-.d-line-y {
-  transform-origin: center top;
-}
-.d-path {
-  stroke-dasharray: 1;
-}
-.js [data-draw]:not(.is-drawn) .d-line {
-  transform: scaleX(0);
-}
-.js [data-draw]:not(.is-drawn) .d-line-y {
-  transform: scaleY(0);
-}
-.js [data-draw]:not(.is-drawn) .d-path {
-  stroke-dashoffset: 1;
-}
-.js [data-draw]:not(.is-drawn) .d-in {
-  opacity: 0;
-  transform: translateY(10px);
-}
-@media print {
-  .js [data-draw] .d-line,
-  .js [data-draw] .d-line-y,
-  .js [data-draw] .d-in {
-    opacity: 1;
-    transform: none;
-  }
-  .js [data-draw] .d-path {
-    stroke-dashoffset: 0;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
-    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    transition-delay: 0s !important;
     scroll-behavior: auto !important;
   }
 }
