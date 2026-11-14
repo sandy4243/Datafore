@@ -1,15 +1,15 @@
 ---
 /**
  * The home hero's artwork: separate streams of data combining into knowledge,
- * branching into ideas, and one of them carrying forward as wisdom.
+ * branching into ideas, and one of them carrying forward as action.
  *
  *   Data       four bundles of streamlines, each its own tone, enter from the left
  *   Knowledge  they braid together and meet at one bright point
  *   Ideas      a few branches open out from it, each ending in a small square
- *   Wisdom     one branch continues, brighter, out of the frame: the chosen path
+ *   Action     one branch continues, brighter, out of the frame: the chosen path
  *
  * On load it draws itself in that order (CSS, .kf-*), then pulses of light keep
- * travelling along the streams and the wisdom line. The resting state is the full
+ * travelling along the streams and the action line. The resting state is the full
  * drawing; reduced motion shows it at once. Labels show from lg only. Decorative:
  * the hero copy carries the meaning.
  */
@@ -27,7 +27,7 @@ const r1 = (n: number) => Math.round(n * 10) / 10;
 
 const W = 1000, H = 800;
 const K = { x: 540, y: 400 }; // knowledge
-const Wis = { x: 920, y: 400 }; // where wisdom leaves the ideas behind
+const Act = { x: 920, y: 400 }; // where action leaves the other ideas behind
 
 // Data: four distinct streams, each a bundle of lines with its own tone.
 const bundles = [
@@ -58,20 +58,20 @@ const dataLines = bundles.flatMap((b, bi) =>
   }),
 );
 
-// Ideas: branches open out from knowledge; one carries on as wisdom.
+// Ideas: branches open out from knowledge; one carries on as action.
 const ideaEnds = [190, 290, 510, 610].map((y) => ({ x: between(770, 820), y: y + between(-14, 14) }));
 const ideas = ideaEnds.map((e) => ({
   d: `M ${K.x} ${K.y} C ${K.x + 90} ${K.y} ${e.x - 120} ${r1(e.y)} ${r1(e.x)} ${r1(e.y)}`,
   end: e,
 }));
-const wisdom = `M ${K.x} ${K.y} C ${K.x + 140} ${K.y} ${Wis.x - 160} ${Wis.y} ${Wis.x} ${Wis.y} L ${W + 60} ${Wis.y}`;
+const action = `M ${K.x} ${K.y} C ${K.x + 140} ${K.y} ${Act.x - 160} ${Act.y} ${Act.x} ${Act.y} L ${W + 60} ${Act.y}`;
 
 // Each label sits beside the feature it names, clear of the lines.
 const labels = [
   { text: "Data", x: 360, y: 412 },
   { text: "Knowledge", x: K.x, y: K.y + 58 },
   { text: "Ideas", x: ideaEnds[0].x, y: ideaEnds[0].y - 26 },
-  { text: "Wisdom", x: 950, y: Wis.y - 22 },
+  { text: "Action", x: 950, y: Act.y - 22 },
 ];
 ---
 
@@ -124,9 +124,9 @@ const labels = [
     ))
   }
 
-  <!-- Wisdom: the one path that carries forward -->
+  <!-- Action: the one path that carries forward -->
   <path
-    d={wisdom}
+    d={action}
     pathLength="1"
     class="kf-draw fill-none stroke-signal-500"
     stroke-width="3.5"
@@ -137,7 +137,7 @@ const labels = [
   <circle cx={K.x} cy={K.y} r="22" class="kf-in fill-none stroke-navy-500" stroke-width="1.2" style="--kf-delay:1300ms"></circle>
   <circle cx={K.x} cy={K.y} r="8" class="kf-in fill-signal-500 stroke-navy-950" stroke-width="3" style="--kf-delay:1250ms"></circle>
 
-  <!-- Light travelling along the streams into knowledge, and along the wisdom line -->
+  <!-- Light travelling along the streams into knowledge, and along the action line -->
   {
     dataLines
       .filter((l) => l.pulse)
@@ -152,7 +152,7 @@ const labels = [
         />
       ))
   }
-  <path d={wisdom} pathLength="1" class="kf-pulse fill-none stroke-signal-200" stroke-width="4.5" stroke-linecap="round" style="--kf-pdelay:3800ms;--kf-pdur:4200ms"></path>
+  <path d={action} pathLength="1" class="kf-pulse fill-none stroke-signal-200" stroke-width="4.5" stroke-linecap="round" style="--kf-pdelay:3800ms;--kf-pdur:4200ms"></path>
 
   <!-- Stage labels (lg and up) -->
   {

@@ -129,7 +129,7 @@ registry identity before it, which read as legal.
   a container or button fill.
 - Hairline rules and twelve-column asymmetry instead of cards.
 - At least one exhibit per pitch page, so no page reads as an essay.
-- Two authored motion moments: the home hero's artwork (streams of data becoming knowledge, ideas and wisdom) drawing in on load, and
+- Two authored motion moments: the home hero's artwork (streams of data becoming knowledge, ideas and action) drawing in on load, and
   exhibits drawing themselves once as they scroll into view. Plus one ambient one: editorial artwork, where light
   travels slowly along the lines.
 - Every report and article has its own generative artwork, in the manner of a consultancy's insight imagery.
@@ -260,7 +260,7 @@ layout restacks on a phone (no fixed-width SVG with 12px text).
 
 - **Home hero artwork** (`art/KnowledgeFlow.astro`) — four distinct streams of data (separate ribbons, each its own
   navy tone) braid into one bright point, Knowledge; a few branches open out as Ideas, each ending in a small
-  square; one carries on as a signal-blue line, Wisdom, out of the frame. Small Public Sans labels name the four
+  square; one carries on as a signal-blue line, Action, out of the frame. Small Public Sans labels name the four
   stages from lg. It bleeds off the right edge behind a mask so it never crosses the headline; below lg it is a
   banner above the copy. Draws itself in on load in that order, then light keeps travelling along the streams.
   Decorative (`aria-hidden`); it replaces the earlier squares-to-arrow signature, which echoed the logo too closely.
@@ -372,7 +372,7 @@ Two authored moments, both with the exponential ease-out `cubic-bezier(0.16, 1, 
 
 - **On load, the hero.** The copy settles (`.settle`, 900ms; `.settle-late` delayed 140ms) while the artwork
   draws: the data streams (about 1.6s, staggered by stream), the knowledge point, the idea branches, then the
-  wisdom line (done by about 3.6s). Pure CSS (`.kf-*`); the resting state is the full drawing.
+  action line (done by about 3.6s). Pure CSS (`.kf-*`); the resting state is the full drawing.
 - **On scroll, each exhibit draws once.** Lines and arrows draw, then nodes and labels arrive in reading order
   (`[data-draw]`, set to `.is-drawn` by an IntersectionObserver at about a fifth in view; it never replays). Without
   JavaScript, exhibits render fully drawn.
