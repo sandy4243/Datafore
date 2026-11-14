@@ -28,6 +28,10 @@ interface Props {
   format?: FormatName;
   yMax?: number;
   valueLabel?: string;
+  /** Category column heading in the bars view's data table. */
+  labelHeading?: string;
+  /** Status line when a selection returns no rows. */
+  emptyMessage?: string;
   title: string;
   note?: string;
   report?: string;
@@ -46,6 +50,8 @@ const config = {
   format: p.format ?? "int",
   yMax: p.yMax,
   valueLabel: p.valueLabel ?? "Value",
+  labelHeading: p.labelHeading ?? "Category",
+  emptyMessage: p.emptyMessage ?? "No data for this selection.",
 };
 ---
 
@@ -71,7 +77,7 @@ const config = {
     The explorer runs a small database in your browser. It starts when you reach this section.
   </p>
   <div data-output class="mt-4 min-h-[12rem]"></div>
-  {p.note && <p class="mt-6 text-sm leading-relaxed text-graphite-600">{p.note}</p>}
+  {p.note && <p class="mt-6 max-w-[60ch] text-sm leading-relaxed text-graphite-600">{p.note}</p>}
   <details class="mt-4 text-sm">
     <summary class="cursor-pointer font-medium text-navy-800 underline decoration-signal-500 underline-offset-4">
       Show the data

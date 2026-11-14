@@ -28,6 +28,10 @@ interface Config {
   format: FormatName;
   yMax?: number;
   valueLabel: string;
+  /** Column heading for the category in the bars view's data table. */
+  labelHeading: string;
+  /** Shown when a selection returns no rows. */
+  emptyMessage: string;
 }
 
 type Row = Record<string, unknown>;
@@ -84,7 +88,7 @@ export async function mountExplorer(root: HTMLElement): Promise<void> {
       const res = await statement.query(...params);
       const rows = res.toArray().map((r) => r.toJSON() as Row);
       render(cfg, rows, output);
-      say(rows.length ? "" : "No data for this selection. CIHI does not report every region in every year.");
+      say(rows.length ? "" : cfg.emptyMessage);
     };
 
     form.addEventListener("change", () => void run());
@@ -108,7 +112,14 @@ function render(cfg: Config, rows: Row[], output: HTMLElement) {
         return { label: name, role, points: own.map((r) => ({ x: Number(r.x), y: r.y === null ? null : Number(r.y) })) };
       }),
     };
-    output.innerHTML = `<div class="relative" data-line-chart tabindex="0" aria-label="${esc(cfg.title)}"><div class="hidden sm:block">${lineChartSVG(spec, "wide")}</div><div class="sm:hidden">${lineChartSVG(spec, "narrow")}</div></div>`;
+    // Same legend as the static LineChart: line keys, only with two or more series.
+    const legend =
+      spec.series.length > 1
+        ? `<ul class="mb-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-graphite-700" aria-label="Legend">${spec.series
+            .map((s) => `<li class="flex items-center gap-2"><span class="dv-key dv-${s.role}"></span>${esc(s.label)}</li>`)
+            .join("")}</ul>`
+        : "";
+    output.innerHTML = legend + `<div class="relative" data-line-chart tabindex="0" aria-label="${esc(cfg.title)}"><div class="hidden sm:block">${lineChartSVG(spec, "wide")}</div><div class="sm:hidden">${lineChartSVG(spec, "narrow")}</div></div>`;
     output.querySelector<HTMLElement>("[data-line-chart]")!.dataset.tooltip = JSON.stringify(lineTooltipData(spec));
     enhanceLineCharts(output);
   } else {
@@ -125,7 +136,7 @@ function render(cfg: Config, rows: Row[], output: HTMLElement) {
   if (table) {
     const cols = cfg.view === "line"
       ? [{ key: "x", label: "Year" }, { key: "series", label: "Series" }, { key: "y", label: cfg.valueLabel, format: cfg.format }]
-      : [{ key: "label", label: "Health region" }, { key: "value", label: cfg.valueLabel, format: cfg.format }];
+      : [{ key: "label", label: cfg.labelHeading }, { key: "value", label: cfg.valueLabel, format: cfg.format }];
     table.innerHTML = dataTableHTML(cols, rows);
   }
 }

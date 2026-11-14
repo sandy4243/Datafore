@@ -1,0 +1,401 @@
+ref_date,geo,employment_size,naics_code,naics,businesses
+2026-01,Canada,"Total, with employees",621310,Offices of chiropractors,3674
+2026-01,Canada,"Total, with employees",621320,Offices of optometrists,3265
+2026-01,Canada,"Total, with employees",621330,Offices of mental health practitioners (except physicians),2827
+2026-01,Canada,"Total, with employees",621340,"Offices of physical, occupational, and speech therapists and audiologists",5653
+2026-01,Canada,"Total, with employees",621390,Offices of all other health practitioners,8927
+2026-01,Canada,"Total, with employees",6213,Offices of other health practitioners,24346
+2026-01,Canada,1 to 4 employees,621310,Offices of chiropractors,2712
+2026-01,Canada,1 to 4 employees,621320,Offices of optometrists,1970
+2026-01,Canada,1 to 4 employees,621330,Offices of mental health practitioners (except physicians),2356
+2026-01,Canada,1 to 4 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",2818
+2026-01,Canada,1 to 4 employees,621390,Offices of all other health practitioners,6637
+2026-01,Canada,1 to 4 employees,6213,Offices of other health practitioners,16493
+2026-01,Canada,5 to 9 employees,621310,Offices of chiropractors,759
+2026-01,Canada,5 to 9 employees,621320,Offices of optometrists,800
+2026-01,Canada,5 to 9 employees,621330,Offices of mental health practitioners (except physicians),247
+2026-01,Canada,5 to 9 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",1395
+2026-01,Canada,5 to 9 employees,621390,Offices of all other health practitioners,1519
+2026-01,Canada,5 to 9 employees,6213,Offices of other health practitioners,4720
+2026-01,Canada,10 to 19 employees,621310,Offices of chiropractors,169
+2026-01,Canada,10 to 19 employees,621320,Offices of optometrists,379
+2026-01,Canada,10 to 19 employees,621330,Offices of mental health practitioners (except physicians),139
+2026-01,Canada,10 to 19 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",1036
+2026-01,Canada,10 to 19 employees,621390,Offices of all other health practitioners,521
+2026-01,Canada,10 to 19 employees,6213,Offices of other health practitioners,2244
+2026-01,Canada,20 to 49 employees,621310,Offices of chiropractors,31
+2026-01,Canada,20 to 49 employees,621320,Offices of optometrists,106
+2026-01,Canada,20 to 49 employees,621330,Offices of mental health practitioners (except physicians),67
+2026-01,Canada,20 to 49 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",338
+2026-01,Canada,20 to 49 employees,621390,Offices of all other health practitioners,190
+2026-01,Canada,20 to 49 employees,6213,Offices of other health practitioners,732
+2026-01,Canada,50 to 99 employees,621310,Offices of chiropractors,2
+2026-01,Canada,50 to 99 employees,621320,Offices of optometrists,9
+2026-01,Canada,50 to 99 employees,621330,Offices of mental health practitioners (except physicians),10
+2026-01,Canada,50 to 99 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",45
+2026-01,Canada,50 to 99 employees,621390,Offices of all other health practitioners,38
+2026-01,Canada,50 to 99 employees,6213,Offices of other health practitioners,104
+2026-01,Canada,100 to 199 employees,621320,Offices of optometrists,1
+2026-01,Canada,100 to 199 employees,621330,Offices of mental health practitioners (except physicians),4
+2026-01,Canada,100 to 199 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",13
+2026-01,Canada,100 to 199 employees,621390,Offices of all other health practitioners,17
+2026-01,Canada,100 to 199 employees,6213,Offices of other health practitioners,35
+2026-01,Canada,200 to 499 employees,621310,Offices of chiropractors,1
+2026-01,Canada,200 to 499 employees,621330,Offices of mental health practitioners (except physicians),4
+2026-01,Canada,200 to 499 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",8
+2026-01,Canada,200 to 499 employees,621390,Offices of all other health practitioners,4
+2026-01,Canada,200 to 499 employees,6213,Offices of other health practitioners,17
+2026-01,Canada,500 plus employees,621390,Offices of all other health practitioners,1
+2026-01,Canada,500 plus employees,6213,Offices of other health practitioners,1
+2026-01,Newfoundland and Labrador,"Total, with employees",621310,Offices of chiropractors,26
+2026-01,Newfoundland and Labrador,"Total, with employees",621320,Offices of optometrists,23
+2026-01,Newfoundland and Labrador,"Total, with employees",621330,Offices of mental health practitioners (except physicians),34
+2026-01,Newfoundland and Labrador,"Total, with employees",621340,"Offices of physical, occupational, and speech therapists and audiologists",64
+2026-01,Newfoundland and Labrador,"Total, with employees",621390,Offices of all other health practitioners,70
+2026-01,Newfoundland and Labrador,"Total, with employees",6213,Offices of other health practitioners,217
+2026-01,Newfoundland and Labrador,1 to 4 employees,621310,Offices of chiropractors,21
+2026-01,Newfoundland and Labrador,1 to 4 employees,621320,Offices of optometrists,18
+2026-01,Newfoundland and Labrador,1 to 4 employees,621330,Offices of mental health practitioners (except physicians),31
+2026-01,Newfoundland and Labrador,1 to 4 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",24
+2026-01,Newfoundland and Labrador,1 to 4 employees,621390,Offices of all other health practitioners,47
+2026-01,Newfoundland and Labrador,1 to 4 employees,6213,Offices of other health practitioners,141
+2026-01,Newfoundland and Labrador,5 to 9 employees,621310,Offices of chiropractors,5
+2026-01,Newfoundland and Labrador,5 to 9 employees,621320,Offices of optometrists,4
+2026-01,Newfoundland and Labrador,5 to 9 employees,621330,Offices of mental health practitioners (except physicians),3
+2026-01,Newfoundland and Labrador,5 to 9 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",21
+2026-01,Newfoundland and Labrador,5 to 9 employees,621390,Offices of all other health practitioners,14
+2026-01,Newfoundland and Labrador,5 to 9 employees,6213,Offices of other health practitioners,47
+2026-01,Newfoundland and Labrador,10 to 19 employees,621320,Offices of optometrists,1
+2026-01,Newfoundland and Labrador,10 to 19 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",16
+2026-01,Newfoundland and Labrador,10 to 19 employees,621390,Offices of all other health practitioners,3
+2026-01,Newfoundland and Labrador,10 to 19 employees,6213,Offices of other health practitioners,20
+2026-01,Newfoundland and Labrador,20 to 49 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",3
+2026-01,Newfoundland and Labrador,20 to 49 employees,621390,Offices of all other health practitioners,6
+2026-01,Newfoundland and Labrador,20 to 49 employees,6213,Offices of other health practitioners,9
+2026-01,Prince Edward Island,"Total, with employees",621310,Offices of chiropractors,6
+2026-01,Prince Edward Island,"Total, with employees",621320,Offices of optometrists,11
+2026-01,Prince Edward Island,"Total, with employees",621330,Offices of mental health practitioners (except physicians),6
+2026-01,Prince Edward Island,"Total, with employees",621340,"Offices of physical, occupational, and speech therapists and audiologists",17
+2026-01,Prince Edward Island,"Total, with employees",621390,Offices of all other health practitioners,26
+2026-01,Prince Edward Island,"Total, with employees",6213,Offices of other health practitioners,66
+2026-01,Prince Edward Island,1 to 4 employees,621310,Offices of chiropractors,3
+2026-01,Prince Edward Island,1 to 4 employees,621320,Offices of optometrists,8
+2026-01,Prince Edward Island,1 to 4 employees,621330,Offices of mental health practitioners (except physicians),4
+2026-01,Prince Edward Island,1 to 4 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",9
+2026-01,Prince Edward Island,1 to 4 employees,621390,Offices of all other health practitioners,21
+2026-01,Prince Edward Island,1 to 4 employees,6213,Offices of other health practitioners,45
+2026-01,Prince Edward Island,5 to 9 employees,621310,Offices of chiropractors,3
+2026-01,Prince Edward Island,5 to 9 employees,621320,Offices of optometrists,2
+2026-01,Prince Edward Island,5 to 9 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",4
+2026-01,Prince Edward Island,5 to 9 employees,621390,Offices of all other health practitioners,2
+2026-01,Prince Edward Island,5 to 9 employees,6213,Offices of other health practitioners,11
+2026-01,Prince Edward Island,10 to 19 employees,621330,Offices of mental health practitioners (except physicians),2
+2026-01,Prince Edward Island,10 to 19 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",3
+2026-01,Prince Edward Island,10 to 19 employees,621390,Offices of all other health practitioners,2
+2026-01,Prince Edward Island,10 to 19 employees,6213,Offices of other health practitioners,7
+2026-01,Prince Edward Island,20 to 49 employees,621320,Offices of optometrists,1
+2026-01,Prince Edward Island,20 to 49 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",1
+2026-01,Prince Edward Island,20 to 49 employees,621390,Offices of all other health practitioners,1
+2026-01,Prince Edward Island,20 to 49 employees,6213,Offices of other health practitioners,3
+2026-01,Nova Scotia,"Total, with employees",621310,Offices of chiropractors,90
+2026-01,Nova Scotia,"Total, with employees",621320,Offices of optometrists,68
+2026-01,Nova Scotia,"Total, with employees",621330,Offices of mental health practitioners (except physicians),106
+2026-01,Nova Scotia,"Total, with employees",621340,"Offices of physical, occupational, and speech therapists and audiologists",128
+2026-01,Nova Scotia,"Total, with employees",621390,Offices of all other health practitioners,147
+2026-01,Nova Scotia,"Total, with employees",6213,Offices of other health practitioners,539
+2026-01,Nova Scotia,1 to 4 employees,621310,Offices of chiropractors,65
+2026-01,Nova Scotia,1 to 4 employees,621320,Offices of optometrists,49
+2026-01,Nova Scotia,1 to 4 employees,621330,Offices of mental health practitioners (except physicians),83
+2026-01,Nova Scotia,1 to 4 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",47
+2026-01,Nova Scotia,1 to 4 employees,621390,Offices of all other health practitioners,109
+2026-01,Nova Scotia,1 to 4 employees,6213,Offices of other health practitioners,353
+2026-01,Nova Scotia,5 to 9 employees,621310,Offices of chiropractors,19
+2026-01,Nova Scotia,5 to 9 employees,621320,Offices of optometrists,12
+2026-01,Nova Scotia,5 to 9 employees,621330,Offices of mental health practitioners (except physicians),16
+2026-01,Nova Scotia,5 to 9 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",41
+2026-01,Nova Scotia,5 to 9 employees,621390,Offices of all other health practitioners,23
+2026-01,Nova Scotia,5 to 9 employees,6213,Offices of other health practitioners,111
+2026-01,Nova Scotia,10 to 19 employees,621310,Offices of chiropractors,5
+2026-01,Nova Scotia,10 to 19 employees,621320,Offices of optometrists,4
+2026-01,Nova Scotia,10 to 19 employees,621330,Offices of mental health practitioners (except physicians),4
+2026-01,Nova Scotia,10 to 19 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",22
+2026-01,Nova Scotia,10 to 19 employees,621390,Offices of all other health practitioners,12
+2026-01,Nova Scotia,10 to 19 employees,6213,Offices of other health practitioners,47
+2026-01,Nova Scotia,20 to 49 employees,621310,Offices of chiropractors,1
+2026-01,Nova Scotia,20 to 49 employees,621320,Offices of optometrists,3
+2026-01,Nova Scotia,20 to 49 employees,621330,Offices of mental health practitioners (except physicians),2
+2026-01,Nova Scotia,20 to 49 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",16
+2026-01,Nova Scotia,20 to 49 employees,621390,Offices of all other health practitioners,2
+2026-01,Nova Scotia,20 to 49 employees,6213,Offices of other health practitioners,24
+2026-01,Nova Scotia,50 to 99 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",1
+2026-01,Nova Scotia,50 to 99 employees,621390,Offices of all other health practitioners,1
+2026-01,Nova Scotia,50 to 99 employees,6213,Offices of other health practitioners,2
+2026-01,Nova Scotia,100 to 199 employees,6213,Offices of other health practitioners,2
+2026-01,Nova Scotia,100 to 199 employees,621330,Offices of mental health practitioners (except physicians),1
+2026-01,Nova Scotia,100 to 199 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",1
+2026-01,New Brunswick,"Total, with employees",621310,Offices of chiropractors,65
+2026-01,New Brunswick,"Total, with employees",621320,Offices of optometrists,67
+2026-01,New Brunswick,"Total, with employees",621330,Offices of mental health practitioners (except physicians),50
+2026-01,New Brunswick,"Total, with employees",621340,"Offices of physical, occupational, and speech therapists and audiologists",99
+2026-01,New Brunswick,"Total, with employees",621390,Offices of all other health practitioners,171
+2026-01,New Brunswick,"Total, with employees",6213,Offices of other health practitioners,452
+2026-01,New Brunswick,1 to 4 employees,621310,Offices of chiropractors,41
+2026-01,New Brunswick,1 to 4 employees,621320,Offices of optometrists,42
+2026-01,New Brunswick,1 to 4 employees,621330,Offices of mental health practitioners (except physicians),39
+2026-01,New Brunswick,1 to 4 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",42
+2026-01,New Brunswick,1 to 4 employees,621390,Offices of all other health practitioners,126
+2026-01,New Brunswick,1 to 4 employees,6213,Offices of other health practitioners,290
+2026-01,New Brunswick,5 to 9 employees,621310,Offices of chiropractors,18
+2026-01,New Brunswick,5 to 9 employees,621320,Offices of optometrists,15
+2026-01,New Brunswick,5 to 9 employees,621330,Offices of mental health practitioners (except physicians),4
+2026-01,New Brunswick,5 to 9 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",27
+2026-01,New Brunswick,5 to 9 employees,621390,Offices of all other health practitioners,37
+2026-01,New Brunswick,5 to 9 employees,6213,Offices of other health practitioners,101
+2026-01,New Brunswick,10 to 19 employees,621310,Offices of chiropractors,6
+2026-01,New Brunswick,10 to 19 employees,621320,Offices of optometrists,6
+2026-01,New Brunswick,10 to 19 employees,621330,Offices of mental health practitioners (except physicians),6
+2026-01,New Brunswick,10 to 19 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",22
+2026-01,New Brunswick,10 to 19 employees,621390,Offices of all other health practitioners,6
+2026-01,New Brunswick,10 to 19 employees,6213,Offices of other health practitioners,46
+2026-01,New Brunswick,20 to 49 employees,621320,Offices of optometrists,4
+2026-01,New Brunswick,20 to 49 employees,621330,Offices of mental health practitioners (except physicians),1
+2026-01,New Brunswick,20 to 49 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",7
+2026-01,New Brunswick,20 to 49 employees,621390,Offices of all other health practitioners,2
+2026-01,New Brunswick,20 to 49 employees,6213,Offices of other health practitioners,14
+2026-01,New Brunswick,50 to 99 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",1
+2026-01,New Brunswick,50 to 99 employees,6213,Offices of other health practitioners,1
+2026-01,Quebec,"Total, with employees",621310,Offices of chiropractors,467
+2026-01,Quebec,"Total, with employees",621320,Offices of optometrists,598
+2026-01,Quebec,"Total, with employees",621330,Offices of mental health practitioners (except physicians),298
+2026-01,Quebec,"Total, with employees",621340,"Offices of physical, occupational, and speech therapists and audiologists",841
+2026-01,Quebec,"Total, with employees",621390,Offices of all other health practitioners,1471
+2026-01,Quebec,"Total, with employees",6213,Offices of other health practitioners,3675
+2026-01,Quebec,1 to 4 employees,621310,Offices of chiropractors,382
+2026-01,Quebec,1 to 4 employees,621320,Offices of optometrists,426
+2026-01,Quebec,1 to 4 employees,621330,Offices of mental health practitioners (except physicians),246
+2026-01,Quebec,1 to 4 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",297
+2026-01,Quebec,1 to 4 employees,621390,Offices of all other health practitioners,1017
+2026-01,Quebec,1 to 4 employees,6213,Offices of other health practitioners,2368
+2026-01,Quebec,5 to 9 employees,621310,Offices of chiropractors,77
+2026-01,Quebec,5 to 9 employees,621320,Offices of optometrists,93
+2026-01,Quebec,5 to 9 employees,621330,Offices of mental health practitioners (except physicians),24
+2026-01,Quebec,5 to 9 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",221
+2026-01,Quebec,5 to 9 employees,621390,Offices of all other health practitioners,296
+2026-01,Quebec,5 to 9 employees,6213,Offices of other health practitioners,711
+2026-01,Quebec,10 to 19 employees,621310,Offices of chiropractors,6
+2026-01,Quebec,10 to 19 employees,621320,Offices of optometrists,60
+2026-01,Quebec,10 to 19 employees,621330,Offices of mental health practitioners (except physicians),18
+2026-01,Quebec,10 to 19 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",225
+2026-01,Quebec,10 to 19 employees,621390,Offices of all other health practitioners,125
+2026-01,Quebec,10 to 19 employees,6213,Offices of other health practitioners,434
+2026-01,Quebec,20 to 49 employees,621310,Offices of chiropractors,2
+2026-01,Quebec,20 to 49 employees,621320,Offices of optometrists,17
+2026-01,Quebec,20 to 49 employees,621330,Offices of mental health practitioners (except physicians),9
+2026-01,Quebec,20 to 49 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",92
+2026-01,Quebec,20 to 49 employees,621390,Offices of all other health practitioners,22
+2026-01,Quebec,20 to 49 employees,6213,Offices of other health practitioners,142
+2026-01,Quebec,50 to 99 employees,621320,Offices of optometrists,2
+2026-01,Quebec,50 to 99 employees,621330,Offices of mental health practitioners (except physicians),1
+2026-01,Quebec,50 to 99 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",5
+2026-01,Quebec,50 to 99 employees,621390,Offices of all other health practitioners,5
+2026-01,Quebec,50 to 99 employees,6213,Offices of other health practitioners,13
+2026-01,Quebec,100 to 199 employees,621390,Offices of all other health practitioners,6
+2026-01,Quebec,100 to 199 employees,6213,Offices of other health practitioners,6
+2026-01,Quebec,200 to 499 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",1
+2026-01,Quebec,200 to 499 employees,6213,Offices of other health practitioners,1
+2026-01,Ontario,"Total, with employees",621310,Offices of chiropractors,1639
+2026-01,Ontario,"Total, with employees",621320,Offices of optometrists,1312
+2026-01,Ontario,"Total, with employees",621330,Offices of mental health practitioners (except physicians),1171
+2026-01,Ontario,"Total, with employees",621340,"Offices of physical, occupational, and speech therapists and audiologists",2312
+2026-01,Ontario,"Total, with employees",621390,Offices of all other health practitioners,3945
+2026-01,Ontario,"Total, with employees",6213,Offices of other health practitioners,10379
+2026-01,Ontario,1 to 4 employees,621310,Offices of chiropractors,1222
+2026-01,Ontario,1 to 4 employees,621320,Offices of optometrists,754
+2026-01,Ontario,1 to 4 employees,621330,Offices of mental health practitioners (except physicians),961
+2026-01,Ontario,1 to 4 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",1233
+2026-01,Ontario,1 to 4 employees,621390,Offices of all other health practitioners,2978
+2026-01,Ontario,1 to 4 employees,6213,Offices of other health practitioners,7148
+2026-01,Ontario,5 to 9 employees,621310,Offices of chiropractors,319
+2026-01,Ontario,5 to 9 employees,621320,Offices of optometrists,373
+2026-01,Ontario,5 to 9 employees,621330,Offices of mental health practitioners (except physicians),98
+2026-01,Ontario,5 to 9 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",565
+2026-01,Ontario,5 to 9 employees,621390,Offices of all other health practitioners,640
+2026-01,Ontario,5 to 9 employees,6213,Offices of other health practitioners,1995
+2026-01,Ontario,10 to 19 employees,621310,Offices of chiropractors,78
+2026-01,Ontario,10 to 19 employees,621320,Offices of optometrists,151
+2026-01,Ontario,10 to 19 employees,621330,Offices of mental health practitioners (except physicians),65
+2026-01,Ontario,10 to 19 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",371
+2026-01,Ontario,10 to 19 employees,621390,Offices of all other health practitioners,207
+2026-01,Ontario,10 to 19 employees,6213,Offices of other health practitioners,872
+2026-01,Ontario,20 to 49 employees,621310,Offices of chiropractors,18
+2026-01,Ontario,20 to 49 employees,621320,Offices of optometrists,30
+2026-01,Ontario,20 to 49 employees,621330,Offices of mental health practitioners (except physicians),35
+2026-01,Ontario,20 to 49 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",109
+2026-01,Ontario,20 to 49 employees,621390,Offices of all other health practitioners,93
+2026-01,Ontario,20 to 49 employees,6213,Offices of other health practitioners,285
+2026-01,Ontario,50 to 99 employees,621310,Offices of chiropractors,1
+2026-01,Ontario,50 to 99 employees,621320,Offices of optometrists,4
+2026-01,Ontario,50 to 99 employees,621330,Offices of mental health practitioners (except physicians),7
+2026-01,Ontario,50 to 99 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",20
+2026-01,Ontario,50 to 99 employees,621390,Offices of all other health practitioners,19
+2026-01,Ontario,50 to 99 employees,6213,Offices of other health practitioners,51
+2026-01,Ontario,100 to 199 employees,621330,Offices of mental health practitioners (except physicians),3
+2026-01,Ontario,100 to 199 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",9
+2026-01,Ontario,100 to 199 employees,621390,Offices of all other health practitioners,4
+2026-01,Ontario,100 to 199 employees,6213,Offices of other health practitioners,16
+2026-01,Ontario,200 to 499 employees,621310,Offices of chiropractors,1
+2026-01,Ontario,200 to 499 employees,621330,Offices of mental health practitioners (except physicians),2
+2026-01,Ontario,200 to 499 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",5
+2026-01,Ontario,200 to 499 employees,621390,Offices of all other health practitioners,3
+2026-01,Ontario,200 to 499 employees,6213,Offices of other health practitioners,11
+2026-01,Ontario,500 plus employees,621390,Offices of all other health practitioners,1
+2026-01,Ontario,500 plus employees,6213,Offices of other health practitioners,1
+2026-01,Manitoba,"Total, with employees",621310,Offices of chiropractors,129
+2026-01,Manitoba,"Total, with employees",621320,Offices of optometrists,84
+2026-01,Manitoba,"Total, with employees",621330,Offices of mental health practitioners (except physicians),57
+2026-01,Manitoba,"Total, with employees",621340,"Offices of physical, occupational, and speech therapists and audiologists",129
+2026-01,Manitoba,"Total, with employees",621390,Offices of all other health practitioners,200
+2026-01,Manitoba,"Total, with employees",6213,Offices of other health practitioners,599
+2026-01,Manitoba,1 to 4 employees,621310,Offices of chiropractors,96
+2026-01,Manitoba,1 to 4 employees,621320,Offices of optometrists,43
+2026-01,Manitoba,1 to 4 employees,621330,Offices of mental health practitioners (except physicians),42
+2026-01,Manitoba,1 to 4 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",44
+2026-01,Manitoba,1 to 4 employees,621390,Offices of all other health practitioners,139
+2026-01,Manitoba,1 to 4 employees,6213,Offices of other health practitioners,364
+2026-01,Manitoba,5 to 9 employees,621310,Offices of chiropractors,27
+2026-01,Manitoba,5 to 9 employees,621320,Offices of optometrists,23
+2026-01,Manitoba,5 to 9 employees,621330,Offices of mental health practitioners (except physicians),8
+2026-01,Manitoba,5 to 9 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",51
+2026-01,Manitoba,5 to 9 employees,621390,Offices of all other health practitioners,37
+2026-01,Manitoba,5 to 9 employees,6213,Offices of other health practitioners,146
+2026-01,Manitoba,10 to 19 employees,621310,Offices of chiropractors,4
+2026-01,Manitoba,10 to 19 employees,621320,Offices of optometrists,10
+2026-01,Manitoba,10 to 19 employees,621330,Offices of mental health practitioners (except physicians),4
+2026-01,Manitoba,10 to 19 employees,6213,Offices of other health practitioners,56
+2026-01,Alberta,"Total, with employees",621310,Offices of chiropractors,580
+2026-01,Alberta,"Total, with employees",621320,Offices of optometrists,515
+2026-01,Alberta,"Total, with employees",621330,Offices of mental health practitioners (except physicians),596
+2026-01,Alberta,"Total, with employees",621340,"Offices of physical, occupational, and speech therapists and audiologists",856
+2026-01,Alberta,"Total, with employees",621390,Offices of all other health practitioners,1149
+2026-01,Alberta,"Total, with employees",6213,Offices of other health practitioners,3696
+2026-01,Alberta,1 to 4 employees,621310,Offices of chiropractors,411
+2026-01,Alberta,1 to 4 employees,621320,Offices of optometrists,279
+2026-01,Alberta,1 to 4 employees,621330,Offices of mental health practitioners (except physicians),506
+2026-01,Alberta,1 to 4 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",452
+2026-01,Alberta,1 to 4 employees,621390,Offices of all other health practitioners,838
+2026-01,Alberta,1 to 4 employees,6213,Offices of other health practitioners,2486
+2026-01,Alberta,5 to 9 employees,621310,Offices of chiropractors,131
+2026-01,Alberta,5 to 9 employees,6213,Offices of other health practitioners,725
+2026-01,Manitoba,10 to 19 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",25
+2026-01,Manitoba,10 to 19 employees,621390,Offices of all other health practitioners,13
+2026-01,Manitoba,20 to 49 employees,621310,Offices of chiropractors,2
+2026-01,Manitoba,20 to 49 employees,621320,Offices of optometrists,7
+2026-01,Manitoba,20 to 49 employees,621330,Offices of mental health practitioners (except physicians),2
+2026-01,Manitoba,20 to 49 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",6
+2026-01,Manitoba,20 to 49 employees,621390,Offices of all other health practitioners,10
+2026-01,Manitoba,20 to 49 employees,6213,Offices of other health practitioners,27
+2026-01,Manitoba,50 to 99 employees,621320,Offices of optometrists,1
+2026-01,Manitoba,50 to 99 employees,621330,Offices of mental health practitioners (except physicians),1
+2026-01,Manitoba,50 to 99 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",3
+2026-01,Manitoba,50 to 99 employees,621390,Offices of all other health practitioners,1
+2026-01,Manitoba,50 to 99 employees,6213,Offices of other health practitioners,6
+2026-01,Saskatchewan,"Total, with employees",621310,Offices of chiropractors,92
+2026-01,Saskatchewan,"Total, with employees",621320,Offices of optometrists,93
+2026-01,Saskatchewan,"Total, with employees",621330,Offices of mental health practitioners (except physicians),62
+2026-01,Saskatchewan,"Total, with employees",621340,"Offices of physical, occupational, and speech therapists and audiologists",109
+2026-01,Saskatchewan,"Total, with employees",621390,Offices of all other health practitioners,148
+2026-01,Saskatchewan,"Total, with employees",6213,Offices of other health practitioners,504
+2026-01,Saskatchewan,1 to 4 employees,621310,Offices of chiropractors,61
+2026-01,Saskatchewan,1 to 4 employees,621320,Offices of optometrists,67
+2026-01,Saskatchewan,1 to 4 employees,621330,Offices of mental health practitioners (except physicians),55
+2026-01,Saskatchewan,1 to 4 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",61
+2026-01,Saskatchewan,1 to 4 employees,621390,Offices of all other health practitioners,96
+2026-01,Saskatchewan,1 to 4 employees,6213,Offices of other health practitioners,340
+2026-01,Saskatchewan,5 to 9 employees,621310,Offices of chiropractors,26
+2026-01,Saskatchewan,5 to 9 employees,621320,Offices of optometrists,12
+2026-01,Saskatchewan,5 to 9 employees,621330,Offices of mental health practitioners (except physicians),4
+2026-01,Saskatchewan,5 to 9 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",19
+2026-01,Saskatchewan,5 to 9 employees,621390,Offices of all other health practitioners,39
+2026-01,Saskatchewan,5 to 9 employees,6213,Offices of other health practitioners,100
+2026-01,Saskatchewan,10 to 19 employees,621310,Offices of chiropractors,5
+2026-01,Saskatchewan,10 to 19 employees,621320,Offices of optometrists,9
+2026-01,Saskatchewan,10 to 19 employees,621330,Offices of mental health practitioners (except physicians),3
+2026-01,Saskatchewan,10 to 19 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",18
+2026-01,Saskatchewan,10 to 19 employees,621390,Offices of all other health practitioners,9
+2026-01,Saskatchewan,10 to 19 employees,6213,Offices of other health practitioners,44
+2026-01,Saskatchewan,20 to 49 employees,621320,Offices of optometrists,4
+2026-01,Saskatchewan,20 to 49 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",7
+2026-01,Saskatchewan,20 to 49 employees,621390,Offices of all other health practitioners,3
+2026-01,Saskatchewan,20 to 49 employees,6213,Offices of other health practitioners,14
+2026-01,Saskatchewan,50 to 99 employees,621320,Offices of optometrists,1
+2026-01,Saskatchewan,50 to 99 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",3
+2026-01,Saskatchewan,50 to 99 employees,621390,Offices of all other health practitioners,1
+2026-01,Saskatchewan,50 to 99 employees,6213,Offices of other health practitioners,5
+2026-01,Saskatchewan,200 to 499 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",1
+2026-01,Saskatchewan,200 to 499 employees,6213,Offices of other health practitioners,1
+2026-01,Alberta,5 to 9 employees,621320,Offices of optometrists,148
+2026-01,Alberta,5 to 9 employees,621330,Offices of mental health practitioners (except physicians),58
+2026-01,Alberta,5 to 9 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",181
+2026-01,Alberta,5 to 9 employees,621390,Offices of all other health practitioners,207
+2026-01,Alberta,10 to 19 employees,621310,Offices of chiropractors,32
+2026-01,Alberta,10 to 19 employees,621320,Offices of optometrists,66
+2026-01,Alberta,10 to 19 employees,621330,Offices of mental health practitioners (except physicians),22
+2026-01,Alberta,10 to 19 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",167
+2026-01,Alberta,10 to 19 employees,621390,Offices of all other health practitioners,69
+2026-01,Alberta,10 to 19 employees,6213,Offices of other health practitioners,356
+2026-01,Alberta,20 to 49 employees,621310,Offices of chiropractors,6
+2026-01,Alberta,20 to 49 employees,621320,Offices of optometrists,20
+2026-01,Alberta,20 to 49 employees,621330,Offices of mental health practitioners (except physicians),8
+2026-01,Alberta,20 to 49 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",47
+2026-01,Alberta,20 to 49 employees,621390,Offices of all other health practitioners,21
+2026-01,Alberta,20 to 49 employees,6213,Offices of other health practitioners,102
+2026-01,Alberta,50 to 99 employees,621320,Offices of optometrists,1
+2026-01,Alberta,50 to 99 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",6
+2026-01,Alberta,50 to 99 employees,621390,Offices of all other health practitioners,8
+2026-01,Alberta,50 to 99 employees,6213,Offices of other health practitioners,15
+2026-01,Alberta,100 to 199 employees,621320,Offices of optometrists,1
+2026-01,Alberta,100 to 199 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",2
+2026-01,Alberta,100 to 199 employees,621390,Offices of all other health practitioners,5
+2026-01,Alberta,100 to 199 employees,6213,Offices of other health practitioners,8
+2026-01,Alberta,200 to 499 employees,621330,Offices of mental health practitioners (except physicians),2
+2026-01,Alberta,200 to 499 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",1
+2026-01,Alberta,200 to 499 employees,621390,Offices of all other health practitioners,1
+2026-01,Alberta,200 to 499 employees,6213,Offices of other health practitioners,4
+2026-01,British Columbia,"Total, with employees",621310,Offices of chiropractors,578
+2026-01,British Columbia,"Total, with employees",621320,Offices of optometrists,492
+2026-01,British Columbia,"Total, with employees",621330,Offices of mental health practitioners (except physicians),441
+2026-01,British Columbia,"Total, with employees",621340,"Offices of physical, occupational, and speech therapists and audiologists",1088
+2026-01,British Columbia,"Total, with employees",621390,Offices of all other health practitioners,1584
+2026-01,British Columbia,"Total, with employees",6213,Offices of other health practitioners,4183
+2026-01,British Columbia,1 to 4 employees,621310,Offices of chiropractors,408
+2026-01,British Columbia,1 to 4 employees,621320,Offices of optometrists,284
+2026-01,British Columbia,1 to 4 employees,621330,Offices of mental health practitioners (except physicians),385
+2026-01,British Columbia,1 to 4 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",606
+2026-01,British Columbia,1 to 4 employees,621390,Offices of all other health practitioners,1252
+2026-01,British Columbia,1 to 4 employees,6213,Offices of other health practitioners,2935
+2026-01,British Columbia,5 to 9 employees,621310,Offices of chiropractors,134
+2026-01,British Columbia,5 to 9 employees,621320,Offices of optometrists,118
+2026-01,British Columbia,5 to 9 employees,621330,Offices of mental health practitioners (except physicians),30
+2026-01,British Columbia,5 to 9 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",262
+2026-01,British Columbia,5 to 9 employees,621390,Offices of all other health practitioners,223
+2026-01,British Columbia,5 to 9 employees,6213,Offices of other health practitioners,767
+2026-01,British Columbia,10 to 19 employees,621310,Offices of chiropractors,33
+2026-01,British Columbia,10 to 19 employees,621320,Offices of optometrists,70
+2026-01,British Columbia,10 to 19 employees,621330,Offices of mental health practitioners (except physicians),15
+2026-01,British Columbia,10 to 19 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",164
+2026-01,British Columbia,10 to 19 employees,621390,Offices of all other health practitioners,75
+2026-01,British Columbia,10 to 19 employees,6213,Offices of other health practitioners,357
+2026-01,British Columbia,20 to 49 employees,621310,Offices of chiropractors,2
+2026-01,British Columbia,20 to 49 employees,621320,Offices of optometrists,20
+2026-01,British Columbia,20 to 49 employees,621330,Offices of mental health practitioners (except physicians),10
+2026-01,British Columbia,20 to 49 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",49
+2026-01,British Columbia,20 to 49 employees,621390,Offices of all other health practitioners,29
+2026-01,British Columbia,20 to 49 employees,6213,Offices of other health practitioners,110
+2026-01,British Columbia,50 to 99 employees,621310,Offices of chiropractors,1
+2026-01,British Columbia,50 to 99 employees,621330,Offices of mental health practitioners (except physicians),1
+2026-01,British Columbia,50 to 99 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",6
+2026-01,British Columbia,50 to 99 employees,621390,Offices of all other health practitioners,3
+2026-01,British Columbia,50 to 99 employees,6213,Offices of other health practitioners,11
+2026-01,British Columbia,100 to 199 employees,621340,"Offices of physical, occupational, and speech therapists and audiologists",1
+2026-01,British Columbia,100 to 199 employees,621390,Offices of all other health practitioners,2
+2026-01,British Columbia,100 to 199 employees,6213,Offices of other health practitioners,3

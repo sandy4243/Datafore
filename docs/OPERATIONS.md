@@ -10,7 +10,7 @@ lives in the linked pages.
 | Domain DNS | AWS Route 53 | Route 53 → Hosted zones → datafore.ca | [DNS.md](./DNS.md) |
 | Email | Google Workspace | admin.google.com | [EMAIL.md](./EMAIL.md) |
 | Contact form | FormSubmit (formsubmit.co) | `src/components/ContactForm.astro` | [Contact form](#contact-form) |
-| Call booking | Calendly | `src/pages/contact.astro` (`bookingURL`) | [Booking](#call-booking) |
+| Call booking | Calendly | `src/lib/contact.ts` (`bookingURL`) | [Booking](#call-booking) |
 | Search | Google Search Console | search.google.com/search-console | [Search Console](#google-search-console) |
 | Research reports | DuckDB (build) and DuckDB-WASM (browser) | `reports/`, `src/content/reports/` | [Research](#research-reports) |
 | Analytics | None yet | — | [Analytics](#analytics) |
@@ -28,12 +28,23 @@ lives in the linked pages.
 - **Visitors see a stale page?** A hard refresh fixes it; GitHub's CDN updates within minutes.
 - How the domain was moved here, and how to move it back: [CUTOVER.md](./CUTOVER.md).
 
+**Rolling back a release.** Before a large redesign, keep the outgoing site:
+
+- an `archive/<name>` branch at the commit that was live (create it in GitHub's branch list, from `main`, before
+  merging), and
+- a draft pull request that reverts the merge, ready to merge in one click.
+
+Current: the site before the November 2026 exhibits redesign is on `archive/site-v1-before-exhibits` (commit
+`4703d5e`), and draft PR #16 reverts PR #15. To roll back, mark #16 *Ready for review* and merge. If later changes
+make it conflict, revert the PR #15 merge commit (`e9e48d7`) instead. To restore the redesign after a rollback,
+revert the rollback commit; merging PR #15's branch again does nothing, because Git treats it as merged.
+
 Retired: the old `main.yml` S3 sync workflow was removed, and the AWS access-key secrets it used were deleted from
 the repo (October 2026).
 
 ## Contact form
 
-Every "Start a conversation" button leads to `/contact/`, where a form posts to **FormSubmit**, a free form-to-email
+The header's "Contact us" button and every "Request a Snapshot" button lead to `/contact/`, where a form posts to **FormSubmit**, a free form-to-email
 relay. FormSubmit emails each submission to **info@datafore.ca** with the subject "Website enquiry: <topic>", and
 Reply goes straight to the sender. No account, API key or server.
 
@@ -56,8 +67,9 @@ Reply goes straight to the sender. No account, API key or server.
 
 ## Call booking
 
-The contact page's *Book a call* button opens `https://calendly.com/sandeep-datafore/initial` in a new tab.
-Change the link in `src/pages/contact.astro` (the `bookingURL` constant). The meeting type itself (length,
+The *Book a call* links (contact page and the footer invitation) open
+`https://calendly.com/sandeep-datafore/initial` in a new tab. Change the link in `src/lib/contact.ts` (`bookingURL`),
+which also holds the email address and phone number shown on the site. The meeting type itself (length,
 availability, questions) is managed in Calendly.
 
 ## Google Search Console
@@ -97,6 +109,10 @@ Then update this section and the [DNS.md](./DNS.md) table.
 - **What visitors download.** Only the report page loads the explorer, and only when it scrolls into view: the
   DuckDB-WASM engine (34 MB, served gzipped at 7.8 MB; checked on the live site 4 Nov 2026), the Parquet
   extension (3 MB, 0.7 MB gzipped) and the data file (a few KB). The browser caches them after the first visit. All are served from datafore.ca; nothing goes to a third party.
+- **Published reports.** *BC's allied health clinics: growing fast, and mostly small* (Nov 2026), from Statistics
+  Canada tables under the Statistics Canada Open Licence (commercial use allowed with attribution). Refresh its
+  data with `node reports/allied-health-clinics-bc-2026/fetch.mjs` when Statistics Canada publishes new business
+  counts (June and December) or employment months; then check the figures and prose.
 - **Upgrading DuckDB-WASM** (`@duckdb/duckdb-wasm` in `package.json`): the extension script asks the new
   build for its version and fetches the matching extension, so no other change is needed. Re-test an explorer.
 

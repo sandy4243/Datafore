@@ -25,7 +25,7 @@ const sourceLine = [source ?? Astro.locals.report?.source, table].filter(Boolean
     {subtitle && <span class="mt-1 block text-sm text-graphite-600">{subtitle}</span>}
   </figcaption>
   <slot />
-  <div class="mt-5 space-y-1 text-sm leading-relaxed text-graphite-600">
+  <div class="mt-5 max-w-[60ch] space-y-1 text-sm leading-relaxed text-graphite-600">
     {note && <p>{note}</p>}
     {sourceLine && <p>Source: {sourceLine}.</p>}
   </div>

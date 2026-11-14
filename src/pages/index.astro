@@ -4,7 +4,6 @@ import { withBase } from "../lib/paths";
 import SignalField from "../components/exhibits/SignalField.astro";
 import PatientLoop from "../components/exhibits/PatientLoop.astro";
 import ServiceBlueprint from "../components/exhibits/ServiceBlueprint.astro";
-import DataPath from "../components/exhibits/DataPath.astro";
 
 const questions = [
   "Which patients have stopped coming, and who should call them?",
@@ -50,10 +49,10 @@ const outcomes = [
           </p>
           <div class="mt-11 flex flex-wrap items-center gap-x-8 gap-y-4">
             <a
-              href={withBase("/contact/")}
+              href={withBase("/contact/?topic=snapshot#message")}
               class="rounded-sm bg-white px-6 py-3.5 font-medium text-navy-950 transition-colors hover:bg-navy-100"
             >
-              Start a conversation
+              Request a Snapshot
             </a>
             <a
               href={withBase("/platform/")}
@@ -144,51 +143,20 @@ const outcomes = [
     <div class="mt-16">
       <ServiceBlueprint />
     </div>
-    <p class="mt-12">
+    <p class="mt-12 flex flex-wrap gap-x-10 gap-y-4">
       <a
         href={withBase("/contact/?topic=snapshot#message")}
         class="font-medium text-navy-950 underline decoration-signal-500 decoration-1 underline-offset-[6px] hover:decoration-2"
       >
         Start with a free Practice Health Snapshot
       </a>
+      <a
+        href={withBase("/platform/#patient-data")}
+        class="font-medium text-navy-950 underline decoration-signal-500 decoration-1 underline-offset-[6px] hover:decoration-2"
+      >
+        How we handle patient data
+      </a>
     </p>
   </section>
 
-  <!-- Exhibit: the path a patient record takes -->
-  <section class="bg-mist">
-    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
-      <div class="grid gap-8 lg:grid-cols-12 lg:gap-10">
-        <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem] lg:col-span-5">Built for patient data.</h2>
-        <p class="max-w-[52ch] text-lg leading-relaxed text-graphite-700 lg:col-span-6 lg:col-start-7 lg:self-end">
-          Health information is the most sensitive thing a clinic holds. Here is the path one record takes.
-        </p>
-      </div>
-      <div class="mt-16">
-        <DataPath />
-      </div>
-    </div>
-  </section>
-
-  <!-- Founding cohort -->
-  <section class="bg-navy-950 text-navy-200">
-    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
-      <div class="grid gap-10 lg:grid-cols-12 lg:items-end">
-        <div class="lg:col-span-7">
-          <h2 class="text-[2rem] leading-[1.12] text-white md:text-[2.75rem]">Be one of our first clinics.</h2>
-          <p class="mt-6 max-w-[56ch] text-lg leading-relaxed">
-            We're inviting a small group of BC allied health clinics to work with us first, starting with a free
-            Practice Health Snapshot of your own data.
-          </p>
-        </div>
-        <div class="flex flex-wrap items-center gap-x-8 gap-y-4 lg:col-span-5 lg:justify-end">
-          <a
-            href={withBase("/contact/?topic=snapshot#message")}
-            class="rounded-sm bg-white px-6 py-3.5 font-medium text-navy-950 transition-colors hover:bg-navy-100"
-          >
-            Request a Snapshot
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
 </Layout>

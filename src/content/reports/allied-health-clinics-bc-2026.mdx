@@ -1,0 +1,112 @@
+---
+title: "BC's allied health clinics: growing fast, and mostly small"
+description: "Jobs in BC's allied health offices grew three times as fast as the province's economy between 2015 and 2025. Three in four of these practices have no employees at all."
+publishDate: 2026-11-14
+author: "Datafore"
+source:
+  short: "Statistics Canada"
+  citation: "Statistics Canada. Table 14-10-0201-01 Employment by industry, monthly, unadjusted for seasonality (DOI: https://doi.org/10.25318/1410020101-eng); Table 33-10-1174-01 Canadian Business Counts, with employees, June 2026; Table 33-10-1175-01 Canadian Business Counts, without employees, June 2026. Adapted from Statistics Canada data, used under the Statistics Canada Open Licence. This does not constitute an endorsement by Statistics Canada of this product."
+  url: "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1410020101"
+thumbnail:
+  query: bc_employment_index
+  x: year
+  y: [clinics, economy]
+---
+
+import LineChart from "../../components/report/LineChart.astro";
+import BarList from "../../components/report/BarList.astro";
+import Explorer from "../../components/report/Explorer.astro";
+import Num from "../../components/report/Num.astro";
+
+Statistics Canada files allied health clinics under one industry code: offices of other health practitioners.
+Physiotherapy, chiropractic, optometry, counselling, dietetics and many other practices sit there. We read two of its
+data sets as a BC clinic owner would: how fast the sector is hiring, and how big its businesses are.
+
+## Clinic jobs grew three times as fast as the economy
+
+BC's allied health offices employed about <Num query="headlines" field="bc_clinic_jobs_2015" /> people in 2015 and
+<Num query="headlines" field="bc_clinic_jobs_2025" /> in 2025, an increase of
+<Num query="headlines" field="bc_clinic_growth_pct" format="pct0" />. Jobs across all of BC's industries grew
+<Num query="headlines" field="bc_economy_growth_pct" format="pct0" />, so clinics grew about
+<Num query="headlines" field="bc_growth_ratio" format="dec1" /> times as fast. Nationally, allied health offices grew
+<Num query="headlines" field="ca_clinic_growth_pct" format="pct0" />.
+
+<LineChart
+  query="bc_employment_index"
+  x="year"
+  format="int"
+  series={[
+    { y: "clinics", label: "Allied health offices", role: "focus" },
+    { y: "economy", label: "All industries", role: "context" },
+  ]}
+  title="Employment in BC, 2015 to 2025 (2015 = 100)"
+  subtitle="Annual average of monthly payroll employment"
+  note="Allied health offices are NAICS 6213, offices of other health practitioners. The survey counts employees on a payroll, so self-employed practitioners are not included. Both series dipped in 2020, when clinics closed or cut hours during the pandemic."
+  table="Table 14-10-0201-01"
+/>
+
+## Three in four have no employees
+
+In June 2026, BC had <Num query="headlines" field="bc_businesses" /> allied health businesses.
+<Num query="headlines" field="bc_no_employees" /> of them, <Num query="headlines" field="bc_no_employees_pct" format="pct0" />,
+had no one on a payroll: practitioners working alone, with contractors, or with family. Of the
+<Num query="headlines" field="bc_with_employees" /> that do have staff,
+<Num query="headlines" field="bc_under_10_pct" format="pct0" /> employ fewer than ten people.
+
+<BarList
+  query="bc_by_size"
+  label="label"
+  value="value"
+  role="role"
+  labelHeading="Number of employees"
+  valueLabel="Businesses"
+  title="BC allied health businesses by number of employees, June 2026"
+  note="Statistics Canada counts businesses from its Business Register. Counts are a snapshot of registered businesses, not a measure of how many open or close."
+  table="Tables 33-10-1174-01 and 33-10-1175-01"
+/>
+
+## Therapy clinics are the largest named group with staff
+
+Among businesses with employees, offices of physical, occupational and speech therapists and audiologists are the
+largest group with its own industry code. The bigger "all other" group covers practitioners without one, such as
+dietitians, podiatrists and naturopaths.
+
+<BarList
+  query="bc_by_type"
+  label="label"
+  value="value"
+  role="role"
+  labelHeading="Type of practice"
+  valueLabel="Businesses with employees"
+  title="BC allied health businesses with employees, by type of practice, June 2026"
+  table="Table 33-10-1174-01"
+/>
+
+## What this means for clinic owners
+
+These are province-wide figures, not a picture of any one clinic. Our reading of them:
+
+- The sector has outgrown BC's economy for a decade, and its hiring with it. Competition for practitioners is real.
+- Most practices are one person or a small team, so the analysis usually falls to the owner. That is the gap
+  Datafore is built for.
+- A clinic with even five or ten staff is in the top tenth of the sector by size. At that scale, each empty hour and
+  each patient who stops coming shows up in the month's results.
+
+## Compare the provinces
+
+Pick a province to see how employment in its allied health offices has grown against its economy as a whole.
+
+<Explorer
+  query="employment_index"
+  view="line"
+  format="int"
+  valueLabel="Index (2015 = 100)"
+  controls={[{ name: "jurisdiction", label: "Province", default: "British Columbia" }]}
+  sql={`SELECT x, series, role, y
+FROM data
+WHERE jurisdiction = $jurisdiction
+ORDER BY role DESC, x`}
+  emptyMessage="No data for this selection."
+  title="Employment, 2015 to 2025 (2015 = 100)"
+  note="Prince Edward Island is not shown: Statistics Canada does not publish its allied health employment for every year."
+/>

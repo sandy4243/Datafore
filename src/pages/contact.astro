@@ -1,8 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ContactForm from "../components/ContactForm.astro";
+import { bookingURL, email, phone } from "../lib/contact";
 
-const bookingURL = "https://calendly.com/sandeep-datafore/initial";
+// What a clinic can expect after getting in touch. No promises we can't keep.
+const next = [
+  { title: "We talk", body: "A short call about your clinic, your systems and what you want to know." },
+  { title: "Your Snapshot", body: "If it's a fit, a free Practice Health Snapshot built from your own data." },
+  { title: "We walk you through it", body: "Where patients, hours and revenue are slipping, and what to do first.", focal: true },
+];
 ---
 
 <Layout
@@ -12,11 +18,25 @@ const bookingURL = "https://calendly.com/sandeep-datafore/initial";
   <section class="border-b border-navy-100">
     <div class="mx-auto max-w-7xl px-6 pb-20 pt-20 md:pt-28 lg:px-10">
       <h1 class="max-w-[16ch] text-[2.75rem] leading-[1.05] tracking-[-0.022em] sm:text-6xl lg:text-[4.5rem]">
-        Start a conversation.
+        Get in touch.
       </h1>
       <p class="mt-8 max-w-[60ch] text-lg leading-relaxed text-graphite-700 md:text-xl">
         We read every message ourselves and reply personally. Book a call, or send a note below.
       </p>
+
+      <ol class="mt-16 grid gap-8 border-t border-navy-100 pt-8 sm:grid-cols-3 sm:gap-10" aria-label="What happens next">
+        {
+          next.map((n) => (
+            <li>
+              <p class="flex items-center gap-3 font-display text-xl text-navy-950">
+                <span class:list={["block h-2.5 w-2.5 shrink-0", n.focal ? "bg-signal-500" : "bg-navy-600"]} aria-hidden="true" />
+                {n.title}
+              </p>
+              <p class="mt-2 leading-relaxed text-graphite-700">{n.body}</p>
+            </li>
+          ))
+        }
+      </ol>
     </div>
   </section>
 
@@ -49,13 +69,13 @@ const bookingURL = "https://calendly.com/sandeep-datafore/initial";
           <div>
             <dt class="text-sm font-semibold text-navy-950">Email</dt>
             <dd class="mt-1.5 text-lg">
-              <a href="mailto:info@datafore.ca" class="text-navy-800 underline decoration-signal-500 underline-offset-4">info@datafore.ca</a>
+              <a href={`mailto:${email}`} class="text-navy-800 underline decoration-signal-500 underline-offset-4">{email}</a>
             </dd>
           </div>
           <div>
             <dt class="text-sm font-semibold text-navy-950">Phone</dt>
             <dd class="figures mt-1.5 text-lg">
-              <a href="tel:+17787001733" class="text-navy-800 underline decoration-signal-500 underline-offset-4">+1 778 700 1733</a>
+              <a href={phone.href} class="text-navy-800 underline decoration-signal-500 underline-offset-4">{phone.display}</a>
             </dd>
           </div>
           <div>
