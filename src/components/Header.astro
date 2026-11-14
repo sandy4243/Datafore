@@ -21,11 +21,9 @@ const currentState = (item: { href: string; sections?: string[] }) =>
       ? "true"
       : undefined;
 const isCurrent = (item: { href: string; sections?: string[] }) => currentState(item) !== undefined;
-// On the contact page the button would point at itself.
-const onContact = currentPath === trim(withBase("/contact/"));
 ---
 
-<header class="sticky top-0 z-50 border-b border-navy-100 bg-paper">
+<header class="sticky top-0 z-50 border-b border-navy-100 bg-paper/95 backdrop-blur-sm">
   <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
     <a href={withBase("/")} class="flex items-center" aria-label="Datafore — home">
       <Logo tone="onLight" />
@@ -50,18 +48,12 @@ const onContact = currentPath === trim(withBase("/contact/"));
       }
     </nav>
 
-    {
-      onContact ? (
-        <span class="hidden w-[11.5rem] md:block" aria-hidden="true" />
-      ) : (
-        <a
-          href={withBase("/contact/")}
-          class="hidden rounded-sm bg-navy-900 px-5 py-2.5 text-[0.9375rem] font-medium text-white transition-colors hover:bg-navy-700 md:inline-block"
-        >
-          Start a conversation
-        </a>
-      )
-    }
+    <a
+      href={withBase("/contact/")}
+      class="hidden rounded-sm bg-navy-900 px-5 py-2.5 text-[0.9375rem] font-medium text-white transition-colors hover:bg-navy-700 md:inline-block"
+    >
+      Start a conversation
+    </a>
 
     <details class="md:hidden">
       <summary class="list-none rounded-sm p-2 text-navy-900 hover:bg-navy-50">
@@ -70,7 +62,7 @@ const onContact = currentPath === trim(withBase("/contact/"));
           <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
         </svg>
       </summary>
-      <div class="absolute inset-x-0 top-full flex flex-col border-b border-navy-100 bg-paper px-6 pb-6 pt-2">
+      <div class="absolute inset-x-0 top-full flex flex-col border-b border-navy-100 bg-paper px-6 pb-6 pt-2 shadow-[0_12px_24px_-16px_rgba(10,20,36,0.3)]">
         {
           nav.map((item) => (
             <a href={item.href} class="border-b border-navy-50 py-3.5 text-base text-navy-900">

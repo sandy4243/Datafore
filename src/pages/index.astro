@@ -1,10 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { withBase } from "../lib/paths";
-import SignalField from "../components/exhibits/SignalField.astro";
-import PatientLoop from "../components/exhibits/PatientLoop.astro";
-import ServiceBlueprint from "../components/exhibits/ServiceBlueprint.astro";
-import DataPath from "../components/exhibits/DataPath.astro";
+import EngagementCycle from "../components/EngagementCycle.astro";
 
 const questions = [
   "Which patients have stopped coming, and who should call them?",
@@ -30,50 +27,83 @@ const outcomes = [
     body: "Judge marketing, hiring and new locations by the bookings they produce.",
   },
 ];
+
+const engagement = [
+  {
+    name: "Diagnose",
+    body: "A Practice Health Snapshot: a review of your own data that shows where patients, hours and revenue are slipping.",
+  },
+  {
+    name: "Prioritise",
+    body: "We agree on the few numbers that matter most to your clinic, with targets you can hold us to.",
+  },
+  {
+    name: "Activate",
+    body: "Datafore connects to your systems and turns each finding into a follow-up task for your team.",
+  },
+  {
+    name: "Review",
+    body: "We meet regularly to look at what improved, what didn't, and what to try next.",
+  },
+];
+
+const principles = [
+  {
+    title: "Held in Canada",
+    body: "Designed to store and process clinic data in Canadian data centres.",
+  },
+  {
+    title: "Private by design",
+    body: "Analysis runs on de-identified records. Names and contact details stay out.",
+  },
+  {
+    title: "Accountable AI",
+    body: "Every recommendation shows the data behind it. People make the decisions.",
+  },
+];
 ---
 
 <Layout
   title="Datafore"
   description="Datafore shows allied health clinics in Canada where patients, hours and revenue are slipping away, and helps them act on it."
 >
-  <!-- Hero: the statement, and the signature (scattered data resolving into one direction) -->
-  <section class="overflow-hidden bg-navy-950 text-navy-200">
-    <div class="mx-auto max-w-7xl px-6 pb-16 pt-16 md:pt-24 lg:px-10 lg:pb-20">
-      <div class="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
-        <div class="settle lg:col-span-7">
-          <h1 class="text-[2.75rem] leading-[1.04] tracking-[-0.022em] text-white sm:text-6xl lg:text-[5rem]">
-            Clinic intelligence for the business of care.
-          </h1>
-          <p class="mt-8 max-w-[52ch] text-lg leading-relaxed md:text-xl">
-            Datafore shows allied health clinics where patients, hours and revenue are slipping away, and helps them
-            act on it.
-          </p>
-          <div class="mt-11 flex flex-wrap items-center gap-x-8 gap-y-4">
-            <a
-              href={withBase("/contact/")}
-              class="rounded-sm bg-white px-6 py-3.5 font-medium text-navy-950 transition-colors hover:bg-navy-100"
-            >
-              Start a conversation
-            </a>
-            <a
-              href={withBase("/platform/")}
-              class="font-medium text-white underline decoration-signal-300 decoration-1 underline-offset-[6px] hover:decoration-2"
-            >
-              See the platform
-            </a>
-          </div>
-        </div>
-        <div class="-mx-2 sm:mx-auto sm:max-w-xl lg:col-span-5 lg:mx-0 lg:max-w-none">
-          <SignalField />
+  <!-- Hero -->
+  <section class="bg-navy-950 text-navy-200">
+    <div class="mx-auto grid max-w-7xl gap-14 px-6 pb-24 pt-20 md:pt-28 lg:grid-cols-12 lg:gap-10 lg:px-10 lg:pb-32">
+      <div class="settle lg:col-span-8">
+        <h1 class="text-[2.75rem] leading-[1.04] tracking-[-0.022em] text-white sm:text-6xl lg:text-[5rem]">
+          Clinic intelligence for the business of care.
+        </h1>
+        <p class="mt-8 max-w-[58ch] text-lg leading-relaxed md:text-xl">
+          Datafore shows allied health clinics where patients, hours and revenue are slipping away, and helps them act
+          on it.
+        </p>
+        <div class="mt-11 flex flex-wrap items-center gap-x-8 gap-y-4">
+          <a
+            href={withBase("/contact/")}
+            class="rounded-sm bg-white px-6 py-3.5 font-medium text-navy-950 transition-colors hover:bg-navy-100"
+          >
+            Start a conversation
+          </a>
+          <a
+            href={withBase("/platform/")}
+            class="font-medium text-white underline decoration-signal-300 decoration-1 underline-offset-[6px] hover:decoration-2"
+          >
+            How it works
+          </a>
         </div>
       </div>
 
-      <div class="settle-late mt-16 grid gap-6 border-t border-navy-800 pt-8 lg:mt-20 lg:grid-cols-12 lg:gap-10">
-        <h2 class="font-sans text-sm font-semibold tracking-normal text-white lg:col-span-3">Questions we answer</h2>
-        <ul class="grid gap-6 sm:grid-cols-3 sm:gap-8 lg:col-span-9">
-          {questions.map((q) => <li class="font-display text-xl leading-snug text-navy-100">{q}</li>)}
+      <aside class="settle-late self-end border-t border-navy-700 pt-6 lg:col-span-4 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+        <h2 class="font-sans text-sm font-semibold tracking-normal text-white">Questions we answer</h2>
+        <ul class="mt-5 divide-y divide-navy-800">
+          {
+            questions.map((d) => (
+              <li class="py-4 font-display text-xl leading-snug text-navy-100">{d}</li>
+            ))
+          }
         </ul>
-      </div>
+      </aside>
     </div>
   </section>
 
@@ -97,24 +127,6 @@ const outcomes = [
     </div>
   </section>
 
-  <!-- Exhibit: one patient's loop -->
-  <section class="bg-navy-900 text-navy-200">
-    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-      <div class="grid gap-8 lg:grid-cols-12 lg:gap-10">
-        <h2 class="text-[2rem] leading-[1.12] text-white md:text-[2.75rem] lg:col-span-6">
-          What happens when a patient goes quiet.
-        </h2>
-        <p class="max-w-[52ch] text-lg leading-relaxed lg:col-span-5 lg:col-start-8 lg:self-end">
-          Your practice software won't tell you. Datafore follows each one through, from the missed booking to the call
-          that brings them back.
-        </p>
-      </div>
-      <div class="mt-16 lg:mt-20">
-        <PatientLoop />
-      </div>
-    </div>
-  </section>
-
   <!-- Outcomes -->
   <section class="bg-mist">
     <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
@@ -132,39 +144,70 @@ const outcomes = [
     </div>
   </section>
 
-  <!-- Exhibit: the engagement as a service blueprint -->
-  <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-    <div class="grid gap-8 lg:grid-cols-12 lg:gap-10">
-      <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem] lg:col-span-5">How we work with you.</h2>
-      <p class="max-w-[52ch] text-lg leading-relaxed text-graphite-700 lg:col-span-6 lg:col-start-7 lg:self-end">
-        The way a good clinician treats a patient: assess, agree a plan, act, then reassess. You see the plan and the
-        progress; the platform does the watching.
+  <!-- Point of view -->
+  <section class="bg-navy-900 text-navy-200">
+    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+      <blockquote class="max-w-5xl">
+        <p class="font-display text-[1.875rem] leading-[1.2] text-white md:text-[2.75rem] lg:text-[3.25rem]">
+          Practice software records care. Clinic owners need help running the business.
+        </p>
+      </blockquote>
+      <p class="mt-10 max-w-[62ch] text-lg leading-relaxed">
+        Datafore sits on top of the software you already use. It turns what it finds into follow-up for your team,
+        then shows what each follow-up brought in.
       </p>
     </div>
-    <div class="mt-16">
-      <ServiceBlueprint />
-    </div>
-    <p class="mt-12">
-      <a
-        href={withBase("/contact/?topic=snapshot#message")}
-        class="font-medium text-navy-950 underline decoration-signal-500 decoration-1 underline-offset-[6px] hover:decoration-2"
-      >
-        Start with a free Practice Health Snapshot
-      </a>
-    </p>
   </section>
 
-  <!-- Exhibit: the path a patient record takes -->
+  <!-- Engagement model -->
+  <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+    <div class="grid gap-10 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem]">How we work with you.</h2>
+      </div>
+      <p class="text-lg leading-relaxed text-graphite-700 lg:col-span-6 lg:col-start-7">
+        The way a good clinician treats a patient: assess, agree a plan, act, then reassess.
+      </p>
+    </div>
+
+    <div class="mt-16 grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
+      <div class="flex justify-center lg:col-span-5 lg:justify-start">
+        <EngagementCycle />
+      </div>
+      <ol class="divide-y divide-navy-100 border-y border-navy-100 lg:col-span-6 lg:col-start-7">
+        {
+          engagement.map((s) => (
+            <li class="py-6">
+              <h3 class="text-2xl">{s.name}</h3>
+              <p class="mt-2 leading-relaxed text-graphite-700">{s.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- Trust -->
   <section class="bg-mist">
     <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
-      <div class="grid gap-8 lg:grid-cols-12 lg:gap-10">
-        <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem] lg:col-span-5">Built for patient data.</h2>
-        <p class="max-w-[52ch] text-lg leading-relaxed text-graphite-700 lg:col-span-6 lg:col-start-7 lg:self-end">
-          Health information is the most sensitive thing a clinic holds. Here is the path one record takes.
-        </p>
-      </div>
-      <div class="mt-16">
-        <DataPath />
+      <div class="grid gap-10 lg:grid-cols-12">
+        <div class="lg:col-span-5">
+          <h2 class="text-[2rem] leading-[1.12] md:text-[2.75rem]">Built for patient data.</h2>
+          <p class="mt-6 max-w-[48ch] text-lg leading-relaxed text-graphite-700">
+            Health information is the most sensitive thing a clinic holds. Protecting it is part of Datafore's design
+            from the start.
+          </p>
+        </div>
+        <div class="grid gap-10 sm:grid-cols-3 lg:col-span-6 lg:col-start-7 lg:gap-8">
+          {
+            principles.map((p) => (
+              <div class="border-t border-navy-200 pt-6">
+                <h3 class="font-sans text-base font-semibold tracking-normal">{p.title}</h3>
+                <p class="mt-2 leading-relaxed text-graphite-700">{p.body}</p>
+              </div>
+            ))
+          }
+        </div>
       </div>
     </div>
   </section>
@@ -174,7 +217,7 @@ const outcomes = [
     <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-28">
       <div class="grid gap-10 lg:grid-cols-12 lg:items-end">
         <div class="lg:col-span-7">
-          <h2 class="text-[2rem] leading-[1.12] text-white md:text-[2.75rem]">Be one of our first clinics.</h2>
+          <h2 class="text-[2rem] leading-[1.12] text-white md:text-[3rem]">Be one of our first clinics.</h2>
           <p class="mt-6 max-w-[56ch] text-lg leading-relaxed">
             We're inviting a small group of BC allied health clinics to work with us first, starting with a free
             Practice Health Snapshot of your own data.
