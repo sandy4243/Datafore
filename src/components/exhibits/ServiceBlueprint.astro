@@ -1,0 +1,101 @@
+---
+/**
+ * How an engagement runs, as a service blueprint: the four engagement stages as
+ * columns; above the line of visibility what the clinic sees, below it what the
+ * platform does. This is where the engagement model (Diagnose … Review) and the
+ * platform capabilities (Understand … Prove) meet.
+ *
+ * From lg, each stage is a subgrid column so the rows align across stages and
+ * the line of visibility runs straight through. Below lg, stages stack.
+ * Draws once on scroll (global.css, [data-draw]).
+ */
+const stages = [
+  {
+    name: "Diagnose",
+    sees: "A Practice Health Snapshot: where patients, hours and revenue slip, from your own data.",
+    verb: "Understand",
+    does: "Reads your practice software and combines it into one view of the clinic.",
+  },
+  {
+    name: "Prioritise",
+    sees: "The few numbers that matter most to you, with targets you can hold us to.",
+    verb: "Anticipate",
+    does: "Watches those numbers and flags problems as they happen, not at month-end.",
+  },
+  {
+    name: "Activate",
+    sees: "Follow-up tasks in the CRM your team already uses, each with an owner.",
+    verb: "Act",
+    does: "Turns each finding into a task and sends it to the right person.",
+    focal: true,
+  },
+  {
+    name: "Review",
+    sees: "Regular reviews of what improved, what didn't, and what to try next.",
+    verb: "Prove",
+    does: "Traces new bookings back to the follow-up that prompted them.",
+  },
+];
+---
+
+<figure data-draw>
+  <div class="lg:grid lg:grid-cols-[9rem_repeat(4,minmax(0,1fr))] lg:grid-rows-[auto_auto_auto]">
+    <!-- Row labels (from lg). Each cell also carries its own label for assistive tech and phones. -->
+    <p class="hidden pr-6 pt-6 text-sm font-semibold text-navy-950 lg:col-start-1 lg:row-start-2 lg:block" aria-hidden="true">
+      What you see
+    </p>
+    <p
+      class="relative hidden bg-navy-50 py-6 pl-4 pr-6 text-sm font-semibold text-navy-950 lg:col-start-1 lg:row-start-3 lg:block"
+      aria-hidden="true"
+    >
+      <span class="d-line absolute inset-x-0 top-0 h-0.5 bg-navy-900" style="--i:1"></span>
+      What Datafore does
+    </p>
+
+    <ol class="contents">
+      {
+        stages.map((s, i) => (
+          <li class="mt-10 border-t border-navy-100 first:mt-0 lg:row-span-3 lg:row-start-1 lg:mt-0 lg:grid lg:grid-rows-subgrid lg:border-l lg:border-t-0">
+            <h3 class="d-in pt-6 text-2xl lg:px-6 lg:pb-5 lg:pt-0" style={`--i:${i + 1}`}>
+              {s.name}
+            </h3>
+            <dl class="contents">
+              <div class="d-in py-5 lg:px-6 lg:pb-7 lg:pt-6" style={`--i:${i + 1.5}`}>
+                <dt class="text-sm font-semibold text-graphite-600 lg:sr-only">What you see</dt>
+                <dd class="mt-1 leading-relaxed text-graphite-700 lg:mt-0">{s.sees}</dd>
+              </div>
+              <div class="relative bg-navy-50 px-4 py-5 lg:px-6 lg:py-6">
+                <span class="d-line absolute inset-x-0 top-0 h-0.5 bg-navy-900" style={`--i:${i + 2}`} aria-hidden="true" />
+                <dt class="text-sm font-semibold text-graphite-600 lg:sr-only">What Datafore does</dt>
+                <dd class="d-in mt-1 lg:mt-0" style={`--i:${i + 2.5}`}>
+                  <span class="flex items-center gap-2.5 font-display text-xl text-navy-950">
+                    <span
+                      class:list={["block h-2.5 w-2.5 shrink-0", s.focal ? "bg-signal-500" : "bg-navy-600"]}
+                      aria-hidden="true"
+                    />
+                    {s.verb}
+                  </span>
+                  <span class="mt-2 block leading-relaxed text-graphite-700">{s.does}</span>
+                </dd>
+              </div>
+            </dl>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+
+  <figcaption class="d-in mt-8 flex flex-wrap items-center gap-x-10 gap-y-3 text-sm text-graphite-600" style="--i:7">
+    <span class="flex items-center gap-3">
+      <span class="block h-0.5 w-8 bg-navy-900" aria-hidden="true"></span>
+      Line of visibility: what your team sees is above it; what runs behind the scenes is below.
+    </span>
+    <span class="flex items-center gap-3">
+      <svg viewBox="0 0 40 24" class="h-5 w-8 shrink-0" aria-hidden="true">
+        <path d="M 4 18 H 28 a 6 6 0 0 0 0 -12 H 10" class="stroke-navy-900" stroke-width="2" stroke-linecap="round" fill="none"></path>
+        <path d="M 13 1 L 2 6 L 13 11 L 10 6 z" class="fill-signal-500"></path>
+      </svg>
+      Review leads back to Diagnose.
+    </span>
+  </figcaption>
+</figure>
