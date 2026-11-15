@@ -372,6 +372,19 @@
     display: inline;
   }
 }
+/* Line weights are set per element (--w) and scaled here: the artwork is drawn
+   at its natural size on phones, so lines are thickened to stay visible. */
+.kf-line {
+  stroke-width: calc(var(--w, 1px) * var(--kf-scale, 1));
+}
+.knowledge-flow {
+  --kf-scale: 1;
+}
+@media (max-width: 63.99rem) {
+  .knowledge-flow {
+    --kf-scale: 2.6;
+  }
+}
 .is-paused .kf-pulse {
   animation-play-state: paused;
 }

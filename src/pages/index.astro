@@ -48,13 +48,24 @@ const outcomes = [
       <div class="relative">
         <!-- Below lg a full-width banner; from lg it bleeds off the right edge behind a mask. -->
         <div
-          class="-mx-6 h-60 sm:h-80 lg:absolute lg:-top-28 lg:bottom-[-2rem] lg:left-[42%] lg:right-[calc((100%-100vw)/2)] lg:mx-0 lg:h-auto lg:[mask-image:linear-gradient(to_right,transparent,black_36%)]"
+          class="-mx-6 lg:absolute lg:-top-28 lg:bottom-[-2rem] lg:left-[42%] lg:right-[calc((100%-100vw)/2)] lg:mx-0 lg:[mask-image:linear-gradient(to_right,transparent,black_36%)]"
         >
           <KnowledgeFlow />
         </div>
         <div class="settle relative mt-10 lg:mt-0 lg:max-w-[46rem]">
-          <h1 class="text-[2.75rem] leading-[1.04] tracking-[-0.022em] text-white sm:text-6xl lg:text-[5rem]">
-            Clinic intelligence for the business of care.
+          <!-- "Artificial" is struck through, with "Real" set above it as the correction. -->
+          <h1
+            aria-label="Real intelligence for the business of care."
+            class="text-[2.75rem] leading-[1.04] tracking-[-0.022em] text-white sm:text-6xl lg:text-[5rem]"
+          >
+            <span aria-hidden="true">
+              <span class="relative inline-block">
+                <span class="absolute bottom-full left-0 mb-5 font-sans text-[0.4em] font-semibold leading-none tracking-normal text-signal-300"
+                  >Real</span
+                ><span class="line-through decoration-signal-300 decoration-[0.06em] text-navy-300">Artificial</span></span
+              >
+              intelligence for the business of care.
+            </span>
           </h1>
           <p class="mt-8 max-w-[46ch] text-lg leading-relaxed md:text-xl">
             Datafore shows allied health clinics where patients, hours and revenue are slipping away, and helps them

@@ -59,7 +59,7 @@ const dataLines = bundles.flatMap((b, bi) =>
 );
 
 // Ideas: branches open out from knowledge; one carries on as action.
-const ideaEnds = [190, 290, 510, 610].map((y) => ({ x: between(770, 820), y: y + between(-14, 14) }));
+const ideaEnds = [250, 340, 470, 560].map((y) => ({ x: between(770, 820), y: y + between(-12, 12) }));
 const ideas = ideaEnds.map((e) => ({
   d: `M ${K.x} ${K.y} C ${K.x + 90} ${K.y} ${e.x - 120} ${r1(e.y)} ${r1(e.x)} ${r1(e.y)}`,
   end: e,
@@ -70,7 +70,7 @@ const action = `M ${K.x} ${K.y} C ${K.x + 140} ${K.y} ${Act.x - 160} ${Act.y} ${
 const labels = [
   { text: "Data", x: 360, y: 412 },
   { text: "Knowledge", x: K.x, y: K.y + 58 },
-  { text: "Ideas", x: ideaEnds[0].x, y: ideaEnds[0].y - 26 },
+  { text: "Ideas", x: ideaEnds[0].x, y: ideaEnds[0].y - 28 },
   { text: "Action", x: 950, y: Act.y - 22 },
 ];
 ---
@@ -78,37 +78,34 @@ const labels = [
 <svg
   viewBox={`0 0 ${W} ${H}`}
   preserveAspectRatio="xMaxYMid slice"
-  class="knowledge-flow block h-full w-full"
+  class="knowledge-flow block h-auto w-full lg:h-full"
   data-ambient
   aria-hidden="true"
   focusable="false"
 >
-  <!-- Data -->
+  <!-- Data: four streams, each a bundle of lines in its own tone -->
   {
     dataLines.map((l) => (
       <path
         d={l.d}
         pathLength="1"
-        class:list={["kf-draw fill-none", l.tone]}
-        stroke-width={l.width}
-        opacity={l.opacity}
+        class:list={["kf-draw kf-line fill-none", l.tone]}
+        style={`--w:${l.width}px;opacity:${l.opacity};--kf-delay:${l.bundle * 140 + Math.round(rand() * 260)}ms;--kf-dur:1600ms`}
         stroke-linecap="round"
-        style={`--kf-delay:${l.bundle * 140 + Math.round(rand() * 260)}ms;--kf-dur:1600ms`}
       />
     ))
   }
 
-  <!-- Ideas -->
+  <!-- Ideas: branches that open out, each ending in a small square -->
   {
     ideas.map((b, i) => (
       <>
         <path
           d={b.d}
           pathLength="1"
-          class="kf-draw fill-none stroke-navy-400"
-          stroke-width="1.6"
+          class="kf-draw kf-line fill-none stroke-navy-400"
+          style={`--w:1.6px;--kf-delay:${1500 + i * 110}ms;--kf-dur:900ms`}
           stroke-linecap="round"
-          style={`--kf-delay:${1500 + i * 110}ms;--kf-dur:900ms`}
         />
         <rect
           x={r1(b.end.x - 6)}
@@ -116,9 +113,8 @@ const labels = [
           width="12"
           height="12"
           rx="1.5"
-          class="kf-in fill-navy-950 stroke-navy-300"
-          stroke-width="2"
-          style={`--kf-delay:${2200 + i * 110}ms`}
+          class="kf-in kf-line fill-navy-950 stroke-navy-300"
+          style={`--w:2px;--kf-delay:${2200 + i * 110}ms`}
         />
       </>
     ))
@@ -128,16 +124,16 @@ const labels = [
   <path
     d={action}
     pathLength="1"
-    class="kf-draw fill-none stroke-signal-500"
-    stroke-width="3.5"
+    class="kf-draw kf-line fill-none stroke-signal-500"
+    style="--w:3.5px;--kf-delay:2300ms;--kf-dur:1300ms"
     stroke-linecap="round"
-    style="--kf-delay:2300ms;--kf-dur:1300ms"></path>
+  ></path>
 
   <!-- Knowledge: where the streams meet -->
-  <circle cx={K.x} cy={K.y} r="22" class="kf-in fill-none stroke-navy-500" stroke-width="1.2" style="--kf-delay:1300ms"></circle>
-  <circle cx={K.x} cy={K.y} r="8" class="kf-in fill-signal-500 stroke-navy-950" stroke-width="3" style="--kf-delay:1250ms"></circle>
+  <circle cx={K.x} cy={K.y} r="22" class="kf-in kf-line fill-none stroke-navy-500" style="--w:1.2px;--kf-delay:1300ms"></circle>
+  <circle cx={K.x} cy={K.y} r="8" class="kf-in kf-line fill-signal-500 stroke-navy-950" style="--w:3px;--kf-delay:1250ms"></circle>
 
-  <!-- Light travelling along the streams into knowledge, and along the action line -->
+  <!-- Light travelling along the streams, and along the action line -->
   {
     dataLines
       .filter((l) => l.pulse)
@@ -145,14 +141,19 @@ const labels = [
         <path
           d={l.d}
           pathLength="1"
-          class="kf-pulse fill-none stroke-signal-300"
-          stroke-width={l.width + 1.2}
+          class="kf-pulse kf-line fill-none stroke-signal-300"
+          style={`--w:${l.width + 1.2}px;--kf-pdelay:${l.pulseDelay}ms;--kf-pdur:${l.pulseDur}ms`}
           stroke-linecap="round"
-          style={`--kf-pdelay:${l.pulseDelay}ms;--kf-pdur:${l.pulseDur}ms`}
         />
       ))
   }
-  <path d={action} pathLength="1" class="kf-pulse fill-none stroke-signal-200" stroke-width="4.5" stroke-linecap="round" style="--kf-pdelay:3800ms;--kf-pdur:4200ms"></path>
+  <path
+    d={action}
+    pathLength="1"
+    class="kf-pulse kf-line fill-none stroke-signal-200"
+    style="--w:4.5px;--kf-pdelay:3800ms;--kf-pdur:4200ms"
+    stroke-linecap="round"
+  ></path>
 
   <!-- Stage labels (lg and up) -->
   {
