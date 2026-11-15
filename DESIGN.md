@@ -264,6 +264,11 @@ layout restacks on a phone (no fixed-width SVG with 12px text).
   stages from lg. It bleeds off the right edge behind a mask so it never crosses the headline; below lg it is a
   banner above the copy. Draws itself in on load in that order, then light keeps travelling along the streams.
   Decorative (`aria-hidden`); it replaces the earlier squares-to-arrow signature, which echoed the logo too closely.
+  On phones the artwork is drawn at its natural size (a 5:4 banner), with line weights raised through `--kf-scale`
+  so they stay visible; the branches sit inside the frame so the sticky header never covers the Ideas label.
+- **Headline correction.** "Artificial" is struck through in white, with a `signal-300` line; "Real" is set above it
+  in white, Source Serif 4 bold italic at 1.44em (70% of the earlier 2.05em), sized to be a clear correction above "Artificial" (the two words scale together with the headline). The `h1` carries an `aria-label` so screen
+  readers announce "Real intelligence for the business of care." Signal blue marks the strike, the one accent. The desktop hero keeps 13rem of top padding so the enlarged "Real" clears the sticky header.
 - **Patient loop** (`PatientLoop.astro`) — one patient who goes quiet, followed through six steps from the missed
   rebooking to the booking traced back. The flag step is the focal node.
 - **Service blueprint** (`ServiceBlueprint.astro`) — the four engagement stages (Diagnose, Prioritise, Activate,
