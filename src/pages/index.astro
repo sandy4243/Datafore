@@ -44,7 +44,7 @@ const outcomes = [
 >
   <!-- Hero: the statement, and the artwork (streams of data combining into knowledge, ideas, action) -->
   <section class="overflow-hidden bg-navy-950 text-navy-200">
-    <div class="mx-auto max-w-7xl px-6 pb-16 lg:px-10 lg:pb-20 lg:pt-52">
+    <div class="mx-auto max-w-7xl px-6 pb-16 lg:px-10 lg:pb-20 lg:pt-28">
       <div class="relative">
         <!-- Below lg a full-width banner; from lg it bleeds off the right edge behind a mask. -->
         <div
@@ -52,19 +52,14 @@ const outcomes = [
         >
           <KnowledgeFlow />
         </div>
-        <div class="settle relative mt-16 lg:mt-0 lg:max-w-[46rem]">
-          <!-- "Artificial" is struck through in white, with "Real" set above it in bold italic as the correction. -->
+        <div class="settle relative mt-10 lg:mt-0 lg:max-w-[46rem]">
+          <!-- "Artificial" is struck through, with "Real" beside it on the same line as the correction. -->
           <h1
-            aria-label="Real intelligence for the business of care."
+            aria-label="Real Intelligence for the business of care."
             class="text-[2.75rem] leading-[1.04] tracking-[-0.022em] text-white sm:text-6xl lg:text-[5rem]"
           >
             <span aria-hidden="true">
-              <span class="relative inline-block">
-                <span class="absolute bottom-full left-0 mb-[0.24em] whitespace-nowrap font-display text-[1.44em] font-semibold italic leading-none text-white"
-                  >Real</span
-                ><span class="line-through decoration-signal-300 decoration-[0.06em] text-white">Artificial</span></span
-              >
-              {" "}intelligence for the business of care.
+              <span class="line-through decoration-signal-300 decoration-[0.06em]">Artificial</span>{" "}<span class="font-semibold italic">Real</span>{" "}Intelligence for the business of care.
             </span>
           </h1>
           <p class="mt-8 max-w-[46ch] text-lg leading-relaxed md:text-xl">
