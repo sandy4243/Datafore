@@ -266,9 +266,7 @@ layout restacks on a phone (no fixed-width SVG with 12px text).
   Decorative (`aria-hidden`); it replaces the earlier squares-to-arrow signature, which echoed the logo too closely.
   On phones the artwork is drawn at its natural size (a 5:4 banner), with line weights raised through `--kf-scale`
   so they stay visible; the branches sit inside the frame so the sticky header never covers the Ideas label.
-- **Headline correction.** "Artificial" is struck through in white with a `signal-300` line, followed by "Real" in
-  white, Source Serif 4 bold italic, on the same line and baseline as the rest of the headline ("Real Intelligence
-  for the business of care."). The `h1` carries an `aria-label` so screen readers read the full phrase.
+- **Headline.** The home headline is "Clinic intelligence for the business of care." (the stacked and struck-through "Real" correction was tried and dropped for legibility).
 - **Patient loop** (`PatientLoop.astro`) — one patient who goes quiet, followed through six steps from the missed
   rebooking to the booking traced back. The flag step is the focal node.
 - **Service blueprint** (`ServiceBlueprint.astro`) — the four engagement stages (Diagnose, Prioritise, Activate,
